@@ -396,7 +396,7 @@ function renderHistogram() {
   });
   const avg = mean(scores);
   body += `<line class="mean" x1="${x(avg)}" x2="${x(avg)}" y1="${T - 6}" y2="${H - B}"/>
-    <text x="${x(avg) + 6}" y="${T - 8}" style="fill:var(--text)">average ${fmt(avg, 2)}</text>`;
+    <text x="${x(avg) + 6}" y="${T - 8}" style="fill:var(--text)">all scores ${fmt(avg, 2)}</text>`;
   el.innerHTML = svg(W, H, body, `Histogram of all ${scores.length} scores; average ${fmt(avg, 2)}`);
 }
 
@@ -425,7 +425,7 @@ function renderTimeline() {
   });
   const avg = mean(pts.map((p) => p.v));
   body += `<line class="mean" x1="${L}" x2="${W - R}" y1="${y(avg)}" y2="${y(avg)}"/>
-    <text x="${W - R}" y="${y(avg) - 6}" text-anchor="end" style="fill:var(--text)">overall ${fmt(avg, 2)}</text>`;
+    <text x="${W - R}" y="${y(avg) - 6}" text-anchor="end" style="fill:var(--text)">per movie ${fmt(avg, 2)}</text>`;
   body += `<path class="line" d="${pts.map((p, i) => `${i ? "L" : "M"}${x(p.t)},${y(p.v)}`).join("")}"/>`;
   body += `<line class="cross" id="tl-cross" y1="${T}" y2="${H - B}" visibility="hidden"/>`;
   pts.forEach((p, i) => (body += `<circle class="dot" data-i="${i}" cx="${x(p.t)}" cy="${y(p.v)}" r="5"/>`));
@@ -461,7 +461,7 @@ function renderGrid() {
   const gaps = DATA.pairs.map((p) => p.mean_gap);
   const gMin = Math.min(...gaps), gMax = Math.max(...gaps);
   const labelW = 104, top = 92;
-  const cell = Math.max(28, Math.min(46, Math.floor((el.clientWidth - labelW - 8) / names.length)));
+  const cell = Math.max(28, Math.min(56, Math.floor((el.clientWidth - labelW - 8) / names.length)));
   const W = labelW + cell * names.length + 8, H = top + cell * names.length + 4;
   let body = "";
   names.forEach((n, i) => {

@@ -90,7 +90,7 @@ main { padding-top: 8px; padding-bottom: 56px; }
 .seg button.on { background: var(--surface-2); color: var(--text); }
 
 /* ---------- poster wall ---------- */
-.wall { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 20px 18px; }
+.wall { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 20px 18px; align-items: start; }
 .wall.small { grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 16px 14px; }
 .card { cursor: pointer; background: none; border: 0; padding: 0; text-align: left; min-width: 0; }
 .card.static { cursor: default; }
@@ -208,6 +208,8 @@ main { padding-top: 8px; padding-bottom: 56px; }
 .chart { position: relative; width: 100%; }
 .chart.scroll { overflow-x: auto; }
 .chart svg { display: block; }
+#grid svg { margin: 0 auto; }
+#grid .scale { justify-content: center; }
 .chart text { fill: var(--muted); font: 11px Inter, system-ui, sans-serif; }
 .chart .grid line { stroke: var(--line); stroke-width: 1; }
 .chart .bar { fill: var(--accent); }
