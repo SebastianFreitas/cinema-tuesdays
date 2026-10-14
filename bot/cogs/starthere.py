@@ -22,7 +22,7 @@ BUTTON_EMOTES = {"suggest": "hastings_psst", "mine": "hastings_hmm", "rate": "ha
 
 MESSAGE_1 = """\
 # Welcome to Cinema Tuesdays
-Good evening, and welcome. :hastings_hello: Caption Hastings, at your service. I'm hardly the cleverest fellow in the room, but I've been asked to keep our little film club in order, and I shall do my very best.
+Good evening, and welcome. :hastings_hello: Caption Hastings here, just a good chap lending a hand. I'm hardly the cleverest fellow in the room, but I've offered to help keep our little film club in order, and I shall do my very best.
 
 ## Movie night
 - **Every Tuesday at 21:15**, Portuguese time (Lisbon). The reminders I post show the time in your own timezone.

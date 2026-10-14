@@ -25,7 +25,7 @@ class CinemaBot(commands.Bot):
         self.dirty = True
 
     async def setup_hook(self) -> None:
-        for ext in ("suggestions", "polls", "ratings", "panel", "admin", "publish", "reminders", "starthere"):
+        for ext in ("suggestions", "polls", "ratings", "panel", "admin", "publish", "reminders", "starthere", "announce"):
             await self.load_extension(f"bot.cogs.{ext}")
         self.add_dynamic_items(VoteButton)  # poll buttons keep working across restarts
 
