@@ -52,7 +52,7 @@ Press **Suggest a movie** below, type a title and pick the right one. **Up to 10
 - **Birthweek:** in the week of your birthday you may choose the film and skip the vote. Do tell the Cultured Snobs.
 
 ## Scores
-After movie night, press **Rate a movie** and give the film a score from 0.0 to 10.0, with a remark if you like. Rating closes at **midnight (Portugal) the day after** movie night. I don't post your score in the channel, only that you've rated. Everyone's scores go on the website.
+After movie night, press **Rate a movie** and give the film a score from 0.0 to 10.0, with a remark if you like. Rating stays open until **23:59 (Portugal) the day after** movie night. I don't post your score in the channel, only that you've rated. Everyone's scores go on the website.
 
 ## [The website]({site})
 Every film we've watched, all the scores, the Movie List, who agrees with whom, and a great many statistics."""
