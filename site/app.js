@@ -272,6 +272,7 @@ function openDetail(id) {
       ${m.suggested_by?.length ? `<div>Suggested by<b class="sm">${m.suggested_by.map(personLink).join(", ")}</b></div>` : ""}
       ${m.tmdb_rating != null && m.tmdb_votes >= MIN_TMDB_VOTES ? `<div>TMDB<b class="sm">${fmt(m.tmdb_rating)} <small style="color:var(--muted)">${m.tmdb_votes.toLocaleString("en-GB")} votes</small></b></div>` : ""}
       ${watched && ageYears(m) != null && ageYears(m) >= 0 ? `<div>Age when watched<b class="sm">${ageText(ageYears(m))}</b></div>` : ""}
+      ${m.countries?.length || m.language ? `<div>From<b class="sm">${esc([(m.countries || []).map(countryName).join(", "), m.language && langName(m.language)].filter(Boolean).join(" · "))}</b></div>` : ""}
       ${m.lost_votes ? `<div>Past votes<b class="sm">Lost ${m.lost_votes}</b></div>` : ""}
     </div>
     ${strip}
@@ -985,6 +986,22 @@ function renderAges() {
   $("#age-new").innerHTML = byAge.slice(-5).reverse().map(li).join("");
 }
 
+// Country and language codes from TMDB, shown as names by the browser (falls back to the code)
+const displayName = (type, code) => { try { return new Intl.DisplayNames(["en-GB"], { type }).of(code) || code; } catch { return code; } };
+const countryName = (c) => (c === "KR" ? "South Korea" : displayName("region", c)), langName = (l) => displayName("language", l);
+
+function renderOrigins() {
+  const add = (map, k, m) => map.set(k, [...(map.get(k) || []), m]);
+  const done = closedMovies(), countries = new Map(), langs = new Map();
+  done.forEach((m) => (m.countries || []).forEach((c) => add(countries, countryName(c), m)));
+  done.filter((m) => m.language).forEach((m) => add(langs, langName(m.language), m));
+  const bySize = (map) => [...map].sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]));
+  groupTable("#countries", bySize(countries), "Country");
+  groupTable("#languages", bySize(langs), "Language");
+  const known = done.filter((m) => m.language), other = known.filter((m) => m.language !== "en");
+  $("#lang-sum").textContent = known.length ? `${other.length} of ${plural(known.length, "movie")} weren't in English (${pct(other.length, known.length)}).` : "";
+}
+
 // When we watched (month, weekday) and how long the movie is, closed movies only. Reuses groupTable.
 function renderWhen() {
   const add = (map, k, m) => map.set(k, [...(map.get(k) || []), m]);
@@ -1224,7 +1241,7 @@ function renderPairs() {
 }
 
 function renderStats() {
-  renderKpis(); renderGroups(); renderScorecard(); renderTopBottom(); renderRecords(); renderFair(); renderWorld(); renderGenres(); renderAges(); renderWhen(); renderPairs(); renderRanks(); renderWolves(); renderConsensus(); renderHabits();
+  renderKpis(); renderGroups(); renderScorecard(); renderTopBottom(); renderRecords(); renderFair(); renderWorld(); renderGenres(); renderAges(); renderOrigins(); renderWhen(); renderPairs(); renderRanks(); renderWolves(); renderConsensus(); renderHabits();
   const sortBy = (th) => {
     const k = th.dataset.sort;
     scoreSort = { key: k, dir: scoreSort.key === k ? -scoreSort.dir : (k === "name" ? 1 : -1) };

@@ -34,7 +34,7 @@ Stats tiles, α vs ω scoreboard, scorecard table, top/lowest rated, records, by
 - [x] **9. Everyone liked it** ✅: movies where nobody gave less than 7 (and the opposite: nobody above 7).
 - [x] **10. Score habits per person** ✅: how often each person uses each score (person × score grid). Who never goes below 6, who loves .5 scores.
 - [x] **11. Movie age** ✅: how old each movie was when we watched it, and whether older ones score better.
-- [ ] **12. Countries and languages** 🎬: world map or table of where our movies come from, and how many weren't in English.
+- [x] **12. Countries and languages** 🎬: world map or table of where our movies come from, and how many weren't in English.
 - [ ] **13. Actors** 🎬: actors we've seen most often, and actors who connect two of our movies.
 - [ ] **14. Budget and box office** 🎬: cheapest and most expensive, total budget watched, and whether bigger budgets get better scores from us.
 - [ ] **15. Obscurity** 🎬: how well known each movie is (TMDB vote count). Most obscure pick, and who suggests the most obscure stuff.
