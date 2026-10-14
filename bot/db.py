@@ -226,6 +226,10 @@ class DB:
         sits out their group's next poll. Returns their names."""
         self.run("UPDATE polls SET status = 'closed', winner_movie_id = ?, closed_at = datetime('now') WHERE id = ?",
                  (winner_movie_id, poll_id))
+        # Whoever sat this vote out has served their turn.
+        grp = self.one("SELECT grp FROM polls WHERE id = ?", (poll_id,))["grp"]
+        if grp:
+            self.run("UPDATE users SET benched = 0 WHERE grp = ?", (grp,))
         option = self.one("SELECT curated FROM poll_options WHERE poll_id = ? AND movie_id = ?",
                           (poll_id, winner_movie_id))
         if not option or option["curated"]:

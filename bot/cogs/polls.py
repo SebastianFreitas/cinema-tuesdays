@@ -139,7 +139,7 @@ class Polls(commands.GroupCog, group_name="poll", group_description="Weekly movi
                 return await itx.followup.send(f"Couldn't find the curated pick **{curated}** on TMDB.")
 
         grp = group.value if group else self.db.next_group()
-        note, benched_ids = None, []
+        note = None
         if movies:
             pool = {r["id"]: r for r in self.db.open_suggestions()}
             picked, missing = [], []
@@ -157,7 +157,6 @@ class Polls(commands.GroupCog, group_name="poll", group_description="Weekly movi
                 return await itx.followup.send(
                     f"Nobody is in {GROUPS[grp]} yet. Assign people with `/group set`.")
             benched = [m for m in members if m["benched"]]
-            benched_ids = [m["id"] for m in benched]
             movie_ids = []
             for m in random.sample(members, len(members)):
                 if m["benched"]:
@@ -176,8 +175,6 @@ class Polls(commands.GroupCog, group_name="poll", group_description="Weekly movi
                 f"{len(movie_ids)} eligible suggestion{'s' if len(movie_ids) != 1 else ''}).")
 
         poll_id = self.db.create_poll(movie_ids, grp, curated_row["id"] if curated_row else None, note)
-        # Benched people have now served their week out.
-        self.db.set_benched(benched_ids, False)
         channel = self._channel(fallback=itx.channel)
         msg = await channel.send(embed=poll_embed(self.db, poll_id), view=poll_view(self.db, poll_id))
         self.db.set_poll_message(poll_id, channel.id, msg.id)
@@ -211,6 +208,20 @@ class Polls(commands.GroupCog, group_name="poll", group_description="Weekly movi
             text += f"\n-# {', '.join(benched)} will sit out their group's next poll."
         await self._channel(poll["channel_id"], itx.channel).send(text)
         await itx.response.send_message("Closed.", ephemeral=True)
+
+    @app_commands.command(name="cancel", description="Delete the open vote without a winner (doesn't use up the group's turn)")
+    async def cancel(self, itx: discord.Interaction):
+        poll = self.db.open_poll()
+        if not poll:
+            return await itx.response.send_message("No open vote.", ephemeral=True)
+        try:
+            msg = await self._channel(poll["channel_id"], itx.channel).fetch_message(int(poll["message_id"]))
+            await msg.edit(content="~~Vote cancelled.~~", embed=None, view=None)
+        except (discord.HTTPException, TypeError, AttributeError):
+            pass
+        self.db.cancel_poll(poll["id"])
+        self.bot.mark_dirty()
+        await itx.response.send_message("Vote cancelled. Nothing changed in the rotation.", ephemeral=True)
 
     @app_commands.command(name="pick", description="Birthweek: the birthday person picks the movie, no vote")
     @app_commands.describe(member="Whose birthweek it is", movie="The movie they picked")

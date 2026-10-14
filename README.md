@@ -20,6 +20,7 @@ data/       cinema.db lives here (not committed)
 | `/ratings movie` | everyone | Everyone's scores and remarks for a movie. |
 | `/poll open [curated] [group] [per_person] [movies]` | mods | Posts the vote in #movie-night-cartaz for whichever group's week it is: one random suggestion per group member, plus the Cultured Snobs' `curated` pick as the last option. One vote per person; click again to remove it. |
 | `/poll close` | mods | Closes the vote and announces the winner (ties picked at random). Whoever suggested the winner sits out their group's next poll. |
+| `/poll cancel` | mods | Deletes the open vote without a winner. Doesn't use up the group's turn. |
 | `/poll pick member movie` | mods | Birthweek: the birthday person's pick replaces the vote. Doesn't use up a group's turn. |
 | `/group set member group` | mods | Puts someone in Group α or Group ω. |
 | `/group list` | everyone | Shows both groups, who's sitting out, and whose week is next. |
