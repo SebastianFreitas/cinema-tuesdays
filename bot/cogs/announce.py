@@ -18,18 +18,29 @@ from .starthere import _bare, fill
 STILL = Path(__file__).resolve().parent.parent / "assets" / "hastings" / "car.jpg"
 
 MESSAGE_1 = """\
+# Goodbye, spreadsheets
 Good evening, everyone. :hastings_hello: Caption Arthur Hastings here. I'm new, so do forgive me if I fumble a little.
 
-The moderators asked if I'd lend a hand with the chores that used to live in those spreadsheets, and I was only too glad to. I'm no Poirot, I'm afraid, but I can just about manage a list or two, and I've promised not to lose any of them. Here's how things work from now on:
+The moderators asked if I'd lend a hand with the chores that used to live in those spreadsheets, and I was only too glad to. I'm no Poirot, I'm afraid, but I can just about manage a list or two, and I've promised not to lose any of them. Here's how things work from now on.
 
-**Suggesting a film**: no more Movie List document. Press **Suggest a movie** on the panel in #start-here, type the title and pick the right one. Still up to 10 each, mind. I did ask whether we might stretch to eleven, and was told quite firmly that we might not. **My list** shows what you've suggested and lets you take any off.
+## Suggesting a film
+No more Movie List document. Press **Suggest a movie** on the panel in #start-here, type the title and pick the right one. **My list** shows what you've suggested and lets you take any off.
+Still up to **10 each**, mind. I did ask whether we might stretch to eleven, and was told quite firmly that we might not.
 
-**Voting**: same as ever in #movie-night-cartaz, only now I put up the vote. You have **2 votes**, for two different films: press the button for each one you fancy, and press it again if something comes up and you can't make it. Only vote if you plan to attend, please; it's only fair. Group α and Group ω still take turns, and the Cultured Snobs' pick is still the last option. I've learnt not to argue with the Cultured Snobs."""
+## Voting
+Same as ever in #movie-night-cartaz, only now I put up the vote.
+- You have **2 votes**, for two different films. Press the button for each one you fancy, and press it again if something comes up and you can't make it.
+- Only vote if you plan to attend, please; it's only fair.
+- Group α and Group ω still take turns, and the Cultured Snobs' pick is still the last option. I've learnt not to argue with the Cultured Snobs."""
 
 MESSAGE_2 = """\
-**Scores**: no more Movie Ratings sheet. After movie night, press **Rate a movie**, give a score from 0.0 to 10.0 and a remark if you like. You have until 23:59 (Portugal) the day after, and you can change it until then. I won't post your score in #rate-movies, only that you've rated. Peeking at other people's scores before they're all in would hardly be cricket.
+## Scores
+No more Movie Ratings sheet. After movie night, press **Rate a movie**, give a score from 0.0 to 10.0 and a remark if you like.
+- You have until **23:59 (Portugal) the day after**, and you can change it until then.
+- I won't post your score in #rate-movies, only that you've rated. Peeking at other people's scores before they're all in would hardly be cricket.
 
-**[The website]({site})**: every film we've watched, everybody's scores, the full Movie List, and more statistics than I can make head or tail of. :hastings_hmm: Poirot would adore it. It keeps itself up to date.
+## [The website]({site})
+Every film we've watched, everybody's scores, the full Movie List, and more statistics than I can make head or tail of. :hastings_hmm: Poirot would adore it. It keeps itself up to date.
 
 Everything from the old sheets has been carried over, so nothing is lost. And if I make a muddle of anything, as I daresay I might, do tell one of the moderators.
 
