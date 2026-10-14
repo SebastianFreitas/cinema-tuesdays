@@ -5,6 +5,32 @@ from discord.ext import commands
 from ..util import choices, label, movie_embed, movie_from_tmdb, resolve_movie, tmdb_choices
 
 
+def add_for(bot, user: discord.abc.User, row) -> tuple[str, list[str] | None]:
+    """Add a movie to someone's suggestions, following the club's rules.
+    Returns (message for them, other people who suggested it), or (reason, None) if it wasn't added."""
+    db, cap = bot.db, bot.cfg.max_suggestions
+    user_id = db.upsert_user(user.id, user.display_name)
+    if watched_on := db.last_screening(row["id"]):
+        return f"We already watched **{label(row)}** on {watched_on}.", None
+    mine = db.open_suggestions(user_id)
+    if any(s["id"] == row["id"] for s in mine):
+        return f"**{label(row)}** is already on your list.", None
+    if len(mine) >= cap:
+        return (f"You already have {len(mine)}/{cap} suggestions. "
+                "Remove one first (📋 My list, or `/unsuggest`)."), None
+    others = db.suggesters(row["id"])
+    db.add_suggestion(row["id"], user_id)
+    bot.mark_dirty()
+    return f"Added **{label(row)}**. You now have {len(mine) + 1}/{cap} suggestions.", others
+
+
+def announcement(user: discord.abc.User, others: list[str]) -> str:
+    note = f"Suggested by {user.mention}"
+    if others:
+        note += f" (also suggested by {', '.join(others)})"
+    return note
+
+
 class Suggestions(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -14,36 +40,18 @@ class Suggestions(commands.Cog):
     @app_commands.describe(movie="Start typing a title and pick it from the list")
     async def suggest(self, itx: discord.Interaction, movie: str):
         await itx.response.defer(ephemeral=True, thinking=True)
-        user_id = self.db.upsert_user(itx.user.id, itx.user.display_name)
-
         try:
             row = await movie_from_tmdb(self.bot, movie)
         except LookupError as e:
             return await itx.followup.send(str(e))
         if not row:
             return await itx.followup.send(f"Couldn't find **{movie}** on TMDB. Try picking from the list.")
-        movie_id = row["id"]
 
-        if watched_on := self.db.last_screening(movie_id):
-            return await itx.followup.send(f"We already watched **{label(row)}** on {watched_on}.")
-        mine = self.db.open_suggestions(user_id)
-        if any(s["id"] == movie_id for s in mine):
-            return await itx.followup.send(f"**{label(row)}** is already on your list.")
-        if len(mine) >= self.bot.cfg.max_suggestions:
-            return await itx.followup.send(
-                f"You already have {len(mine)}/{self.bot.cfg.max_suggestions} suggestions. "
-                "Remove one with `/unsuggest` first.")
-
-        others = self.db.suggesters(movie_id)
-        self.db.add_suggestion(movie_id, user_id)
-        self.bot.mark_dirty()
-
-        await itx.followup.send(f"Added. You now have {len(mine) + 1}/{self.bot.cfg.max_suggestions} suggestions.")
-        note = f"Suggested by {itx.user.mention}"
-        if others:
-            note += f" (also suggested by {', '.join(others)})"
-        await itx.followup.send(note, embed=movie_embed(row), ephemeral=False,
-                                allowed_mentions=discord.AllowedMentions.none())
+        message, others = add_for(self.bot, itx.user, row)
+        await itx.followup.send(message)
+        if others is not None:
+            await itx.followup.send(announcement(itx.user, others), embed=movie_embed(row), ephemeral=False,
+                                    allowed_mentions=discord.AllowedMentions.none())
 
     @suggest.autocomplete("movie")
     async def suggest_autocomplete(self, itx: discord.Interaction, current: str):

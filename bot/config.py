@@ -30,6 +30,7 @@ class Config:
     min_remark_chars: int
     publish_enabled: bool
     publish_interval_minutes: int
+    site_url: str
 
 
 def load() -> Config:
@@ -44,4 +45,5 @@ def load() -> Config:
         min_remark_chars=_int("MIN_REMARK_CHARS", 0),
         publish_enabled=_bool("PUBLISH_ENABLED"),
         publish_interval_minutes=_int("PUBLISH_INTERVAL_MINUTES", 10),
+        site_url=os.getenv("SITE_URL", "").strip() or "https://sebastianfreitas.github.io/cinema-tuesdays/",
     )

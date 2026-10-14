@@ -13,6 +13,7 @@ data/       cinema.db lives here (not committed)
 
 | Command | Who | What |
 |---|---|---|
+| `/panel` | mods | Posts the button panel (➕ Suggest a movie, 📋 My list, ⭐ Rate a movie, 🌐 Website) in the current channel. Pin it. Everyone can use the buttons instead of commands. |
 | `/suggest movie` | everyone | Adds a movie to the Movie List (TMDB search as you type). Max 10 open suggestions each. |
 | `/unsuggest movie` | everyone | Removes one of your suggestions. |
 | `/suggestions [member]` | everyone | Shows the Movie List, or one person's picks. |

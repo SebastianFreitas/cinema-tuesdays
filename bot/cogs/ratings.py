@@ -7,6 +7,86 @@ from discord.ext import commands
 from ..util import choices, label, movie_embed, parse_date, resolve_movie
 
 
+async def save_rating(bot, itx: discord.Interaction, row, score: float, remark: str | None) -> None:
+    """Check, save and post a score, then answer the interaction."""
+    remark = (remark or "").strip() or None
+    minimum = bot.cfg.min_remark_chars
+    if minimum and len(remark or "") < minimum:
+        return await itx.response.send_message(f"Please add a remark of at least {minimum} characters.", ephemeral=True)
+
+    score = round(score, 1)
+    updated = bot.db.rate(row["id"], bot.db.upsert_user(itx.user.id, itx.user.display_name), score, remark)
+    bot.mark_dirty()
+
+    text = f"**{label(row)}** — **{score:.1f}**/10 · {itx.user.mention}" + (" (updated)" if updated else "")
+    if remark:
+        text += "\n> " + remark.replace("\n", "\n> ")
+    mentions = discord.AllowedMentions.none()
+
+    rate_channel_id = bot.cfg.rate_channel_id
+    if not rate_channel_id or itx.channel_id == rate_channel_id:
+        return await itx.response.send_message(text, allowed_mentions=mentions)
+    await bot.get_channel(rate_channel_id).send(text, allowed_mentions=mentions)
+    await itx.response.send_message(f"Saved and posted in <#{rate_channel_id}>.", ephemeral=True)
+
+
+def parse_score(text: str) -> float | None:
+    try:
+        value = float(text.strip().replace(",", "."))
+    except ValueError:
+        return None
+    return value if 0 <= value <= 10 else None
+
+
+class RateModal(discord.ui.Modal):
+    """The form behind every Rate button: a score and an optional remark, prefilled if you rated before."""
+
+    def __init__(self, bot, row, user_id: int):
+        super().__init__(title=f"Rate {row['title']}"[:45])
+        self.bot, self.row = bot, row
+        mine = bot.db.one("SELECT score, remark FROM ratings WHERE movie_id = ? AND user_id = ?", (row["id"], user_id))
+        minimum = bot.cfg.min_remark_chars
+        self.score = discord.ui.TextInput(label="Score from 0.0 to 10.0", placeholder="e.g. 7.8", max_length=4,
+                                          default=f"{mine['score']:.1f}" if mine else None)
+        self.remark = discord.ui.TextInput(label="Remark" + ("" if minimum else " (optional)"),
+                                           style=discord.TextStyle.paragraph, placeholder="What did you think?",
+                                           required=minimum > 0, min_length=minimum or None, max_length=1000,
+                                           default=mine["remark"] if mine and mine["remark"] else None)
+        self.add_item(self.score)
+        self.add_item(self.remark)
+
+    async def on_submit(self, itx: discord.Interaction):
+        score = parse_score(self.score.value)
+        if score is None:
+            return await itx.response.send_message("The score has to be a number from 0.0 to 10.0, like 7.8.",
+                                                   ephemeral=True)
+        await save_rating(self.bot, itx, self.row, score, self.remark.value)
+
+
+async def open_rate_form(itx: discord.Interaction, movie_id: int) -> None:
+    bot = itx.client
+    row = bot.db.movie(movie_id)
+    if not row or not bot.db.last_screening(movie_id):
+        return await itx.response.send_message("That movie hasn't been marked as watched yet.", ephemeral=True)
+    await itx.response.send_modal(RateModal(bot, row, bot.db.upsert_user(itx.user.id, itx.user.display_name)))
+
+
+class RateButton(discord.ui.DynamicItem[discord.ui.Button], template=r"rate:(?P<movie>\d+)"):
+    """Posted after each screening; keeps working across restarts."""
+
+    def __init__(self, movie_id: int, text: str | None = None):
+        super().__init__(discord.ui.Button(label=(text or "Rate it")[:80], emoji="⭐",
+                                           style=discord.ButtonStyle.primary, custom_id=f"rate:{movie_id}"))
+        self.movie_id = movie_id
+
+    @classmethod
+    async def from_custom_id(cls, interaction, item, match, /):
+        return cls(int(match["movie"]), item.label)
+
+    async def callback(self, itx: discord.Interaction):
+        await open_rate_form(itx, self.movie_id)
+
+
 class Ratings(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -26,26 +106,7 @@ class Ratings(commands.Cog):
         row = resolve_movie(self.db, movie, watched=True)
         if not row:
             return await itx.response.send_message("Pick a movie we've watched from the list.", ephemeral=True)
-        minimum = self.bot.cfg.min_remark_chars
-        if minimum and len((remark or "").strip()) < minimum:
-            return await itx.response.send_message(
-                f"Please add a remark of at least {minimum} characters.", ephemeral=True)
-
-        score = round(score, 1)
-        user_id = self.db.upsert_user(itx.user.id, itx.user.display_name)
-        updated = self.db.rate(row["id"], user_id, score, (remark or "").strip() or None)
-        self.bot.mark_dirty()
-
-        text = f"**{label(row)}** — **{score:.1f}**/10 · {itx.user.mention}" + (" (updated)" if updated else "")
-        if remark:
-            text += "\n> " + remark.strip().replace("\n", "\n> ")
-        mentions = discord.AllowedMentions.none()
-
-        rate_channel_id = self.bot.cfg.rate_channel_id
-        if not rate_channel_id or itx.channel_id == rate_channel_id:
-            return await itx.response.send_message(text, allowed_mentions=mentions)
-        await self.bot.get_channel(rate_channel_id).send(text, allowed_mentions=mentions)
-        await itx.response.send_message(f"Saved and posted in <#{rate_channel_id}>.", ephemeral=True)
+        await save_rating(self.bot, itx, row, score, remark)
 
     @app_commands.command(name="ratings", description="Everyone's scores for a movie")
     @app_commands.autocomplete(movie=watched_autocomplete)
@@ -78,9 +139,20 @@ class Ratings(commands.Cog):
             return await itx.response.send_message(str(e), ephemeral=True)
         self.db.add_screening(row["id"], day)
         self.bot.mark_dirty()
-        await itx.response.send_message(f"Marked **{label(row)}** as watched on {day}. "
-                                        "Everyone can now `/rate` it.")
+
+        # Everyone gets a button to score it, instead of typing /rate.
+        view = discord.ui.View(timeout=None)
+        view.add_item(RateButton(row["id"], f"Rate {row['title']}"))
+        text = f"🍿 We watched **{label(row)}**. How was it? Click below to give it a score."
+        rate_channel = self.bot.get_channel(self.bot.cfg.rate_channel_id) if self.bot.cfg.rate_channel_id else None
+        if rate_channel and rate_channel.id != itx.channel_id:
+            await rate_channel.send(text, view=view)
+            await itx.response.send_message(f"Marked **{label(row)}** as watched on {day}. "
+                                            f"Posted a Rate button in {rate_channel.mention}.", ephemeral=True)
+        else:
+            await itx.response.send_message(text, view=view)
 
 
 async def setup(bot):
+    bot.add_dynamic_items(RateButton)
     await bot.add_cog(Ratings(bot))

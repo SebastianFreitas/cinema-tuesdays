@@ -103,7 +103,7 @@
     <li>
       <div class="when">Any time · everyone</div>
       <h3>People fill the Movie List</h3>
-      <p><code>/suggest</code> adds a movie (it searches TMDB as you type, so everyone gets the same poster and year). <code>/unsuggest</code> removes one. Max 10 each.</p>
+      <p>With the buttons on the pinned panel: <b>➕ Suggest a movie</b> (type a title, pick the right one), <b>📋 My list</b> (see and remove yours). Max 10 each. The commands <code>/suggest</code> and <code>/unsuggest</code> still work too.</p>
     </li>
     <li>
       <div class="when">Before the weekend · mod</div>
@@ -138,6 +138,7 @@
     <li>
       <div class="when">After the screening · everyone</div>
       <h3>Everyone rates</h3>
+      <p>After <code>/watched</code> the bot posts a <b>⭐ Rate</b> button for that movie; clicking it opens a small form for the score and a remark. <b>⭐ Rate a movie</b> on the panel works for any movie we watched. Or the command:</p>
       <span class="cmd">/rate <span class="opt">movie:</span>Seven Samurai <span class="opt">score:</span>8.1 <span class="opt">remark:</span>…</span>
       <ul>
         <li>Scores go from 0.0 to 10.0 and are posted in #rate-movies. Running it again changes your score.</li>
@@ -145,6 +146,11 @@
       </ul>
     </li>
   </ol>
+
+  <h2>Setting up the panel</h2>
+  <p>Run this once in the channel where people should find it (for example #general), then pin the message:</p>
+  <span class="cmd">/panel</span>
+  <p class="muted">It shows four buttons: ➕ Suggest a movie, 📋 My list, ⭐ Rate a movie and 🌐 Website. Each person only sees their own list. Running <code>/panel</code> again posts a fresh copy; old copies keep working.</p>
 
   <h2>The two groups</h2>
   <p class="muted">The groups alternate each week. Only the current group's suggestions go into the vote.</p>
@@ -189,6 +195,7 @@
         <tr><td><code>/rate</code></td><td>everyone</td><td>Score a watched movie 0.0 to 10.0</td></tr>
         <tr><td><code>/ratings</code></td><td>everyone</td><td>Everyone's scores for a movie</td></tr>
         <tr><td><code>/group list</code></td><td>everyone</td><td>Both groups, who sits out, whose week is next</td></tr>
+        <tr><td><code>/panel</code></td><td>mods</td><td>Post the button panel in this channel (pin it)</td></tr>
         <tr><td><code>/poll open</code></td><td>mods</td><td>Post this week's vote</td></tr>
         <tr><td><code>/poll close</code></td><td>mods</td><td>End the vote and announce the winner</td></tr>
         <tr><td><code>/poll cancel</code></td><td>mods</td><td>Delete the open vote, no winner</td></tr>
