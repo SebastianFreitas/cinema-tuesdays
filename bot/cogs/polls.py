@@ -6,6 +6,7 @@
 3. Birthweek: the birthday person picks the movie and the poll is skipped (/poll pick).
 4. The Cultured Snobs add a curated option, always listed last.
 """
+import datetime as dt
 import random
 import re
 
@@ -13,52 +14,72 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 
-from ..tmdb import poster_url
+from ..tmdb import movie_url, poster_url
 from ..util import GROUPS, label, movie_from_tmdb, tmdb_choices
 
-MAX_OPTIONS = 10
+MAX_OPTIONS = 9   # + the header card = Discord's 10-embed limit
 GROUP_CHOICES = [app_commands.Choice(name=v, value=k) for k, v in GROUPS.items()]
 
 
-def poll_embed(db, poll_id: int) -> discord.Embed:
+def _tuesday_after(created_at: str) -> dt.date:
+    day = dt.date.fromisoformat(created_at[:10])
+    return day + dt.timedelta(days=(1 - day.weekday()) % 7)
+
+
+def _vote_bar(n: int, total: int, width: int = 8) -> str:
+    filled = round(width * n / total) if total else 0
+    return "▰" * filled + "▱" * (width - filled)
+
+
+def poll_embeds(db, poll_id: int) -> list[discord.Embed]:
+    """A header card plus one card per movie (poster, details, votes). Discord allows 10 embeds."""
     poll = db.poll(poll_id)
     tally = db.poll_tally(poll_id)
     closed = poll["status"] == "closed"
-    lines = []
+    total = sum(len(t["voters"]) for t in tally)
+
+    when = _tuesday_after(poll["created_at"]).strftime("%A %d %b").replace(" 0", " ")
+    title = "🎬 Movie night vote" + (f" · {GROUPS[poll['grp']]}" if poll["grp"] else "")
+    if closed:
+        desc = f"Voting is closed for **{when}**."
+    else:
+        desc = (f"Pick what we watch on **{when} at 21:15**.\n"
+                "One vote each, only if you're coming. Click your vote again to remove it.")
+    if poll["note"]:
+        desc += f"\n-# {poll['note']}"
+    header = discord.Embed(title=title, description=desc,
+                           color=discord.Color.greyple() if closed else discord.Color.gold())
+    header.set_footer(text=f"{total} vote{'s' if total != 1 else ''} so far" if not closed
+                      else f"{total} vote{'s' if total != 1 else ''}")
+    embeds = [header]
+
     for i, t in enumerate(tally, 1):
         m, voters = t["movie"], t["voters"]
-        line = f"**{i}. {label(m)}**"
-        if m["director"]:
-            line += f" — {m['director']}"
+        won = closed and m["id"] == poll["winner_movie_id"]
+        details = [m["director"]]
+        if m["runtime"]:
+            details.append(f"{m['runtime'] // 60}h{m['runtime'] % 60:02d}")
+        if m["genres"]:
+            details.append(", ".join(m["genres"].split(", ")[:3]))
+        lines = []
+        if d := " · ".join(x for x in details if x):
+            lines.append(f"-# {d}")
         if t["curated"]:
-            line += "\n-# 🎩 Cultured Snobs' pick"
+            lines.append("🎩 Cultured Snobs' pick")
         elif suggested := ", ".join(db.suggesters(m["id"])):
-            line += f"\n-# suggested by {suggested}"
-        line += f"\n`{len(voters)}` " + ", ".join(voters)
-        if closed and m["id"] == poll["winner_movie_id"]:
-            line = "🏆 " + line
-        lines.append(line)
-
-    header = ""
-    if not closed:
-        header = "Only vote if you plan to attend. Click again to remove your vote.\n"
-    if poll["note"]:
-        header += f"-# {poll['note']}\n"
-    title = "Movie night vote"
-    if poll["grp"]:
-        title += f" — {GROUPS[poll['grp']]}'s week"
-    embed = discord.Embed(
-        title=title + (" (closed)" if closed else ""),
-        description=(header + "\n" if header else "") + "\n\n".join(lines),
-        color=discord.Color.greyple() if closed else discord.Color.gold(),
-    )
-    total = sum(len(t["voters"]) for t in tally)
-    embed.set_footer(text=f"{total} voter{'s' if total != 1 else ''}")
-    if closed and poll["winner_movie_id"]:
-        winner = db.movie(poll["winner_movie_id"])
-        if winner["poster_path"]:
-            embed.set_image(url=poster_url(winner["poster_path"], "w500"))
-    return embed
+            lines.append(f"Suggested by **{suggested}**")
+        if voters:
+            lines.append(f"`{_vote_bar(len(voters), total)}` **{len(voters)}** · {', '.join(voters)}")
+        else:
+            lines.append(f"`{_vote_bar(0, total)}` no votes yet")
+        color = (discord.Color.green() if won else discord.Color.dark_grey() if closed
+                 else discord.Color.purple() if t["curated"] else discord.Color.gold())
+        e = discord.Embed(title=f"{'🏆 ' if won else ''}{'🎩' if t['curated'] else f'{i}.'} {label(m)}",
+                          url=movie_url(m["tmdb_id"]), description="\n".join(lines), color=color)
+        if m["poster_path"]:
+            e.set_thumbnail(url=poster_url(m["poster_path"], "w185"))
+        embeds.append(e)
+    return embeds
 
 
 def poll_view(db, poll_id: int) -> discord.ui.View:
@@ -89,7 +110,7 @@ class VoteButton(discord.ui.DynamicItem[discord.ui.Button], template=r"poll:(?P<
         user_id = db.upsert_user(itx.user.id, itx.user.display_name)
         voted = db.toggle_vote(self.poll_id, user_id, self.movie_id)
         itx.client.mark_dirty()
-        await itx.response.edit_message(embed=poll_embed(db, self.poll_id))
+        await itx.response.edit_message(embeds=poll_embeds(db, self.poll_id))
         title = db.movie(self.movie_id)["title"]
         await itx.followup.send(f"Voted for **{title}**." if voted else f"Removed your vote for **{title}**.",
                                 ephemeral=True)
@@ -110,7 +131,7 @@ class Polls(commands.GroupCog, group_name="poll", group_description="Weekly movi
         channel = self._channel(poll["channel_id"], fallback)
         try:
             msg = await channel.fetch_message(int(poll["message_id"]))
-            await msg.edit(embed=poll_embed(self.db, poll["id"]), view=None)
+            await msg.edit(embeds=poll_embeds(self.db, poll["id"]), view=None)
         except (discord.HTTPException, TypeError, AttributeError):
             pass
 
@@ -176,7 +197,7 @@ class Polls(commands.GroupCog, group_name="poll", group_description="Weekly movi
 
         poll_id = self.db.create_poll(movie_ids, grp, curated_row["id"] if curated_row else None, note)
         channel = self._channel(fallback=itx.channel)
-        msg = await channel.send(embed=poll_embed(self.db, poll_id), view=poll_view(self.db, poll_id))
+        msg = await channel.send(embeds=poll_embeds(self.db, poll_id), view=poll_view(self.db, poll_id))
         self.db.set_poll_message(poll_id, channel.id, msg.id)
         self.bot.mark_dirty()
         await itx.followup.send(f"Vote posted: {msg.jump_url}")
@@ -216,7 +237,7 @@ class Polls(commands.GroupCog, group_name="poll", group_description="Weekly movi
             return await itx.response.send_message("No open vote.", ephemeral=True)
         try:
             msg = await self._channel(poll["channel_id"], itx.channel).fetch_message(int(poll["message_id"]))
-            await msg.edit(content="~~Vote cancelled.~~", embed=None, view=None)
+            await msg.edit(content="~~Vote cancelled.~~", embeds=[], view=None)
         except (discord.HTTPException, TypeError, AttributeError):
             pass
         self.db.cancel_poll(poll["id"])
@@ -239,7 +260,7 @@ class Polls(commands.GroupCog, group_name="poll", group_description="Weekly movi
             channel = self._channel(open_poll["channel_id"], itx.channel)
             try:
                 msg = await channel.fetch_message(int(open_poll["message_id"]))
-                await msg.edit(content="~~Vote cancelled: birthweek pick this week.~~", embed=None, view=None)
+                await msg.edit(content="~~Vote cancelled: birthweek pick this week.~~", embeds=[], view=None)
             except (discord.HTTPException, TypeError, AttributeError):
                 pass
             self.db.cancel_poll(open_poll["id"])
