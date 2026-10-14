@@ -39,8 +39,8 @@ Stats tiles, α vs ω scoreboard, scorecard table, top/lowest rated, records, by
 - [x] **14. Budget and box office** 🎬: cheapest and most expensive, total budget watched, and whether bigger budgets get better scores from us.
 - [x] **15. Obscurity** 🎬: how well known each movie is (TMDB vote count). Most obscure pick, and who suggests the most obscure stuff.
 - [ ] **16. Rating speed** 🤖: who rates first and who rates last after a movie. Only works from now on (imported scores have no real time); the export needs each rating's `created_at`.
-- [ ] **17. Remarks** ✅: who writes the most and the longest remarks, plus the shortest and longest ever.
-- [ ] **18. Scatter charts** ✅: score against runtime and score against release year, one dot per movie.
+- [ ] ⏸ *Parked (none of the 143 scores has a remark yet, so there is nothing to show); come back later.* **17. Remarks** ✅: who writes the most and the longest remarks, plus the shortest and longest ever.
+- [x] **18. Scatter charts** ✅: score against runtime and score against release year, one dot per movie.
 
 ### Silly
 - [ ] **19. Runtime as travel** ✅: "we've spent enough time watching to fly Lisbon → Tokyo 4 times."

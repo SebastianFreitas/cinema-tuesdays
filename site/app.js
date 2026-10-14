@@ -707,6 +707,42 @@ function renderTimeline() {
   });
 }
 
+// One dot per closed movie: group average (y) against something about the movie (x), with a straight-line fit.
+function renderScatter(sel, sumSel, getX, tickText, what, label, [more, less]) {
+  const el = $(sel);
+  const pts = closedMovies().filter((m) => m.avg != null && getX(m) != null).map((m) => ({ m, x: getX(m), v: m.avg }));
+  if (pts.length < 3) { el.innerHTML = `<p class="empty">Needs a few more movies.</p>`; $(sumSel).textContent = ""; return; }
+  const W = el.clientWidth, H = 200, L = 30, R = 18, T = 12, B = 24;
+  const xs = pts.map((p) => p.x), vs = pts.map((p) => p.v);
+  const step = niceStep(Math.max(...xs) - Math.min(...xs) || 1, Math.max(2, Math.floor((W - L - R) / 70)));
+  const pad = (Math.max(...xs) - Math.min(...xs) || step) * 0.04, x0 = Math.min(...xs) - pad, x1 = Math.max(...xs) + pad;
+  const lo = Math.max(0, Math.floor(Math.min(...vs) - 0.3)), hi = Math.min(10, Math.ceil(Math.max(...vs) + 0.2));
+  const x = (v) => L + ((v - x0) / (x1 - x0)) * (W - L - R);
+  const y = (v) => T + (1 - (v - lo) / (hi - lo)) * (H - T - B);
+  let body = `<g class="grid">`;
+  for (let v = lo; v <= hi; v += 1) body += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}"/><text x="${L - 8}" y="${y(v) + 4}" text-anchor="end">${v}</text>`;
+  body += `</g>`;
+  for (let t = Math.ceil(x0 / step) * step; t <= x1; t += step) body += `<text x="${x(t)}" y="${H - 8}" text-anchor="middle">${tickText(t)}</text>`;
+  // least-squares line and correlation
+  const mx = mean(xs), mv = mean(vs);
+  const sxy = sum(pts.map((p) => (p.x - mx) * (p.v - mv))), sxx = sum(xs.map((a) => (a - mx) ** 2)), svv = sum(vs.map((a) => (a - mv) ** 2));
+  const slope = sxx ? sxy / sxx : 0, r = sxx && svv ? sxy / Math.sqrt(sxx * svv) : 0;
+  const fit = (a) => mv + slope * (a - mx);
+  body += `<line class="mean" x1="${x(x0)}" x2="${x(x1)}" y1="${y(fit(x0))}" y2="${y(fit(x1))}"/>`;
+  pts.sort((a, b) => b.v - a.v).forEach((p) => {
+    const tipText = `<b>${esc(esc(p.m.title))}</b><br>${esc(label(p.m))}<br>average ${fmt(p.v, 2)}`;
+    body += `<circle class="dot" cx="${x(p.x)}" cy="${y(p.v)}" r="5" data-movie="${p.m.id}" data-tip="${tipText}" style="cursor:pointer"/>`;
+  });
+  el.innerHTML = svg(W, H, body, `Group average against ${what}, ${pts.length} movies`);
+  const strength = Math.abs(r) < 0.1 ? "no real link" : Math.abs(r) < 0.3 ? "a weak link" : Math.abs(r) < 0.5 ? "a clear link" : "a strong link";
+  $(sumSel).textContent = `${strength[0].toUpperCase() + strength.slice(1)}${Math.abs(r) < 0.1 ? "" : `: ${r > 0 ? more : less} tend to score higher`} (correlation ${signed(r, 2)}).`;
+}
+const runTick = (t) => `${Math.floor(t / 60)}h${t % 60 ? String(t % 60).padStart(2, "0") : ""}`;
+function renderScatters() {
+  renderScatter("#sc-run", "#sc-run-sum", (m) => m.runtime || null, runTick, "runtime", (m) => `${runTick(m.runtime)} · ${m.runtime} min`, ["longer movies", "shorter movies"]);
+  renderScatter("#sc-year", "#sc-year-sum", (m) => m.year || null, String, "release year", (m) => String(m.year), ["newer movies", "older movies"]);
+}
+
 function renderGrid() {
   const el = $("#grid");
   const paired = new Set(DATA.pairs.flatMap((p) => [p.a, p.b]));
@@ -1318,7 +1354,7 @@ function renderStats() {
   });
 }
 
-function renderCharts() { renderHistogram(); renderTimeline(); renderGrid(); }
+function renderCharts() { renderHistogram(); renderTimeline(); renderGrid(); renderScatters(); }
 
 /* ---------------------------------------------------------------- routing */
 
