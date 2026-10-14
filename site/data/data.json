@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-14T12:11:33+00:00",
+ "generated_at": "2026-10-14T12:38:28+00:00",
  "next_up": null,
  "poll": null,
  "next_group": "alpha",
@@ -1542,7 +1542,7 @@
    "name": "João",
    "count": 26,
    "avg": 7.67,
-   "bias": 0.22,
+   "bias": 0.28,
    "favourite": {
     "title": "The Grand Budapest Hotel",
     "score": 9.0
@@ -1570,7 +1570,7 @@
    "name": "Traff",
    "count": 21,
    "avg": 7.62,
-   "bias": 0.19,
+   "bias": 0.23,
    "favourite": {
     "title": "The Godfather",
     "score": 8.4
@@ -1584,7 +1584,7 @@
    "name": "magical potato",
    "count": 20,
    "avg": 6.91,
-   "bias": -0.38,
+   "bias": -0.48,
    "favourite": {
     "title": "Project Hail Mary",
     "score": 9.1
@@ -1598,7 +1598,7 @@
    "name": "Toni",
    "count": 14,
    "avg": 7.01,
-   "bias": -0.34,
+   "bias": -0.38,
    "favourite": {
     "title": "City of God",
     "score": 9.4
@@ -1612,7 +1612,7 @@
    "name": "Slader",
    "count": 11,
    "avg": 7.72,
-   "bias": 0.23,
+   "bias": 0.27,
    "favourite": {
     "title": "Obsession",
     "score": 9.2
@@ -1626,7 +1626,7 @@
    "name": "Shaggy",
    "count": 9,
    "avg": 7.11,
-   "bias": -0.11,
+   "bias": -0.14,
    "favourite": {
     "title": "Obsession",
     "score": 9.0
@@ -1640,7 +1640,7 @@
    "name": "Irene_TC",
    "count": 8,
    "avg": 6.88,
-   "bias": -0.41,
+   "bias": -0.47,
    "favourite": {
     "title": "Atlantis: The Lost Empire",
     "score": 9.0
@@ -1654,7 +1654,7 @@
    "name": "Malhas",
    "count": 5,
    "avg": 7.48,
-   "bias": 0.67,
+   "bias": 0.78,
    "favourite": {
     "title": "Tampopo",
     "score": 8.0
@@ -1668,7 +1668,7 @@
    "name": "Miguelbnz",
    "count": 2,
    "avg": 7.4,
-   "bias": -0.17,
+   "bias": -0.23,
    "favourite": {
     "title": "The Grand Budapest Hotel",
     "score": 8.3
@@ -1682,7 +1682,7 @@
    "name": "Fili",
    "count": 1,
    "avg": 9.0,
-   "bias": 0.61,
+   "bias": 0.69,
    "favourite": {
     "title": "Atlantis: The Lost Empire",
     "score": 9.0
