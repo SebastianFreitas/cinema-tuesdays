@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cinema Tuesdays</title>
+  <meta name="description" content="Every movie we've watched on Tuesday nights, and what we thought of it.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <h1>Cinema <em>Tuesdays</em></h1>
+      <p class="tagline">Tuesdays at 21:15 · <span id="count"></span></p>
+      <nav>
+        <a href="#watched" class="tab active" data-tab="watched">Watched</a>
+        <a href="#stats" class="tab" data-tab="stats">Stats</a>
+        <a href="#list" class="tab" data-tab="list">Movie List</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="next"></section>
+
+    <section data-panel="watched">
+      <div class="toolbar">
+        <input id="search" type="search" placeholder="Search title or director…" aria-label="Search">
+        <select id="sort" aria-label="Sort">
+          <option value="date">Most recent</option>
+          <option value="avg">Highest rated</option>
+          <option value="low">Lowest rated</option>
+          <option value="stdev">Most divisive</option>
+        </select>
+      </div>
+      <div id="wall" class="wall"></div>
+    </section>
+
+    <section data-panel="stats" hidden>
+      <h2>The raters</h2>
+      <p class="hint">“Bias” is how far above or below the group average someone scores, on average.</p>
+      <div id="people" class="people"></div>
+
+      <div class="cols">
+        <div>
+          <h2>Most divisive</h2>
+          <ol id="divisive" class="rank"></ol>
+        </div>
+        <div>
+          <h2>Who disagrees most</h2>
+          <ol id="pairs" class="rank"></ol>
+        </div>
+      </div>
+    </section>
+
+    <section data-panel="list" hidden>
+      <p class="hint">Suggest movies with <code>/suggest</code> on Discord. Up to 10 each.</p>
+      <div id="suggestions" class="wall small"></div>
+    </section>
+  </main>
+
+  <dialog id="detail"></dialog>
+
+  <footer class="wrap"><span id="updated"></span> · Posters from TMDB</footer>
+  <script src="app.js"></script>
+</body>
+</html>
