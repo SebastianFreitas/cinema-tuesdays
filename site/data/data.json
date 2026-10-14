@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-14T21:51:15+00:00",
+ "generated_at": "2026-10-14T22:01:15+00:00",
  "next_up": null,
  "poll": null,
  "next_group": "alpha",
@@ -95,14 +95,37 @@
     "Mystery"
    ],
    "tmdb": "https://www.themoviedb.org/movie/347688",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
+   "tmdb_rating": 7.9,
+   "tmdb_votes": 360,
+   "release_date": "2015-07-09",
+   "language": "en",
+   "countries": [
+    "US"
+   ],
    "budget": null,
    "revenue": null,
-   "cast": [],
+   "cast": [
+    {
+     "id": 15831,
+     "name": "Frank Welker"
+    },
+    {
+     "id": 86314,
+     "name": "Mindy Cohn"
+    },
+    {
+     "id": 26457,
+     "name": "Matthew Lillard"
+    },
+    {
+     "id": 15761,
+     "name": "Grey DeLisle"
+    },
+    {
+     "id": 57756,
+     "name": "Gene Simmons"
+    }
+   ],
    "watched_on": [
     "2026-10-13"
    ],
@@ -171,14 +194,37 @@
     "Drama"
    ],
    "tmdb": "https://www.themoviedb.org/movie/346",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 8.451,
+   "tmdb_votes": 4409,
+   "release_date": "1954-04-26",
+   "language": "ja",
+   "countries": [
+    "JP"
+   ],
+   "budget": 2000000,
+   "revenue": 105000000,
+   "cast": [
+    {
+     "id": 7450,
+     "name": "Toshirō Mifune"
+    },
+    {
+     "id": 7453,
+     "name": "Takashi Shimura"
+    },
+    {
+     "id": 20828,
+     "name": "Yoshio Inaba"
+    },
+    {
+     "id": 20829,
+     "name": "Seiji Miyaguchi"
+    },
+    {
+     "id": 7454,
+     "name": "Minoru Chiaki"
+    }
+   ],
    "watched_on": [
     "2026-10-10"
    ],
@@ -225,14 +271,37 @@
     "Romance"
    ],
    "tmdb": "https://www.themoviedb.org/movie/11000",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 7.0,
+   "tmdb_votes": 1434,
+   "release_date": "1996-03-03",
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "budget": 31000000,
+   "revenue": 185300000,
+   "cast": [
+    {
+     "id": 2157,
+     "name": "Robin Williams"
+    },
+    {
+     "id": 193,
+     "name": "Gene Hackman"
+    },
+    {
+     "id": 78729,
+     "name": "Nathan Lane"
+    },
+    {
+     "id": 1902,
+     "name": "Dianne Wiest"
+    },
+    {
+     "id": 5346,
+     "name": "Dan Futterman"
+    }
+   ],
    "watched_on": [
     "2026-09-29"
    ],
@@ -282,14 +351,38 @@
     "Comedy"
    ],
    "tmdb": "https://www.themoviedb.org/movie/3989",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 6.7,
+   "tmdb_votes": 2133,
+   "release_date": "2004-10-10",
+   "language": "en",
+   "countries": [
+    "US",
+    "DE"
+   ],
+   "budget": 32000000,
+   "revenue": 50826898,
+   "cast": [
+    {
+     "id": 34517,
+     "name": "Trey Parker"
+    },
+    {
+     "id": 34518,
+     "name": "Matt Stone"
+    },
+    {
+     "id": 34519,
+     "name": "Kristen Miller"
+    },
+    {
+     "id": 2702004,
+     "name": "Chelsea Marguerite"
+    },
+    {
+     "id": 34520,
+     "name": "Masasa Moyo"
+    }
+   ],
    "watched_on": [
     "2026-09-22"
    ],
@@ -340,14 +433,37 @@
     "Science Fiction"
    ],
    "tmdb": "https://www.themoviedb.org/movie/10865",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 7.1,
+   "tmdb_votes": 5289,
+   "release_date": "2001-06-02",
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "budget": 120000000,
+   "revenue": 186053725,
+   "cast": [
+    {
+     "id": 521,
+     "name": "Michael J. Fox"
+    },
+    {
+     "id": 34985,
+     "name": "Cree Summer"
+    },
+    {
+     "id": 16896,
+     "name": "James Garner"
+    },
+    {
+     "id": 52300,
+     "name": "Claudia Christian"
+    },
+    {
+     "id": 35219,
+     "name": "Corey Burton"
+    }
+   ],
    "watched_on": [
     "2026-09-15"
    ],
@@ -422,14 +538,39 @@
     "War"
    ],
    "tmdb": "https://www.themoviedb.org/movie/7446",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 6.731,
+   "tmdb_votes": 7271,
+   "release_date": "2008-08-09",
+   "language": "en",
+   "countries": [
+    "US",
+    "GB",
+    "DE"
+   ],
+   "budget": 92000000,
+   "revenue": 195702811,
+   "cast": [
+    {
+     "id": 7399,
+     "name": "Ben Stiller"
+    },
+    {
+     "id": 3223,
+     "name": "Robert Downey Jr."
+    },
+    {
+     "id": 70851,
+     "name": "Jack Black"
+    },
+    {
+     "id": 449,
+     "name": "Jay Baruchel"
+    },
+    {
+     "id": 53336,
+     "name": "Brandon T. Jackson"
+    }
+   ],
    "watched_on": [
     "2026-09-09"
    ],
@@ -478,14 +619,37 @@
     "Mystery"
    ],
    "tmdb": "https://www.themoviedb.org/movie/670",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 8.235,
+   "tmdb_votes": 10297,
+   "release_date": "2003-11-21",
+   "language": "ko",
+   "countries": [
+    "KR"
+   ],
+   "budget": 3000000,
+   "revenue": 17500000,
+   "cast": [
+    {
+     "id": 64880,
+     "name": "Choi Min-sik"
+    },
+    {
+     "id": 10112,
+     "name": "Yoo Ji-tae"
+    },
+    {
+     "id": 1299317,
+     "name": "Kang Hye-jung"
+    },
+    {
+     "id": 77182,
+     "name": "Kim Byeong-ok"
+    },
+    {
+     "id": 77180,
+     "name": "Ji Dae-han"
+    }
+   ],
    "watched_on": [
     "2026-09-01"
    ],
@@ -554,14 +718,39 @@
     "Thriller"
    ],
    "tmdb": "https://www.themoviedb.org/movie/870518",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
+   "tmdb_rating": 6.1,
+   "tmdb_votes": 269,
+   "release_date": "2023-03-02",
+   "language": "en",
+   "countries": [
+    "FR",
+    "US",
+    "RU"
+   ],
    "budget": null,
-   "revenue": null,
-   "cast": [],
+   "revenue": 581423,
+   "cast": [
+    {
+     "id": 1392137,
+     "name": "Margaret Qualley"
+    },
+    {
+     "id": 984629,
+     "name": "Christopher Abbott"
+    },
+    {
+     "id": 3701624,
+     "name": "Danita Battle"
+    },
+    {
+     "id": 3701622,
+     "name": "Rene Calvo"
+    },
+    {
+     "id": 3701625,
+     "name": "Christian Casatelli"
+    }
+   ],
    "watched_on": [
     "2026-08-25"
    ],
@@ -2749,14 +2938,37 @@
     "Drama"
    ],
    "tmdb": "https://www.themoviedb.org/movie/4951",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 7.6,
+   "tmdb_votes": 9204,
+   "release_date": "1999-03-30",
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "budget": 16000000,
+   "revenue": 53478166,
+   "cast": [
+    {
+     "id": 1810,
+     "name": "Heath Ledger"
+    },
+    {
+     "id": 12041,
+     "name": "Julia Stiles"
+    },
+    {
+     "id": 24045,
+     "name": "Joseph Gordon-Levitt"
+    },
+    {
+     "id": 40978,
+     "name": "Larisa Oleynik"
+    },
+    {
+     "id": 38582,
+     "name": "David Krumholtz"
+    }
+   ],
    "suggested_by": [
     "Shaggy"
    ],
@@ -2776,14 +2988,37 @@
     "Drama"
    ],
    "tmdb": "https://www.themoviedb.org/movie/1163258",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 7.931,
+   "tmdb_votes": 282,
+   "release_date": "2023-08-11",
+   "language": "hi",
+   "countries": [
+    "IN"
+   ],
+   "budget": 2400000,
+   "revenue": 37231,
+   "cast": [
+    {
+     "id": 1208682,
+     "name": "Vikrant Massey"
+    },
+    {
+     "id": 3112841,
+     "name": "Medha Shankr"
+    },
+    {
+     "id": 2039294,
+     "name": "Anant Joshi"
+    },
+    {
+     "id": 3063739,
+     "name": "Anshumaan Pushkar"
+    },
+    {
+     "id": 86622,
+     "name": "Priyanshu Chatterjee"
+    }
+   ],
    "suggested_by": [
     "Giotara"
    ],
@@ -2805,14 +3040,37 @@
     "Action"
    ],
    "tmdb": "https://www.themoviedb.org/movie/187017",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 6.826,
+   "tmdb_votes": 8786,
+   "release_date": "2014-06-05",
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "budget": 50000000,
+   "revenue": 331333876,
+   "cast": [
+    {
+     "id": 21007,
+     "name": "Jonah Hill"
+    },
+    {
+     "id": 38673,
+     "name": "Channing Tatum"
+    },
+    {
+     "id": 53,
+     "name": "Peter Stormare"
+    },
+    {
+     "id": 986808,
+     "name": "Wyatt Russell"
+    },
+    {
+     "id": 1187106,
+     "name": "Amber Stevens West"
+    }
+   ],
    "suggested_by": [
     "Slader"
    ],
@@ -2834,14 +3092,37 @@
     "Comedy"
    ],
    "tmdb": "https://www.themoviedb.org/movie/4917",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 6.3,
+   "tmdb_votes": 406,
+   "release_date": "1975-03-23",
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "budget": 400000,
+   "revenue": 6900000,
+   "cast": [
+    {
+     "id": 25129,
+     "name": "Don Johnson"
+    },
+    {
+     "id": 40000,
+     "name": "Susanne Benton"
+    },
+    {
+     "id": 4765,
+     "name": "Jason Robards"
+    },
+    {
+     "id": 39998,
+     "name": "Tim McIntire"
+    },
+    {
+     "id": 40001,
+     "name": "Alvy Moore"
+    }
+   ],
    "suggested_by": [
     "Malhas"
    ],
@@ -2861,14 +3142,38 @@
     "Drama"
    ],
    "tmdb": "https://www.themoviedb.org/movie/965150",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
+   "tmdb_rating": 7.7,
+   "tmdb_votes": 2010,
+   "release_date": "2022-10-21",
+   "language": "en",
+   "countries": [
+    "GB",
+    "US"
+   ],
    "budget": null,
-   "revenue": null,
-   "cast": [],
+   "revenue": 7834405,
+   "cast": [
+    {
+     "id": 2326151,
+     "name": "Paul Mescal"
+    },
+    {
+     "id": 3515419,
+     "name": "Frankie Corio"
+    },
+    {
+     "id": 3635399,
+     "name": "Brooklyn Toulson"
+    },
+    {
+     "id": 1290029,
+     "name": "Celia Rowlson-Hall"
+    },
+    {
+     "id": 1514178,
+     "name": "Sally Messham"
+    }
+   ],
    "suggested_by": [
     "Irene_TC"
    ],
@@ -2890,14 +3195,37 @@
     "Action"
    ],
    "tmdb": "https://www.themoviedb.org/movie/149",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 7.938,
+   "tmdb_votes": 5065,
+   "release_date": "1988-07-16",
+   "language": "ja",
+   "countries": [
+    "JP"
+   ],
+   "budget": 5700000,
+   "revenue": 56725538,
+   "cast": [
+    {
+     "id": 1678,
+     "name": "Mitsuo Iwata"
+    },
+    {
+     "id": 1679,
+     "name": "Nozomu Sasaki"
+    },
+    {
+     "id": 1680,
+     "name": "Mami Koyama"
+    },
+    {
+     "id": 58158,
+     "name": "Taro Ishida"
+    },
+    {
+     "id": 239550,
+     "name": "Mizuho Suzuki"
+    }
+   ],
    "suggested_by": [
     "Miguelbnz"
    ],
@@ -2919,14 +3247,37 @@
     "Mystery"
    ],
    "tmdb": "https://www.themoviedb.org/movie/329865",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 7.636,
+   "tmdb_votes": 20013,
+   "release_date": "2016-11-10",
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "budget": 47000000,
+   "revenue": 203388186,
+   "cast": [
+    {
+     "id": 9273,
+     "name": "Amy Adams"
+    },
+    {
+     "id": 17604,
+     "name": "Jeremy Renner"
+    },
+    {
+     "id": 2178,
+     "name": "Forest Whitaker"
+    },
+    {
+     "id": 72873,
+     "name": "Michael Stuhlbarg"
+    },
+    {
+     "id": 225411,
+     "name": "Mark O'Brien"
+    }
+   ],
    "suggested_by": [
     "João"
    ],
@@ -2948,14 +3299,38 @@
     "Science Fiction"
    ],
    "tmdb": "https://www.themoviedb.org/movie/1083381",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 7.0,
+   "tmdb_votes": 3728,
+   "release_date": "2026-05-27",
+   "language": "en",
+   "countries": [
+    "US",
+    "CA"
+   ],
+   "budget": 10000000,
+   "revenue": 400583134,
+   "cast": [
+    {
+     "id": 5294,
+     "name": "Chiwetel Ejiofor"
+    },
+    {
+     "id": 1576786,
+     "name": "Renate Reinsve"
+    },
+    {
+     "id": 1512452,
+     "name": "Finn Bennett"
+    },
+    {
+     "id": 1709431,
+     "name": "Lukita Maxwell"
+    },
+    {
+     "id": 45407,
+     "name": "Mark Duplass"
+    }
+   ],
    "suggested_by": [
     "Slader"
    ],
@@ -2976,14 +3351,38 @@
     "Romance"
    ],
    "tmdb": "https://www.themoviedb.org/movie/76",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 8.0,
+   "tmdb_votes": 4909,
+   "release_date": "1995-01-27",
+   "language": "en",
+   "countries": [
+    "AT",
+    "US"
+   ],
+   "budget": 2500000,
+   "revenue": 5987386,
+   "cast": [
+    {
+     "id": 569,
+     "name": "Ethan Hawke"
+    },
+    {
+     "id": 1146,
+     "name": "Julie Delpy"
+    },
+    {
+     "id": 571,
+     "name": "Andrea Eckert"
+    },
+    {
+     "id": 572,
+     "name": "Hanno Pöschl"
+    },
+    {
+     "id": 573,
+     "name": "Karl Bruckschwaiger"
+    }
+   ],
    "suggested_by": [
     "Irene_TC"
    ],
@@ -3005,14 +3404,38 @@
     "Romance"
    ],
    "tmdb": "https://www.themoviedb.org/movie/776503",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 7.9,
+   "tmdb_votes": 2747,
+   "release_date": "2021-08-13",
+   "language": "en",
+   "countries": [
+    "FR",
+    "US"
+   ],
+   "budget": 10000000,
+   "revenue": 1905058,
+   "cast": [
+    {
+     "id": 1331023,
+     "name": "Emilia Jones"
+    },
+    {
+     "id": 19797,
+     "name": "Marlee Matlin"
+    },
+    {
+     "id": 1571661,
+     "name": "Troy Kotsur"
+    },
+    {
+     "id": 239574,
+     "name": "Eugenio Derbez"
+    },
+    {
+     "id": 1539216,
+     "name": "Ferdia Walsh-Peelo"
+    }
+   ],
    "suggested_by": [
     "Shaggy"
    ],
@@ -3033,14 +3456,38 @@
     "Science Fiction"
    ],
    "tmdb": "https://www.themoviedb.org/movie/220289",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 7.209,
+   "tmdb_votes": 3665,
+   "release_date": "2014-04-06",
+   "language": "en",
+   "countries": [
+    "GB",
+    "US"
+   ],
+   "budget": 50000,
+   "revenue": 139745,
+   "cast": [
+    {
+     "id": 209200,
+     "name": "Emily Baldoni"
+    },
+    {
+     "id": 65726,
+     "name": "Maury Sterling"
+    },
+    {
+     "id": 71675,
+     "name": "Nicholas Brendon"
+    },
+    {
+     "id": 71551,
+     "name": "Lorene Scafaria"
+    },
+    {
+     "id": 154716,
+     "name": "Elizabeth Gracen"
+    }
+   ],
    "suggested_by": [
     "Traff"
    ],
@@ -3061,14 +3508,37 @@
     "Crime"
    ],
    "tmdb": "https://www.themoviedb.org/movie/15584",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
+   "tmdb_rating": 8.1,
+   "tmdb_votes": 613,
+   "release_date": "2008-10-31",
+   "language": "en",
+   "countries": [
+    "US"
+   ],
    "budget": null,
    "revenue": null,
-   "cast": [],
+   "cast": [
+    {
+     "id": 80207,
+     "name": "Kurt Kuenne"
+    },
+    {
+     "id": 556504,
+     "name": "Andrew Bagby"
+    },
+    {
+     "id": 556505,
+     "name": "David Bagby"
+    },
+    {
+     "id": 1051827,
+     "name": "Kathleen Bagby"
+    },
+    {
+     "id": 1051828,
+     "name": "Shirley Turner"
+    }
+   ],
    "suggested_by": [
     "Traff"
    ],
@@ -3090,14 +3560,37 @@
     "Mystery"
    ],
    "tmdb": "https://www.themoviedb.org/movie/141",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 7.761,
+   "tmdb_votes": 13842,
+   "release_date": "2001-01-19",
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "budget": 4500000,
+   "revenue": 7500000,
+   "cast": [
+    {
+     "id": 131,
+     "name": "Jake Gyllenhaal"
+    },
+    {
+     "id": 20089,
+     "name": "Jena Malone"
+    },
+    {
+     "id": 1582,
+     "name": "James Duval"
+    },
+    {
+     "id": 69597,
+     "name": "Drew Barrymore"
+    },
+    {
+     "id": 5151,
+     "name": "Beth Grant"
+    }
+   ],
    "suggested_by": [
     "Miguelbnz"
    ],
@@ -3118,14 +3611,38 @@
     "War"
    ],
    "tmdb": "https://www.themoviedb.org/movie/935",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 8.119,
+   "tmdb_votes": 6398,
+   "release_date": "1964-01-29",
+   "language": "en",
+   "countries": [
+    "GB",
+    "US"
+   ],
+   "budget": 1800000,
+   "revenue": 9500000,
+   "cast": [
+    {
+     "id": 12446,
+     "name": "Peter Sellers"
+    },
+    {
+     "id": 862,
+     "name": "George C. Scott"
+    },
+    {
+     "id": 3088,
+     "name": "Sterling Hayden"
+    },
+    {
+     "id": 4966,
+     "name": "Keenan Wynn"
+    },
+    {
+     "id": 14253,
+     "name": "Slim Pickens"
+    }
+   ],
    "suggested_by": [
     "Miguelbnz"
    ],
@@ -3146,14 +3663,37 @@
     "Comedy"
    ],
    "tmdb": "https://www.themoviedb.org/movie/6877",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 5.854,
+   "tmdb_votes": 1871,
+   "release_date": "2006-03-10",
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "budget": 50000000,
+   "revenue": 130224158,
+   "cast": [
+    {
+     "id": 10297,
+     "name": "Matthew McConaughey"
+    },
+    {
+     "id": 520,
+     "name": "Sarah Jessica Parker"
+    },
+    {
+     "id": 11664,
+     "name": "Zooey Deschanel"
+    },
+    {
+     "id": 21180,
+     "name": "Justin Bartha"
+    },
+    {
+     "id": 51329,
+     "name": "Bradley Cooper"
+    }
+   ],
    "suggested_by": [
     "Slader"
    ],
@@ -3175,14 +3715,37 @@
     "Crime"
    ],
    "tmdb": "https://www.themoviedb.org/movie/755",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 7.053,
+   "tmdb_votes": 6751,
+   "release_date": "1996-01-19",
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "budget": 19000000,
+   "revenue": 25800000,
+   "cast": [
+    {
+     "id": 1461,
+     "name": "George Clooney"
+    },
+    {
+     "id": 138,
+     "name": "Quentin Tarantino"
+    },
+    {
+     "id": 1037,
+     "name": "Harvey Keitel"
+    },
+    {
+     "id": 3196,
+     "name": "Juliette Lewis"
+    },
+    {
+     "id": 11158,
+     "name": "Ernest Liu"
+    }
+   ],
    "suggested_by": [
     "Miguelbnz"
    ],
@@ -3204,14 +3767,38 @@
     "Science Fiction"
    ],
    "tmdb": "https://www.themoviedb.org/movie/9323",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 7.9,
+   "tmdb_votes": 4098,
+   "release_date": "1995-11-18",
+   "language": "ja",
+   "countries": [
+    "JP",
+    "GB"
+   ],
+   "budget": 3000000,
+   "revenue": 10000000,
+   "cast": [
+    {
+     "id": 34923,
+     "name": "Atsuko Tanaka"
+    },
+    {
+     "id": 40451,
+     "name": "Akio Otsuka"
+    },
+    {
+     "id": 625,
+     "name": "Iemasa Kayumi"
+    },
+    {
+     "id": 20664,
+     "name": "Koichi Yamadera"
+    },
+    {
+     "id": 83933,
+     "name": "Yutaka Nakano"
+    }
+   ],
    "suggested_by": [
     "Giotara"
    ],
@@ -3232,14 +3819,37 @@
     "Adventure"
    ],
    "tmdb": "https://www.themoviedb.org/movie/11282",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 6.6,
+   "tmdb_votes": 2397,
+   "release_date": "2004-07-02",
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "budget": 9000000,
+   "revenue": 23936908,
+   "cast": [
+    {
+     "id": 68842,
+     "name": "John Cho"
+    },
+    {
+     "id": 53493,
+     "name": "Kal Penn"
+    },
+    {
+     "id": 21124,
+     "name": "Paula Garcés"
+    },
+    {
+     "id": 41686,
+     "name": "Neil Patrick Harris"
+    },
+    {
+     "id": 38582,
+     "name": "David Krumholtz"
+    }
+   ],
    "suggested_by": [
     "Slader"
    ],
@@ -3261,14 +3871,37 @@
     "Drama"
    ],
    "tmdb": "https://www.themoviedb.org/movie/152601",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 7.834,
+   "tmdb_votes": 15730,
+   "release_date": "2013-12-18",
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "budget": 23000000,
+   "revenue": 47351251,
+   "cast": [
+    {
+     "id": 73421,
+     "name": "Joaquin Phoenix"
+    },
+    {
+     "id": 1245,
+     "name": "Scarlett Johansson"
+    },
+    {
+     "id": 549831,
+     "name": "Lynn Adrianna"
+    },
+    {
+     "id": 154798,
+     "name": "Lisa Renee Pitts"
+    },
+    {
+     "id": 1509453,
+     "name": "Gabe Gomez"
+    }
+   ],
    "suggested_by": [
     "Irene_TC"
    ],
@@ -3290,14 +3923,38 @@
     "Thriller"
    ],
    "tmdb": "https://www.themoviedb.org/movie/493922",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 7.296,
+   "tmdb_votes": 8989,
+   "release_date": "2018-06-07",
+   "language": "en",
+   "countries": [
+    "US",
+    "GB"
+   ],
+   "budget": 10000000,
+   "revenue": 87796204,
+   "cast": [
+    {
+     "id": 3051,
+     "name": "Toni Collette"
+    },
+    {
+     "id": 934281,
+     "name": "Alex Wolff"
+    },
+    {
+     "id": 5168,
+     "name": "Gabriel Byrne"
+    },
+    {
+     "id": 1945702,
+     "name": "Milly Shapiro"
+    },
+    {
+     "id": 43366,
+     "name": "Ann Dowd"
+    }
+   ],
    "suggested_by": [
     "Miguelbnz"
    ],
@@ -3319,14 +3976,38 @@
     "Thriller"
    ],
    "tmdb": "https://www.themoviedb.org/movie/6479",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 7.223,
+   "tmdb_votes": 17426,
+   "release_date": "2007-12-12",
+   "language": "en",
+   "countries": [
+    "US",
+    "GB"
+   ],
+   "budget": 150000000,
+   "revenue": 585410052,
+   "cast": [
+    {
+     "id": 2888,
+     "name": "Will Smith"
+    },
+    {
+     "id": 8602,
+     "name": "Alice Braga"
+    },
+    {
+     "id": 49918,
+     "name": "Charlie Tahan"
+    },
+    {
+     "id": 6066,
+     "name": "Dash Mihok"
+    },
+    {
+     "id": 53918,
+     "name": "Salli Richardson-Whitfield"
+    }
+   ],
    "suggested_by": [
     "Slader"
    ],
@@ -3348,14 +4029,38 @@
     "Crime"
    ],
    "tmdb": "https://www.themoviedb.org/movie/8321",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 7.499,
+   "tmdb_votes": 6026,
+   "release_date": "2008-02-08",
+   "language": "en",
+   "countries": [
+    "GB",
+    "US"
+   ],
+   "budget": 15000000,
+   "revenue": 34533783,
+   "cast": [
+    {
+     "id": 72466,
+     "name": "Colin Farrell"
+    },
+    {
+     "id": 2039,
+     "name": "Brendan Gleeson"
+    },
+    {
+     "id": 5469,
+     "name": "Ralph Fiennes"
+    },
+    {
+     "id": 11291,
+     "name": "Clémence Poésy"
+    },
+    {
+     "id": 45749,
+     "name": "Thekla Reuten"
+    }
+   ],
    "suggested_by": [
     "João"
    ],
@@ -3376,14 +4081,37 @@
     "Crime"
    ],
    "tmdb": "https://www.themoviedb.org/movie/25499",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
+   "tmdb_rating": 7.116,
+   "tmdb_votes": 73,
+   "release_date": "1983-08-12",
+   "language": "hi",
+   "countries": [
+    "IN"
+   ],
+   "budget": 14000,
    "revenue": null,
-   "cast": [],
+   "cast": [
+    {
+     "id": 6497,
+     "name": "Naseeruddin Shah"
+    },
+    {
+     "id": 230977,
+     "name": "Ravi Baswani"
+    },
+    {
+     "id": 593020,
+     "name": "Bhakti Barve"
+    },
+    {
+     "id": 35759,
+     "name": "Satish Shah"
+    },
+    {
+     "id": 11851,
+     "name": "Om Puri"
+    }
+   ],
    "suggested_by": [
     "Traff"
    ],
@@ -3407,14 +4135,37 @@
     "Family"
    ],
    "tmdb": "https://www.themoviedb.org/movie/88751",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 6.101,
+   "tmdb_votes": 5329,
+   "release_date": "2008-07-10",
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "budget": 45000000,
+   "revenue": 101702060,
+   "cast": [
+    {
+     "id": 18269,
+     "name": "Brendan Fraser"
+    },
+    {
+     "id": 27972,
+     "name": "Josh Hutcherson"
+    },
+    {
+     "id": 70785,
+     "name": "Anita Briem"
+    },
+    {
+     "id": 62856,
+     "name": "Seth Meyers"
+    },
+    {
+     "id": 70786,
+     "name": "Jean Michel Paré"
+    }
+   ],
    "suggested_by": [
     "Shaggy"
    ],
@@ -3435,14 +4186,37 @@
     "Drama"
    ],
    "tmdb": "https://www.themoviedb.org/movie/773",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 7.69,
+   "tmdb_votes": 8132,
+   "release_date": "2006-07-26",
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "budget": 8000000,
+   "revenue": 100523351,
+   "cast": [
+    {
+     "id": 17141,
+     "name": "Greg Kinnear"
+    },
+    {
+     "id": 3051,
+     "name": "Toni Collette"
+    },
+    {
+     "id": 4495,
+     "name": "Steve Carell"
+    },
+    {
+     "id": 17142,
+     "name": "Paul Dano"
+    },
+    {
+     "id": 17140,
+     "name": "Abigail Breslin"
+    }
+   ],
    "suggested_by": [
     "Irene_TC"
    ],
@@ -3464,14 +4238,38 @@
     "Adventure"
    ],
    "tmdb": "https://www.themoviedb.org/movie/696506",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 6.817,
+   "tmdb_votes": 4073,
+   "release_date": "2025-02-28",
+   "language": "en",
+   "countries": [
+    "US",
+    "GB"
+   ],
+   "budget": 118000000,
+   "revenue": 133542263,
+   "cast": [
+    {
+     "id": 11288,
+     "name": "Robert Pattinson"
+    },
+    {
+     "id": 1537686,
+     "name": "Naomi Ackie"
+    },
+    {
+     "id": 215055,
+     "name": "Steven Yeun"
+    },
+    {
+     "id": 103,
+     "name": "Mark Ruffalo"
+    },
+    {
+     "id": 3051,
+     "name": "Toni Collette"
+    }
+   ],
    "suggested_by": [
     "Fili"
    ],
@@ -3493,14 +4291,39 @@
     "Romance"
    ],
    "tmdb": "https://www.themoviedb.org/movie/59436",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 7.51,
+   "tmdb_votes": 7932,
+   "release_date": "2011-05-11",
+   "language": "en",
+   "countries": [
+    "FR",
+    "ES",
+    "US"
+   ],
+   "budget": 17000000,
+   "revenue": 151119219,
+   "cast": [
+    {
+     "id": 887,
+     "name": "Owen Wilson"
+    },
+    {
+     "id": 53714,
+     "name": "Rachel McAdams"
+    },
+    {
+     "id": 8534,
+     "name": "Kathy Bates"
+    },
+    {
+     "id": 29685,
+     "name": "Kurt Fuller"
+    },
+    {
+     "id": 3490,
+     "name": "Adrien Brody"
+    }
+   ],
    "suggested_by": [
     "João"
    ],
@@ -3520,14 +4343,38 @@
     "Drama"
    ],
    "tmdb": "https://www.themoviedb.org/movie/70",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 7.952,
+   "tmdb_votes": 10656,
+   "release_date": "2004-12-05",
+   "language": "en",
+   "countries": [
+    "US",
+    "CH"
+   ],
+   "budget": 30000000,
+   "revenue": 216763646,
+   "cast": [
+    {
+     "id": 190,
+     "name": "Clint Eastwood"
+    },
+    {
+     "id": 448,
+     "name": "Hilary Swank"
+    },
+    {
+     "id": 192,
+     "name": "Morgan Freeman"
+    },
+    {
+     "id": 449,
+     "name": "Jay Baruchel"
+    },
+    {
+     "id": 450,
+     "name": "Mike Colter"
+    }
+   ],
    "suggested_by": [
     "Miguelbnz"
    ],
@@ -3549,14 +4396,37 @@
     "Fantasy"
    ],
    "tmdb": "https://www.themoviedb.org/movie/762",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 7.8,
+   "tmdb_votes": 6661,
+   "release_date": "1975-04-03",
+   "language": "en",
+   "countries": [
+    "GB"
+   ],
+   "budget": 400000,
+   "revenue": 5763644,
+   "cast": [
+    {
+     "id": 10722,
+     "name": "Graham Chapman"
+    },
+    {
+     "id": 8930,
+     "name": "John Cleese"
+    },
+    {
+     "id": 10713,
+     "name": "Eric Idle"
+    },
+    {
+     "id": 280,
+     "name": "Terry Gilliam"
+    },
+    {
+     "id": 10707,
+     "name": "Terry Jones"
+    }
+   ],
    "suggested_by": [
     "Toni"
    ],
@@ -3578,14 +4448,38 @@
     "Comedy"
    ],
    "tmdb": "https://www.themoviedb.org/movie/1593",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 6.601,
+   "tmdb_votes": 11278,
+   "release_date": "2006-12-20",
+   "language": "en",
+   "countries": [
+    "US",
+    "GB"
+   ],
+   "budget": 110000000,
+   "revenue": 574480841,
+   "cast": [
+    {
+     "id": 7399,
+     "name": "Ben Stiller"
+    },
+    {
+     "id": 17832,
+     "name": "Carla Gugino"
+    },
+    {
+     "id": 61303,
+     "name": "Dick Van Dyke"
+    },
+    {
+     "id": 1937,
+     "name": "Mickey Rooney"
+    },
+    {
+     "id": 8854,
+     "name": "Bill Cobbs"
+    }
+   ],
    "suggested_by": [
     "Shaggy"
    ],
@@ -3610,14 +4504,38 @@
     "Action"
    ],
    "tmdb": "https://www.themoviedb.org/movie/961323",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
+   "tmdb_rating": 7.849,
+   "tmdb_votes": 1519,
+   "release_date": "2023-06-23",
+   "language": "en",
+   "countries": [
+    "US",
+    "GB"
+   ],
    "budget": null,
    "revenue": null,
-   "cast": [],
+   "cast": [
+    {
+     "id": 56734,
+     "name": "Chloë Grace Moretz"
+    },
+    {
+     "id": 53240,
+     "name": "Riz Ahmed"
+    },
+    {
+     "id": 1745968,
+     "name": "Eugene Lee Yang"
+    },
+    {
+     "id": 4432,
+     "name": "Frances Conroy"
+    },
+    {
+     "id": 81726,
+     "name": "Lorraine Toussaint"
+    }
+   ],
    "suggested_by": [
     "Shaggy"
    ],
@@ -3638,14 +4556,38 @@
     "Drama"
    ],
    "tmdb": "https://www.themoviedb.org/movie/5924",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 7.825,
+   "tmdb_votes": 2206,
+   "release_date": "1973-12-16",
+   "language": "en",
+   "countries": [
+    "US",
+    "FR"
+   ],
+   "budget": 12000000,
+   "revenue": 53267000,
+   "cast": [
+    {
+     "id": 13565,
+     "name": "Steve McQueen"
+    },
+    {
+     "id": 4483,
+     "name": "Dustin Hoffman"
+    },
+    {
+     "id": 15666,
+     "name": "Victor Jory"
+    },
+    {
+     "id": 14062,
+     "name": "Don Gordon"
+    },
+    {
+     "id": 2516,
+     "name": "Anthony Zerbe"
+    }
+   ],
    "suggested_by": [
     "Malhas"
    ],
@@ -3667,14 +4609,37 @@
     "Thriller"
    ],
    "tmdb": "https://www.themoviedb.org/movie/4977",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 7.812,
+   "tmdb_votes": 3025,
+   "release_date": "2006-10-01",
+   "language": "ja",
+   "countries": [
+    "JP"
+   ],
+   "budget": 2600000,
+   "revenue": 946590,
+   "cast": [
+    {
+     "id": 40325,
+     "name": "Megumi Hayashibara"
+    },
+    {
+     "id": 40330,
+     "name": "Tohru Emori"
+    },
+    {
+     "id": 40329,
+     "name": "Katsunosuke Hori"
+    },
+    {
+     "id": 40327,
+     "name": "Toru Furuya"
+    },
+    {
+     "id": 40451,
+     "name": "Akio Otsuka"
+    }
+   ],
    "suggested_by": [
     "Giotara"
    ],
@@ -3696,14 +4661,37 @@
     "Drama"
    ],
    "tmdb": "https://www.themoviedb.org/movie/496243",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 8.5,
+   "tmdb_votes": 21478,
+   "release_date": "2019-05-30",
+   "language": "ko",
+   "countries": [
+    "KR"
+   ],
+   "budget": 11363000,
+   "revenue": 257591776,
+   "cast": [
+    {
+     "id": 20738,
+     "name": "Song Kang-ho"
+    },
+    {
+     "id": 115290,
+     "name": "Lee Sun-kyun"
+    },
+    {
+     "id": 556435,
+     "name": "Cho Yeo-jeong"
+    },
+    {
+     "id": 1255881,
+     "name": "Choi Woo-shik"
+    },
+    {
+     "id": 1442583,
+     "name": "Park So-dam"
+    }
+   ],
    "suggested_by": [
     "Slader"
    ],
@@ -3724,14 +4712,38 @@
     "Romance"
    ],
    "tmdb": "https://www.themoviedb.org/movie/666277",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 7.7,
+   "tmdb_votes": 2499,
+   "release_date": "2023-06-02",
+   "language": "en",
+   "countries": [
+    "US",
+    "KR"
+   ],
+   "budget": 12000000,
+   "revenue": 28126646,
+   "cast": [
+    {
+     "id": 1260481,
+     "name": "Greta Lee"
+    },
+    {
+     "id": 1387126,
+     "name": "Teo Yoo"
+    },
+    {
+     "id": 37154,
+     "name": "John Magaro"
+    },
+    {
+     "id": 2309873,
+     "name": "Moon Seung-ah"
+    },
+    {
+     "id": 3888559,
+     "name": "Leem Seung-min"
+    }
+   ],
    "suggested_by": [
     "Irene_TC"
    ],
@@ -3752,14 +4764,37 @@
     "Thriller"
    ],
    "tmdb": "https://www.themoviedb.org/movie/10494",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 8.3,
+   "tmdb_votes": 3396,
+   "release_date": "1998-02-28",
+   "language": "ja",
+   "countries": [
+    "JP"
+   ],
+   "budget": 830442,
+   "revenue": 2743097,
+   "cast": [
+    {
+     "id": 65437,
+     "name": "Junko Iwao"
+    },
+    {
+     "id": 65424,
+     "name": "Rica Matsumoto"
+    },
+    {
+     "id": 65438,
+     "name": "Shinpachi Tsuji"
+    },
+    {
+     "id": 1685,
+     "name": "Masaaki Okura"
+    },
+    {
+     "id": 84509,
+     "name": "Yosuke Akimoto"
+    }
+   ],
    "suggested_by": [
     "Giotara"
    ],
@@ -3781,14 +4816,37 @@
     "Action"
    ],
    "tmdb": "https://www.themoviedb.org/movie/58",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 7.4,
+   "tmdb_votes": 17697,
+   "release_date": "2006-07-06",
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "budget": 200000000,
+   "revenue": 1066179747,
+   "cast": [
+    {
+     "id": 85,
+     "name": "Johnny Depp"
+    },
+    {
+     "id": 114,
+     "name": "Orlando Bloom"
+    },
+    {
+     "id": 116,
+     "name": "Keira Knightley"
+    },
+    {
+     "id": 1709,
+     "name": "Jack Davenport"
+    },
+    {
+     "id": 2440,
+     "name": "Bill Nighy"
+    }
+   ],
    "suggested_by": [
     "Toni"
    ],
@@ -3810,14 +4868,37 @@
     "Drama"
    ],
    "tmdb": "https://www.themoviedb.org/movie/2657",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 7.3,
+   "tmdb_votes": 1980,
+   "release_date": "1998-09-17",
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "budget": 60000000,
+   "revenue": 49800000,
+   "cast": [
+    {
+     "id": 2219,
+     "name": "Tobey Maguire"
+    },
+    {
+     "id": 368,
+     "name": "Reese Witherspoon"
+    },
+    {
+     "id": 3905,
+     "name": "William H. Macy"
+    },
+    {
+     "id": 11148,
+     "name": "Joan Allen"
+    },
+    {
+     "id": 8447,
+     "name": "Jeff Daniels"
+    }
+   ],
    "suggested_by": [
     "João"
    ],
@@ -3838,14 +4919,37 @@
     "Action"
    ],
    "tmdb": "https://www.themoviedb.org/movie/85",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 7.9,
+   "tmdb_votes": 14096,
+   "release_date": "1981-06-12",
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "budget": 18000000,
+   "revenue": 389925971,
+   "cast": [
+    {
+     "id": 3,
+     "name": "Harrison Ford"
+    },
+    {
+     "id": 650,
+     "name": "Karen Allen"
+    },
+    {
+     "id": 652,
+     "name": "Paul Freeman"
+    },
+    {
+     "id": 655,
+     "name": "John Rhys-Davies"
+    },
+    {
+     "id": 653,
+     "name": "Ronald Lacey"
+    }
+   ],
    "suggested_by": [
     "Giotara"
    ],
@@ -3869,14 +4973,37 @@
     "Adventure"
    ],
    "tmdb": "https://www.themoviedb.org/movie/44896",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 6.922,
+   "tmdb_votes": 7366,
+   "release_date": "2011-03-02",
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "budget": 135000000,
+   "revenue": 245724603,
+   "cast": [
+    {
+     "id": 85,
+     "name": "Johnny Depp"
+    },
+    {
+     "id": 52848,
+     "name": "Isla Fisher"
+    },
+    {
+     "id": 13726,
+     "name": "Ned Beatty"
+    },
+    {
+     "id": 2440,
+     "name": "Bill Nighy"
+    },
+    {
+     "id": 17140,
+     "name": "Abigail Breslin"
+    }
+   ],
    "suggested_by": [
     "Toni"
    ],
@@ -3897,14 +5024,37 @@
     "Drama"
    ],
    "tmdb": "https://www.themoviedb.org/movie/641",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 8.005,
+   "tmdb_votes": 11381,
+   "release_date": "2000-10-06",
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "budget": 4500000,
+   "revenue": 7390108,
+   "cast": [
+    {
+     "id": 9560,
+     "name": "Ellen Burstyn"
+    },
+    {
+     "id": 7499,
+     "name": "Jared Leto"
+    },
+    {
+     "id": 6161,
+     "name": "Jennifer Connelly"
+    },
+    {
+     "id": 9562,
+     "name": "Marlon Wayans"
+    },
+    {
+     "id": 4443,
+     "name": "Christopher McDonald"
+    }
+   ],
    "suggested_by": [
     "Miguelbnz"
    ],
@@ -3927,14 +5077,38 @@
     "Mystery"
    ],
    "tmdb": "https://www.themoviedb.org/movie/10851",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 6.36,
+   "tmdb_votes": 1643,
+   "release_date": "2005-09-11",
+   "language": "en",
+   "countries": [
+    "FR",
+    "GB"
+   ],
+   "budget": 27000000,
+   "revenue": 7164778,
+   "cast": [
+    {
+     "id": 976,
+     "name": "Jason Statham"
+    },
+    {
+     "id": 11477,
+     "name": "Ray Liotta"
+    },
+    {
+     "id": 47774,
+     "name": "Vincent Pastore"
+    },
+    {
+     "id": 37934,
+     "name": "André 3000"
+    },
+    {
+     "id": 67205,
+     "name": "Terence Maynard"
+    }
+   ],
    "suggested_by": [
     "Malhas"
    ],
@@ -3957,14 +5131,37 @@
     "Mystery"
    ],
    "tmdb": "https://www.themoviedb.org/movie/45752",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
+   "tmdb_rating": 7.7,
+   "tmdb_votes": 352,
+   "release_date": "2010-09-14",
+   "language": "en",
+   "countries": [
+    "US"
+   ],
    "budget": null,
    "revenue": null,
-   "cast": [],
+   "cast": [
+    {
+     "id": 15831,
+     "name": "Frank Welker"
+    },
+    {
+     "id": 86314,
+     "name": "Mindy Cohn"
+    },
+    {
+     "id": 26457,
+     "name": "Matthew Lillard"
+    },
+    {
+     "id": 15761,
+     "name": "Grey DeLisle"
+    },
+    {
+     "id": 23680,
+     "name": "Dee Bradley Baker"
+    }
+   ],
    "suggested_by": [
     "Shaggy"
    ],
@@ -3989,14 +5186,37 @@
     "Science Fiction"
    ],
    "tmdb": "https://www.themoviedb.org/movie/302960",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
+   "tmdb_rating": 7.6,
+   "tmdb_votes": 185,
+   "release_date": "2015-02-03",
+   "language": "en",
+   "countries": [
+    "US"
+   ],
    "budget": null,
    "revenue": null,
-   "cast": [],
+   "cast": [
+    {
+     "id": 15831,
+     "name": "Frank Welker"
+    },
+    {
+     "id": 26457,
+     "name": "Matthew Lillard"
+    },
+    {
+     "id": 15761,
+     "name": "Grey DeLisle"
+    },
+    {
+     "id": 86314,
+     "name": "Mindy Cohn"
+    },
+    {
+     "id": 2,
+     "name": "Mark Hamill"
+    }
+   ],
    "suggested_by": [
     "Shaggy"
    ],
@@ -4018,14 +5238,37 @@
     "Thriller"
    ],
    "tmdb": "https://www.themoviedb.org/movie/819",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 7.602,
+   "tmdb_votes": 4074,
+   "release_date": "1996-10-18",
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "budget": 44000000,
+   "revenue": 165600000,
+   "cast": [
+    {
+     "id": 4724,
+     "name": "Kevin Bacon"
+    },
+    {
+     "id": 380,
+     "name": "Robert De Niro"
+    },
+    {
+     "id": 4483,
+     "name": "Dustin Hoffman"
+    },
+    {
+     "id": 9257,
+     "name": "Bruno Kirby"
+    },
+    {
+     "id": 12261,
+     "name": "Jason Patric"
+    }
+   ],
    "suggested_by": [
     "Slader"
    ],
@@ -4046,14 +5289,37 @@
     "Comedy"
    ],
    "tmdb": "https://www.themoviedb.org/movie/107",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 7.831,
+   "tmdb_votes": 10368,
+   "release_date": "2000-09-01",
+   "language": "en",
+   "countries": [
+    "GB"
+   ],
+   "budget": 100000000,
+   "revenue": 83557872,
+   "cast": [
+    {
+     "id": 976,
+     "name": "Jason Statham"
+    },
+    {
+     "id": 1116,
+     "name": "Alan Ford"
+    },
+    {
+     "id": 1115,
+     "name": "Stephen Graham"
+    },
+    {
+     "id": 287,
+     "name": "Brad Pitt"
+    },
+    {
+     "id": 1117,
+     "name": "Dennis Farina"
+    }
+   ],
    "suggested_by": [
     "Toni"
    ],
@@ -4074,14 +5340,38 @@
     "Adventure"
    ],
    "tmdb": "https://www.themoviedb.org/movie/38985",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 7.464,
+   "tmdb_votes": 711,
+   "release_date": "1977-06-24",
+   "language": "en",
+   "countries": [
+    "US",
+    "MX"
+   ],
+   "budget": 22000000,
+   "revenue": 9000000,
+   "cast": [
+    {
+     "id": 6355,
+     "name": "Roy Scheider"
+    },
+    {
+     "id": 32364,
+     "name": "Bruno Cremer"
+    },
+    {
+     "id": 9768,
+     "name": "Francisco Rabal"
+    },
+    {
+     "id": 20115,
+     "name": "Amidou"
+    },
+    {
+     "id": 33060,
+     "name": "Ramon Bieri"
+    }
+   ],
    "suggested_by": [
     "Traff"
    ],
@@ -4102,14 +5392,37 @@
     "History"
    ],
    "tmdb": "https://www.themoviedb.org/movie/314365",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 7.811,
+   "tmdb_votes": 9026,
+   "release_date": "2015-11-06",
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "budget": 20000000,
+   "revenue": 98690254,
+   "cast": [
+    {
+     "id": 103,
+     "name": "Mark Ruffalo"
+    },
+    {
+     "id": 2232,
+     "name": "Michael Keaton"
+    },
+    {
+     "id": 53714,
+     "name": "Rachel McAdams"
+    },
+    {
+     "id": 23626,
+     "name": "Liev Schreiber"
+    },
+    {
+     "id": 21134,
+     "name": "John Slattery"
+    }
+   ],
    "suggested_by": [
     "Toni"
    ],
@@ -4132,14 +5445,37 @@
     "Crime"
    ],
    "tmdb": "https://www.themoviedb.org/movie/432011",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
+   "tmdb_rating": 7.7,
+   "tmdb_votes": 147,
+   "release_date": "2019-03-29",
+   "language": "ta",
+   "countries": [
+    "IN"
+   ],
+   "budget": 1539980,
    "revenue": null,
-   "cast": [],
+   "cast": [
+    {
+     "id": 1123766,
+     "name": "Vijay Sethupathi"
+    },
+    {
+     "id": 1072750,
+     "name": "Fahadh Faasil"
+    },
+    {
+     "id": 225312,
+     "name": "Samantha Ruth Prabhu"
+    },
+    {
+     "id": 141701,
+     "name": "Ramya Krishnan"
+    },
+    {
+     "id": 560039,
+     "name": "Mysskin"
+    }
+   ],
    "suggested_by": [
     "Traff"
    ],
@@ -4161,14 +5497,41 @@
     "History"
    ],
    "tmdb": "https://www.themoviedb.org/movie/402897",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 7.016,
+   "tmdb_votes": 2261,
+   "release_date": "2017-10-20",
+   "language": "en",
+   "countries": [
+    "BE",
+    "CA",
+    "FR",
+    "GB",
+    "US"
+   ],
+   "budget": 13000000,
+   "revenue": 24600000,
+   "cast": [
+    {
+     "id": 884,
+     "name": "Steve Buscemi"
+    },
+    {
+     "id": 57461,
+     "name": "Simon Russell Beale"
+    },
+    {
+     "id": 4175,
+     "name": "Jeffrey Tambor"
+    },
+    {
+     "id": 11355,
+     "name": "Jason Isaacs"
+    },
+    {
+     "id": 383,
+     "name": "Michael Palin"
+    }
+   ],
    "suggested_by": [
     "Toni"
    ],
@@ -4188,14 +5551,37 @@
     "Horror"
    ],
    "tmdb": "https://www.themoviedb.org/movie/9552",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 7.749,
+   "tmdb_votes": 8932,
+   "release_date": "1973-12-26",
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "budget": 11000000,
+   "revenue": 430872776,
+   "cast": [
+    {
+     "id": 9560,
+     "name": "Ellen Burstyn"
+    },
+    {
+     "id": 37366,
+     "name": "Linda Blair"
+    },
+    {
+     "id": 21736,
+     "name": "Jason Miller"
+    },
+    {
+     "id": 2201,
+     "name": "Max von Sydow"
+    },
+    {
+     "id": 5248,
+     "name": "Lee J. Cobb"
+    }
+   ],
    "suggested_by": [
     "Miguelbnz"
    ],
@@ -4217,14 +5603,37 @@
     "Drama"
    ],
    "tmdb": "https://www.themoviedb.org/movie/14784",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 7.6,
+   "tmdb_votes": 1633,
+   "release_date": "2008-01-03",
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "budget": 30000000,
+   "revenue": 3984390,
+   "cast": [
+    {
+     "id": 72095,
+     "name": "Lee Pace"
+    },
+    {
+     "id": 42705,
+     "name": "Justine Waddell"
+    },
+    {
+     "id": 19875,
+     "name": "Daniel Caltagirone"
+    },
+    {
+     "id": 29237,
+     "name": "Leo Bill"
+    },
+    {
+     "id": 77292,
+     "name": "Sean Gilder"
+    }
+   ],
    "suggested_by": [
     "Traff"
    ],
@@ -4245,14 +5654,37 @@
     "Comedy"
    ],
    "tmdb": "https://www.themoviedb.org/movie/840430",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 7.644,
+   "tmdb_votes": 2719,
+   "release_date": "2023-10-27",
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "budget": 13000000,
+   "revenue": 42513270,
+   "cast": [
+    {
+     "id": 13242,
+     "name": "Paul Giamatti"
+    },
+    {
+     "id": 3918497,
+     "name": "Dominic Sessa"
+    },
+    {
+     "id": 1180099,
+     "name": "Da'Vine Joy Randolph"
+    },
+    {
+     "id": 7465,
+     "name": "Carrie Preston"
+    },
+    {
+     "id": 3013234,
+     "name": "Brady Hepner"
+    }
+   ],
    "suggested_by": [
     "Irene_TC"
    ],
@@ -4274,14 +5706,37 @@
     "Fantasy"
    ],
    "tmdb": "https://www.themoviedb.org/movie/564",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 7.0,
+   "tmdb_votes": 10482,
+   "release_date": "1999-04-16",
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "budget": 80000000,
+   "revenue": 415885488,
+   "cast": [
+    {
+     "id": 18269,
+     "name": "Brendan Fraser"
+    },
+    {
+     "id": 3293,
+     "name": "Rachel Weisz"
+    },
+    {
+     "id": 10727,
+     "name": "John Hannah"
+    },
+    {
+     "id": 16743,
+     "name": "Arnold Vosloo"
+    },
+    {
+     "id": 18920,
+     "name": "Patricia Velásquez"
+    }
+   ],
    "suggested_by": [
     "Giotara"
    ],
@@ -4302,14 +5757,37 @@
     "Drama"
    ],
    "tmdb": "https://www.themoviedb.org/movie/594",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 7.356,
+   "tmdb_votes": 9029,
+   "release_date": "2004-06-17",
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "budget": 60000000,
+   "revenue": 219417255,
+   "cast": [
+    {
+     "id": 31,
+     "name": "Tom Hanks"
+    },
+    {
+     "id": 1922,
+     "name": "Catherine Zeta-Jones"
+    },
+    {
+     "id": 2283,
+     "name": "Stanley Tucci"
+    },
+    {
+     "id": 8687,
+     "name": "Chi McBride"
+    },
+    {
+     "id": 8688,
+     "name": "Diego Luna"
+    }
+   ],
    "suggested_by": [
     "Irene_TC"
    ],
@@ -4331,14 +5809,37 @@
     "Thriller"
    ],
    "tmdb": "https://www.themoviedb.org/movie/629",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 8.162,
+   "tmdb_votes": 11840,
+   "release_date": "1995-07-19",
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "budget": 6000000,
+   "revenue": 23300000,
+   "cast": [
+    {
+     "id": 9045,
+     "name": "Stephen Baldwin"
+    },
+    {
+     "id": 5168,
+     "name": "Gabriel Byrne"
+    },
+    {
+     "id": 1121,
+     "name": "Benicio del Toro"
+    },
+    {
+     "id": 7166,
+     "name": "Kevin Pollak"
+    },
+    {
+     "id": 1979,
+     "name": "Kevin Spacey"
+    }
+   ],
    "suggested_by": [
     "Malhas"
    ],
@@ -4359,14 +5860,38 @@
     "Horror"
    ],
    "tmdb": "https://www.themoviedb.org/movie/538858",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
+   "tmdb_rating": 7.605,
+   "tmdb_votes": 368,
+   "release_date": "2018-10-12",
+   "language": "hi",
+   "countries": [
+    "IN",
+    "SE"
+   ],
    "budget": null,
    "revenue": null,
-   "cast": [],
+   "cast": [
+    {
+     "id": 1061615,
+     "name": "Sohum Shah"
+    },
+    {
+     "id": 1784261,
+     "name": "Mohammad Samad"
+    },
+    {
+     "id": 4524739,
+     "name": "Harsh K."
+    },
+    {
+     "id": 2094970,
+     "name": "Jyoti Malshe"
+    },
+    {
+     "id": 2094971,
+     "name": "Dhundiraj Prabhakar Jogalekar"
+    }
+   ],
    "suggested_by": [
     "Traff"
    ],
@@ -4386,14 +5911,37 @@
     "Western"
    ],
    "tmdb": "https://www.themoviedb.org/movie/33",
-   "tmdb_rating": null,
-   "tmdb_votes": null,
-   "release_date": null,
-   "language": null,
-   "countries": [],
-   "budget": null,
-   "revenue": null,
-   "cast": [],
+   "tmdb_rating": 7.913,
+   "tmdb_votes": 5155,
+   "release_date": "1992-08-07",
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "budget": 14400000,
+   "revenue": 159157447,
+   "cast": [
+    {
+     "id": 190,
+     "name": "Clint Eastwood"
+    },
+    {
+     "id": 193,
+     "name": "Gene Hackman"
+    },
+    {
+     "id": 192,
+     "name": "Morgan Freeman"
+    },
+    {
+     "id": 3710,
+     "name": "Jaimz Woolvett"
+    },
+    {
+     "id": 194,
+     "name": "Richard Harris"
+    }
+   ],
    "suggested_by": [
     "Slader"
    ],
