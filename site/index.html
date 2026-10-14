@@ -176,6 +176,16 @@
         </div>
       </div>
 
+      <div class="sgrid two">
+        <div class="chart-card sc"><h2>Obscurity</h2><p class="hint">How well known a movie is: how many people have rated it on TMDB. <span id="obscure-sum"></span></p>
+          <div class="sgrid inner">
+            <div><h3 class="sub-h">Most obscure</h3><ol id="obscure-lo" class="rank sm"></ol></div>
+            <div><h3 class="sub-h">Best known</h3><ol id="obscure-hi" class="rank sm"></ol></div>
+          </div>
+        </div>
+        <div class="chart-card sc"><h2>Who digs deepest</h2><p class="hint">The typical (median) number of TMDB votes on each person's picks, watched or still on the Movie List. Fewer votes: more obscure taste. People with 3+ picks.</p><ol id="diggers" class="rank sm"></ol></div>
+      </div>
+
       <div class="sgrid three">
         <div class="chart-card sc"><h2>By month</h2><p class="hint">When we watched it. Bar: average score, 5 to 10.</p><div class="tbl-wrap"><table id="months" class="tbl"></table></div></div>
         <div class="chart-card sc"><h2>By day</h2><p class="hint">Mostly Tuesdays, plus the odd moved night.</p><div class="tbl-wrap"><table id="weekdays" class="tbl"></table></div></div>

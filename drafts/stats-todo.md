@@ -37,7 +37,7 @@ Stats tiles, α vs ω scoreboard, scorecard table, top/lowest rated, records, by
 - [x] **12. Countries and languages** 🎬: world map or table of where our movies come from, and how many weren't in English.
 - [x] **13. Actors** 🎬: actors we've seen most often, and actors who connect two of our movies.
 - [x] **14. Budget and box office** 🎬: cheapest and most expensive, total budget watched, and whether bigger budgets get better scores from us.
-- [ ] **15. Obscurity** 🎬: how well known each movie is (TMDB vote count). Most obscure pick, and who suggests the most obscure stuff.
+- [x] **15. Obscurity** 🎬: how well known each movie is (TMDB vote count). Most obscure pick, and who suggests the most obscure stuff.
 - [ ] **16. Rating speed** 🤖: who rates first and who rates last after a movie. Only works from now on (imported scores have no real time); the export needs each rating's `created_at`.
 - [ ] **17. Remarks** ✅: who writes the most and the longest remarks, plus the shortest and longest ever.
 - [ ] **18. Scatter charts** ✅: score against runtime and score against release year, one dot per movie.

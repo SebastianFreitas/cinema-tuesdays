@@ -1046,6 +1046,25 @@ function renderBudgets() {
   $("#budget-lo").innerHTML = sorted.slice(-5).reverse().map(li).join("");
 }
 
+// Obscurity: TMDB vote count as a measure of how well known a movie is
+const votes = (n) => `${Number(n).toLocaleString("en-GB")} ${n === 1 ? "vote" : "votes"}`;
+
+function renderObscurity() {
+  const ms = closedMovies().filter((m) => m.tmdb_votes != null).sort((a, b) => a.tmdb_votes - b.tmdb_votes);
+  const li = (m) => `<li data-movie="${m.id}"><div>${esc(m.title)}<div class="sub">${votes(m.tmdb_votes)}${m.suggested_by?.length ? ` · ${esc(m.suggested_by.join(", "))}` : ""}</div></div>
+      <span class="v">${fmt(m.avg, 2)}</span></li>`;
+  $("#obscure-lo").innerHTML = ms.slice(0, 5).map(li).join("") || `<p class="empty">No TMDB data yet.</p>`;
+  $("#obscure-hi").innerHTML = ms.slice(-5).reverse().map(li).join("");
+  $("#obscure-sum").textContent = ms.length ? `Typical movie: ${votes(Math.round(median(ms.map((m) => m.tmdb_votes))))}.` : "";
+  // every pick a person made: watched (closed) or still on the Movie List
+  const by = new Map();
+  [...closedMovies(), ...DATA.suggestions].filter((m) => m.tmdb_votes != null)
+    .forEach((m) => (m.suggested_by || []).forEach((p) => by.set(p, [...(by.get(p) || []), m.tmdb_votes])));
+  const rows = [...by].filter(([, v]) => v.length >= 3).map(([name, v]) => ({ name, n: v.length, med: median(v) })).sort((a, b) => a.med - b.med);
+  $("#diggers").innerHTML = rows.map((r) => `<li><div>${personLink(r.name)}<div class="sub">${plural(r.n, "pick")}</div></div>
+      <span class="v">${Math.round(r.med).toLocaleString("en-GB")}</span></li>`).join("") || `<p class="empty">Needs people with 3+ picks.</p>`;
+}
+
 // When we watched (month, weekday) and how long the movie is, closed movies only. Reuses groupTable.
 function renderWhen() {
   const add = (map, k, m) => map.set(k, [...(map.get(k) || []), m]);
@@ -1285,7 +1304,7 @@ function renderPairs() {
 }
 
 function renderStats() {
-  renderKpis(); renderGroups(); renderScorecard(); renderTopBottom(); renderRecords(); renderFair(); renderWorld(); renderGenres(); renderAges(); renderOrigins(); renderActors(); renderBudgets(); renderWhen(); renderPairs(); renderRanks(); renderWolves(); renderConsensus(); renderHabits();
+  renderKpis(); renderGroups(); renderScorecard(); renderTopBottom(); renderRecords(); renderFair(); renderWorld(); renderGenres(); renderAges(); renderOrigins(); renderActors(); renderBudgets(); renderObscurity(); renderWhen(); renderPairs(); renderRanks(); renderWolves(); renderConsensus(); renderHabits();
   const sortBy = (th) => {
     const k = th.dataset.sort;
     scoreSort = { key: k, dir: scoreSort.key === k ? -scoreSort.dir : (k === "name" ? 1 : -1) };
