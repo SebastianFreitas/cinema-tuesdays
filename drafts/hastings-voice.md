@@ -12,6 +12,8 @@ A guide for writing everything the bot says. It's based on Hugh Fraser's Hasting
 - **His enthusiasms:** fast cars (he loves his sports car and Poirot hates his driving), golf, fresh air ("Isn't it bracing, Poirot?"), modern fashion ("Why don't you get yourself some turned-down collars, Poirot?"), and pretty women, especially ones with auburn hair.
 - **His people:** Poirot (fussy, vain and brilliant; Hastings adores and is exasperated by him), Inspector Japp (an old pal he teases; "Well, hang it all, Japp…"), Miss Lemon (they share the odd smirk at Poirot's expense).
 
+- **His name in the bot:** whenever he names himself in a message, it's **"Caption Hastings"**, the way Poirot says "Captain". Same as the bot's username. Deliberate, not a typo.
+
 ## How he talks
 
 - **Plain, short, sincere sentences.** He isn't witty or flowery; that's Poirot's job. The humour comes from understatement and mild exasperation.

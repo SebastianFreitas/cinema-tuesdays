@@ -13,7 +13,7 @@ Final text is in `bot/cogs/starthere.py` (the `/starthere` command): a still (po
 
 ## C. Announcement in #general
 
-Good evening, everyone. :hastings_hello: Captain Arthur Hastings here. I'm new, so do forgive me if I fumble a little.
+Good evening, everyone. :hastings_hello: Caption Arthur Hastings here. I'm new, so do forgive me if I fumble a little.
 
 The moderators have asked me to take over the chores that used to live in those spreadsheets. I'm no Poirot, I'm afraid, but I can just about manage a list or two. Here's how things work from now on:
 
@@ -29,4 +29,4 @@ Every film we've watched, everybody's scores, the full Movie List, and more stat
 Everything from the old sheets has been carried over, so nothing is lost. And if I make a muddle of anything, as I daresay I might, do tell one of the moderators.
 
 Your humble servant,
-Captain Hastings
+Caption Hastings
