@@ -251,6 +251,8 @@ img.avatar { object-fit: cover; padding: 0; }
 .chart .line { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linejoin: round; }
 .chart .dot { fill: var(--accent); stroke: var(--surface); stroke-width: 2; }
 .chart .dot.hot { fill: #fff; }
+.chart .roll { fill: none; stroke: var(--pos); stroke-width: 2.5; stroke-linejoin: round; opacity: .85; }
+.chart text .pos { fill: var(--pos); } .chart text .neg { fill: var(--neg); }
 .chart .mean { stroke: var(--muted); stroke-dasharray: 4 4; }
 .chart .cross { stroke: var(--muted); stroke-width: 1; }
 .chart .cell { stroke: var(--surface); stroke-width: 2; }

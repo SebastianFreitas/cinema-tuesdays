@@ -662,12 +662,21 @@ function renderTimeline() {
   body += `<line class="mean" x1="${L}" x2="${W - R}" y1="${y(avg)}" y2="${y(avg)}"/>
     <text x="${W - R}" y="${T - 8}" text-anchor="end" style="fill:var(--text)">dashed: per movie ${fmt(avg, 2)}</text>`;
   body += `<path class="line" d="${pts.map((p, i) => `${i ? "L" : "M"}${x(p.t)},${y(p.v)}`).join("")}"/>`;
+  // rolling average of the last 5 closed movies (the one still being rated is left out)
+  const shut = pts.filter((p) => !isOpen(p.m));
+  const roll = shut.map((p, i) => ({ p, v: mean(shut.slice(Math.max(0, i - 4), i + 1).map((q) => q.v)) })).slice(4);
+  const rollOf = new Map(roll.map((r) => [r.p.m.id, r.v]));
+  if (roll.length > 1) {
+    body += `<path class="roll" d="${roll.map((r, i) => `${i ? "L" : "M"}${x(r.p.t)},${y(r.v)}`).join("")}"/>`;
+    const now = roll.at(-1).v, d = now - avg;
+    body += `<text x="${L}" y="${T - 8}" style="fill:var(--text)">last 5: ${fmt(now, 2)} <tspan class="${Math.abs(d) < 0.05 ? "" : d > 0 ? "pos" : "neg"}">${Math.abs(d) < 0.05 ? "(steady)" : d > 0 ? `(kinder, ${signed(d)})` : `(harsher, ${signed(d)})`}</tspan></text>`;
+  }
   body += `<line class="cross" id="tl-cross" y1="${T}" y2="${H - B}" visibility="hidden"/>`;
   pts.forEach((p, i) => (body += `<circle class="dot" data-i="${i}" cx="${x(p.t)}" cy="${y(p.v)}" r="4"/>`));
   // invisible columns: hovering anywhere near a week picks that week's dot
   pts.forEach((p, i) => {
     const a = i ? (x(pts[i - 1].t) + x(p.t)) / 2 : L, b = i < pts.length - 1 ? (x(p.t) + x(pts[i + 1].t)) / 2 : W - R;
-    const tipText = `<b>${esc(esc(p.m.title))}</b><br>${date(lastSeen(p.m))}<br>average ${fmt(p.v, 2)} <span class='m'>· ${p.m.ratings.length} scores</span>`;
+    const tipText = `<b>${esc(esc(p.m.title))}</b><br>${date(lastSeen(p.m))}<br>average ${fmt(p.v, 2)} <span class='m'>· ${p.m.ratings.length} scores</span>${rollOf.has(p.m.id) ? `<br>last 5 movies ${fmt(rollOf.get(p.m.id), 2)}` : ""}`;
     body += `<rect class="hit" data-i="${i}" data-movie="${p.m.id}" x="${a}" y="${T}" width="${b - a}" height="${H - T - B}" data-tip="${tipText}"/>`;
   });
   el.innerHTML = svg(W, H, body, `Group average per Tuesday, ${pts.length} screenings; overall ${fmt(avg, 2)}`);
