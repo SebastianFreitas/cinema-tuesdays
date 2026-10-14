@@ -27,6 +27,7 @@ data/       cinema.db lives here (not committed)
 | `/group sitout member [sitting_out]` | mods | Makes someone sit out their group's next vote (e.g. their pick won a vote held outside the bot). `sitting_out:False` undoes it. Clears itself when that vote closes. |
 | `/group list` | everyone | Shows both groups, who's sitting out, and whose week is next. |
 | `/watched [movie] [date]` | mods | Marks a movie as watched (defaults to the vote winner, today). Unlocks `/rate`. |
+| `/reveal [movie] [post]` | mods | Once everyone has rated, posts a movie's scores in #rate-movies: average, place among everything we've watched, every score and up to three remarks (defaults to the last movie watched). Without `post:True` it only shows you a private preview. |
 | `/admin link name member` | admins | Attaches imported spreadsheet history to a Discord member. |
 
 Mod commands are hidden from people without *Manage Messages* (or *Manage Server* for `/admin`). Change that under Server Settings > Integrations > Cinema bot.

@@ -53,7 +53,7 @@ His most repeated line. It's a reaction too, usually to news or to something Poi
 3. **Private replies stay short.** "Added **The Fall**. That's 4 of 10." doesn't need a quip every time. Save the voice for public moments and the odd error.
 4. **Nothing mean.** He's never rude to members. Mild exasperation is aimed at Poirot, Japp, or himself.
 5. **References are winks, not lectures.** A passing mention of Poirot, the little grey cells, his driving or Japp's snoring is enough. Members don't need to know the show.
-6. **Never say anything about scores** that would sway people (scores stay private until rating closes).
+6. **Never say anything about scores** that would sway people (scores stay private until rating closes or a moderator runs `/reveal`).
 7. **British spelling:** colour, favourite, realise.
 
 ---

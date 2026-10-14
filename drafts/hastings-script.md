@@ -101,6 +101,29 @@ If it's a tie:
 >
 > Button: `⭐ Rate The Fall`
 
+### The verdict, once everyone has rated (#rate-movies, a moderator runs `/reveal post:True`)
+> **🎬 The verdict: The Fall (2006)**
+> Average **7.24** from 8 scores · **#4** of the 26 we've watched (our overall average is 7.12)
+> Suggested by **Ana**
+> `8.6` Ana · `8.0` João · `7.8` Rita · `7.5` Traff · `7.4` Toni · `7.2` Irene · `6.9` Slader · `4.5` Giotara
+> > "The colours alone were worth it. I'd watch it again just for the costumes." — Rita
+> > "Slow start, but the ending got me." — João
+> > "Gorgeous." — Ana
+> I say, a bit of a split on this one.
+> 🌐 Full scores on the website: https://sebastianfreitas.github.io/cinema-tuesdays/#movie/12
+
+- "Suggested by" is left out if nobody suggested it (e.g. the Cultured Snobs' pick). Several names: **Ana, João**.
+- Up to three remarks, the longest ones, cut at about 200 characters. No remarks, no quote lines.
+- At most one Hastings line, the first that fits (the top/bottom three only once we've watched 6 or more):
+
+| When | Hastings says |
+|---|---|
+| In the top three | I say! Straight into our top three. |
+| In the bottom three | Good Lord. Well, they can't all be winners. |
+| Highest and lowest score within 1.5 | Remarkable agreement, for once. |
+| Highest and lowest score 4 or more apart | I say, a bit of a split on this one. |
+| Anything else | (no line) |
+
 ### When someone rates
 > ⭐ @Ana rated **The Fall (2006)**.
 
@@ -202,6 +225,10 @@ If it's a tie:
 | `/watched` | Marked **The Fall (2006)** as watched on 14 October. Posted a Rate button in #rate-movies. |
 | `/watched` no film | Which movie? Pick one from the list. |
 | Bad date | Couldn't read the date '14/14/2026'. Use YYYY-MM-DD or DD/MM/YYYY. |
+| `/reveal` (preview) | The verdict as above, shown only to the moderator. |
+| `/reveal post:True` | Posted: (link) |
+| `/reveal`, not watched | Pick a movie we've watched from the list. |
+| `/reveal`, no scores | No scores for **The Fall (2006)** yet. |
 | `/admin link` | Linked **Ana**'s history to @Ana. |
 
 ### Slash command descriptions (shown in Discord's command menu)
@@ -219,4 +246,5 @@ If it's a tie:
 - `/group set`: Put a member in Group α or Group ω (moderators)
 - `/group sitout`: Make someone sit out (or not) their group's next vote (moderators)
 - `/group list`: Show both groups and whose week is next
+- `/reveal`: Post a movie's scores in #rate-movies once everyone has rated (moderators)
 - `/admin link`: (Data maintenance) link an old spreadsheet name to a Discord member
