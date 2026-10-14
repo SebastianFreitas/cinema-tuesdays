@@ -1,7 +1,97 @@
 {
- "generated_at": "2026-10-14T10:45:47+00:00",
+ "generated_at": "2026-10-14T10:49:39+00:00",
  "next_up": null,
- "poll": null,
+ "poll": {
+  "group": "omega",
+  "options": [
+   {
+    "id": 64,
+    "title": "The Usual Suspects",
+    "original_title": "The Usual Suspects",
+    "year": 1995,
+    "director": "Bryan Singer",
+    "runtime": 106,
+    "overview": "Held in an L.A. interrogation room, Verbal Kint attempts to convince the feds that a mythic crime lord, Keyser Soze, not only exists, but was also responsible for drawing him and his four partners into a multi-million dollar heist that ended with an explosion in San Pedro harbor – leaving few survivors. Verbal lures his interrogators with an incredible story of the crime lord's almost supernatural prowess.",
+    "poster": "https://image.tmdb.org/t/p/w342/99X2SgyFunJFXGAYnDv3sb9pnUD.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w1280/hy0Hx9fMPk2fmw26Li60z1S2giU.jpg",
+    "genres": [
+     "Drama",
+     "Crime",
+     "Thriller"
+    ],
+    "tmdb": "https://www.themoviedb.org/movie/629",
+    "votes": 0,
+    "curated": false,
+    "suggested_by": [
+     "Malhas"
+    ]
+   },
+   {
+    "id": 79,
+    "title": "Rango",
+    "original_title": "Rango",
+    "year": 2011,
+    "director": "Gore Verbinski",
+    "runtime": 107,
+    "overview": "When Rango, a lost family pet, accidentally winds up in the gritty, gun-slinging Western town of Dirt, the theater-loving lizard suddenly finds himself the newly appointed sheriff. Welcomed as the last hope the town has been waiting for, Rango is forced to play his new role to the hilt and uncover the truth behind a looming water crisis—before his act catches up with him.",
+    "poster": "https://image.tmdb.org/t/p/w342/A5MP1guV8pbruieG0tnpPIbaJtt.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w1280/mOtKQlXdL5J4lwqcSFlkZmgmFeZ.jpg",
+    "genres": [
+     "Animation",
+     "Comedy",
+     "Family",
+     "Western",
+     "Adventure"
+    ],
+    "tmdb": "https://www.themoviedb.org/movie/44896",
+    "votes": 0,
+    "curated": false,
+    "suggested_by": [
+     "Toni"
+    ]
+   },
+   {
+    "id": 56,
+    "title": "Harold & Kumar Go to White Castle",
+    "original_title": "Harold & Kumar Go to White Castle",
+    "year": 2004,
+    "director": "Danny Leiner",
+    "runtime": 88,
+    "overview": "Nerdy accountant Harold and his irrepressible friend, Kumar, get stoned watching television and find themselves utterly bewitched by a commercial for White Castle. Convinced there must be one nearby, the two set out on a late-night odyssey that takes them deep into New Jersey. Somehow, the boys manage to run afoul of rednecks, cops and even a car-stealing Neil Patrick Harris before getting anywhere near their beloved sliders.",
+    "poster": "https://image.tmdb.org/t/p/w342/5vO7R4xYlDipTp8gzfRbWegO8eb.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w1280/dzloVSv0FGM8fs4L5w9yV60p0PT.jpg",
+    "genres": [
+     "Comedy",
+     "Adventure"
+    ],
+    "tmdb": "https://www.themoviedb.org/movie/11282",
+    "votes": 0,
+    "curated": false,
+    "suggested_by": [
+     "Slader"
+    ]
+   },
+   {
+    "id": 73,
+    "title": "Stalker",
+    "original_title": "Сталкер",
+    "year": 1979,
+    "director": "Andrei Tarkovsky",
+    "runtime": 162,
+    "overview": "Near a gray and unnamed city is the Zone, a place guarded by barbed wire and soldiers, and where the normal laws of physics are victim to frequent anomalies. A stalker guides two men into the Zone, specifically to an area in which deep-seated desires are granted.",
+    "poster": "https://image.tmdb.org/t/p/w342/1qhOyf5C4s9ZdvY8d5JDx9DFMeT.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w1280/6yrbWzzrPp7pwz6zHdifspJk8t3.jpg",
+    "genres": [
+     "Science Fiction",
+     "Drama"
+    ],
+    "tmdb": "https://www.themoviedb.org/movie/1398",
+    "votes": 1,
+    "curated": false,
+    "suggested_by": []
+   }
+  ]
+ },
  "next_group": "alpha",
  "members": [
   {
@@ -3040,25 +3130,6 @@
    "tmdb": "https://www.themoviedb.org/movie/314365",
    "suggested_by": [
     "Toni"
-   ]
-  },
-  {
-   "id": 73,
-   "title": "Stalker",
-   "original_title": "Сталкер",
-   "year": 1979,
-   "director": "Andrei Tarkovsky",
-   "runtime": 162,
-   "overview": "Near a gray and unnamed city is the Zone, a place guarded by barbed wire and soldiers, and where the normal laws of physics are victim to frequent anomalies. A stalker guides two men into the Zone, specifically to an area in which deep-seated desires are granted.",
-   "poster": "https://image.tmdb.org/t/p/w342/1qhOyf5C4s9ZdvY8d5JDx9DFMeT.jpg",
-   "backdrop": "https://image.tmdb.org/t/p/w1280/6yrbWzzrPp7pwz6zHdifspJk8t3.jpg",
-   "genres": [
-    "Science Fiction",
-    "Drama"
-   ],
-   "tmdb": "https://www.themoviedb.org/movie/1398",
-   "suggested_by": [
-    "Traff"
    ]
   },
   {
