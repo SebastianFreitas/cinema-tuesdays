@@ -32,7 +32,7 @@ function poster(m, { score, badge, muted } = {}) {
     : `<div class="fallback">${esc(m.title)}</div>`;
   return `<div class="poster">${img}
     ${badge ? `<span class="badge${muted ? " muted" : ""}">${esc(badge)}</span>` : ""}
-    ${score != null ? `<span class="score">${fmt(score)}</span><div class="meter"><span style="width:${score * 10}%"></span></div>` : ""}
+    ${score != null ? `<span class="score">${fmt(score)}</span>` : ""}
   </div>`;
 }
 
@@ -41,7 +41,7 @@ function watchedCard(m) {
   const sub = [realDate(when) ? date(when) : m.year, m.suggested_by.length ? m.suggested_by.join(", ") : null]
     .filter(Boolean).map(esc).join(" · ");
   return `<button class="card" data-movie="${m.id}">${poster(m, { score: m.avg })}
-    <div class="t">${esc(m.title)}</div><div class="s">${sub}</div></button>`;
+    <div class="t" title="${esc(m.title)}">${esc(m.title)}</div><div class="s">${sub}</div></button>`;
 }
 
 function fillGenres(select, movies, label) {
@@ -237,7 +237,23 @@ function renderWall() {
     .filter((m) => !q || m.title.toLowerCase().includes(q) || (m.director || "").toLowerCase().includes(q))
     .filter((m) => !genre || (m.genres || []).includes(genre))
     .sort(by);
-  $("#wall").innerHTML = list.length ? list.map(watchedCard).join("") : `<p class="empty">Nothing matches.</p>`;
+  if (!list.length) { $("#wall").innerHTML = `<p class="empty">Nothing matches.</p>`; return; }
+  if ($("#sort").value !== "date") { $("#wall").innerHTML = list.map(watchedCard).join(""); return; }
+  // most recent first: a heading for each month
+  const month = (m) => (realDate(lastSeen(m)) ? lastSeen(m).slice(0, 7) : "");
+  const counts = new Map();
+  list.forEach((m) => counts.set(month(m), (counts.get(month(m)) || 0) + 1));
+  let html = "", prev = null;
+  for (const m of list) {
+    const k = month(m);
+    if (k !== prev) {
+      const name = k ? date(k + "-15", { month: "long", year: "numeric" }) : "Date unknown";
+      html += `<h3 class="wall-month">${name}<small>${plural(counts.get(k), "movie")}</small></h3>`;
+      prev = k;
+    }
+    html += watchedCard(m);
+  }
+  $("#wall").innerHTML = html;
 }
 
 /* ---------------------------------------------------------------- detail */
@@ -250,11 +266,13 @@ function openDetail(id) {
   const meta = [m.year, m.director, m.runtime && `${Math.floor(m.runtime / 60)}h${String(m.runtime % 60).padStart(2, "0")}`]
     .filter(Boolean).map(esc).join(" · ");
   const seen = (m.watched_on ?? []).filter(realDate).map((d) => date(d)).join(", ");
+  // blue above the group average, red below, gold when level with it
+  const side = (v) => (m.avg == null || Math.abs(v - m.avg) < 0.05 ? "" : v > m.avg ? " hi" : " lo");
   const strip = ratings.length
     ? `<div class="strip" aria-hidden="true">
         ${[0, 2, 4, 6, 8, 10].map((t) => `<span class="tick" style="left:${t * 10}%">${t}</span>`).join("")}
         ${m.avg != null ? `<span class="avg" style="left:${m.avg * 10}%" data-tip="Group average <b>${fmt(m.avg, 2)}</b>"></span>` : ""}
-        ${ratings.map((r) => `<span class="pt" style="left:${r.score * 10}%" data-tip="<b>${esc(esc(r.name))}</b> ${fmt(r.score)}"></span>`).join("")}
+        ${ratings.map((r) => `<span class="pt${side(r.score)}" style="left:${r.score * 10}%" data-tip="<b>${esc(esc(r.name))}</b> ${fmt(r.score)}"></span>`).join("")}
       </div>` : "";
   $("#detail").innerHTML = `<div class="d-actions"><button class="share" aria-label="Copy link to this movie">🔗 Copy link</button>
     <button class="close" aria-label="Close">✕</button></div>
@@ -276,9 +294,11 @@ function openDetail(id) {
       ${m.lost_votes ? `<div>Past votes<b class="sm">Lost ${m.lost_votes}</b></div>` : ""}
     </div>
     ${strip}
+    ${ratings.length && m.avg != null ? `<div class="legend r-legend"><span><i style="background:var(--pos)"></i>Above the group average</span>
+      <span><i style="background:var(--neg)"></i>Below</span><span><i class="avg-key"></i>Group average</span></div>` : ""}
     <ul class="ratings">${ratings.map((r) => `<li><span class="n">${fmt(r.score)}</span>
-      <div>${personLink(r.name)}</div>
-      <div class="bar"><span style="width:${r.score * 10}%"></span></div>
+      <div class="nm">${personLink(r.name)}</div>
+      <div class="bar${side(r.score)}"><span style="width:${r.score * 10}%"></span>${m.avg != null ? `<i style="left:${m.avg * 10}%"></i>` : ""}</div>
       ${r.remark ? `<div class="r">${esc(r.remark)}</div>` : ""}</li>`).join("")}</ul>`;
   if (!$("#detail").open) $("#detail").showModal();
   $("#detail").scrollTop = 0;
@@ -296,7 +316,7 @@ function renderPoll() {
   $("#poll").innerHTML = `<div class="poll"><div class="label">Voting now${p.group ? ` · ${GROUPS[p.group]}'s week` : ""}</div>
     <h2>This week's vote</h2>
     <div class="wall">${p.options.map((o) => `<div class="card" role="button" tabindex="0" data-movie="${o.id}">${poster(o, { badge: o.curated ? "🎩 Curated" : null })}
-      <div class="t">${esc(o.title)}</div>
+      <div class="t" title="${esc(o.title)}">${esc(o.title)}</div>
       <div class="s">${o.curated ? "Cultured Snobs' pick" : o.suggested_by.map(personLink).join(", ")}</div>
       <div class="votes"><div class="track"><span style="width:${(o.votes / max) * 100}%"></span></div><b>${o.votes}</b></div>
     </div>`).join("")}</div>
@@ -306,7 +326,7 @@ function renderPoll() {
 function listCard(m, showWho) {
   const meta = [m.year, m.runtime && `${m.runtime} min`].filter(Boolean).join(" · ");
   const lost = m.lost_votes ? `Lost ${m.lost_votes} vote${m.lost_votes === 1 ? "" : "s"}` : null;
-  return `<div class="card" role="button" tabindex="0" data-movie="${m.id}">${poster(m, { badge: lost, muted: true })}<div class="t">${esc(m.title)}</div>
+  return `<div class="card" role="button" tabindex="0" data-movie="${m.id}">${poster(m, { badge: lost, muted: true })}<div class="t" title="${esc(m.title)}">${esc(m.title)}</div>
     <div class="s">${showWho ? m.suggested_by.map(personLink).join(", ") : esc(meta)}</div></div>`;
 }
 
@@ -383,22 +403,26 @@ function renderPeople() {
       const bins = Array(10).fill(0);
       personStats(name).forEach((r) => bins[Math.min(9, Math.floor(r.score))]++);
       const top = Math.max(...bins);
-      body = `<div class="spark" role="img" aria-label="How ${esc(name)}'s scores spread from 0 to 10">${bins.map((b) => `<span style="height:${(b / top) * 100}%"></span>`).join("")}</div>
+      body = `<div class="spark" role="img" aria-label="How ${esc(name)}'s scores spread from 0 to 10">${bins.map((b, i) => `<span style="height:${(b / top) * 100}%" data-tip="${plural(b, "score")} from ${i} to ${i === 9 ? "10" : `${i}.9`}"></span>`).join("")}</div>
+        <div class="spark-axis" aria-hidden="true"><span>0</span><span>5</span><span>10</span></div>
         <div class="kv"><span>Average</span><b>${fmt(p.avg, 2)}</b></div>
         <div class="kv"><span>Bias</span><b class="${p.bias >= 0 ? "pos" : "neg"}">${signed(p.bias)}</b></div>
-        <div class="kv"><span>Favourite</span><b>${esc(p.favourite.title)}</b></div>`;
+        <div class="kv fav"><span>Favourite</span><b title="${esc(p.favourite.title)}">${esc(p.favourite.title)}</b></div>`;
     }
     return `<a class="person-card" href="${personHref(name)}"><div class="top">${avatar(name)}
       <div><h3>${esc(name)}</h3><div class="sub">${sub}</div></div></div>${body}</a>`;
   }).join("");
 }
 
+// A person-page tile: value, label, and options c (class), s (hint line), m (meter, 0-1), k (headline order), g (group)
+const T = (v, l, o = {}) => ({ v, l, ...o });
+
 // Extra tiles and boxes for a person page, from closed movies only (see isOpen).
 function personMore(name, rows, picks) {
   const done = rows.filter((r) => !isOpen(r.m));
   const closed = closedMovies();
   const tiles = [], hint = (t) => `<p class="hint">${t}</p>`;
-  let grid = "", wide = "";
+  let grid = "", wide = "", turnout = null;
 
   // turnout and streaks over closed screenings with a known date, oldest first
   const seq = closed.filter((m) => realDate(lastSeen(m))).sort((a, b) => lastSeen(a).localeCompare(lastSeen(b)));
@@ -414,21 +438,22 @@ function personMore(name, rows, picks) {
     const up = vs.filter((r) => r.diff >= 0.05).length, down = vs.filter((r) => r.diff <= -0.05).length;
     const remarks = done.filter((r) => r.m.ratings.find((x) => x.name === name)?.remark).length;
     const firstSeen = seq.find((m) => scored.has(m.id));
-    if (place >= 0) tiles.push([ord(place + 1), `most generous of ${gen.length}`, "", "by average score, 3+ scores"]);
-    if (scores.length > 1) tiles.push([`±${fmt(stdev(scores), 2)}`, "score spread", "", "how much their scores vary"]);
+    if (place >= 0) tiles.push(T(ord(place + 1), "most generous", { k: 4, s: `of ${gen.length}, by average score (3+ scores)` }));
+    if (closed.length) turnout = [done.length, closed.length];
+    if (scores.length > 1) tiles.push(T(`±${fmt(stdev(scores), 2)}`, "score spread", { s: "how much their scores vary" }));
     tiles.push(
-      [fmt(median(scores), 2), "median score", "", "half their scores are above"],
-      [fmt(hi.score), "highest score", "", esc(hi.m.title)],
-      [fmt(lo.score), "lowest score", "", esc(lo.m.title)],
-      [pct(done.length, closed.length), "turnout", "", `${done.length} of ${closed.length} movies scored`],
-      [run, "in a row now", "", `movies scored back to back · best ${longest}`],
+      T(fmt(median(scores), 2), "median score", { s: "half their scores are above" }),
+      T(fmt(hi.score), "highest score", { s: esc(hi.m.title) }),
+      T(fmt(lo.score), "lowest score", { s: esc(lo.m.title) }),
+      T(run, "in a row now", { s: `movies scored back to back · best ${longest}` }),
     );
-    if (vs.length) tiles.push([pct(up, vs.length), "higher than the others", "", `lower ${pct(down, vs.length)} · level ${pct(vs.length - up - down, vs.length)}`]);
+    if (vs.length) tiles.push(T(pct(up, vs.length), "higher than the others", { m: up / vs.length, s: `lower ${pct(down, vs.length)} · level ${pct(vs.length - up - down, vs.length)}` }));
+    const whole = scores.filter((s) => s === Math.round(s)).length;
     tiles.push(
-      [pct(scores.filter((s) => s === Math.round(s)).length, scores.length), "whole numbers", "", "scores like 7 rather than 7.5"],
-      [remarks, remarks === 1 ? "remark" : "remarks", "", `on ${pct(remarks, scores.length)} of their scores`],
+      T(pct(whole, scores.length), "whole numbers", { m: whole / scores.length, s: "scores like 7 rather than 7.5" }),
+      T(remarks, remarks === 1 ? "remark" : "remarks", { m: remarks / scores.length, s: `on ${pct(remarks, scores.length)} of their scores` }),
     );
-    if (firstSeen) tiles.push([date(lastSeen(firstSeen), { month: "short", year: "numeric" }), "first score", "", esc(firstSeen.title)]);
+    if (firstSeen) tiles.push(T(date(lastSeen(firstSeen), { month: "short", year: "numeric" }), "first score", { s: esc(firstSeen.title) }));
 
     // closest to and furthest from everyone else
     if (vs.length >= 2) {
@@ -456,21 +481,21 @@ function personMore(name, rows, picks) {
 
   // how close their scores are to TMDB's
   const agree = tmdbAgreement(), me = agree.findIndex((x) => x.name === name);
-  if (me >= 0) tiles.push([`±${fmt(agree[me].gap, 2)}`, "from TMDB", "",
-    `${ord(me + 1)} closest of ${agree.length} · usually ${fmt(Math.abs(agree[me].lean), 2)} ${agree[me].lean < 0 ? "below" : "above"}`]);
+  if (me >= 0) tiles.push(T(`±${fmt(agree[me].gap, 2)}`, "from TMDB",
+    { s: `${ord(me + 1)} closest of ${agree.length} · usually ${fmt(Math.abs(agree[me].lean), 2)} ${agree[me].lean < 0 ? "below" : "above"}` }));
 
   // their picks, placed among every closed movie
   const { rank, total } = movieRanks();
   const ranked = picks.filter((m) => rank.has(m.id)).sort((a, b) => rank.get(a.id) - rank.get(b.id));
   if (ranked.length) {
-    tiles.push([fmt(mean(ranked.map((m) => rank.get(m.id))), 1), "avg place of picks", "", `among ${total} movies, 1 = best`]);
     const hr = hitRate(name);
-    if (hr) tiles.push([pct(hr.hits, hr.n), "pick hit rate", "", `${hr.hits} of ${hr.n} picks above the average movie (${fmt(hr.bar, 2)})`]);
+    if (hr) tiles.push(T(pct(hr.hits, hr.n), "pick hit rate", { g: "picks", m: hr.hits / hr.n, s: `${hr.hits} of ${hr.n} picks above the average movie (${fmt(hr.bar, 2)})` }));
+    tiles.push(T(fmt(mean(ranked.map((m) => rank.get(m.id))), 1), "avg place of picks", { g: "picks", s: `among ${total} movies, 1 = best` }));
     grid += `<div class="box"><h3>Their picks, ranked</h3>${hint(`Group average, and where it sits among all ${total} movies.`)}
       <ul class="mini">${ranked.map((m) => `<li><button class="tt" data-movie="${m.id}">${esc(m.title)}</button>
         <span class="pair"><small>${ord(rank.get(m.id))} of ${total}</small><b>${fmt(m.avg, 2)}</b></span></li>`).join("")}</ul></div>`;
   }
-  return { tiles, grid, wide };
+  return { tiles, grid, wide, turnout };
 }
 
 // Their score vs the group average per movie, in date order (person page).
@@ -523,16 +548,16 @@ function renderPerson(name) {
     <div class="sub">${[info?.group && GROUPS[info.group], info?.benched && "sits out the next vote"].filter(Boolean).join(" · ") || "&nbsp;"}</div></div></div>`;
 
   const pickAvg = mean(picks.map((m) => m.avg).filter((x) => x != null));
+  const more = personMore(name, rows, picks), [tDone, tAll] = more.turnout || [];
   const tiles = [
-    p && [fmt(p.avg, 2), "average score"],
-    p && [p.count, "movies scored"],
-    p && [signed(p.bias), "vs the group", p.bias >= 0 ? "pos" : "neg"],
-    [picks.length, "of their picks watched"],
-    pickAvg != null && [fmt(pickAvg, 2), "group avg for their picks"],
-    [open.length, "on the Movie List", "", open.some((m) => m.lost_votes) ? `lost ${plural(sum(open.map((m) => m.lost_votes || 0)), "vote")} so far` : ""],
+    p && T(fmt(p.avg, 2), "average score", { k: 1, m: p.avg / 10, s: "out of 10" }),
+    p && T(signed(p.bias), "vs the group", { k: 2, c: p.bias >= 0 ? "pos" : "neg", s: `${p.bias >= 0 ? "above" : "below"} the others on the same movies` }),
+    p && T(p.count, "movies scored", { k: 3, ...(tAll ? { m: tDone / tAll, s: `${pct(tDone, tAll)} turnout · ${tDone} of ${tAll} movies` } : {}) }),
+    T(picks.length, "of their picks watched", { g: "picks" }),
+    pickAvg != null && T(fmt(pickAvg, 2), "group avg for their picks", { g: "picks" }),
+    T(open.length, "on the Movie List", { g: "picks", s: open.some((m) => m.lost_votes) ? `lost ${plural(sum(open.map((m) => m.lost_votes || 0)), "vote")} so far` : "" }),
+    ...more.tiles,
   ].filter(Boolean);
-  const more = personMore(name, rows, picks);
-  tiles.push(...more.tiles);
 
   let boxes = "";
   if (p) {
@@ -598,7 +623,17 @@ function renderPerson(name) {
   const openHtml = open.length ? `<h2>On the Movie List</h2>
     <div class="wall small" style="margin-top:14px">${open.map((m) => listCard(m, false)).join("")}</div>` : "";
 
-  $("#person").innerHTML = head + todo + `<div class="p-tiles">${tiles.map(([v, l, c, s]) => `<div class="tile"><b class="${c || ""}">${v}</b><span>${l}</span>${s ? `<small>${s}</small>` : ""}</div>`).join("")}</div>`
+  // four headline tiles, then the rest in two smaller groups
+  const kpi = (t, big) => `<div class="kpi${big ? " big" : ""}"><b class="${t.c || ""}">${t.v}</b><span>${t.l}</span>
+    ${t.m != null ? `<span class="kmeter"><i style="width:${(Math.max(0, Math.min(1, t.m)) * 100).toFixed(1)}%"></i></span>` : ""}${t.s ? `<small>${t.s}</small>` : ""}</div>`;
+  const hero = tiles.filter((t) => t.k).sort((a, b) => a.k - b.k);
+  const group = (g, title) => {
+    const ts = tiles.filter((t) => !t.k && (t.g || "score") === g);
+    return ts.length ? `<h3 class="sub-h">${title}</h3><div class="p-rest">${ts.map((t) => kpi(t)).join("")}</div>` : "";
+  };
+  const tilesHtml = `<div class="p-tiles">${hero.length ? `<div class="p-hero">${hero.map((t) => kpi(t, true)).join("")}</div>` : ""}
+    ${group("score", "How they score")}${group("picks", "Their picks")}</div>`;
+  $("#person").innerHTML = head + todo + tilesHtml
     + boxes + picksHtml + openHtml + missedHtml;
 }
 
