@@ -159,7 +159,7 @@ function renderHero() {
       <h3>${esc(latest.title)}</h3>
       ${open
         ? `<p class="cta">⭐ Rate it on Discord by ${esc(deadline)}${deadline === "tonight" ? " at" : ","} 23:59</p><p>${n ? `${n} score${n === 1 ? "" : "s"} so far · average ${fmt(latest.avg, 2)}` : "No scores yet"}</p>`
-        : `<p>Group average <b style="color:var(--text)">${fmt(latest.avg, 2)}</b> from ${n} scores</p>`}</div></button>`;
+        : `<p>Group average <b style="color:var(--text)">${fmt(latest.avg, 2)}</b> from ${n} score${n === 1 ? "" : "s"}</p>`}</div></button>`;
   }
   $("#spotlight").innerHTML = up + last;
 
@@ -390,7 +390,7 @@ function renderPerson(name) {
 
     boxes = `<div class="p-grid">
       <div class="box"><h3>Favourites</h3><p class="hint">Their score, and everyone else's average.</p><ul class="mini">${sorted.slice(0, 5).map(item).join("")}</ul></div>
-      <div class="box"><h3>Least favourite</h3><p class="hint">Their score, and everyone else's average.</p><ul class="mini">${sorted.slice(-5).reverse().map(item).join("")}</ul></div>
+      ${sorted.length > 5 ? `<div class="box"><h3>Least favourite</h3><p class="hint">Their score, and everyone else's average.</p><ul class="mini">${sorted.slice(5).slice(-5).reverse().map(item).join("")}</ul></div>` : ""}
       <div class="box"><h3>Taste twin &amp; nemesis</h3>${mates}</div>
       <div class="box"><h3>Genres</h3><p class="hint">Their average per genre (2+ movies).</p>
         ${gl.length ? `<ul class="mini">${gl.slice(0, 6).map((x) => `<li><span class="tt">${esc(x.g)} <small style="color:var(--muted)">${x.n}</small></span><b>${fmt(x.avg)}</b></li>`).join("")}</ul>` : `<p class="hint">Not enough yet.</p>`}</div>
@@ -454,7 +454,7 @@ function renderHistogram() {
   const el = $("#hist");
   const scores = DATA.watched.flatMap((m) => m.ratings.map((r) => r.score));
   if (!scores.length) { el.innerHTML = `<p class="empty">No scores yet.</p>`; return; }
-  const W = el.clientWidth, H = 230, L = 34, R = 8, T = 22, B = 26;
+  const W = el.clientWidth, H = 180, L = 30, R = 8, T = 20, B = 24;
   const bins = Array(20).fill(0);
   scores.forEach((s) => bins[Math.min(19, Math.floor(s * 2))]++);
   const step = niceStep(Math.max(...bins));
@@ -468,7 +468,7 @@ function renderHistogram() {
   for (let t = 0; t <= 10; t += 1) body += `<text x="${x(t)}" y="${H - 8}" text-anchor="middle">${t}</text>`;
   bins.forEach((n, i) => {
     const lo = i / 2, x0 = x(lo) + 1, w = Math.max(1, bw - 2);
-    const tipText = `<b>${fmt(lo)}–${fmt(lo + 0.4)}</b><br>${n} score${n === 1 ? "" : "s"} <span class='m'>(${Math.round((n / scores.length) * 100)}%)</span>`;
+    const tipText = `<b>${fmt(lo)}–${i === 19 ? "10" : fmt(lo + 0.4)}</b><br>${n} score${n === 1 ? "" : "s"} <span class='m'>(${Math.round((n / scores.length) * 100)}%)</span>`;
     body += `<rect class="bar-hit" x="${x(lo)}" y="${T}" width="${bw}" height="${H - T - B}" data-tip="${tipText}"/>`;
     if (n) body += `<path class="bar" d="${topRounded(x0, y(n), w, y(0) - y(n))}" pointer-events="none"/>`;
   });
@@ -484,10 +484,10 @@ function renderTimeline() {
     .map((m) => ({ m, t: new Date(lastSeen(m) + "T12:00:00").getTime(), v: m.avg }))
     .sort((a, b) => a.t - b.t);
   if (pts.length < 2) { el.innerHTML = `<p class="empty">Needs a couple of Tuesdays first.</p>`; return; }
-  const W = el.clientWidth, H = 250, L = 34, R = 14, T = 22, B = 28;
+  const W = el.clientWidth, H = 180, L = 30, R = 14, T = 20, B = 24;
   const lo = Math.max(0, Math.floor(Math.min(...pts.map((p) => p.v)) - 0.5));
   const hi = Math.min(10, Math.ceil(Math.max(...pts.map((p) => p.v)) + 0.3));
-  const t0 = pts[0].t, t1 = pts.at(-1).t;
+  const t0 = pts[0].t, t1 = Math.max(pts.at(-1).t, t0 + 864e5);
   const x = (t) => L + ((t - t0) / (t1 - t0)) * (W - L - R);
   const y = (v) => T + (1 - (v - lo) / (hi - lo)) * (H - T - B);
   let body = `<g class="grid">`;
@@ -503,10 +503,10 @@ function renderTimeline() {
   });
   const avg = mean(pts.map((p) => p.v));
   body += `<line class="mean" x1="${L}" x2="${W - R}" y1="${y(avg)}" y2="${y(avg)}"/>
-    <text x="${W - R}" y="${y(avg) - 6}" text-anchor="end" style="fill:var(--text)">per movie ${fmt(avg, 2)}</text>`;
+    <text x="${W - R}" y="${T - 8}" text-anchor="end" style="fill:var(--text)">dashed: per movie ${fmt(avg, 2)}</text>`;
   body += `<path class="line" d="${pts.map((p, i) => `${i ? "L" : "M"}${x(p.t)},${y(p.v)}`).join("")}"/>`;
   body += `<line class="cross" id="tl-cross" y1="${T}" y2="${H - B}" visibility="hidden"/>`;
-  pts.forEach((p, i) => (body += `<circle class="dot" data-i="${i}" cx="${x(p.t)}" cy="${y(p.v)}" r="5"/>`));
+  pts.forEach((p, i) => (body += `<circle class="dot" data-i="${i}" cx="${x(p.t)}" cy="${y(p.v)}" r="4"/>`));
   // invisible columns: hovering anywhere near a week picks that week's dot
   pts.forEach((p, i) => {
     const a = i ? (x(pts[i - 1].t) + x(p.t)) / 2 : L, b = i < pts.length - 1 ? (x(p.t) + x(pts[i + 1].t)) / 2 : W - R;
@@ -535,18 +535,19 @@ function renderTimeline() {
 
 function renderGrid() {
   const el = $("#grid");
-  const names = DATA.people.map((p) => p.name);
+  const paired = new Set(DATA.pairs.flatMap((p) => [p.a, p.b]));
+  const names = DATA.people.map((p) => p.name).filter((n) => paired.has(n));
   const pairs = new Map();
   DATA.pairs.forEach((p) => { pairs.set(`${p.a}|${p.b}`, p); pairs.set(`${p.b}|${p.a}`, p); });
   if (!DATA.pairs.length) { el.innerHTML = `<p class="empty">Needs people with 3+ movies in common.</p>`; return; }
   const gaps = DATA.pairs.map((p) => p.mean_gap);
   const gMin = Math.min(...gaps), gMax = Math.max(...gaps);
-  const labelW = 104, top = 92;
-  const cell = Math.max(28, Math.min(56, Math.floor((el.clientWidth - labelW - 8) / names.length)));
+  const labelW = 92, top = 78;
+  const cell = Math.max(22, Math.min(38, Math.floor((el.clientWidth - labelW - 8) / names.length)));
   const W = labelW + cell * names.length + 8, H = top + cell * names.length + 4;
   let body = "";
   names.forEach((n, i) => {
-    const short = n.length > 13 ? n.slice(0, 12) + "…" : n;
+    const short = [...n].length > 13 ? [...n].slice(0, 12).join("") + "…" : n;
     body += `<text x="${labelW - 8}" y="${top + i * cell + cell / 2 + 4}" text-anchor="end">${esc(short)}</text>`;
     const cx = labelW + i * cell + cell / 2;
     body += `<text transform="translate(${cx + 4},${top - 8}) rotate(-50)">${esc(short)}</text>`;
@@ -567,7 +568,7 @@ function renderGrid() {
 }
 
 function renderRanks() {
-  const divisive = DATA.watched.filter((m) => m.stdev != null && m.ratings.length >= 3).sort((a, b) => b.stdev - a.stdev).slice(0, 10);
+  const divisive = DATA.watched.filter((m) => m.stdev != null && m.ratings.length >= 3).sort((a, b) => b.stdev - a.stdev).slice(0, 8);
   $("#divisive").innerHTML = divisive.map((m) => `<li data-movie="${m.id}" style="cursor:pointer"><div>${esc(m.title)}
       <div class="sub">${fmt(m.min)} to ${fmt(m.max)} · average ${fmt(m.avg, 2)}</div></div><span class="v">±${fmt(m.stdev, 2)}</span></li>`).join("")
     || `<p class="empty">Needs at least 3 scores per movie.</p>`;
@@ -581,10 +582,177 @@ function renderRanks() {
   }
   fights.sort((a, b) => b.gap - a.gap);
   const seen = new Set();
-  const top = fights.filter((f) => !seen.has(f.m.id) && seen.add(f.m.id)).slice(0, 10);   // one per movie
+  const top = fights.filter((f) => !seen.has(f.m.id) && seen.add(f.m.id)).slice(0, 8);   // one per movie
   $("#fights").innerHTML = top.map((f) => `<li data-movie="${f.m.id}" style="cursor:pointer"><div>${esc(f.m.title)}
       <div class="sub">${esc(f.hi.name)} ${fmt(f.hi.score)} vs ${esc(f.lo.name)} ${fmt(f.lo.score)}</div></div>
       <span class="v">${fmt(f.gap)}</span></li>`).join("") || `<p class="empty">No disagreements yet.</p>`;
+}
+
+/* ---------------------------------------------------------------- stats: numbers & tables */
+
+const median = (xs) => {
+  if (!xs.length) return null;
+  const s = [...xs].sort((a, b) => a - b), h = s.length >> 1;
+  return s.length % 2 ? s[h] : (s[h - 1] + s[h]) / 2;
+};
+const stdev = (xs) => { const m = mean(xs); return xs.length > 1 ? Math.sqrt(mean(xs.map((x) => (x - m) ** 2))) : null; };
+const pct = (n, d) => (d ? `${Math.round((n / d) * 100)}%` : "–");
+const hm = (min) => `${Math.floor(min / 60)}h${String(Math.round(min % 60)).padStart(2, "0")}`;
+const movieLink = (m) => `<span class="ml" role="button" tabindex="0" data-movie="${m.id}">${esc(m.title)}</span>`;
+// a 5–10 bar for averages (nearly every average sits in that range, so 0–10 would flatten them)
+const avgBar = (v) => `<span class="abar"><span style="width:${Math.max(2, Math.min(100, ((v - 5) / 5) * 100))}%"></span></span>`;
+const picksOf = (name) => DATA.watched.filter((m) => m.suggested_by?.includes(name) && m.avg != null);
+
+function renderKpis() {
+  const W = DATA.watched, all = W.flatMap((m) => m.ratings.map((r) => r.score));
+  if (!all.length) { $("#kpis").innerHTML = ""; return; }
+  const rated = W.filter((m) => m.avg != null);
+  const runtimes = W.map((m) => m.runtime).filter(Boolean);
+  const years = W.map((m) => m.year).filter(Boolean);
+  const dates = W.map(lastSeen).filter(realDate).sort();
+  const listMin = DATA.suggestions.reduce((t, m) => t + (m.runtime || 0), 0);
+  const turnout = W.map((m) => m.ratings.length);
+  const grpAvg = (g) => mean(W.flatMap((m) => m.ratings.filter((r) => memberInfo.get(r.name)?.group === g).map((r) => r.score)));
+  const weeks = dates.length ? Math.floor((Date.now() - new Date(dates[0] + "T12:00:00")) / 6048e5) + 1 : 0;
+  const tiles = [
+    [W.length, "movies watched", dates.length ? `since ${date(dates[0])}` : ""],
+    [all.length, "scores given", `by ${DATA.people.length} people`],
+    [fmt(mean(all), 2), "average score", `median ${fmt(median(all), 1)}`],
+    [fmt(mean(rated.map((m) => m.avg)), 2), "average per movie", `median ${fmt(median(rated.map((m) => m.avg)), 2)}`],
+    [fmt(mean(turnout), 1), "scores per movie", `most ${Math.max(...turnout)}`],
+    [runtimes.length ? Math.round(runtimes.reduce((a, b) => a + b, 0) / 60) + "h" : "–", "watched together", runtimes.length ? `avg ${hm(mean(runtimes))} a movie` : ""],
+    [pct(all.filter((s) => s >= 8).length, all.length), "scores of 8 or more", `${all.filter((s) => s >= 9).length} scores of 9+`],
+    [pct(all.filter((s) => s < 6).length, all.length), "scores under 6", `lowest ${fmt(Math.min(...all))}`],
+    [years.length ? Math.round(median(years)) : "–", "typical release year", years.length ? `${Math.min(...years)} to ${Math.max(...years)}` : ""],
+    [rated.filter((m) => m.avg >= 8).length, "movies averaging 8+", `${rated.filter((m) => m.avg < 6.5).length} under 6.5`],
+    [fmt(grpAvg("alpha"), 2), "Group Alpha scores", `Group Omega ${fmt(grpAvg("omega"), 2)}`],
+    [DATA.suggestions.length, "on the Movie List", listMin ? `${Math.round(listMin / 60)}h of movies` : ""],
+    [weeks, "weeks running", `movie on ${pct(W.length, weeks)} of them`],
+    [new Set(W.flatMap((m) => (m.director || "").split(", ").filter(Boolean))).size, "directors", `${new Set(W.flatMap((m) => m.genres || [])).size} genres`],
+  ];
+  $("#kpis").innerHTML = tiles.map(([v, l, s]) => `<div class="kpi"><b>${v}</b><span>${l}</span>${s ? `<small>${s}</small>` : ""}</div>`).join("");
+}
+
+const SCORE_COLS = [
+  ["name", "Person"], ["count", "Scores"], ["turnout", "Turnout"], ["avg", "Avg"], ["median", "Median"],
+  ["low", "Low"], ["high", "High"], ["spread", "Spread"], ["bias", "Bias"], ["eight", "8+"], ["picks", "Picks"], ["picksAvg", "Picks avg"],
+];
+let scoreSort = { key: "count", dir: -1 };
+function renderScorecard() {
+  const n = DATA.watched.length;
+  const rows = DATA.people.map((p) => {
+    const mine = personStats(p.name).map((r) => r.score);
+    const picks = picksOf(p.name);
+    return {
+      name: p.name, count: p.count, turnout: n ? p.count / n : null, avg: p.avg, median: median(mine),
+      low: mine.length ? Math.min(...mine) : null, high: mine.length ? Math.max(...mine) : null,
+      spread: stdev(mine), bias: p.bias, eight: mine.length ? mine.filter((s) => s >= 8).length / mine.length : null,
+      picks: picks.length, picksAvg: picks.length ? mean(picks.map((m) => m.avg)) : null,
+    };
+  });
+  const { key, dir } = scoreSort;
+  rows.sort((a, b) => key === "name" ? dir * a.name.localeCompare(b.name)
+    : ((a[key] ?? -Infinity) - (b[key] ?? -Infinity)) * dir || a.name.localeCompare(b.name));
+  // highlight the top value in the columns where "more" is notable
+  const best = {};
+  for (const k of ["count", "turnout", "avg", "median", "high", "eight", "picks", "picksAvg"]) {
+    const vs = rows.filter((r) => r.count >= 5).map((r) => r[k]).filter((v) => v != null);   // one lucky score isn't a record
+    best[k] = vs.length ? Math.max(...vs) : null;
+  }
+  const cell = (r, k) => {
+    const v = r[k];
+    if (v == null || !Number.isFinite(v)) return "–";
+    if (k === "turnout" || k === "eight") return pct(v, 1);
+    if (k === "bias") return `<span class="${v >= 0 ? "pos" : "neg"}">${signed(v)}</span>`;
+    if (k === "avg" || k === "picksAvg") return fmt(v, 2);
+    if (k === "spread") return "±" + fmt(v, 2);
+    if (k === "count" || k === "picks") return v;
+    return fmt(v);
+  };
+  $("#scorecard").innerHTML = `<thead><tr>${SCORE_COLS.map(([k, l]) =>
+      `<th data-sort="${k}" class="${k === key ? "on" : ""}" tabindex="0" aria-sort="${k === key ? (dir < 0 ? "descending" : "ascending") : "none"}">${l}${k === key ? (dir < 0 ? " ↓" : " ↑") : ""}</th>`).join("")}</tr></thead>
+    <tbody>${rows.map((r) => `<tr><td class="pname">${avatar(r.name)}${personLink(r.name)}</td>${SCORE_COLS.slice(1).map(([k]) =>
+      `<td class="${best[k] != null && r[k] === best[k] ? "best" : ""}">${cell(r, k)}</td>`).join("")}</tr>`).join("")}</tbody>`;
+}
+
+function renderTopBottom() {
+  const rated = DATA.watched.filter((m) => m.avg != null && m.ratings.length >= 3).sort((a, b) => b.avg - a.avg);
+  const li = (m) => `<li data-movie="${m.id}"><div>${esc(m.title)}<div class="sub">${m.year ?? ""} · ${m.ratings.length} scores${m.suggested_by?.length ? ` · ${esc(m.suggested_by.join(", "))}` : ""}</div></div><span class="v">${fmt(m.avg, 2)}</span></li>`;
+  const k = Math.min(8, Math.floor(rated.length / 2));
+  $("#top").innerHTML = rated.slice(0, k).map(li).join("") || `<p class="empty">No scores yet.</p>`;
+  $("#bottom").innerHTML = rated.slice(-k).reverse().map(li).join("") || `<p class="empty">No scores yet.</p>`;
+}
+
+function renderRecords() {
+  const W = DATA.watched;
+  const all = W.flatMap((m) => m.ratings.map((r) => ({ m, ...r })));
+  if (!all.length) { $("#records").innerHTML = `<p class="empty">No scores yet.</p>`; return; }
+  const top = (xs, f) => xs.reduce((a, b) => (f(b) > f(a) ? b : a));
+  const hi = top(all, (r) => r.score), lo = top(all, (r) => -r.score);
+  const three = W.filter((m) => m.stdev != null && m.ratings.length >= 3);
+  const timed = W.filter((m) => m.runtime), dated = W.filter((m) => m.year);
+  const regulars = DATA.people.filter((p) => p.count >= 5);
+  const spreads = regulars.map((p) => ({ p, s: stdev(personStats(p.name).map((r) => r.score)) }));
+  const pickers = DATA.people.map((p) => {
+    const picks = picksOf(p.name);
+    return { p, n: picks.length, v: mean(picks.map((m) => m.avg)) };
+  }).filter((x) => x.n >= 2);
+  const rec = [
+    ["Highest score", `${fmt(hi.score)} · ${esc(hi.name)}`, movieLink(hi.m)],
+    ["Lowest score", `${fmt(lo.score)} · ${esc(lo.name)}`, movieLink(lo.m)],
+    three.length && (() => { const m = top(three, (m) => -m.stdev); return ["Most unanimous", `±${fmt(m.stdev, 2)}`, movieLink(m)]; })(),
+    (() => { const m = top(W, (m) => m.ratings.length); return ["Most scores", `${m.ratings.length}`, movieLink(m)]; })(),
+    timed.length && (() => { const m = top(timed, (m) => m.runtime); return ["Longest", hm(m.runtime), movieLink(m)]; })(),
+    timed.length && (() => { const m = top(timed, (m) => -m.runtime); return ["Shortest", hm(m.runtime), movieLink(m)]; })(),
+    dated.length && (() => { const m = top(dated, (m) => -m.year); return ["Oldest", m.year, movieLink(m)]; })(),
+    dated.length && (() => { const m = top(dated, (m) => m.year); return ["Newest", m.year, movieLink(m)]; })(),
+    regulars.length && (() => { const p = top(regulars, (p) => p.avg); return ["Most generous", fmt(p.avg, 2), personLink(p.name)]; })(),
+    regulars.length && (() => { const p = top(regulars, (p) => -p.avg); return ["Toughest critic", fmt(p.avg, 2), personLink(p.name)]; })(),
+    spreads.length && (() => { const x = top(spreads, (x) => -x.s); return ["Steadiest scorer", "±" + fmt(x.s, 2), personLink(x.p.name)]; })(),
+    pickers.length && (() => { const x = top(pickers, (x) => x.v); return ["Best picks", `${fmt(x.v, 2)} over ${x.n}`, personLink(x.p.name)]; })(),
+  ].filter(Boolean);
+  $("#records").innerHTML = rec.map(([k, v, what]) => `<div><dt>${k}</dt><dd><b>${v}</b><span>${what}</span></dd></div>`).join("");
+}
+
+function groupTable(sel, groups, label) {
+  const rows = groups.map(([k, ms]) => {
+    const rated = ms.filter((m) => m.avg != null);
+    return { k, n: ms.length, v: mean(rated.map((m) => m.avg)), best: rated.length ? rated.reduce((a, b) => (b.avg > a.avg ? b : a)) : null };
+  }).filter((r) => r.v != null);
+  $(sel).innerHTML = `<thead><tr><th>${label}</th><th>Movies</th><th colspan="2">Average</th><th>Best</th></tr></thead><tbody>${rows.map((r) =>
+    `<tr><td>${esc(r.k)}</td><td>${r.n}</td><td>${fmt(r.v, 2)}</td><td class="barcell">${avgBar(r.v)}</td><td class="clip">${r.best ? movieLink(r.best) : ""}</td></tr>`).join("")}</tbody>`;
+}
+
+function renderGenres() {
+  const add = (map, k, m) => map.set(k, [...(map.get(k) || []), m]);
+  const g = new Map(), d = new Map();
+  DATA.watched.forEach((m) => (m.genres || []).forEach((x) => add(g, x, m)));
+  DATA.watched.filter((m) => m.year).forEach((m) => add(d, `${Math.floor(m.year / 10) * 10}s`, m));
+  groupTable("#genres", [...g].sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0])), "Genre");
+  groupTable("#decades", [...d].sort((a, b) => b[0].localeCompare(a[0])), "Decade");
+}
+
+function renderPairs() {
+  const ps = [...DATA.pairs].sort((a, b) => a.mean_gap - b.mean_gap);
+  const k = Math.min(6, Math.floor(ps.length / 2));
+  const li = (p) => `<li><div>${esc(p.a)} &amp; ${esc(p.b)}<div class="sub">${p.shared} movies in common</div></div><span class="v">${fmt(p.mean_gap, 2)}</span></li>`;
+  $("#alike").innerHTML = ps.slice(0, k).map(li).join("") || `<p class="empty">Not enough overlap yet.</p>`;
+  $("#unlike").innerHTML = ps.slice(-k).reverse().map(li).join("") || `<p class="empty">Not enough overlap yet.</p>`;
+}
+
+function renderStats() {
+  renderKpis(); renderScorecard(); renderTopBottom(); renderRecords(); renderGenres(); renderPairs(); renderRanks();
+  const sortBy = (th) => {
+    const k = th.dataset.sort;
+    scoreSort = { key: k, dir: scoreSort.key === k ? -scoreSort.dir : (k === "name" ? 1 : -1) };
+    renderScorecard();
+    $(`#scorecard th[data-sort="${k}"]`).focus();
+  };
+  $("#scorecard").addEventListener("click", (e) => { const th = e.target.closest("th[data-sort]"); if (th) sortBy(th); });
+  $("#scorecard").addEventListener("keydown", (e) => {
+    const th = e.target.closest("th[data-sort]");
+    if (th && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); sortBy(th); }
+  });
 }
 
 function renderCharts() { renderHistogram(); renderTimeline(); renderGrid(); }
@@ -597,13 +765,13 @@ const movieHash = () => /^#movie\/(\d+)$/.exec(location.hash)?.[1];
 
 function showMovie(id, push) {
   if (!byId.has(id)) return;
-  if (push) { history.pushState(null, "", `#movie/${id}`); pushedMovie = true; }
+  if (push) { history.pushState({ movie: true }, "", `#movie/${id}`); pushedMovie = true; }
   openDetail(id);
 }
 
 function closeMovie() {
   if (!movieHash()) return;
-  if (pushedMovie) history.back();
+  if (pushedMovie || history.state?.movie) history.back();
   else history.replaceState(null, "", `#${current || "watched"}`);
   pushedMovie = false;
 }
@@ -618,7 +786,8 @@ function route() {
     return;
   }
   pushedMovie = false;
-  const hash = decodeURIComponent(location.hash.slice(1));
+  let hash = location.hash.slice(1);
+  try { hash = decodeURIComponent(hash); } catch { /* malformed link: use it as is */ }
   if ($("#detail").open) $("#detail").close();
   showTab(hash);
 }
@@ -649,7 +818,7 @@ async function init() {
   $("#updated").textContent = `Updated ${new Date(DATA.generated_at).toLocaleString("en-GB", { dateStyle: "medium", timeStyle: "short" })}`;
   fillGenres($("#genre"), DATA.watched, "All genres");
   fillGenres($("#lgenre"), DATA.suggestions, "All genres");
-  renderHero(); renderWall(); renderPoll(); renderList(); renderPeople(); renderRanks();
+  renderHero(); renderWall(); renderPoll(); renderList(); renderPeople(); renderStats();
 
   $("#search").addEventListener("input", renderWall);
   $("#genre").addEventListener("change", renderWall);
@@ -680,12 +849,15 @@ async function init() {
   });
   $("#detail").addEventListener("close", closeMovie);
   document.addEventListener("keydown", (e) => {
+    if (e.target.closest?.("a")) return;
     const el = e.target.closest?.('[role="button"][data-movie]');
     if (el && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); showMovie(Number(el.dataset.movie), true); }
   });
 
-  let resizeTimer;
+  let resizeTimer, lastWidth = innerWidth;
   addEventListener("resize", () => {
+    if (innerWidth === lastWidth) return;
+    lastWidth = innerWidth;
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => { if (!$('[data-panel="stats"]').hidden) renderCharts(); }, 150);
   });

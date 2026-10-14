@@ -33,8 +33,6 @@ def build(db: DB) -> dict:
         by_movie.setdefault(r["movie_id"], []).append(r)
         by_user.setdefault(r["user_id"], {})[r["movie_id"]] = r["score"]
 
-    movie_avg = {mid: statistics.mean(r["score"] for r in rs) for mid, rs in by_movie.items()}
-
     # -- watched movies ------------------------------------------------------
     watched = []
     for m in db.q(f"SELECT m.* FROM movies m WHERE {WATCHED}"):
@@ -57,8 +55,10 @@ def build(db: DB) -> dict:
     people = []
     for uid, scores in by_user.items():
         values = list(scores.values())
-        # How far above/below the group average this person scores, on average.
-        bias = statistics.mean(s - movie_avg[mid] for mid, s in scores.items())
+        # How far above/below everyone else this person scores, on average (movies only they rated don't count).
+        gaps = [s - statistics.mean(o["score"] for o in by_movie[mid] if o["user_id"] != uid)
+                for mid, s in scores.items() if len(by_movie[mid]) > 1]
+        bias = statistics.mean(gaps) if gaps else 0.0
         fav = max(scores, key=scores.get)
         least = min(scores, key=scores.get)
         people.append({

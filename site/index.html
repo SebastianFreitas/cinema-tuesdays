@@ -85,30 +85,57 @@
     </section>
 
     <section data-panel="stats" hidden>
-      <div class="chart-card">
-        <h2>How we score</h2>
-        <p class="hint">Every score anyone has given, in half-point steps. The dashed line is the average of all scores.</p>
-        <div id="hist" class="chart"></div>
-      </div>
-      <div class="chart-card">
-        <h2>Group average, week by week</h2>
-        <p class="hint">Each dot is one Tuesday. The dashed line is the average across movies, each movie counting once. Click a dot to open the movie (on a phone, tap once for details and again to open it).</p>
-        <div id="timeline" class="chart"></div>
-      </div>
-      <div class="chart-card">
-        <h2>Who agrees with whom</h2>
-        <p class="hint">Average gap between two people's scores on the movies both rated. Brighter means they disagree more. Blank: fewer than 3 movies in common.</p>
-        <div id="grid" class="chart scroll"></div>
-      </div>
-      <div class="cols">
-        <div>
-          <h2>Most divisive</h2>
-          <ol id="divisive" class="rank"></ol>
+      <div id="kpis" class="kpis"></div>
+
+      <div class="sgrid two">
+        <div class="chart-card sc">
+          <h2>How we score</h2>
+          <p class="hint">Every score, in half-point steps. Dashed: average of all scores.</p>
+          <div id="hist" class="chart"></div>
         </div>
-        <div>
-          <h2>Biggest fights</h2>
-          <ol id="fights" class="rank"></ol>
+        <div class="chart-card sc">
+          <h2>Week by week</h2>
+          <p class="hint">Group average per Tuesday. Dashed: average per movie. Click a dot to open it (phone: tap twice).</p>
+          <div id="timeline" class="chart"></div>
         </div>
+      </div>
+
+      <div class="chart-card sc">
+        <h2>Scorecard</h2>
+        <p class="hint">Everyone side by side. Click a column to sort. Turnout: share of our movies they scored. Bias: how far above (+) or below (−) the others they score on the same movies. Picks: their suggestions we've watched and how those scored.</p>
+        <div class="tbl-wrap"><table id="scorecard" class="tbl"></table></div>
+      </div>
+
+      <div class="sgrid three">
+        <div class="chart-card sc"><h2>Top rated</h2><p class="hint">Group average, 3+ scores.</p><ol id="top" class="rank sm"></ol></div>
+        <div class="chart-card sc"><h2>Lowest rated</h2><p class="hint">Group average, 3+ scores.</p><ol id="bottom" class="rank sm"></ol></div>
+        <div class="chart-card sc"><h2>Records</h2><p class="hint">The extremes so far.</p><dl id="records" class="records"></dl></div>
+      </div>
+
+      <div class="sgrid two">
+        <div class="chart-card sc"><h2>By genre</h2><p class="hint">A movie counts for each of its genres. Bar: average score, 5 to 10.</p><div class="tbl-wrap"><table id="genres" class="tbl"></table></div></div>
+        <div class="chart-card sc"><h2>By decade</h2><p class="hint">When the movie came out. Bar: average score, 5 to 10.</p><div class="tbl-wrap"><table id="decades" class="tbl"></table></div></div>
+      </div>
+
+      <div class="sgrid two">
+        <div class="chart-card sc">
+          <h2>Who agrees with whom</h2>
+          <p class="hint">Average gap between two people's scores on movies both rated. Brighter: disagree more. Blank: fewer than 3 in common.</p>
+          <div id="grid" class="chart scroll"></div>
+        </div>
+        <div class="chart-card sc">
+          <h2>Twins and rivals</h2>
+          <p class="hint">Pairs with 3+ movies in common.</p>
+          <div class="sgrid two inner">
+            <div><h3 class="sub-h">Most alike</h3><ol id="alike" class="rank sm"></ol></div>
+            <div><h3 class="sub-h">Least alike</h3><ol id="unlike" class="rank sm"></ol></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sgrid two">
+        <div class="chart-card sc"><h2>Most divisive</h2><p class="hint">Biggest spread of scores (3+ scores).</p><ol id="divisive" class="rank sm"></ol></div>
+        <div class="chart-card sc"><h2>Biggest fights</h2><p class="hint">Largest gap between two people on one movie.</p><ol id="fights" class="rank sm"></ol></div>
       </div>
     </section>
   </main>
