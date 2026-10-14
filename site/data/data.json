@@ -1,7 +1,65 @@
 {
- "generated_at": "2026-10-14T10:35:19+00:00",
+ "generated_at": "2026-10-14T10:35:47+00:00",
  "next_up": null,
  "poll": null,
+ "next_group": "alpha",
+ "members": [
+  {
+   "name": "Fili",
+   "group": null,
+   "benched": false
+  },
+  {
+   "name": "Giotara",
+   "group": null,
+   "benched": false
+  },
+  {
+   "name": "Irene_TC",
+   "group": null,
+   "benched": false
+  },
+  {
+   "name": "João",
+   "group": null,
+   "benched": false
+  },
+  {
+   "name": "magical potato",
+   "group": null,
+   "benched": false
+  },
+  {
+   "name": "Malhas",
+   "group": null,
+   "benched": false
+  },
+  {
+   "name": "Miguelbnz",
+   "group": null,
+   "benched": false
+  },
+  {
+   "name": "Shaggy",
+   "group": null,
+   "benched": false
+  },
+  {
+   "name": "Slader",
+   "group": null,
+   "benched": false
+  },
+  {
+   "name": "Toni",
+   "group": null,
+   "benched": false
+  },
+  {
+   "name": "Traff",
+   "group": null,
+   "benched": false
+  }
+ ],
  "watched": [
   {
    "id": 26,
@@ -12,6 +70,13 @@
    "runtime": 79,
    "overview": "Get ready to Rock! Scooby-Doo and the Mystery Inc. Gang team up with the one and only KISS in this all-new, out-of-this-world adventure! We join the Gang at KISS World – the all-things-KISS theme park, as they investigate a series of strange hauntings. With help from KISS, they discover that the Crimson Witch has returned to summon The Destroyer from the alternate dimension of Kissteria! The evil duos ghastly plan, to destroy the earth! Can the Gang's cunning and KISS's power of rock save the day?!",
    "poster": "https://image.tmdb.org/t/p/w342/nTkQZPXZl9yx3tfPS9TSDZBdhHC.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/asiuMK2TcJGhbcn2dvHF2nLqpqw.jpg",
+   "genres": [
+    "Family",
+    "Animation",
+    "Comedy",
+    "Mystery"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/347688",
    "watched_on": [
     "2026-10-13"
@@ -75,6 +140,11 @@
    "runtime": 207,
    "overview": "A samurai answers a village's request for protection after he falls on hard times. The town needs protection from bandits, so the samurai gathers six others to help him teach the people how to defend themselves, and the villagers provide the soldiers with food.",
    "poster": "https://image.tmdb.org/t/p/w342/lOMGc8bnSwQhS4XyE1S99uH8NXf.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/qvZ91FwMq6O47VViAr8vZNQz3WI.jpg",
+   "genres": [
+    "Action",
+    "Drama"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/346",
    "watched_on": [
     "2026-10-10"
@@ -116,6 +186,11 @@
    "runtime": 119,
    "overview": "A gay cabaret owner and his drag queen partner agree to put up a false heterosexual front so that their son can introduce them to his fiancée's conservative parents.",
    "poster": "https://image.tmdb.org/t/p/w342/4IpC35BoA5aRO0Q1DpFGJ8iKKYq.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/yNOtXSNep1BLnfZ0yhLejm1TULi.jpg",
+   "genres": [
+    "Comedy",
+    "Romance"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/11000",
    "watched_on": [
     "2026-09-29"
@@ -159,6 +234,12 @@
    "runtime": 98,
    "overview": "When North Korean ruler Kim Jong-il orchestrates a global terrorist plot, it's up to the heavily armed, highly specialized Team America unit to stop his dastardly scheme. The group, which has recruited troubled Broadway actor Gary Johnston, not only has to face off against Jong-il, but they must also contend with the Film Actors Guild, a cadre of Hollywood liberals at odds with Team America's 'policing the world' tactics.",
    "poster": "https://image.tmdb.org/t/p/w342/m1Q2VFe1DVVbjfu1LDZe7tlp9yb.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/5jQEcjppZnQnBAVN10uWPk6IKUK.jpg",
+   "genres": [
+    "Adventure",
+    "Action",
+    "Comedy"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/3989",
    "watched_on": [
     "2026-09-22"
@@ -202,6 +283,13 @@
    "runtime": 95,
    "overview": "A young linguist named Milo Thatch joins an intrepid group of explorers to find the mysterious lost continent of Atlantis.",
    "poster": "https://image.tmdb.org/t/p/w342/oK8yR6xSQreWf1ouP1VpXKwoop5.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/4eTiLRTYwAVQyQAjuFuf3BXAony.jpg",
+   "genres": [
+    "Animation",
+    "Family",
+    "Adventure",
+    "Science Fiction"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/10865",
    "watched_on": [
     "2026-09-15"
@@ -270,6 +358,12 @@
    "runtime": 107,
    "overview": "A group of self-absorbed actors set out to make the most expensive war film ever. After ballooning costs force the studio to cancel the movie, the frustrated director refuses to stop shooting, leading his cast into the jungles of Southeast Asia, where they encounter real bad guys.",
    "poster": "https://image.tmdb.org/t/p/w342/zAurB9mNxfYRoVrVjAJJwGV3sPg.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/4pLi4QMm0MZ9TSoF3l8qQmY9HNO.jpg",
+   "genres": [
+    "Action",
+    "Comedy",
+    "War"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/7446",
    "watched_on": [
     "2026-09-09"
@@ -313,6 +407,11 @@
    "runtime": 120,
    "overview": "With no clue how he came to be imprisoned, drugged and tortured for 15 years, a desperate man seeks revenge on his captors.",
    "poster": "https://image.tmdb.org/t/p/w342/pWDtjs568ZfOTMbURQBYuT4Qxka.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/rwf5SUTiEsmfkXAgy15R0UtJUtv.jpg",
+   "genres": [
+    "Thriller",
+    "Mystery"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/670",
    "watched_on": [
     "2026-09-01"
@@ -376,6 +475,11 @@
    "runtime": 96,
    "overview": "Confined to a claustrophobic hotel room, the heir to a hotel empire and the dominatrix who has primed him for success become locked in a battle of wits and wills as he tries to end his relationship with her.",
    "poster": "https://image.tmdb.org/t/p/w342/yGQAZupyZgT2ESbBSMZ9R0OBToo.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/uq20mJoPPSzpOYQCxX51DsQLL85.jpg",
+   "genres": [
+    "Drama",
+    "Thriller"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/870518",
    "watched_on": [
     "2026-08-25"
@@ -429,6 +533,10 @@
    "runtime": 115,
    "overview": "In this humorous paean to the joys of food, a pair of truck drivers happen onto a decrepit roadside shop selling ramen noodles. The widowed owner, Tampopo, begs them to help her turn her establishment into a paragon of the \"art of noodle-soup making\". Interspersed are satirical vignettes about the importance of food to different aspects of human life.",
    "poster": "https://image.tmdb.org/t/p/w342/ArYdSuX3zY9fMsE4LqmBl7xJq5R.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/oq8HM9TOSbH54Xy0OBJGzYrtUC7.jpg",
+   "genres": [
+    "Comedy"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/11830",
    "watched_on": [
     "2026-08-18"
@@ -492,6 +600,12 @@
    "runtime": 149,
    "overview": "Humanity finds a mysterious object buried beneath the lunar surface and sets off to find its origins with the help of HAL 9000, the world's most advanced super computer.",
    "poster": "https://image.tmdb.org/t/p/w342/ve72VxNqjGM69Uky4WTo2bK6rfq.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/w5IDXtifKntw0ajv2co7jFlTQDM.jpg",
+   "genres": [
+    "Science Fiction",
+    "Mystery",
+    "Adventure"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/62",
    "watched_on": [
     "2026-08-11"
@@ -545,6 +659,10 @@
    "runtime": 97,
    "overview": "The defense and the prosecution have rested and the jury is filing into the jury room to decide if a young Spanish-American is guilty or innocent of murdering his father. What begins as an open and shut case soon becomes a mini-drama of each of the jurors' prejudices and preconceptions about the trial, the accused, and each other.",
    "poster": "https://image.tmdb.org/t/p/w342/zhG3vKWyDRaZYoaww1UVAi29T9h.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/qqHQsStV6exghCM7zbObuYBiYxw.jpg",
+   "genres": [
+    "Drama"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/389",
    "watched_on": [
     "2026-08-04"
@@ -608,6 +726,11 @@
    "runtime": 109,
    "overview": "After breaking the mysterious \"One Wish Willow\" to win his crush's heart, a hopeless romantic finds himself getting exactly what he asked for but soon discovers that some desires come at a dark, sinister price.",
    "poster": "https://image.tmdb.org/t/p/w342/bRwnj8WEKBCvmfeUNOukJPwB43K.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/5lTZyuBTNOfawsfPT8Q0cIg6qAF.jpg",
+   "genres": [
+    "Horror",
+    "Thriller"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/1339713",
    "watched_on": [
     "2026-07-28"
@@ -676,6 +799,12 @@
    "runtime": 121,
    "overview": "An interstellar teleportation device, found in Egypt, leads to a planet with humans resembling ancient Egyptians who worship the god Ra.",
    "poster": "https://image.tmdb.org/t/p/w342/4T6Po0XnZlevmhfPh3ZfEs5butR.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/s2bqHApZlliCuwgyHod0qucrYqZ.jpg",
+   "genres": [
+    "Action",
+    "Adventure",
+    "Science Fiction"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/2164",
    "watched_on": [
     "2026-07-21"
@@ -734,6 +863,12 @@
    "runtime": 97,
    "overview": "A selfish postman and a reclusive toymaker form an unlikely friendship, delivering joy to a cold, dark town that desperately needs it.",
    "poster": "https://image.tmdb.org/t/p/w342/q125RHUDgR4gjwh1QkfYuJLYkL.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/cYQvXNPZLow73lhspVQ7CYlT3Mi.jpg",
+   "genres": [
+    "Animation",
+    "Family",
+    "Comedy"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/508965",
    "watched_on": [
     "2026-07-14"
@@ -792,6 +927,12 @@
    "runtime": 96,
    "overview": "Sex always gets in the way of friendships between men and women. At least, that's what Harry Burns believes. So when Harry meets Sally Albright and a deep friendship blossoms between them, Harry's determined not to let his attraction to Sally destroy it. But when a night of weakness ends in a morning of panic, can the pair avoid succumbing to Harry's fears by remaining friends and admitting they just might be the perfect match for each other?",
    "poster": "https://image.tmdb.org/t/p/w342/rFOiFUhTMtDetqCGClC9PIgnC1P.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/orq7v7J0Esq9TWpKitCXPbevOdW.jpg",
+   "genres": [
+    "Comedy",
+    "Romance",
+    "Drama"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/639",
    "watched_on": [
     "2026-07-07"
@@ -845,6 +986,12 @@
    "runtime": 89,
    "overview": "In the final months of World War II, 14-year-old Seita and his sister Setsuko are orphaned when their mother is killed during an air raid in Kobe, Japan. After a falling out with their aunt, they move into an abandoned bomb shelter. With no surviving relatives and their emergency rations depleted, Seita and Setsuko struggle to survive.",
    "poster": "https://image.tmdb.org/t/p/w342/k9tv1rXZbOhH7eiCk378x61kNQ1.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/aHaqZpOL7UyVu0nKqp3SMz0o2E1.jpg",
+   "genres": [
+    "Animation",
+    "Drama",
+    "War"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/12477",
    "watched_on": [
     "2026-06-30"
@@ -888,6 +1035,11 @@
    "runtime": 129,
    "overview": "In the poverty-stricken favelas of Rio de Janeiro in the 1970s, two young men choose different paths. Rocket is a budding photographer who documents the increasing drug-related violence of his neighborhood, while José “Zé” Pequeno is an ambitious drug dealer diving into a dangerous life of crime.",
    "poster": "https://image.tmdb.org/t/p/w342/k7eYdWvhYQyRQoU2TB2A2Xu2TfD.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/uvitbjFU4JqvMwIkMWHp69bmUzG.jpg",
+   "genres": [
+    "Drama",
+    "Crime"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/598",
    "watched_on": [
     "2026-06-23"
@@ -931,6 +1083,13 @@
    "runtime": 117,
    "overview": "Blade forms an uneasy alliance with the vampire council in order to combat the Reapers, who are feeding on vampires.",
    "poster": "https://image.tmdb.org/t/p/w342/wAn6VYamKbnOtfyTZ6arVtkMzDv.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/86b0NGY1i0bt3ckhkcHxiCSMxk1.jpg",
+   "genres": [
+    "Fantasy",
+    "Horror",
+    "Action",
+    "Thriller"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/36586",
    "watched_on": [
     "2026-06-15"
@@ -989,6 +1148,12 @@
    "runtime": 109,
    "overview": "A research team in Antarctica is hunted by a shape-shifting alien that assumes the appearance of its victims.",
    "poster": "https://image.tmdb.org/t/p/w342/tzGY49kseSE9QAKk47uuDGwnSCu.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/r9leYNa8nTRCceZrZhP1DXkgKVb.jpg",
+   "genres": [
+    "Horror",
+    "Mystery",
+    "Science Fiction"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/1091",
    "watched_on": [
     "2026-06-09"
@@ -1032,6 +1197,12 @@
    "runtime": 108,
    "overview": "Joel Barish, heartbroken that his girlfriend underwent a procedure to erase him from her memory, decides to do the same. However, as he watches his memories of her fade away, he realises that he still loves her, and may be too late to correct his mistake.",
    "poster": "https://image.tmdb.org/t/p/w342/5MwkWH9tYHv3mV9OdYTMR5qreIz.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/95qi5TJMIBI5VzWHia88Pbrye7Z.jpg",
+   "genres": [
+    "Science Fiction",
+    "Drama",
+    "Romance"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/38",
    "watched_on": [
     "2026-06-03"
@@ -1070,6 +1241,12 @@
    "runtime": 96,
    "overview": "Real zombies arrive and terrorize the crew of a zombie film being shot in an abandoned warehouse, said to be the site of military experiments on humans.",
    "poster": "https://image.tmdb.org/t/p/w342/rws34k2bqYVo2B5MkhKAbV8925j.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/oslUsPw3PUhDVK7a5soTvCAuaO7.jpg",
+   "genres": [
+    "Comedy",
+    "Horror",
+    "Drama"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/513434",
    "watched_on": [
     "2026-05-26"
@@ -1118,6 +1295,11 @@
    "runtime": 100,
    "overview": "The Grand Budapest Hotel tells of a legendary concierge at a famous European hotel between the wars and his friendship with a young employee who becomes his trusted protégé. The story involves the theft and recovery of a priceless Renaissance painting, the battle for an enormous family fortune and the slow and then sudden upheavals that transformed Europe during the first half of the 20th century.",
    "poster": "https://image.tmdb.org/t/p/w342/eWdyYQreja6JGCzqHWXpWHDrrPo.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/jK65srQczOKTpW62wPxwwKztGgE.jpg",
+   "genres": [
+    "Comedy",
+    "Drama"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/120467",
    "watched_on": [
     "2026-05-19"
@@ -1161,6 +1343,11 @@
    "runtime": 175,
    "overview": "Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge.",
    "poster": "https://image.tmdb.org/t/p/w342/3bhkrj58Vtu7enYsRolD1fZdja1.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/ejdD20cdHNFAYAN2DlqPToXKyzx.jpg",
+   "genres": [
+    "Drama",
+    "Crime"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/238",
    "watched_on": [
     "2026-05-12"
@@ -1199,6 +1386,13 @@
    "runtime": 87,
    "overview": "The Fantastic Mr. Fox, bored with his current life, plans a heist against the three local farmers. The farmers, tired of sharing their chickens with the sly fox, seek revenge against him and his family.",
    "poster": "https://image.tmdb.org/t/p/w342/bOVr292mwn3jxr1e0NmUPM1rcjo.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/xRxSLhhjPG2D8l0BXi0KdN4IvPt.jpg",
+   "genres": [
+    "Adventure",
+    "Animation",
+    "Comedy",
+    "Family"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/10315",
    "watched_on": [
     "2026-05-05"
@@ -1237,6 +1431,11 @@
    "runtime": 157,
    "overview": "Science teacher Ryland Grace wakes up on a spaceship light years from home with no recollection of who he is or how he got there. As his memory returns, he begins to uncover his mission: solve the riddle of the mysterious substance causing the sun to die out. He must call on his scientific knowledge and unorthodox ideas to save everything on Earth from extinction.",
    "poster": "https://image.tmdb.org/t/p/w342/iOb2fjXLbpJgyQXe46n1WtGCnaa.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/8Tfys3mDZVp4tNoH2ktm06a0Tau.jpg",
+   "genres": [
+    "Science Fiction",
+    "Adventure"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/687163",
    "watched_on": [
     "2026-04-29"
@@ -1285,6 +1484,12 @@
    "runtime": 139,
    "overview": "After being laid off and humiliated by a ruthless job market, a veteran paper mill manager descends into violence in a desperate bid to reclaim his dignity.",
    "poster": "https://image.tmdb.org/t/p/w342/vc2S0dvgpsM0XfSiXZDMVkRCSSU.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/1eM6Ey1FzpgJigrxRiSYtntSWq7.jpg",
+   "genres": [
+    "Comedy",
+    "Crime",
+    "Thriller"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/639988",
    "watched_on": [
     "2026-04-22"
@@ -1891,6 +2096,12 @@
    "runtime": 97,
    "overview": "On the first day at his new school, Cameron instantly falls for Bianca, the gorgeous girl of his dreams. The only problem is that Bianca is forbidden to date until her ill-tempered, completely un-dateable older sister Kat goes out, too. In an attempt to solve his problem, Cameron singles out the only guy who could possibly be a match for Kat: a mysterious bad boy with a nasty reputation of his own.",
    "poster": "https://image.tmdb.org/t/p/w342/ujERk3aKABXU3NDXOAxEQYTHe9A.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/yvPbncYhMu9FfTjDhq0N5lgnVkO.jpg",
+   "genres": [
+    "Comedy",
+    "Romance",
+    "Drama"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/4951",
    "suggested_by": [
     "Shaggy"
@@ -1905,6 +2116,10 @@
    "runtime": 146,
    "overview": "Based on the true story of IPS officer Manoj Kumar Sharma, 12th Fail sheds limelight on fearlessly embracing the idea of restarting the academic journey despite the setbacks and challenges and reclaiming one's destiny at a place where millions of students attempt the world's toughest competitive exam: UPSC.",
    "poster": "https://image.tmdb.org/t/p/w342/eebUPRI4Z5e1Z7Hev4JZAwMIFkX.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/6RV2o8PBCEyw9ylOWViV1CtULIF.jpg",
+   "genres": [
+    "Drama"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/1163258",
    "suggested_by": [
     "Giotara"
@@ -1919,6 +2134,12 @@
    "runtime": 112,
    "overview": "After making their way through high school (twice), big changes are in store for officers Schmidt and Jenko when they go deep undercover at a local college. But when Jenko meets a kindred spirit on the football team, and Schmidt infiltrates the bohemian art major scene, they begin to question their partnership. Now they don't have to just crack the case - they have to figure out if they can have a mature relationship. If these two overgrown adolescents can grow from freshmen into real men, college might be the best thing that ever happened to them.",
    "poster": "https://image.tmdb.org/t/p/w342/850chzYHYbT3IISl6Q7dbBuFP2B.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/kdyYOwpKvvD2fSbwfnMM2YPAzfq.jpg",
+   "genres": [
+    "Crime",
+    "Comedy",
+    "Action"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/187017",
    "suggested_by": [
     "Slader"
@@ -1933,6 +2154,12 @@
    "runtime": 91,
    "overview": "Set in the year 2024 in post-apocalyptic America, 18-year old Vic and his telepathic dog, Blood, are scavengers in the desolate wilderness ravaged by World War IV, where survivors must battle for food and shelter in the desert-like wasteland. Vic and Blood eke out a meager existence, foraging for food and fighting gangs of cutthroats.",
    "poster": "https://image.tmdb.org/t/p/w342/dMbkoFzD5sEQvEaqRsIh4pTBJVq.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/sWOQBQYkJvm8W7HGk6J8OAjPl2V.jpg",
+   "genres": [
+    "Drama",
+    "Science Fiction",
+    "Comedy"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/4917",
    "suggested_by": [
     "Malhas"
@@ -1947,6 +2174,10 @@
    "runtime": 101,
    "overview": "Sophie reflects on the shared joy and private melancholy of a holiday she took with her father twenty years earlier. Memories fill the gaps between camcorder footages as she tries to reconcile the father she knew with the troubled man she didn't.",
    "poster": "https://image.tmdb.org/t/p/w342/evKz85EKouVbIr51zy5fOtpNRPg.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/4jdduww9j5RyzO4ITRcuBFhqNN1.jpg",
+   "genres": [
+    "Drama"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/965150",
    "suggested_by": [
     "Irene_TC"
@@ -1961,6 +2192,12 @@
    "runtime": 124,
    "overview": "A secret military project endangers Neo-Tokyo when it turns a biker gang member into a rampaging psychic psychopath that only two teenagers and a group of psychics can stop.",
    "poster": "https://image.tmdb.org/t/p/w342/neZ0ykEsPqxamsX6o5QNUFILQrz.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/fK40VGYIm7hmKrLJ26fgPQU0qRG.jpg",
+   "genres": [
+    "Animation",
+    "Science Fiction",
+    "Action"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/149",
    "suggested_by": [
     "Miguelbnz"
@@ -1975,6 +2212,12 @@
    "runtime": 116,
    "overview": "Taking place after alien crafts land around the world, an expert linguist is recruited by the military to determine whether they come in peace or are a threat.",
    "poster": "https://image.tmdb.org/t/p/w342/pEzNVQfdzYDzVK0XqxERIw2x2se.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/8MUZz7oPXQftFTslZpRP3CVMOoq.jpg",
+   "genres": [
+    "Drama",
+    "Science Fiction",
+    "Mystery"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/329865",
    "suggested_by": [
     "João"
@@ -1989,6 +2232,12 @@
    "runtime": 111,
    "overview": "A strange doorway appears in the basement of a furniture showroom.",
    "poster": "https://image.tmdb.org/t/p/w342/rhGx6E3qRNMgj3i5su2oukNHwIQ.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/dqmMWNWfLnExDRpMtIMqI97GQFR.jpg",
+   "genres": [
+    "Horror",
+    "Mystery",
+    "Science Fiction"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/1083381",
    "suggested_by": [
     "Slader"
@@ -2003,6 +2252,11 @@
    "runtime": 101,
    "overview": "An unexpected meeting on a train leads two travelers to spend an evening wandering through Vienna. As the night unfolds, they share stories and conversations about life and love, exploring new ideas while a quiet intimacy grows between them, knowing it may be their only night together.",
    "poster": "https://image.tmdb.org/t/p/w342/kf1Jb1c2JAOqjuzA3H4oDM263uB.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/qA2TyqPldTtoTVY3LKrNIG5g6bH.jpg",
+   "genres": [
+    "Drama",
+    "Romance"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/76",
    "suggested_by": [
     "Irene_TC"
@@ -2017,6 +2271,12 @@
    "runtime": 112,
    "overview": "As a CODA (Child of Deaf Adults), Ruby is the only hearing person in her deaf family. When the family's fishing business is threatened, Ruby finds herself torn between pursuing her love of music and her fear of abandoning her parents.",
    "poster": "https://image.tmdb.org/t/p/w342/BzVjmm8l23rPsijLiNLUzuQtyd.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/v85FlkbMYKa5du1glm0YfYNsL2n.jpg",
+   "genres": [
+    "Drama",
+    "Music",
+    "Romance"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/776503",
    "suggested_by": [
     "Shaggy"
@@ -2031,6 +2291,11 @@
    "runtime": 89,
    "overview": "Four couples gather for dinner the night a mysterious and powerful comet passes overhead.",
    "poster": "https://image.tmdb.org/t/p/w342/ezUtb9m5DeLwL2gxi4gktzNCvQv.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/cvGE73s935bXEAVt2W0zADPPegG.jpg",
+   "genres": [
+    "Thriller",
+    "Science Fiction"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/220289",
    "suggested_by": [
     "Traff"
@@ -2045,6 +2310,11 @@
    "runtime": 94,
    "overview": "In 2001, Andrew Bagby, a medical resident, is murdered not long after breaking up with his girlfriend. Soon after, when she announces she's pregnant, one of Andrew's many close friends, Kurt Kuenne, begins this film, a gift to the child.",
    "poster": "https://image.tmdb.org/t/p/w342/yYVHGe7U55Ojx11y5A82phPpCHv.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/fCOIOhteWbyvSKLyJrMrvh04U6G.jpg",
+   "genres": [
+    "Documentary",
+    "Crime"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/15584",
    "suggested_by": [
     "Traff"
@@ -2059,6 +2329,12 @@
    "runtime": 114,
    "overview": "After narrowly escaping a bizarre accident, a troubled teenager is plagued by visions of a large bunny rabbit that manipulates him to commit a series of crimes.",
    "poster": "https://image.tmdb.org/t/p/w342/j2AtZFsflxiluaNtajMTI0Avm8C.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/msCHK5Kh1YbdZ0zPJ2nzPUhhSN9.jpg",
+   "genres": [
+    "Fantasy",
+    "Drama",
+    "Mystery"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/141",
    "suggested_by": [
     "Miguelbnz"
@@ -2073,6 +2349,11 @@
    "runtime": 95,
    "overview": "After the insane General Jack D. Ripper initiates a nuclear strike on the Soviet Union, a war room full of politicians, generals and a Russian diplomat all frantically try to stop it.",
    "poster": "https://image.tmdb.org/t/p/w342/gHm96BRW4GoI339rF1vYoYTB6Qe.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/7i0L2ee4Iy0aXV6vR5u1ZmblOrx.jpg",
+   "genres": [
+    "Comedy",
+    "War"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/935",
    "suggested_by": [
     "Miguelbnz"
@@ -2087,6 +2368,11 @@
    "runtime": 97,
    "overview": "At 35, Tripp has an interesting job, a hip car, a passion for sailing, an active dating life, and a great house - trouble is, he still lives with his parents, Al and Sue, who are not happy about it. Al and Sue are fascinated when friends whose adult son has recently moved away from home reveal they hired an expert to help. In desperation to push Tripp out of the nest once and for all, Al and Sue hatch a plan to hire Paula, an \"interventionist,\" who has a formula in these cases.",
    "poster": "https://image.tmdb.org/t/p/w342/omReuKQ8ItWYD5pOLmsKh3MF24w.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/3fFVHmZcSIzG0ACExUz6pAhcSAR.jpg",
+   "genres": [
+    "Romance",
+    "Comedy"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/6877",
    "suggested_by": [
     "Slader"
@@ -2101,6 +2387,12 @@
    "runtime": 108,
    "overview": "After kidnapping a father and his two kids, the Gecko brothers head south to a seedy Mexican bar to hide out in safety, unaware of its notorious clientele.",
    "poster": "https://image.tmdb.org/t/p/w342/sV3kIAmvJ9tPz4Lq5fuf9LLMxte.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/phiRQhfwZZeMMn3osvQUmGYmJbp.jpg",
+   "genres": [
+    "Horror",
+    "Action",
+    "Crime"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/755",
    "suggested_by": [
     "Miguelbnz"
@@ -2115,6 +2407,12 @@
    "runtime": 83,
    "overview": "In the year 2029, the barriers of our world have been broken down by the net and by cybernetics, but this brings new vulnerability to humans in the form of brain-hacking. When a highly-wanted hacker known as 'The Puppetmaster' begins involving them in politics, Section 9, a group of cybernetically enhanced cops, are called in to investigate and stop the Puppetmaster.",
    "poster": "https://image.tmdb.org/t/p/w342/9gC88zYUBARRSThcG93MvW14sqx.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/jIpagj2Dud9g3ZVJFvaWikEWsYz.jpg",
+   "genres": [
+    "Action",
+    "Animation",
+    "Science Fiction"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/9323",
    "suggested_by": [
     "Giotara"
@@ -2129,6 +2427,11 @@
    "runtime": 88,
    "overview": "Nerdy accountant Harold and his irrepressible friend, Kumar, get stoned watching television and find themselves utterly bewitched by a commercial for White Castle. Convinced there must be one nearby, the two set out on a late-night odyssey that takes them deep into New Jersey. Somehow, the boys manage to run afoul of rednecks, cops and even a car-stealing Neil Patrick Harris before getting anywhere near their beloved sliders.",
    "poster": "https://image.tmdb.org/t/p/w342/5vO7R4xYlDipTp8gzfRbWegO8eb.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/dzloVSv0FGM8fs4L5w9yV60p0PT.jpg",
+   "genres": [
+    "Comedy",
+    "Adventure"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/11282",
    "suggested_by": [
     "Slader"
@@ -2143,6 +2446,12 @@
    "runtime": 126,
    "overview": "In the not so distant future, Theodore, a lonely writer, purchases a newly developed operating system designed to meet the user's every need. To Theodore's surprise, a romantic relationship develops between him and his operating system. This unconventional love story blends science fiction and romance in a sweet tale that explores the nature of love and the ways that technology isolates and connects us all.",
    "poster": "https://image.tmdb.org/t/p/w342/eCOtqtfvn7mxGl6nfmq4b1exJRc.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/1YnZchmaGc8dchgRPDpR1KGrixA.jpg",
+   "genres": [
+    "Romance",
+    "Science Fiction",
+    "Drama"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/152601",
    "suggested_by": [
     "Irene_TC"
@@ -2157,6 +2466,12 @@
    "runtime": 128,
    "overview": "Following the death of the Leigh family matriarch, Annie and her children uncover disturbing secrets about their heritage. Their daily lives are not only impacted, but they also become entangled in a chilling fate from which they cannot escape, driving them to the brink of madness.",
    "poster": "https://image.tmdb.org/t/p/w342/4GFPuL14eXi66V96xBWY73Y9PfR.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/gJbTXKNTL6O7r7PzF6ZRkJGBlPp.jpg",
+   "genres": [
+    "Horror",
+    "Mystery",
+    "Thriller"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/493922",
    "suggested_by": [
     "Miguelbnz"
@@ -2171,6 +2486,12 @@
    "runtime": 101,
    "overview": "Robert Neville is a scientist who was unable to stop the spread of the terrible virus that was incurable and man-made. Immune, Neville is now the last human survivor in what is left of New York City and perhaps the world. For three years, Neville has faithfully sent out daily radio messages, desperate to find any other survivors who might be out there. But he is not alone.",
    "poster": "https://image.tmdb.org/t/p/w342/iPDkaSdKk2jRLTM65UOEoKtsIZ8.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/ePgD1cwmklyrFBjl6z96IuixuSY.jpg",
+   "genres": [
+    "Drama",
+    "Science Fiction",
+    "Thriller"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/6479",
    "suggested_by": [
     "Slader"
@@ -2185,6 +2506,12 @@
    "runtime": 108,
    "overview": "Ray and Ken, two hit men, are in Bruges, Belgium, waiting for their next mission. While they are there they have time to think and discuss their previous assignment. When the mission is revealed to Ken, it is not what he expected.",
    "poster": "https://image.tmdb.org/t/p/w342/vz3Vd6nfq9YZrVvyYx5RHFaYKV3.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/dtGxDOcFssdUUTYBr6M6INXTI1e.jpg",
+   "genres": [
+    "Comedy",
+    "Drama",
+    "Crime"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/8321",
    "suggested_by": [
     "João"
@@ -2199,6 +2526,11 @@
    "runtime": 132,
    "overview": "Two zanies open a photography studio. They score a partnership with a gossip magazine that suddenly thrusts them into a world of corruption, murder, and hijinks.",
    "poster": "https://image.tmdb.org/t/p/w342/s2LcyaA9zSi3JDOqskfW1rQfn0Z.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/1BbgYWI4Dz1VTgVMcQFwW7OQqRT.jpg",
+   "genres": [
+    "Comedy",
+    "Crime"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/25499",
    "suggested_by": [
     "Traff"
@@ -2213,6 +2545,14 @@
    "runtime": 93,
    "overview": "On a quest to find out what happened to his missing brother, a scientist, his nephew and their mountain guide discover a fantastic and dangerous lost world in the center of the earth.",
    "poster": "https://image.tmdb.org/t/p/w342/kL55wY0s2H9JdwfjoWIp9plvYnl.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/Adlc8JMVEXOelFO6hYpIYcGBx2T.jpg",
+   "genres": [
+    "Action",
+    "Science Fiction",
+    "Adventure",
+    "Comedy",
+    "Family"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/88751",
    "suggested_by": [
     "Shaggy"
@@ -2227,6 +2567,11 @@
    "runtime": 102,
    "overview": "A family loaded with quirky, colorful characters piles into an old van and road trips to California for little Olive to compete in a beauty pageant.",
    "poster": "https://image.tmdb.org/t/p/w342/niNdhTpPHSgw22tK0PLjQMV640v.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/twdtjJm31AExNx73DXaD4KRNU9c.jpg",
+   "genres": [
+    "Comedy",
+    "Drama"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/773",
    "suggested_by": [
     "Irene_TC"
@@ -2241,6 +2586,12 @@
    "runtime": 137,
    "overview": "Unlikely hero Mickey Barnes finds himself in the extraordinary circumstance of working for an employer who demands the ultimate commitment to the job… to die, for a living.",
    "poster": "https://image.tmdb.org/t/p/w342/edKpE9B5qN3e559OuMCLZdW1iBZ.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/9PRKAdrDvAdCfg3EcApLTfzGsEt.jpg",
+   "genres": [
+    "Science Fiction",
+    "Comedy",
+    "Adventure"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/696506",
    "suggested_by": [
     "Fili"
@@ -2255,6 +2606,12 @@
    "runtime": 94,
    "overview": "While on a trip to Paris with his fiancée's family, a nostalgic screenwriter finds himself mysteriously going back to the 1920s every day at midnight.",
    "poster": "https://image.tmdb.org/t/p/w342/4wBG5kbfagTQclETblPRRGihk0I.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/b5bcKhvN6VP82U5ztNdPfOLiolD.jpg",
+   "genres": [
+    "Fantasy",
+    "Comedy",
+    "Romance"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/59436",
    "suggested_by": [
     "João"
@@ -2269,6 +2626,10 @@
    "runtime": 132,
    "overview": "Despondent over a painful estrangement from his daughter, trainer Frankie Dunn isn't prepared for boxer Maggie Fitzgerald to enter his life. But Maggie's determined to go pro and to convince Dunn and his cohort to help her.",
    "poster": "https://image.tmdb.org/t/p/w342/jcfEqKdWF1zeyvECPqp3mkWLct2.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/oGMomeS7bE43eN8SGJUaKvQnmud.jpg",
+   "genres": [
+    "Drama"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/70",
    "suggested_by": [
     "Miguelbnz"
@@ -2283,6 +2644,12 @@
    "runtime": 91,
    "overview": "King Arthur, accompanied by his squire, recruits his Knights of the Round Table, including Sir Bedevere the Wise, Sir Lancelot the Brave, Sir Robin the Not-Quite-So-Brave-As-Sir-Lancelot and Sir Galahad the Pure. On the way, Arthur battles the Black Knight who, despite having had all his limbs chopped off, insists he can still fight. They reach Camelot, but Arthur decides not  to enter, as \"it is a silly place\".",
    "poster": "https://image.tmdb.org/t/p/w342/7nTkHjETdGMYK1phHwDbPsrzbYl.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/1KgXxv6tHXOnakqYvMPvFwYKWiw.jpg",
+   "genres": [
+    "Adventure",
+    "Comedy",
+    "Fantasy"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/762",
    "suggested_by": [
     "Toni"
@@ -2297,6 +2664,12 @@
    "runtime": 108,
    "overview": "Chaos reigns at the natural history museum when night watchman Larry Daley accidentally stirs up an ancient curse, awakening Attila the Hun, an army of gladiators, a Tyrannosaurus rex and other exhibits.",
    "poster": "https://image.tmdb.org/t/p/w342/pDsAAYf6Zn0yiAGJ6lYGs6hoZ4E.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/1ZVlzOBYCggLzvVYHK7Im6LohjC.jpg",
+   "genres": [
+    "Fantasy",
+    "Family",
+    "Comedy"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/1593",
    "suggested_by": [
     "Shaggy"
@@ -2311,6 +2684,15 @@
    "runtime": 99,
    "overview": "A knight framed for a tragic crime teams with a scrappy, shape-shifting teen to prove his innocence.",
    "poster": "https://image.tmdb.org/t/p/w342/2NQljeavtfl22207D1kxLpa4LS3.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/sidvlo7V8VMyskNKGwua0Tarbol.jpg",
+   "genres": [
+    "Animation",
+    "Family",
+    "Fantasy",
+    "Adventure",
+    "Science Fiction",
+    "Action"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/961323",
    "suggested_by": [
     "Shaggy"
@@ -2325,6 +2707,11 @@
    "runtime": 151,
    "overview": "A man befriends a fellow criminal as the two of them begin serving their sentence on a dreadful prison island, which inspires the man to plot his escape.",
    "poster": "https://image.tmdb.org/t/p/w342/356oqQpug682OERsWV0bGZ0YxwQ.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/fmd17jnQxHanXC6wqqXRLocm60O.jpg",
+   "genres": [
+    "Crime",
+    "Drama"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/5924",
    "suggested_by": [
     "Malhas"
@@ -2339,6 +2726,12 @@
    "runtime": 90,
    "overview": "Dr. Atsuko Chiba is a research psychologist who uses a device called the DC Mini to enter her patients' dreams, wherein she adopts the alter-ego \"Paprika\". When the device is stolen, she must stop rogue elements from merging the dream and waking worlds.",
    "poster": "https://image.tmdb.org/t/p/w342/nHJljo2Pi7XimYEgV9hvRchQWmg.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/3fgcEjBNrhstYgPlG1c8WT7UpIN.jpg",
+   "genres": [
+    "Animation",
+    "Science Fiction",
+    "Thriller"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/4977",
    "suggested_by": [
     "Giotara"
@@ -2353,6 +2746,12 @@
    "runtime": 133,
    "overview": "All unemployed, Ki-taek's family takes peculiar interest in the wealthy and glamorous Parks for their livelihood until they get entangled in an unexpected incident.",
    "poster": "https://image.tmdb.org/t/p/w342/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/TU9NIjwzjoKPwQHoHshkFcQUCG.jpg",
+   "genres": [
+    "Comedy",
+    "Thriller",
+    "Drama"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/496243",
    "suggested_by": [
     "Slader"
@@ -2367,6 +2766,11 @@
    "runtime": 106,
    "overview": "After decades apart, childhood friends Nora and Hae Sung are reunited in New York for one fateful weekend as they confront notions of destiny, love, and the choices that make a life.",
    "poster": "https://image.tmdb.org/t/p/w342/k3waqVXSnvCZWfJYNtdamTgTtTA.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/7HR38hMBl23lf38MAN63y4pKsHz.jpg",
+   "genres": [
+    "Drama",
+    "Romance"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/666277",
    "suggested_by": [
     "Irene_TC"
@@ -2381,6 +2785,11 @@
    "runtime": 81,
    "overview": "Rising pop star Mima Kirigoe quits singing to pursue a career as an actress. After she takes up a role on a popular detective show, her handlers and collaborators begin turning up murdered. Harboring feelings of guilt and haunted by visions of her former self, Mima's reality and fantasy meld into a frenzied paranoia.",
    "poster": "https://image.tmdb.org/t/p/w342/6WTiOCfDPP8XV4jqfloiVWf7KHq.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/mHG7dpLb0ZScSY3LpP443IHRmjy.jpg",
+   "genres": [
+    "Animation",
+    "Thriller"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/10494",
    "suggested_by": [
     "Giotara"
@@ -2395,6 +2804,12 @@
    "runtime": 151,
    "overview": "Captain Jack Sparrow’s got a blood debt to pay: he owes his soul to the legendary Davy Jones, ghastly Ruler of the Ocean Depths. To escape eternal servitude aboard the Flying Dutchman, ever-crafty Jack must track down the still-beating heart of Jones. But he won’t do it alone: Will Turner and Elizabeth Swann are drawn back into another one of his perilous quests—assuming they can evade execution for aiding a pirate.",
    "poster": "https://image.tmdb.org/t/p/w342/uXEqmloGyP7UXAiphJUu2v2pcuE.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/vr6n6ZFUZvedvIlhfYcbCWcaKyW.jpg",
+   "genres": [
+    "Adventure",
+    "Fantasy",
+    "Action"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/58",
    "suggested_by": [
     "Toni"
@@ -2409,6 +2824,12 @@
    "runtime": 124,
    "overview": "Geeky teenager David and his popular twin sister, Jennifer, get sucked into the black-and-white world of a 1950s TV sitcom called \"Pleasantville,\" and find a world where everything is peachy keen all the time. But when Jennifer's modern attitude disrupts Pleasantville's peaceful but boring routine, she literally brings color into its life.",
    "poster": "https://image.tmdb.org/t/p/w342/sjnRihb0OdmtD5GBe5lfdfBjSxo.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/yPmLNEl9tC9RBO5c95L2R67uxGR.jpg",
+   "genres": [
+    "Fantasy",
+    "Comedy",
+    "Drama"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/2657",
    "suggested_by": [
     "João"
@@ -2423,6 +2844,11 @@
    "runtime": 115,
    "overview": "When Dr. Indiana Jones – the tweed-suited professor who just happens to be a celebrated archaeologist – is hired by the government to locate the legendary Ark of the Covenant, he finds himself up against the entire Nazi regime.",
    "poster": "https://image.tmdb.org/t/p/w342/ceG9VzoRAVGwivFU403Wc3AHRys.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/zPACwR32amTNvzId9qyapCWXYDJ.jpg",
+   "genres": [
+    "Adventure",
+    "Action"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/85",
    "suggested_by": [
     "Giotara"
@@ -2437,6 +2863,14 @@
    "runtime": 107,
    "overview": "When Rango, a lost family pet, accidentally winds up in the gritty, gun-slinging Western town of Dirt, the theater-loving lizard suddenly finds himself the newly appointed sheriff. Welcomed as the last hope the town has been waiting for, Rango is forced to play his new role to the hilt and uncover the truth behind a looming water crisis—before his act catches up with him.",
    "poster": "https://image.tmdb.org/t/p/w342/A5MP1guV8pbruieG0tnpPIbaJtt.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/mOtKQlXdL5J4lwqcSFlkZmgmFeZ.jpg",
+   "genres": [
+    "Animation",
+    "Comedy",
+    "Family",
+    "Western",
+    "Adventure"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/44896",
    "suggested_by": [
     "Toni"
@@ -2451,6 +2885,11 @@
    "runtime": 102,
    "overview": "The drug-induced utopias of four Coney Island residents are shattered when their addictions run deep.",
    "poster": "https://image.tmdb.org/t/p/w342/9BTwsLaMVHOGFlmsSlx5QYCaXb.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/fAGYRJCujRBMw7TCuTp893eSG8e.jpg",
+   "genres": [
+    "Crime",
+    "Drama"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/641",
    "suggested_by": [
     "Miguelbnz"
@@ -2465,6 +2904,13 @@
    "runtime": 111,
    "overview": "Hotshot gambler Jake Green is long on bravado and seriously short of common sense. Rarely is he allowed in any casino because he's a bona fide winner and, in fact, has taken so much money over the years that he's the sole client of his accountant elder brother, Billy. Invited to a private game, Jake is in fear of losing his life.",
    "poster": "https://image.tmdb.org/t/p/w342/cXJYFEIGNxiNTCekP1A68ICzJen.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/9mQYX1AXNJsD9WcDrDQeDPMNq0x.jpg",
+   "genres": [
+    "Drama",
+    "Thriller",
+    "Crime",
+    "Mystery"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/10851",
    "suggested_by": [
     "Malhas"
@@ -2479,6 +2925,13 @@
    "runtime": 72,
    "overview": "Scooby and the gang experience outdoor fun as they go back to Fred's old summer camp. As summer goes on, it becomes increasingly clear that the spooky camp stories told by the fireplace, are more real than they've though and soon, it's up to the gang to try and solve the mystery of camp scare.",
    "poster": "https://image.tmdb.org/t/p/w342/zurVOCpOLwLTBknYlgcXHWE0xvu.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/oVROUaJkzEBAlNbUKnXQiiKbJRf.jpg",
+   "genres": [
+    "Animation",
+    "Comedy",
+    "Family",
+    "Mystery"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/45752",
    "suggested_by": [
     "Shaggy"
@@ -2493,6 +2946,15 @@
    "runtime": 80,
    "overview": "It's one giant step for dog-kind as Scooby-Doo and the Gang blast off for an epic, other-worldly adventure in this all-new original movie! After winning the last 5 seats in a lottery, Scooby-Doo, Shaggy, Fred, Daphne and Velma are off to space in billionaire Sly Baron's brand new ship, the Sly Star One. It's all gravity-free fun until a mysterious alien begins destroying the ship! As the ship breaks down, the crew is forced to land on Sly Baron's base... on the dark side of the moon! Will the gang unravel this alien mystery? Will Scooby-Doo and Shaggy find snacks on the moon? Will Fred ever take his space helmet off?! Journey to the outer limits with Scooby-Doo to find out!",
    "poster": "https://image.tmdb.org/t/p/w342/gwyT0ljh8mVViwO6N5p4ACcIsW5.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/m4nLaQmnppjbxozI55OHtda5rOl.jpg",
+   "genres": [
+    "Adventure",
+    "Animation",
+    "Family",
+    "Comedy",
+    "Mystery",
+    "Science Fiction"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/302960",
    "suggested_by": [
     "Shaggy"
@@ -2507,6 +2969,12 @@
    "runtime": 147,
    "overview": "Two gangsters seek revenge on the state jail worker who during their stay at a youth prison sexually abused them. A sensational court hearing takes place to charge him for the crimes.",
    "poster": "https://image.tmdb.org/t/p/w342/yUpiEk2EojS9ZEXb3nIQonQCYYF.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/sDhABATFQX8nfTHShTfH8HeqKY1.jpg",
+   "genres": [
+    "Crime",
+    "Drama",
+    "Thriller"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/819",
    "suggested_by": [
     "Slader"
@@ -2521,6 +2989,11 @@
    "runtime": 103,
    "overview": "Unscrupulous boxing promoters, violent bookies, a Russian gangster, incompetent amateur robbers, and supposedly Jewish jewellers fight to track down a priceless stolen diamond.",
    "poster": "https://image.tmdb.org/t/p/w342/kJZoAHq1SLDdWjeNGtlHAnGpmFV.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/gTghF8ardwJ48XLHkiapWk3ZmSo.jpg",
+   "genres": [
+    "Crime",
+    "Comedy"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/107",
    "suggested_by": [
     "Toni"
@@ -2535,6 +3008,11 @@
    "runtime": 122,
    "overview": "Four men from different parts of the globe, all hiding from their pasts in the same remote South American town, agree to risk their lives transporting several cases of dynamite (which is so old that it is dripping unstable nitroglycerin) across dangerous jungle terrain.",
    "poster": "https://image.tmdb.org/t/p/w342/2b7oexm173SF1FSEq0DdgxZZNRH.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/g7prwSflNODkHZI6792MYoU4qoh.jpg",
+   "genres": [
+    "Thriller",
+    "Adventure"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/38985",
    "suggested_by": [
     "Traff"
@@ -2549,6 +3027,11 @@
    "runtime": 129,
    "overview": "The true story of how the Boston Globe uncovered the massive scandal of child molestation and cover-up within the local Catholic Archdiocese, shaking the entire Catholic Church to its core.",
    "poster": "https://image.tmdb.org/t/p/w342/8DPGG400FgaFWaqcv11n8mRd2NG.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/8FbbcmwmpGd7brfiC7f7lWFNGdi.jpg",
+   "genres": [
+    "Drama",
+    "History"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/314365",
    "suggested_by": [
     "Toni"
@@ -2563,6 +3046,11 @@
    "runtime": 162,
    "overview": "Near a gray and unnamed city is the Zone, a place guarded by barbed wire and soldiers, and where the normal laws of physics are victim to frequent anomalies. A stalker guides two men into the Zone, specifically to an area in which deep-seated desires are granted.",
    "poster": "https://image.tmdb.org/t/p/w342/1qhOyf5C4s9ZdvY8d5JDx9DFMeT.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/6yrbWzzrPp7pwz6zHdifspJk8t3.jpg",
+   "genres": [
+    "Science Fiction",
+    "Drama"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/1398",
    "suggested_by": [
     "Traff"
@@ -2577,6 +3065,13 @@
    "runtime": 176,
    "overview": "An unfaithful newly-wed wife, an estranged parent, a priest and an angry son suddenly find themselves in the most unexpected predicaments, each poised to experience their destiny, all on one fateful day.",
    "poster": "https://image.tmdb.org/t/p/w342/4B2NFKN713AdXJExc8Kayr6qofu.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/n1KIiBJf3M8zvKj2WEMKapUlrRe.jpg",
+   "genres": [
+    "Comedy",
+    "Thriller",
+    "Drama",
+    "Crime"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/432011",
    "suggested_by": [
     "Traff"
@@ -2591,6 +3086,12 @@
    "runtime": 107,
    "overview": "When dictator Joseph Stalin dies, his parasitic cronies square off in a frantic power struggle to become the next Soviet leader. As they bumble, brawl and back-stab their way to the top, the question remains — just who is running the government?",
    "poster": "https://image.tmdb.org/t/p/w342/AqH7q89NxGRDAyRWKqsL3OBtYfV.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/x2FqFdUxRekbNdow3vZdtDqL96z.jpg",
+   "genres": [
+    "Comedy",
+    "Drama",
+    "History"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/402897",
    "suggested_by": [
     "Toni"
@@ -2605,6 +3106,10 @@
    "runtime": 122,
    "overview": "When a mysterious entity possesses a young girl, her mother seeks the help of two Catholic priests to save her life.",
    "poster": "https://image.tmdb.org/t/p/w342/5x0CeVHJI8tcDx8tUUwYHQSNILq.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/xcjJ5khg2yzOa282mza39Lbrm7j.jpg",
+   "genres": [
+    "Horror"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/9552",
    "suggested_by": [
     "Miguelbnz"
@@ -2619,6 +3124,12 @@
    "runtime": 117,
    "overview": "In a hospital on the outskirts of 1920s Los Angeles, an injured stuntman begins to tell a fellow patient, a little girl with a broken arm, a fantastic story about 5 mythical heroes. Thanks to his fractured state of mind and her vivid imagination, the line between fiction and reality starts to blur as the tale advances.",
    "poster": "https://image.tmdb.org/t/p/w342/ez7xavvDr5yDz4sSvI55xDp0BoU.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/vNrXoT45xscHY6AN4IGf44vHxVJ.jpg",
+   "genres": [
+    "Adventure",
+    "Fantasy",
+    "Drama"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/14784",
    "suggested_by": [
     "Traff"
@@ -2633,6 +3144,11 @@
    "runtime": 133,
    "overview": "A curmudgeonly instructor at a New England prep school is forced to remain on campus during Christmas break to babysit the handful of students with nowhere to go. Eventually, he forms an unlikely bond with one of them — a damaged, brainy troublemaker — and with the school’s head cook, who has just lost a son in Vietnam.",
    "poster": "https://image.tmdb.org/t/p/w342/VHSzNBTwxV8vh7wylo7O9CLdac.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/57fhbxl9is7W7ur5v6UuvlNsoSg.jpg",
+   "genres": [
+    "Drama",
+    "Comedy"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/840430",
    "suggested_by": [
     "Irene_TC"
@@ -2647,6 +3163,12 @@
    "runtime": 124,
    "overview": "Dashing legionnaire Rick O'Connell stumbles upon the hidden ruins of Hamunaptra while in the midst of a battle to claim the area in 1920s Egypt. It has been over three thousand years since former High Priest Imhotep suffered a fate worse than death as a punishment for a forbidden love—along with a curse that guarantees eternal doom upon the world if he is ever awoken.",
    "poster": "https://image.tmdb.org/t/p/w342/yhIsVvcUm7QxzLfT6HW2wLf5ajY.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/8zLS8p1tRyWFLRFfmgQq0j5WE6z.jpg",
+   "genres": [
+    "Adventure",
+    "Action",
+    "Fantasy"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/564",
    "suggested_by": [
     "Giotara"
@@ -2661,6 +3183,11 @@
    "runtime": 128,
    "overview": "An Eastern European tourist unexpectedly finds himself stranded in JFK airport, and must take up temporary residence there.",
    "poster": "https://image.tmdb.org/t/p/w342/cPB3ZMM4UdsSAhNdS4c7ps5nypY.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/zywtNiaZ9r7azrcNdl2j0jOgrkw.jpg",
+   "genres": [
+    "Comedy",
+    "Drama"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/594",
    "suggested_by": [
     "Irene_TC"
@@ -2675,6 +3202,12 @@
    "runtime": 106,
    "overview": "Held in an L.A. interrogation room, Verbal Kint attempts to convince the feds that a mythic crime lord, Keyser Soze, not only exists, but was also responsible for drawing him and his four partners into a multi-million dollar heist that ended with an explosion in San Pedro harbor – leaving few survivors. Verbal lures his interrogators with an incredible story of the crime lord's almost supernatural prowess.",
    "poster": "https://image.tmdb.org/t/p/w342/99X2SgyFunJFXGAYnDv3sb9pnUD.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/hy0Hx9fMPk2fmw26Li60z1S2giU.jpg",
+   "genres": [
+    "Drama",
+    "Crime",
+    "Thriller"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/629",
    "suggested_by": [
     "Malhas"
@@ -2689,6 +3222,11 @@
    "runtime": 113,
    "overview": "India, 1918. On the outskirts of Tumbbad, a cursed village where it always rains, Vinayak, along with his mother and his brother, care of a mysterious old woman who keeps the secret of an ancestral treasure that Vinayak gets obsessed with.",
    "poster": "https://image.tmdb.org/t/p/w342/z1xOCxw780WFJC5uCTMfCkQ4Agi.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/l0YKBu3LaehIFzBNjseLjx7MbaN.jpg",
+   "genres": [
+    "Fantasy",
+    "Horror"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/538858",
    "suggested_by": [
     "Traff"
@@ -2703,6 +3241,10 @@
    "runtime": 130,
    "overview": "William Munny is a retired, once-ruthless killer turned gentle widower and hog farmer. To help support his two motherless children, he accepts one last bounty-hunter mission to find the men who brutalized a prostitute. Joined by his former partner and a cocky greenhorn, he takes on a corrupt sheriff.",
    "poster": "https://image.tmdb.org/t/p/w342/54roTwbX9fltg85zjsmrooXAs12.jpg",
+   "backdrop": "https://image.tmdb.org/t/p/w1280/5zkrI7P70j8C03ThBOvrEG6VF8M.jpg",
+   "genres": [
+    "Western"
+   ],
    "tmdb": "https://www.themoviedb.org/movie/33",
    "suggested_by": [
     "Slader"
