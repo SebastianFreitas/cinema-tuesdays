@@ -1167,6 +1167,28 @@ function renderConsensus() {
     .map((x) => li(x, (y) => `highest ${fmt(y.hi)}`)).join("") || `<p class="empty">No movie yet where nobody went above 7.</p>`;
 }
 
+// Score habits: each person's closed scores counted by whole number (1–4 lumped together), plus their lowest
+// score and most used decimal. People with 3+ scores.
+function renderHabits() {
+  const by = new Map();
+  closedMovies().forEach((m) => m.ratings.forEach((r) => by.set(r.name, [...(by.get(r.name) || []), r.score])));
+  const cols = [["1–4", (x) => x < 5], ...[5, 6, 7, 8, 9].map((k) => [String(k), (x) => x >= k && x < k + 1]), ["10", (x) => x >= 10]];
+  const rows = [...by].filter(([, s]) => s.length >= 3).map(([name, s]) => {
+    const ends = new Map();
+    s.forEach((x) => { const e = Math.round(x * 10) % 10; ends.set(e, (ends.get(e) || 0) + 1); });
+    const [end, k] = [...ends].sort((a, b) => b[1] - a[1] || a[0] - b[0])[0];
+    return { name, n: s.length, counts: cols.map(([, f]) => s.filter(f).length), lo: Math.min(...s), end, k };
+  }).sort((a, b) => b.n - a.n);
+  if (!rows.length) { $("#habits").innerHTML = `<tbody><tr><td class="empty">No scores yet.</td></tr></tbody>`; $("#habits-sum").textContent = ""; return; }
+  const cell = (c, n) => (c ? `<td style="background:rgba(var(--accent-rgb),${(0.08 + 0.6 * c / n).toFixed(2)})">${c}</td>` : `<td style="color:var(--muted)">·</td>`);
+  $("#habits").innerHTML = `<thead><tr><th>Person</th><th data-tip="Scores given">Scores</th>${cols.map(([h]) => `<th>${h}</th>`).join("")}
+      <th data-tip="Their lowest score">Lowest</th><th data-tip="The decimal they use most, and how often">Ending</th></tr></thead>
+    <tbody>${rows.map((r) => `<tr><td class="pname">${personLink(r.name)}</td><td>${r.n}</td>${r.counts.map((c) => cell(c, r.n)).join("")}
+      <td>${fmt(r.lo)}</td><td>.${r.end} <span style="color:var(--muted)">${pct(r.k, r.n)}</span></td></tr>`).join("")}</tbody>`;
+  const floor = rows.filter((r) => r.lo >= 6).map((r) => r.name);
+  $("#habits-sum").textContent = floor.length ? `Never below 6: ${floor.join(", ")}.` : "";
+}
+
 function renderPairs() {
   const ps = [...DATA.pairs].sort((a, b) => a.mean_gap - b.mean_gap);
   const k = Math.min(6, Math.floor(ps.length / 2));
@@ -1176,7 +1198,7 @@ function renderPairs() {
 }
 
 function renderStats() {
-  renderKpis(); renderGroups(); renderScorecard(); renderTopBottom(); renderRecords(); renderFair(); renderWorld(); renderGenres(); renderWhen(); renderPairs(); renderRanks(); renderWolves(); renderConsensus();
+  renderKpis(); renderGroups(); renderScorecard(); renderTopBottom(); renderRecords(); renderFair(); renderWorld(); renderGenres(); renderWhen(); renderPairs(); renderRanks(); renderWolves(); renderConsensus(); renderHabits();
   const sortBy = (th) => {
     const k = th.dataset.sort;
     scoreSort = { key: k, dir: scoreSort.key === k ? -scoreSort.dir : (k === "name" ? 1 : -1) };
