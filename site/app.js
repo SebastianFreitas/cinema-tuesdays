@@ -405,7 +405,7 @@ function renderPerson(name) {
           ${personLink(mine[0].other)}<div class="sub">${fmt(mine[0].gap, 2)} apart on average over ${mine[0].shared} movies</div></div></div>
          <div class="mate">${avatar(mine.at(-1).other)}<div><div class="label">Nemesis</div>
           ${personLink(mine.at(-1).other)}<div class="sub">${fmt(mine.at(-1).gap, 2)} apart on average over ${mine.at(-1).shared} movies</div></div></div>`
-      : `<p class="hint">Needs at least 3 movies in common with two people.</p>`;
+      : "";
 
     const genres = new Map();
     rows.forEach((r) => (r.m.genres || []).forEach((g) => { if (!genres.has(g)) genres.set(g, []); genres.get(g).push(r.score); }));
@@ -415,9 +415,9 @@ function renderPerson(name) {
     boxes = `<div class="p-grid">
       <div class="box"><h3>Favourites</h3><p class="hint">Their score, and everyone else's average.</p><ul class="mini">${sorted.slice(0, 5).map(item).join("")}</ul></div>
       ${sorted.length > 5 ? `<div class="box"><h3>Least favourite</h3><p class="hint">Their score, and everyone else's average.</p><ul class="mini">${sorted.slice(5).slice(-5).reverse().map(item).join("")}</ul></div>` : ""}
-      <div class="box"><h3>Taste twin &amp; nemesis</h3>${mates}</div>
-      <div class="box"><h3>Genres</h3><p class="hint">Their average per genre (2+ movies).</p>
-        ${gl.length ? `<ul class="mini">${gl.slice(0, 6).map((x) => `<li><span class="tt">${esc(x.g)} <small style="color:var(--muted)">${x.n}</small></span><b>${fmt(x.avg)}</b></li>`).join("")}</ul>` : `<p class="hint">Not enough yet.</p>`}</div>
+      ${mates ? `<div class="box"><h3>Taste twin &amp; nemesis</h3>${mates}</div>` : ""}
+      ${gl.length ? `<div class="box"><h3>Genres</h3><p class="hint">Their average per genre (2+ movies).</p>
+        <ul class="mini">${gl.slice(0, 6).map((x) => `<li><span class="tt">${esc(x.g)} <small style="color:var(--muted)">${x.n}</small></span><b>${fmt(x.avg)}</b></li>`).join("")}</ul></div>` : ""}
     </div>`;
 
     const cmp = rows.filter((r) => r.nOthers > 0).map((r) => ({ ...r, diff: r.score - r.others })).sort((a, b) => b.diff - a.diff);
@@ -431,7 +431,7 @@ function renderPerson(name) {
           const t = `<b>${esc(esc(r.m.title))}</b><br>${esc(esc(name))}: ${fmt(r.score)}<br><span class='m'>Everyone else: ${fmt(r.others, 2)} (${r.nOthers})</span>`;
           return `<li data-movie="${r.m.id}" data-tip="${t}"><span class="tt">${esc(r.m.title)}</span>
             <span class="axis"><span class="${r.diff >= 0 ? "up" : "down"}" style="width:${w}%"></span></span>
-            <span class="v ${r.diff >= 0 ? "pos" : "neg"}">${signed(r.diff, 1)}</span></li>`;
+            <span class="v ${Math.abs(r.diff) < 0.05 ? "" : r.diff > 0 ? "pos" : "neg"}">${signed(r.diff, 1)}</span></li>`;
         }).join("")}</ul></div>`;
     }
   }
@@ -710,8 +710,8 @@ function renderRecords() {
   const W = DATA.watched;
   const all = W.flatMap((m) => m.ratings.map((r) => ({ m, ...r })));
   if (!all.length) { $("#records").innerHTML = `<p class="empty">No scores yet.</p>`; return; }
-  const top = (xs, f) => xs.reduce((a, b) => (f(b) > f(a) ? b : a));
-  const hi = top(all, (r) => r.score), lo = top(all, (r) => -r.score);
+  // every item sharing the best value, so ties aren't hidden
+  const tops = (xs, f) => { const best = Math.max(...xs.map(f)); return xs.filter((x) => Math.abs(f(x) - best) < 1e-9); };
   const three = W.filter((m) => m.stdev != null && m.ratings.length >= 3);
   const timed = W.filter((m) => m.runtime), dated = W.filter((m) => m.year);
   const regulars = DATA.people.filter((p) => p.count >= 5);
@@ -720,21 +720,28 @@ function renderRecords() {
     const picks = picksOf(p.name);
     return { p, n: picks.length, v: mean(picks.map((m) => m.avg)) };
   }).filter((x) => x.n >= 2);
+  const scoreWho = (r) => `${esc(r.name)} · ${movieLink(r.m)}`;
+  // [label, list to search, what to maximise, value shown, how to show one winner]
   const rec = [
-    ["Highest score", `${fmt(hi.score)} · ${esc(hi.name)}`, movieLink(hi.m)],
-    ["Lowest score", `${fmt(lo.score)} · ${esc(lo.name)}`, movieLink(lo.m)],
-    three.length && (() => { const m = top(three, (m) => -m.stdev); return ["Most unanimous", `±${fmt(m.stdev, 2)}`, movieLink(m)]; })(),
-    (() => { const m = top(W, (m) => m.ratings.length); return ["Most scores", `${m.ratings.length}`, movieLink(m)]; })(),
-    timed.length && (() => { const m = top(timed, (m) => m.runtime); return ["Longest", hm(m.runtime), movieLink(m)]; })(),
-    timed.length && (() => { const m = top(timed, (m) => -m.runtime); return ["Shortest", hm(m.runtime), movieLink(m)]; })(),
-    dated.length && (() => { const m = top(dated, (m) => -m.year); return ["Oldest", m.year, movieLink(m)]; })(),
-    dated.length && (() => { const m = top(dated, (m) => m.year); return ["Newest", m.year, movieLink(m)]; })(),
-    regulars.length && (() => { const p = top(regulars, (p) => p.avg); return ["Most generous", fmt(p.avg, 2), personLink(p.name)]; })(),
-    regulars.length && (() => { const p = top(regulars, (p) => -p.avg); return ["Toughest critic", fmt(p.avg, 2), personLink(p.name)]; })(),
-    spreads.length && (() => { const x = top(spreads, (x) => -x.s); return ["Steadiest scorer", "±" + fmt(x.s, 2), personLink(x.p.name)]; })(),
-    pickers.length && (() => { const x = top(pickers, (x) => x.v); return ["Best picks", `${fmt(x.v, 2)} over ${x.n}`, personLink(x.p.name)]; })(),
-  ].filter(Boolean);
-  $("#records").innerHTML = rec.map(([k, v, what]) => `<div><dt>${k}</dt><dd><b>${v}</b><span>${what}</span></dd></div>`).join("");
+    ["Highest score", all, (r) => r.score, (r) => fmt(r.score), scoreWho, (r) => `${r.name}: ${r.m.title}`],
+    ["Lowest score", all, (r) => -r.score, (r) => fmt(r.score), scoreWho, (r) => `${r.name}: ${r.m.title}`],
+    ["Most unanimous", three, (m) => -m.stdev, (m) => `±${fmt(m.stdev, 2)}`, movieLink],
+    ["Most scores", W, (m) => m.ratings.length, (m) => m.ratings.length, movieLink],
+    ["Longest", timed, (m) => m.runtime, (m) => hm(m.runtime), movieLink],
+    ["Shortest", timed, (m) => -m.runtime, (m) => hm(m.runtime), movieLink],
+    ["Oldest", dated, (m) => -m.year, (m) => m.year, movieLink],
+    ["Newest", dated, (m) => m.year, (m) => m.year, movieLink],
+    ["Most generous", regulars, (p) => p.avg, (p) => fmt(p.avg, 2), (p) => personLink(p.name), (p) => p.name],
+    ["Toughest critic", regulars, (p) => -p.avg, (p) => fmt(p.avg, 2), (p) => personLink(p.name), (p) => p.name],
+    ["Steadiest scorer", spreads, (x) => -x.s, (x) => "±" + fmt(x.s, 2), (x) => personLink(x.p.name), (x) => x.p.name],
+    ["Best picks", pickers, (x) => x.v, (x) => `${fmt(x.v, 2)} over ${x.n}`, (x) => personLink(x.p.name), (x) => x.p.name],
+  ].filter(([, xs]) => xs.length).map(([k, xs, f, val, show, plain = (m) => m.title]) => {
+    const [first, ...rest] = tops(xs, f);
+    const more = rest.length
+      ? `<small class="more" data-tip="Tied with ${esc(esc(rest.map(plain).join(", ")))}">+${rest.length}</small>` : "";
+    return [k, val(first), show(first), more];
+  });
+  $("#records").innerHTML = rec.map(([k, v, what, more]) => `<div><dt>${k}</dt><dd><b>${v}</b><span>${what}</span>${more}</dd></div>`).join("");
 }
 
 function groupTable(sel, groups, label) {

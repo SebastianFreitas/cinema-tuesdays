@@ -194,7 +194,7 @@ img.avatar { object-fit: cover; padding: 0; }
 .p-head .sub { color: var(--muted); margin-top: 4px; }
 .p-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 28px; }
 .p-tiles .tile { background: var(--surface); backdrop-filter: none; }
-.p-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 16px 32px; margin-bottom: 28px; }
+.p-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)); gap: 16px 32px; margin-bottom: 28px; }
 .box { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; min-width: 0; }
 .box h3 { font-size: 1.1rem; margin-bottom: 10px; }
 .box .hint { font-size: .85rem; margin-bottom: 10px; }
@@ -227,6 +227,11 @@ img.avatar { object-fit: cover; padding: 0; }
 .diverge .axis span.up { left: 50%; background: var(--pos); border-radius: 0 4px 4px 0; }
 .diverge .axis span.down { right: 50%; background: var(--neg); border-radius: 4px 0 0 4px; }
 .diverge .v { text-align: right; font-variant-numeric: tabular-nums; font-size: .88rem; font-weight: 600; }
+/* wide screens: two columns (higher on the left, lower on the right) instead of one long, mostly empty list */
+@media (min-width: 900px) {
+  .diverge { columns: 2; column-gap: 40px; }
+  .diverge li { break-inside: avoid; }
+}
 .legend { display: flex; gap: 16px; flex-wrap: wrap; color: var(--muted); font-size: .82rem; margin-bottom: 10px; }
 .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
 
@@ -383,7 +388,8 @@ footer.wrap { color: var(--muted); font-size: .85rem; padding-top: 24px; padding
 .records dt { color: var(--muted); }
 .records dd { margin: 0; min-width: 0; display: flex; gap: 8px; align-items: baseline; }
 .records dd b { font-weight: 600; color: var(--accent); white-space: nowrap; font-variant-numeric: tabular-nums; }
-.records dd span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+.records dd > span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
 .records a { text-decoration: none; }
+.records .more { flex: none; color: var(--muted); font-size: .75rem; padding: 0 6px; border: 1px solid var(--line); border-radius: 999px; cursor: default; }
 
 .ptime { color: var(--muted); font-weight: 400; font-size: .9em; white-space: nowrap; }
