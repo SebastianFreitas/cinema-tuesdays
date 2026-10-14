@@ -48,25 +48,52 @@ function fillGenres(select, movies, label) {
   select.innerHTML = `<option value="">${label}</option>` + genres.map((g) => `<option>${esc(g)}</option>`).join("");
 }
 
-// The next screening: today if it's Tuesday and the movie isn't over yet (21:15 + ~2h15), else next Tuesday.
-function nextScreening() {
-  const now = new Date();
-  const d = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 21, 15);
-  let days = (2 - now.getDay() + 7) % 7;
-  if (days === 0 && now.getHours() * 60 + now.getMinutes() >= 23 * 60 + 30) days = 7;
-  d.setDate(d.getDate() + days);
-  const live = days === 0 && now >= d;
-  const when = days === 0 ? (live ? "on right now" : "tonight, 21:15")
-    : days === 1 ? "tomorrow, 21:15"
-    : `${d.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" })}, 21:15`;
-  return { date: d, when, live };
+// Movie night is 21:15 in Portugal. Times are worked out in Lisbon time and shown in the viewer's own,
+// with the Portuguese time added when the two differ (people abroad).
+const LISBON = "Europe/Lisbon";
+const lisbonParts = (d) => Object.fromEntries(new Intl.DateTimeFormat("en-GB", {
+  timeZone: LISBON, hourCycle: "h23", year: "numeric", month: "numeric", day: "numeric", hour: "numeric", minute: "numeric", weekday: "short",
+}).formatToParts(d).map((x) => [x.type, x.value]));
+// The instant when it's `iso` hh:mm in Lisbon.
+function lisbonTime(iso, hh = 0, mm = 0) {
+  const [y, m, d] = iso.split("-").map(Number), want = Date.UTC(y, m - 1, d, hh, mm);
+  let t = want;
+  for (let i = 0; i < 2; i++) {
+    const p = lisbonParts(new Date(t));
+    t += want - Date.UTC(+p.year, p.month - 1, +p.day, +p.hour, +p.minute);
+  }
+  return new Date(t);
+}
+const addDays = (iso, n) => new Date(Date.UTC(...iso.split("-").map((v, i) => +v - (i === 1))) + n * 864e5).toISOString().slice(0, 10);
+const lisbonToday = () => new Intl.DateTimeFormat("en-CA", { timeZone: LISBON }).format(new Date());
+const clock = (d) => d.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" });
+const lisbonClock = (d) => d.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit", timeZone: LISBON });
+const abroad = (d) => clock(d) !== lisbonClock(d);
+const ptNote = (d) => (abroad(d) ? ` <span class="ptime">(${lisbonClock(d)} in Portugal)</span>` : "");
+// "tonight" / "tomorrow" / "Thu 15 Oct", by the viewer's calendar
+function dayName(d, tonight = "tonight") {
+  const key = (x) => x.toDateString(), now = new Date();
+  if (key(d) === key(now)) return tonight;
+  if (key(d) === key(new Date(now.getTime() + 864e5))) return "tomorrow";
+  return d.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" });
 }
 
-// Same rule as the bot: scores are open until midnight at the end of the day after the screening.
-function ratingCloses(iso) {
-  const d = new Date(iso + "T00:00:00");
-  d.setDate(d.getDate() + 2);
-  return d;
+// The next screening: this Tuesday (Lisbon) unless the movie is already over (~2h15 after 21:15), else next week.
+function nextScreening() {
+  const today = lisbonToday(), dow = new Date(today + "T12:00:00Z").getUTCDay();
+  let date = lisbonTime(addDays(today, (2 - dow + 7) % 7), 21, 15);
+  if (Date.now() >= date.getTime() + 135 * 6e4) date = lisbonTime(addDays(today, (2 - dow + 7) % 7 + 7), 21, 15);
+  const live = Date.now() >= date.getTime();
+  const when = live ? "on right now" : `${dayName(date)}, ${clock(date)}`;
+  return { date, when, live };
+}
+
+// Same rule as the bot: scores are open until midnight (Lisbon) at the end of the day after the screening.
+const ratingCloses = (iso) => lisbonTime(addDays(iso, 2));
+// "by tonight at 23:59" in the viewer's time, plus the Portuguese time if different
+function rateBy(closes) {
+  const last = new Date(closes - 6e4), day = dayName(last);
+  return `by ${esc(day)}${day === "tonight" ? " at" : ","} ${clock(last)}${ptNote(last)}`;
 }
 
 /* ---------------------------------------------------------------- tooltip */
@@ -119,10 +146,10 @@ function renderHero() {
     img.src = bg;
   }
   const next = nextScreening();
-  $("#tagline").innerHTML = `Movie night every Tuesday at 21:15`;
+  $("#tagline").innerHTML = `Movie night every ${next.date.toLocaleDateString("en-GB", { weekday: "long" })} at ${clock(next.date)}${ptNote(next.date)}`;
 
   const dateTile = `<div class="date-tile"><span>${next.date.toLocaleDateString("en-GB", { month: "short" })}</span><b>${next.date.getDate()}</b></div>`;
-  const label = `Up next · ${esc(next.when)}`;
+  const label = `Up next · ${esc(next.when)}${next.live ? "" : ptNote(next.date)}`;
   let up;
   if (DATA.next_up) {
     const m = DATA.next_up;
@@ -149,16 +176,12 @@ function renderHero() {
     const seen = lastSeen(latest);
     const closes = realDate(seen) ? ratingCloses(seen) : null;
     const open = closes && new Date() < closes;
-    const lastDay = closes && new Date(closes - 60000);
-    const deadline = !lastDay ? ""
-      : lastDay.toDateString() === new Date().toDateString() ? "tonight"
-      : lastDay.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" });
     const n = latest.ratings.length;
     last = `<button class="spot${open ? " rate" : ""}" data-movie="${latest.id}">${latest.poster ? `<img src="${esc(latest.poster)}" alt="">` : ""}
       <div><div class="label">Last watched${realDate(seen) ? ` · ${date(seen, { day: "numeric", month: "short" })}` : ""}</div>
       <h3>${esc(latest.title)}</h3>
       ${open
-        ? `<p class="cta">⭐ Rate it on Discord by ${esc(deadline)}${deadline === "tonight" ? " at" : ","} 23:59</p><p>${n ? `${n} score${n === 1 ? "" : "s"} so far · average ${fmt(latest.avg, 2)}` : "No scores yet"}</p>`
+        ? `<p class="cta">⭐ Rate it on Discord ${rateBy(closes)}</p><p>${n ? `${n} score${n === 1 ? "" : "s"} so far · average ${fmt(latest.avg, 2)}` : "No scores yet"}</p>`
         : `<p>Group average <b style="color:var(--text)">${fmt(latest.avg, 2)}</b> from ${n} score${n === 1 ? "" : "s"}</p>`}</div></button>`;
   }
   $("#spotlight").innerHTML = up + last;
@@ -417,12 +440,9 @@ function renderPerson(name) {
   const unrated = info || p ? DATA.watched.filter((m) => realDate(lastSeen(m)) && !m.ratings.some((r) => r.name === name)) : [];
   let todo = "";
   if (latest && unrated.includes(latest) && new Date() < ratingCloses(lastSeen(latest))) {
-    const lastDay = new Date(ratingCloses(lastSeen(latest)) - 60000);
-    const when = lastDay.toDateString() === new Date().toDateString() ? "tonight"
-      : lastDay.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" });
     todo = `<button class="spot rate todo" data-movie="${latest.id}">${latest.poster ? `<img src="${esc(latest.poster)}" alt="">` : ""}
       <div><div class="label">Still to rate</div><h3>${esc(latest.title)}</h3>
-      <p class="cta">⭐ Rate it on Discord by ${esc(when)}${when === "tonight" ? " at" : ","} 23:59</p></div></button>`;
+      <p class="cta">⭐ Rate it on Discord ${rateBy(ratingCloses(lastSeen(latest)))}</p></div></button>`;
   }
   const missed = unrated.filter((m) => m !== latest || !todo);
   const missedHtml = missed.length && p ? `<details class="missed"><summary>Haven't scored ${missed.length} of the movies we watched</summary>
