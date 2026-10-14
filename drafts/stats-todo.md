@@ -31,7 +31,7 @@ Stats tiles, α vs ω scoreboard, scorecard table, top/lowest rated, records, by
 
 ### Relevant
 - [x] **8. Lone wolf moments** ✅: the times one person scored furthest from everyone else, club-wide (the person page only shows each person's own).
-- [ ] **9. Everyone liked it** ✅: movies where nobody gave less than 7 (and the opposite: nobody above 7).
+- [x] **9. Everyone liked it** ✅: movies where nobody gave less than 7 (and the opposite: nobody above 7).
 - [ ] **10. Score habits per person** ✅: how often each person uses each score (person × score grid). Who never goes below 6, who loves .5 scores.
 - [ ] **11. Movie age** ✅: how old each movie was when we watched it, and whether older ones score better.
 - [ ] **12. Countries and languages** 🎬: world map or table of where our movies come from, and how many weren't in English.

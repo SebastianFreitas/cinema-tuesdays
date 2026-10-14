@@ -1153,6 +1153,20 @@ function renderWolves() {
       <span class="v">${pct(r.k, r.n)}</span></li>`).join("") || `<p class="empty">Needs at least 3 scores per movie.</p>`;
 }
 
+// Movies the whole room agreed on: nobody under 7, or nobody over 7. Closed movies with 3+ scores.
+function renderConsensus() {
+  const ms = closedMovies().filter((m) => m.ratings.length >= 3).map((m) => {
+    const s = m.ratings.map((r) => r.score);
+    return { m, lo: Math.min(...s), hi: Math.max(...s), n: s.length };
+  });
+  const li = (x, sub) => `<li data-movie="${x.m.id}"><div>${esc(x.m.title)}<div class="sub">${sub(x)} · ${plural(x.n, "score")}</div></div>
+      <span class="v">${fmt(x.m.avg, 2)}</span></li>`;
+  $("#liked").innerHTML = ms.filter((x) => x.lo >= 7).sort((a, b) => b.lo - a.lo || b.m.avg - a.m.avg)
+    .map((x) => li(x, (y) => `lowest ${fmt(y.lo)}`)).join("") || `<p class="empty">No movie yet where everyone gave 7 or more.</p>`;
+  $("#unloved").innerHTML = ms.filter((x) => x.hi <= 7).sort((a, b) => a.hi - b.hi || a.m.avg - b.m.avg)
+    .map((x) => li(x, (y) => `highest ${fmt(y.hi)}`)).join("") || `<p class="empty">No movie yet where nobody went above 7.</p>`;
+}
+
 function renderPairs() {
   const ps = [...DATA.pairs].sort((a, b) => a.mean_gap - b.mean_gap);
   const k = Math.min(6, Math.floor(ps.length / 2));
@@ -1162,7 +1176,7 @@ function renderPairs() {
 }
 
 function renderStats() {
-  renderKpis(); renderGroups(); renderScorecard(); renderTopBottom(); renderRecords(); renderFair(); renderWorld(); renderGenres(); renderWhen(); renderPairs(); renderRanks(); renderWolves();
+  renderKpis(); renderGroups(); renderScorecard(); renderTopBottom(); renderRecords(); renderFair(); renderWorld(); renderGenres(); renderWhen(); renderPairs(); renderRanks(); renderWolves(); renderConsensus();
   const sortBy = (th) => {
     const k = th.dataset.sort;
     scoreSort = { key: k, dir: scoreSort.key === k ? -scoreSort.dir : (k === "name" ? 1 : -1) };
