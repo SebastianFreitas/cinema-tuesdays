@@ -44,7 +44,7 @@ Stats tiles, α vs ω scoreboard, scorecard table, top/lowest rated, records, by
 
 ### Silly
 - [x] **19. Runtime as travel** ✅: "we've spent enough time watching to fly Lisbon → Tokyo 4 times."
-- [ ] **20. Title stats** ✅: longest title, whether longer titles score better, titles with numbers in them.
+- [x] **20. Title stats** ✅: longest title, whether longer titles score better, titles with numbers in them.
 - [ ] **21. Days since the last…** ✅: days since the last horror, comedy, etc., one per genre.
 - [ ] **22. Full moon nights** ✅: do we score higher under a full moon? Worked out from the dates alone.
 - [ ] **23. Movie-night weather** 🌍: Lisbon weather on each movie night against the score (free weather history service, e.g. Open-Meteo, fetched by the bot or once at build).

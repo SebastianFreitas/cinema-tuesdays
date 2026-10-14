@@ -1101,6 +1101,29 @@ function renderObscurity() {
       <span class="v">${Math.round(r.med).toLocaleString("en-GB")}</span></li>`).join("") || `<p class="empty">Needs people with 3+ picks.</p>`;
 }
 
+// Title stats, closed movies only. Words: whitespace-separated, ignoring lone punctuation.
+const titleWords = (t) => t.split(/\s+/).filter((w) => /[\p{L}\p{N}]/u.test(w));
+const NUM_WORDS = "one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty thirty forty fifty sixty seventy eighty ninety hundred thousand million".split(" ");
+// digits, Roman numerals from II up (a lone "I" is usually the pronoun) and number words
+const hasNumber = (t) => /\d/.test(t) || titleWords(t).some((w) => /^(II|III|IV|V|VI|VII|VIII|IX|X)$/.test(w.replace(/\W+$/, "")) || NUM_WORDS.includes(w.toLowerCase().replace(/\W+/g, "")));
+function renderTitles() {
+  const ms = closedMovies().filter((m) => m.avg != null);
+  const n = (m) => titleWords(m.title).length;
+  const band = (k) => (k >= 5 ? "5 or more" : plural(k, "word"));
+  const bands = new Map();
+  ms.forEach((m) => bands.set(band(n(m)), [...(bands.get(band(n(m))) || []), m]));
+  groupTable("#title-len", ["1 word", "2 words", "3 words", "4 words", "5 or more"].filter((k) => bands.has(k)).map((k) => [k, bands.get(k)]), "Title");
+  const long = ms.length ? ms.reduce((a, b) => (b.title.length > a.title.length ? b : a)) : null;
+  const xs = ms.map(n), vs = ms.map((m) => m.avg), mx = mean(xs), mv = mean(vs);
+  const sxx = sum(xs.map((a) => (a - mx) ** 2)), svv = sum(vs.map((a) => (a - mv) ** 2));
+  const r = sxx && svv ? sum(ms.map((m, i) => (xs[i] - mx) * (vs[i] - mv))) / Math.sqrt(sxx * svv) : 0;
+  $("#title-sum").innerHTML = long ? `Longest: ${movieLink(long)} (${plural(n(long), "word")}). ${Math.abs(r) < 0.1 ? "Length makes no real difference" : `Longer titles score ${r > 0 ? "a bit higher" : "a bit lower"}`} (correlation ${signed(r, 2)}).` : "";
+  const nums = ms.filter((m) => hasNumber(m.title)).sort((a, b) => b.avg - a.avg), rest = ms.filter((m) => !hasNumber(m.title));
+  $("#title-num").innerHTML = nums.map((m) => `<li data-movie="${m.id}"><div>${esc(m.title)}${m.year ? `<div class="sub">${m.year}</div>` : ""}</div><span class="v">${fmt(m.avg, 2)}</span></li>`).join("")
+    || `<p class="empty">No numbers in our titles yet.</p>`;
+  $("#num-sum").textContent = nums.length && rest.length ? `They average ${fmt(mean(nums.map((m) => m.avg)), 2)}, the rest ${fmt(mean(rest.map((m) => m.avg)), 2)}.` : "";
+}
+
 // Total runtime of closed movies, measured in trips. Durations are rough, everyday figures (minutes).
 const TRIPS = [
   ["🛰️", "laps round the Earth on the ISS", "of a lap round the Earth on the ISS", "one orbit: about 1h32", 92],
@@ -1357,7 +1380,7 @@ function renderPairs() {
 }
 
 function renderStats() {
-  renderKpis(); renderGroups(); renderScorecard(); renderTopBottom(); renderRecords(); renderFair(); renderWorld(); renderGenres(); renderAges(); renderOrigins(); renderActors(); renderBudgets(); renderObscurity(); renderWhen(); renderTravel(); renderPairs(); renderRanks(); renderWolves(); renderConsensus(); renderHabits();
+  renderKpis(); renderGroups(); renderScorecard(); renderTopBottom(); renderRecords(); renderFair(); renderWorld(); renderGenres(); renderAges(); renderOrigins(); renderActors(); renderBudgets(); renderObscurity(); renderWhen(); renderTravel(); renderTitles(); renderPairs(); renderRanks(); renderWolves(); renderConsensus(); renderHabits();
   const sortBy = (th) => {
     const k = th.dataset.sort;
     scoreSort = { key: k, dir: scoreSort.key === k ? -scoreSort.dir : (k === "name" ? 1 : -1) };
