@@ -1,3 +1,4 @@
+import datetime as dt
 import statistics
 
 import discord
@@ -7,8 +8,33 @@ from discord.ext import commands
 from ..util import choices, label, movie_embed, parse_date, resolve_movie
 
 
+def is_mod(itx: discord.Interaction) -> bool:
+    return isinstance(itx.user, discord.Member) and itx.user.guild_permissions.manage_messages
+
+
+def rating_closes(watched_on: str) -> dt.datetime:
+    """Scores are open until midnight at the end of the day after the screening (about 24h after the movie ends)."""
+    return dt.datetime.combine(dt.date.fromisoformat(watched_on) + dt.timedelta(days=2), dt.time())
+
+
+def rating_open(bot, movie_id: int) -> bool:
+    seen = bot.db.last_screening(movie_id)
+    return bool(seen) and dt.datetime.now() < rating_closes(seen)
+
+
+def closed_message(bot, row) -> str:
+    closed = rating_closes(bot.db.last_screening(row["id"])) - dt.timedelta(minutes=1)
+    return (f"Rating for **{label(row)}** closed on {closed:%a %d %b} at midnight. "
+            "Ask a moderator if you need to fix a score.")
+
+
 async def save_rating(bot, itx: discord.Interaction, row, score: float, remark: str | None) -> None:
-    """Check, save and post a score, then answer the interaction."""
+    """Check and save a score, then answer the interaction.
+
+    The score and remark are only shown to the person rating, so nobody is swayed by the others while voting;
+    the channel just gets a line saying who has rated. Everyone's scores are on the website."""
+    if not is_mod(itx) and not rating_open(bot, row["id"]):
+        return await itx.response.send_message(closed_message(bot, row), ephemeral=True)
     remark = (remark or "").strip() or None
     minimum = bot.cfg.min_remark_chars
     if minimum and len(remark or "") < minimum:
@@ -18,16 +44,15 @@ async def save_rating(bot, itx: discord.Interaction, row, score: float, remark: 
     updated = bot.db.rate(row["id"], bot.db.upsert_user(itx.user.id, itx.user.display_name), score, remark)
     bot.mark_dirty()
 
-    text = f"**{label(row)}** — **{score:.1f}**/10 · {itx.user.mention}" + (" (updated)" if updated else "")
-    if remark:
-        text += "\n> " + remark.replace("\n", "\n> ")
-    mentions = discord.AllowedMentions.none()
-
-    rate_channel_id = bot.cfg.rate_channel_id
-    if not rate_channel_id or itx.channel_id == rate_channel_id:
-        return await itx.response.send_message(text, allowed_mentions=mentions)
-    await bot.get_channel(rate_channel_id).send(text, allowed_mentions=mentions)
-    await itx.response.send_message(f"Saved and posted in <#{rate_channel_id}>.", ephemeral=True)
+    await itx.response.send_message(
+        f"{'Updated' if updated else 'Saved'}: you gave **{label(row)}** **{score:.1f}**/10. "
+        "Only you can see this. Everyone's scores are on the website.", ephemeral=True)
+    if updated:
+        return
+    channel = (bot.get_channel(bot.cfg.rate_channel_id) if bot.cfg.rate_channel_id else None) or itx.channel
+    if channel:
+        await channel.send(f"⭐ {itx.user.mention} rated **{label(row)}**.",
+                           allowed_mentions=discord.AllowedMentions.none())
 
 
 def parse_score(text: str) -> float | None:
@@ -68,6 +93,8 @@ async def open_rate_form(itx: discord.Interaction, movie_id: int) -> None:
     row = bot.db.movie(movie_id)
     if not row or not bot.db.last_screening(movie_id):
         return await itx.response.send_message("That movie hasn't been marked as watched yet.", ephemeral=True)
+    if not is_mod(itx) and not rating_open(bot, movie_id):
+        return await itx.response.send_message(closed_message(bot, row), ephemeral=True)
     await itx.response.send_modal(RateModal(bot, row, bot.db.upsert_user(itx.user.id, itx.user.display_name)))
 
 
@@ -115,6 +142,11 @@ class Ratings(commands.Cog):
         if not row:
             return await itx.response.send_message("Pick a movie we've watched from the list.", ephemeral=True)
         rs = self.db.ratings_for(row["id"])
+        me = self.db.upsert_user(itx.user.id, itx.user.display_name)
+        if rating_open(self.bot, row["id"]) and not is_mod(itx) and all(r["user_id"] != me for r in rs):
+            return await itx.response.send_message(
+                f"Give **{label(row)}** your own score first. The others stay hidden until you've rated "
+                "or rating closes.", ephemeral=True)
         if not rs:
             return await itx.response.send_message(f"No scores for **{label(row)}** yet.", ephemeral=True)
         scores = [r["score"] for r in rs]
@@ -143,7 +175,10 @@ class Ratings(commands.Cog):
         # Everyone gets a button to score it, instead of typing /rate.
         view = discord.ui.View(timeout=None)
         view.add_item(RateButton(row["id"], f"Rate {row['title']}"))
-        text = f"🍿 We watched **{label(row)}**. How was it? Click below to give it a score."
+        closes = rating_closes(self.db.last_screening(row["id"])) - dt.timedelta(minutes=1)
+        text = (f"🍿 We watched **{label(row)}**. How was it? Click below to give it a score.\n"
+                "-# Scores stay private here so nobody's swayed; see them on the website. "
+                f"Rating closes {closes:%A} at midnight.")
         rate_channel = self.bot.get_channel(self.bot.cfg.rate_channel_id) if self.bot.cfg.rate_channel_id else None
         if rate_channel and rate_channel.id != itx.channel_id:
             await rate_channel.send(text, view=view)
