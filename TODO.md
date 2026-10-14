@@ -7,7 +7,6 @@ One at a time, top to bottom. Tick each off when it's live.
 - [x] "Who agrees with whom" caption says darker = disagree more; it's actually brighter
 - [x] Two different "averages" on Stats (7.38 = all scores, 7.44 = average of each movie's average); label them clearly
 - [x] Agreement grid only fills the left half of its box on desktop
-
 - [x] Movie List hint points at the ➕ Suggest button instead of /suggest
 
 ## 2. Sharing in Discord
