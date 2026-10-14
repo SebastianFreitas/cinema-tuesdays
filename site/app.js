@@ -1024,21 +1024,35 @@ function fairScores() {
   return done.map((m) => ({ m, fair: mean(m.ratings.map((r) => r.score - (lean.get(r.name) || 0))) }));
 }
 
+// Weighted average: the movie's average pulled toward the overall average as if it had WEIGHT_K extra
+// scores at that overall average, so a movie with few scores can't top the table on a handful of 9s.
+const WEIGHT_K = 3;
+
 function renderFair() {
   const { rank } = movieRanks();
   const rows = fairScores().sort((a, b) => b.fair - a.fair || b.m.avg - a.m.avg);
   if (!rows.length) { $("#fair").innerHTML = `<tbody><tr><td class="empty">No scores yet.</td></tr></tbody>`; return; }
-  const place = new Map();   // ties share a place, as in movieRanks
-  rows.forEach((r, i) => place.set(r.m.id, i && Math.abs(rows[i - 1].fair - r.fair) < 1e-9 ? place.get(rows[i - 1].m.id) : i + 1));
-  const move = (r) => {
-    const d = rank.get(r.m.id) - place.get(r.m.id);
+  const overall = mean(rows.map((r) => r.m.avg));
+  rows.forEach((r) => { const n = r.m.ratings.length; r.weighted = (n * r.m.avg + WEIGHT_K * overall) / (n + WEIGHT_K); });
+  // place by a value, best first; ties share a place, as in movieRanks
+  const places = (f) => {
+    const s = [...rows].sort((a, b) => f(b) - f(a)), out = new Map();
+    s.forEach((r, i) => out.set(r.m.id, i && Math.abs(f(s[i - 1]) - f(r)) < 1e-9 ? out.get(s[i - 1].m.id) : i + 1));
+    return out;
+  };
+  const place = places((r) => r.fair), wPlace = places((r) => r.weighted);
+  const move = (to, r) => {
+    const d = rank.get(r.m.id) - to.get(r.m.id);
     return d ? `<span class="${d > 0 ? "pos" : "neg"}">${d > 0 ? "▲" : "▼"}${Math.abs(d)}</span>` : `<span style="color:var(--muted)">=</span>`;
   };
   const diff = (r) => { const d = r.fair - r.m.avg; return `<span class="${Math.abs(d) < 0.005 ? "" : d > 0 ? "pos" : "neg"}">${signed(d)}</span>`; };
   $("#fair").innerHTML = `<thead><tr><th>#</th><th style="text-align:left">Movie</th><th data-tip="Average after taking out each person's usual lean">Fair</th><th data-tip="The plain group average">Avg</th>
-      <th data-tip="Fair minus average">Diff</th><th data-tip="Place by the plain average">Was</th><th data-tip="Places gained (▲) or lost (▼) by the fair score">Move</th></tr></thead>
+      <th data-tip="Fair minus average">Diff</th><th data-tip="Place by the plain average">Was</th><th data-tip="Places gained (▲) or lost (▼) by the fair score">Move</th>
+      <th data-tip="How many people scored it">Scores</th><th data-tip="Average pulled toward the overall average (${fmt(overall, 2)}), more for movies with few scores">Weighted</th>
+      <th data-tip="Place by the weighted average, and places gained (▲) or lost (▼) against the plain average">W place</th></tr></thead>
     <tbody>${rows.map((r) => `<tr><td>${place.get(r.m.id)}</td><td class="clip">${movieLink(r.m)}</td><td><b>${fmt(r.fair, 2)}</b></td><td>${fmt(r.m.avg, 2)}</td><td>${diff(r)}</td>
-      <td>${rank.get(r.m.id)}</td><td>${move(r)}</td></tr>`).join("")}</tbody>`;
+      <td>${rank.get(r.m.id)}</td><td>${move(place, r)}</td><td>${r.m.ratings.length}</td><td>${fmt(r.weighted, 2)}</td>
+      <td>${wPlace.get(r.m.id)} ${move(wPlace, r)}</td></tr>`).join("")}</tbody>`;
 }
 
 function renderPairs() {

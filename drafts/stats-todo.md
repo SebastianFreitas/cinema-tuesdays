@@ -21,7 +21,7 @@ Stats tiles, α vs ω scoreboard, scorecard table, top/lowest rated, records, by
 
 ### Important
 - [x] **1. Fair ranking** ✅: adjusts each score for how harsh or generous that person usually is, so a movie isn't punished because the tough critics rated it. Show the "fair rank" next to the raw rank and flag the biggest movers.
-- [ ] **2. Fewer scores count less** ✅: pull movies with few scores toward the overall average, so 3 scores of 9 don't beat 10 scores of 8.8. Its own ranking column, next to the raw and fair ones.
+- [x] **2. Fewer scores count less** ✅: pull movies with few scores toward the overall average, so 3 scores of 9 don't beat 10 scores of 8.8. Its own ranking column, next to the raw and fair ones.
 - [ ] **3. Pick hit rate** ✅: the share of each person's picks that ended up above the club average. Add it to the scorecard as a new column and to the person page.
 - [ ] **4. Are we getting harsher?** ✅: rolling average of the last 5 movies, drawn over the week-by-week chart or next to it.
 - [ ] **0. TMDB extras** 🎬 (needed by 5, 12, 13, 14, 15, 25): the bot fetches the TMDB rating and vote count, countries, original language, budget, revenue, top-billed cast, release date and poster colour, and adds them to the site data. Backfill the movies we've already watched. Bot change: needs tests and a Pi deploy.
