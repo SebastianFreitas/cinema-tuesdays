@@ -1024,6 +1024,28 @@ function renderActors() {
   }).join("") || `<p class="empty">Nobody we've seen is on the Movie List.</p>`;
 }
 
+// Budget and box office from TMDB (null = unknown). Closed movies with a known budget.
+const money = (n) => new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", notation: "compact", maximumFractionDigits: 1 }).format(n);
+const BUDGET_BANDS = [["Under $5M", 5e6], ["$5M to $30M", 3e7], ["$30M to $100M", 1e8], ["$100M or more", Infinity]];
+
+function renderBudgets() {
+  const ms = closedMovies().filter((m) => m.budget);
+  if (!ms.length) {
+    $("#budgets").innerHTML = `<tbody><tr><td class="empty">No budgets known yet.</td></tr></tbody>`;
+    $("#budget-sum").textContent = ""; $("#budget-hi").innerHTML = $("#budget-lo").innerHTML = ""; return;
+  }
+  groupTable("#budgets", BUDGET_BANDS.map(([k, hi], i) => [k, ms.filter((m) => m.budget >= (i ? BUDGET_BANDS[i - 1][1] : 0) && m.budget < hi)])
+    .filter(([, g]) => g.length), "Budget");
+  const box = ms.filter((m) => m.revenue);
+  $("#budget-sum").textContent = `${plural(ms.length, "movie")} that cost ${money(sum(ms.map((m) => m.budget)))} together`
+    + (box.length ? `; ${box.length === ms.length ? "they" : `the ${box.length} with known box office`} took ${money(sum(box.map((m) => m.revenue)))} in cinemas.` : ".");
+  const li = (m) => `<li data-movie="${m.id}"><div>${esc(m.title)}<div class="sub">cost ${money(m.budget)}${m.revenue ? ` · took ${money(m.revenue)}` : ""}</div></div>
+      <span class="v">${fmt(m.avg, 2)}</span></li>`;
+  const sorted = [...ms].sort((a, b) => b.budget - a.budget);
+  $("#budget-hi").innerHTML = sorted.slice(0, 5).map(li).join("");
+  $("#budget-lo").innerHTML = sorted.slice(-5).reverse().map(li).join("");
+}
+
 // When we watched (month, weekday) and how long the movie is, closed movies only. Reuses groupTable.
 function renderWhen() {
   const add = (map, k, m) => map.set(k, [...(map.get(k) || []), m]);
@@ -1263,7 +1285,7 @@ function renderPairs() {
 }
 
 function renderStats() {
-  renderKpis(); renderGroups(); renderScorecard(); renderTopBottom(); renderRecords(); renderFair(); renderWorld(); renderGenres(); renderAges(); renderOrigins(); renderActors(); renderWhen(); renderPairs(); renderRanks(); renderWolves(); renderConsensus(); renderHabits();
+  renderKpis(); renderGroups(); renderScorecard(); renderTopBottom(); renderRecords(); renderFair(); renderWorld(); renderGenres(); renderAges(); renderOrigins(); renderActors(); renderBudgets(); renderWhen(); renderPairs(); renderRanks(); renderWolves(); renderConsensus(); renderHabits();
   const sortBy = (th) => {
     const k = th.dataset.sort;
     scoreSort = { key: k, dir: scoreSort.key === k ? -scoreSort.dir : (k === "name" ? 1 : -1) };
