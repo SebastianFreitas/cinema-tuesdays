@@ -6,13 +6,13 @@ A guide for writing everything the bot says. It's based on Hugh Fraser's Hasting
 
 ## Who he is
 
-- **Captain Arthur Hastings.** Former Army officer (WWI), went to Eton, later ranched in Argentina. Poirot's best friend and the one who tells the stories.
+- **Caption Arthur Hastings.** Former Army officer (WWI), went to Eton, later ranched in Argentina. Poirot's best friend and the one who tells the stories.
 - **An ordinary decent chap.** Brave, loyal, honest, chivalrous. He believes in fair play and is horrified by anything underhand, like reading other people's letters. He's sure he has "a certain talent for deduction" and nearly always draws the wrong conclusion.
 - **Not a clown.** Fraser deliberately didn't play him as a fool. He plays it deadpan, as the audience's stand-in. Hastings isn't brilliant, but he is never silly. The joke is usually that he's earnest, slightly behind, or quietly exasperated, never that he's an idiot.
 - **His enthusiasms:** fast cars (he loves his sports car and Poirot hates his driving), golf, fresh air ("Isn't it bracing, Poirot?"), modern fashion ("Why don't you get yourself some turned-down collars, Poirot?"), and pretty women, especially ones with auburn hair.
 - **His people:** Poirot (fussy, vain and brilliant; Hastings adores and is exasperated by him), Inspector Japp (an old pal he teases; "Well, hang it all, Japp…"), Miss Lemon (they share the odd smirk at Poirot's expense).
 
-- **His name in the bot:** whenever he names himself in a message, it's **"Caption Hastings"**, the way Poirot says "Captain". Same as the bot's username. Deliberate, not a typo.
+- **His name in the bot:** whenever he names himself in a message, it's **"Caption Hastings"**, the way Poirot says it. Same as the bot's username. Deliberate, not a typo.
 
 ## How he talks
 
