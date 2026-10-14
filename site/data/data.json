@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-14T10:02:11+00:00",
+ "generated_at": "2026-10-14T10:05:28+00:00",
  "next_up": null,
  "poll": null,
  "watched": [
@@ -17,26 +17,26 @@
     "2026-10-13"
    ],
    "suggested_by": [
-    "Arden"
+    "Shaggy"
    ],
    "ratings": [
     {
-     "name": "Arden",
+     "name": "Shaggy",
      "score": 8.0,
      "remark": null
     },
     {
-     "name": "Sebas",
+     "name": "Traff",
      "score": 7.7,
      "remark": null
     },
     {
-     "name": "Luis",
+     "name": "Slader",
      "score": 7.0,
      "remark": null
     },
     {
-     "name": "Irene",
+     "name": "Irene_TC",
      "score": 7.0,
      "remark": null
     },
@@ -46,7 +46,7 @@
      "remark": null
     },
     {
-     "name": "Jota",
+     "name": "Giotara",
      "score": 6.3,
      "remark": null
     },
@@ -56,7 +56,7 @@
      "remark": null
     },
     {
-     "name": "Helena",
+     "name": "magical potato",
      "score": 5.1,
      "remark": null
     }
@@ -82,7 +82,7 @@
    "suggested_by": [],
    "ratings": [
     {
-     "name": "Sebas",
+     "name": "Traff",
      "score": 8.1,
      "remark": null
     },
@@ -92,12 +92,12 @@
      "remark": null
     },
     {
-     "name": "Jota",
+     "name": "Giotara",
      "score": 7.5,
      "remark": null
     },
     {
-     "name": "Helena",
+     "name": "magical potato",
      "score": 6.4,
      "remark": null
     }
@@ -130,17 +130,17 @@
      "remark": null
     },
     {
-     "name": "Irene",
+     "name": "Irene_TC",
      "score": 7.5,
      "remark": null
     },
     {
-     "name": "Jota",
+     "name": "Giotara",
      "score": 7.3,
      "remark": null
     },
     {
-     "name": "Helena",
+     "name": "magical potato",
      "score": 6.9,
      "remark": null
     }
@@ -173,17 +173,17 @@
      "remark": null
     },
     {
-     "name": "Sebas",
+     "name": "Traff",
      "score": 7.1,
      "remark": null
     },
     {
-     "name": "Jota",
+     "name": "Giotara",
      "score": 6.5,
      "remark": null
     },
     {
-     "name": "Helena",
+     "name": "magical potato",
      "score": 5.6,
      "remark": null
     }
@@ -207,36 +207,36 @@
     "2026-09-15"
    ],
    "suggested_by": [
-    "Jota"
+    "Giotara"
    ],
    "ratings": [
     {
-     "name": "Luis",
+     "name": "Slader",
      "score": 9.0,
      "remark": null
     },
     {
-     "name": "Arden",
+     "name": "Shaggy",
      "score": 9.0,
      "remark": null
     },
     {
-     "name": "Filipa",
+     "name": "Fili",
      "score": 9.0,
      "remark": null
     },
     {
-     "name": "Irene",
+     "name": "Irene_TC",
      "score": 9.0,
      "remark": null
     },
     {
-     "name": "Jota",
+     "name": "Giotara",
      "score": 8.4,
      "remark": null
     },
     {
-     "name": "Helena",
+     "name": "magical potato",
      "score": 8.0,
      "remark": null
     },
@@ -246,7 +246,7 @@
      "remark": null
     },
     {
-     "name": "Sebas",
+     "name": "Traff",
      "score": 7.9,
      "remark": null
     },
@@ -275,16 +275,16 @@
     "2026-09-09"
    ],
    "suggested_by": [
-    "Malhadas"
+    "Malhas"
    ],
    "ratings": [
     {
-     "name": "Luis",
+     "name": "Slader",
      "score": 7.8,
      "remark": null
     },
     {
-     "name": "Jota",
+     "name": "Giotara",
      "score": 7.7,
      "remark": null
     },
@@ -294,7 +294,7 @@
      "remark": null
     },
     {
-     "name": "Sebas",
+     "name": "Traff",
      "score": 7.6,
      "remark": null
     }
@@ -318,7 +318,7 @@
     "2026-09-01"
    ],
    "suggested_by": [
-    "Malhadas"
+    "Malhas"
    ],
    "ratings": [
     {
@@ -327,12 +327,12 @@
      "remark": null
     },
     {
-     "name": "Jota",
+     "name": "Giotara",
      "score": 8.0,
      "remark": null
     },
     {
-     "name": "Sebas",
+     "name": "Traff",
      "score": 8.0,
      "remark": null
     },
@@ -342,22 +342,22 @@
      "remark": null
     },
     {
-     "name": "Luis",
+     "name": "Slader",
      "score": 8.0,
      "remark": null
     },
     {
-     "name": "Irene",
+     "name": "Irene_TC",
      "score": 8.0,
      "remark": null
     },
     {
-     "name": "Arden",
+     "name": "Shaggy",
      "score": 7.0,
      "remark": null
     },
     {
-     "name": "Helena",
+     "name": "magical potato",
      "score": 6.8,
      "remark": null
     }
@@ -395,22 +395,22 @@
      "remark": null
     },
     {
-     "name": "Sebas",
+     "name": "Traff",
      "score": 6.8,
      "remark": null
     },
     {
-     "name": "Jota",
+     "name": "Giotara",
      "score": 6.6,
      "remark": null
     },
     {
-     "name": "Irene",
+     "name": "Irene_TC",
      "score": 5.5,
      "remark": null
     },
     {
-     "name": "Arden",
+     "name": "Shaggy",
      "score": 5.0,
      "remark": null
     }
@@ -434,16 +434,16 @@
     "2026-08-18"
    ],
    "suggested_by": [
-    "Sebas"
+    "Traff"
    ],
    "ratings": [
     {
-     "name": "Malhadas",
+     "name": "Malhas",
      "score": 8.0,
      "remark": null
     },
     {
-     "name": "Sebas",
+     "name": "Traff",
      "score": 7.7,
      "remark": null
     },
@@ -453,22 +453,22 @@
      "remark": null
     },
     {
-     "name": "Jota",
+     "name": "Giotara",
      "score": 6.5,
      "remark": null
     },
     {
-     "name": "Helena",
+     "name": "magical potato",
      "score": 5.9,
      "remark": null
     },
     {
-     "name": "Arden",
+     "name": "Shaggy",
      "score": 4.0,
      "remark": null
     },
     {
-     "name": "Irene",
+     "name": "Irene_TC",
      "score": 2.5,
      "remark": null
     },
@@ -497,16 +497,16 @@
     "2026-08-11"
    ],
    "suggested_by": [
-    "Malhadas"
+    "Malhas"
    ],
    "ratings": [
     {
-     "name": "Malhadas",
+     "name": "Malhas",
      "score": 7.6,
      "remark": null
     },
     {
-     "name": "Sebas",
+     "name": "Traff",
      "score": 7.3,
      "remark": null
     },
@@ -516,17 +516,17 @@
      "remark": null
     },
     {
-     "name": "Jota",
+     "name": "Giotara",
      "score": 6.0,
      "remark": null
     },
     {
-     "name": "Helena",
+     "name": "magical potato",
      "score": 5.9,
      "remark": null
     },
     {
-     "name": "Luis",
+     "name": "Slader",
      "score": 5.6,
      "remark": null
     }
@@ -550,11 +550,11 @@
     "2026-08-04"
    ],
    "suggested_by": [
-    "Sebas"
+    "Traff"
    ],
    "ratings": [
     {
-     "name": "Helena",
+     "name": "magical potato",
      "score": 8.6,
      "remark": null
     },
@@ -564,7 +564,7 @@
      "remark": null
     },
     {
-     "name": "Luis",
+     "name": "Slader",
      "score": 8.4,
      "remark": null
     },
@@ -574,22 +574,22 @@
      "remark": null
     },
     {
-     "name": "Jota",
+     "name": "Giotara",
      "score": 8.0,
      "remark": null
     },
     {
-     "name": "Arden",
+     "name": "Shaggy",
      "score": 8.0,
      "remark": null
     },
     {
-     "name": "Irene",
+     "name": "Irene_TC",
      "score": 8.0,
      "remark": null
     },
     {
-     "name": "Sebas",
+     "name": "Traff",
      "score": 7.9,
      "remark": null
     }
@@ -617,12 +617,12 @@
    ],
    "ratings": [
     {
-     "name": "Luis",
+     "name": "Slader",
      "score": 9.2,
      "remark": null
     },
     {
-     "name": "Arden",
+     "name": "Shaggy",
      "score": 9.0,
      "remark": null
     },
@@ -637,27 +637,27 @@
      "remark": null
     },
     {
-     "name": "Jota",
+     "name": "Giotara",
      "score": 8.3,
      "remark": null
     },
     {
-     "name": "Helena",
+     "name": "magical potato",
      "score": 7.9,
      "remark": null
     },
     {
-     "name": "Malhadas",
+     "name": "Malhas",
      "score": 7.8,
      "remark": null
     },
     {
-     "name": "Irene",
+     "name": "Irene_TC",
      "score": 7.5,
      "remark": null
     },
     {
-     "name": "Sebas",
+     "name": "Traff",
      "score": 6.9,
      "remark": null
     }
@@ -681,16 +681,16 @@
     "2026-07-21"
    ],
    "suggested_by": [
-    "Bonzinho"
+    "Miguelbnz"
    ],
    "ratings": [
     {
-     "name": "Sebas",
+     "name": "Traff",
      "score": 7.1,
      "remark": null
     },
     {
-     "name": "Malhadas",
+     "name": "Malhas",
      "score": 7.0,
      "remark": null
     },
@@ -700,17 +700,17 @@
      "remark": null
     },
     {
-     "name": "Jota",
+     "name": "Giotara",
      "score": 6.4,
      "remark": null
     },
     {
-     "name": "Helena",
+     "name": "magical potato",
      "score": 6.0,
      "remark": null
     },
     {
-     "name": "Arden",
+     "name": "Shaggy",
      "score": 6.0,
      "remark": null
     },
@@ -748,17 +748,17 @@
      "remark": null
     },
     {
-     "name": "Jota",
+     "name": "Giotara",
      "score": 8.0,
      "remark": null
     },
     {
-     "name": "Sebas",
+     "name": "Traff",
      "score": 8.0,
      "remark": null
     },
     {
-     "name": "Arden",
+     "name": "Shaggy",
      "score": 8.0,
      "remark": null
     },
@@ -768,12 +768,12 @@
      "remark": null
     },
     {
-     "name": "Helena",
+     "name": "magical potato",
      "score": 7.4,
      "remark": null
     },
     {
-     "name": "Malhadas",
+     "name": "Malhas",
      "score": 7.0,
      "remark": null
     }
@@ -797,7 +797,7 @@
     "2026-07-07"
    ],
    "suggested_by": [
-    "Sebas"
+    "Traff"
    ],
    "ratings": [
     {
@@ -806,22 +806,22 @@
      "remark": null
     },
     {
-     "name": "Sebas",
+     "name": "Traff",
      "score": 6.3,
      "remark": null
     },
     {
-     "name": "Helena",
+     "name": "magical potato",
      "score": 6.1,
      "remark": null
     },
     {
-     "name": "Luis",
+     "name": "Slader",
      "score": 5.8,
      "remark": null
     },
     {
-     "name": "Jota",
+     "name": "Giotara",
      "score": 5.7,
      "remark": null
     },
@@ -859,12 +859,12 @@
      "remark": null
     },
     {
-     "name": "Jota",
+     "name": "Giotara",
      "score": 8.5,
      "remark": null
     },
     {
-     "name": "Sebas",
+     "name": "Traff",
      "score": 8.3,
      "remark": null
     },
@@ -907,12 +907,12 @@
      "remark": null
     },
     {
-     "name": "Sebas",
+     "name": "Traff",
      "score": 8.4,
      "remark": null
     },
     {
-     "name": "Jota",
+     "name": "Giotara",
      "score": 8.3,
      "remark": null
     }
@@ -940,12 +940,12 @@
    ],
    "ratings": [
     {
-     "name": "Sebas",
+     "name": "Traff",
      "score": 6.9,
      "remark": null
     },
     {
-     "name": "Luis",
+     "name": "Slader",
      "score": 6.8,
      "remark": null
     },
@@ -955,7 +955,7 @@
      "remark": null
     },
     {
-     "name": "Bonzinho",
+     "name": "Miguelbnz",
      "score": 6.5,
      "remark": null
     },
@@ -965,12 +965,12 @@
      "remark": null
     },
     {
-     "name": "Jota",
+     "name": "Giotara",
      "score": 6.0,
      "remark": null
     },
     {
-     "name": "Helena",
+     "name": "magical potato",
      "score": 6.0,
      "remark": null
     }
@@ -1003,7 +1003,7 @@
      "remark": null
     },
     {
-     "name": "Jota",
+     "name": "Giotara",
      "score": 8.4,
      "remark": null
     },
@@ -1013,7 +1013,7 @@
      "remark": null
     },
     {
-     "name": "Sebas",
+     "name": "Traff",
      "score": 8.2,
      "remark": null
     }
@@ -1037,7 +1037,7 @@
     "2026-06-03"
    ],
    "suggested_by": [
-    "Bonzinho"
+    "Miguelbnz"
    ],
    "ratings": [
     {
@@ -1046,12 +1046,12 @@
      "remark": null
     },
     {
-     "name": "Jota",
+     "name": "Giotara",
      "score": 6.4,
      "remark": null
     },
     {
-     "name": "Helena",
+     "name": "magical potato",
      "score": 4.7,
      "remark": null
     }
@@ -1075,26 +1075,26 @@
     "2026-05-26"
    ],
    "suggested_by": [
-    "Sebas"
+    "Traff"
    ],
    "ratings": [
     {
-     "name": "Luis",
+     "name": "Slader",
      "score": 8.3,
      "remark": null
     },
     {
-     "name": "Sebas",
+     "name": "Traff",
      "score": 7.9,
      "remark": null
     },
     {
-     "name": "Jota",
+     "name": "Giotara",
      "score": 7.8,
      "remark": null
     },
     {
-     "name": "Helena",
+     "name": "magical potato",
      "score": 7.7,
      "remark": null
     },
@@ -1123,7 +1123,7 @@
     "2026-05-19"
    ],
    "suggested_by": [
-    "Jota"
+    "Giotara"
    ],
    "ratings": [
     {
@@ -1132,17 +1132,17 @@
      "remark": null
     },
     {
-     "name": "Helena",
+     "name": "magical potato",
      "score": 8.8,
      "remark": null
     },
     {
-     "name": "Jota",
+     "name": "Giotara",
      "score": 8.7,
      "remark": null
     },
     {
-     "name": "Bonzinho",
+     "name": "Miguelbnz",
      "score": 8.3,
      "remark": null
     }
@@ -1166,7 +1166,7 @@
     "2026-05-12"
    ],
    "suggested_by": [
-    "Sebas"
+    "Traff"
    ],
    "ratings": [
     {
@@ -1175,12 +1175,12 @@
      "remark": null
     },
     {
-     "name": "Sebas",
+     "name": "Traff",
      "score": 8.4,
      "remark": null
     },
     {
-     "name": "Jota",
+     "name": "Giotara",
      "score": 8.3,
      "remark": null
     }
@@ -1204,7 +1204,7 @@
     "2026-05-05"
    ],
    "suggested_by": [
-    "Jota"
+    "Giotara"
    ],
    "ratings": [
     {
@@ -1213,12 +1213,12 @@
      "remark": null
     },
     {
-     "name": "Jota",
+     "name": "Giotara",
      "score": 7.5,
      "remark": null
     },
     {
-     "name": "Helena",
+     "name": "magical potato",
      "score": 7.2,
      "remark": null
     }
@@ -1242,21 +1242,21 @@
     "2026-04-29"
    ],
    "suggested_by": [
-    "Jota"
+    "Giotara"
    ],
    "ratings": [
     {
-     "name": "Helena",
+     "name": "magical potato",
      "score": 9.1,
      "remark": null
     },
     {
-     "name": "Luis",
+     "name": "Slader",
      "score": 9.0,
      "remark": null
     },
     {
-     "name": "Jota",
+     "name": "Giotara",
      "score": 8.6,
      "remark": null
     },
@@ -1266,7 +1266,7 @@
      "remark": null
     },
     {
-     "name": "Sebas",
+     "name": "Traff",
      "score": 7.8,
      "remark": null
     }
@@ -1290,16 +1290,16 @@
     "2026-04-22"
    ],
    "suggested_by": [
-    "Bonzinho"
+    "Miguelbnz"
    ],
    "ratings": [
     {
-     "name": "Jota",
+     "name": "Giotara",
      "score": 8.3,
      "remark": null
     },
     {
-     "name": "Helena",
+     "name": "magical potato",
      "score": 8.0,
      "remark": null
     },
@@ -1331,7 +1331,7 @@
    }
   },
   {
-   "name": "Jota",
+   "name": "Giotara",
    "count": 26,
    "avg": 7.46,
    "bias": 0.02,
@@ -1345,7 +1345,7 @@
    }
   },
   {
-   "name": "Sebas",
+   "name": "Traff",
    "count": 21,
    "avg": 7.63,
    "bias": 0.2,
@@ -1359,7 +1359,7 @@
    }
   },
   {
-   "name": "Helena",
+   "name": "magical potato",
    "count": 20,
    "avg": 6.91,
    "bias": -0.38,
@@ -1387,7 +1387,7 @@
    }
   },
   {
-   "name": "Luis",
+   "name": "Slader",
    "count": 11,
    "avg": 7.72,
    "bias": 0.23,
@@ -1401,7 +1401,7 @@
    }
   },
   {
-   "name": "Arden",
+   "name": "Shaggy",
    "count": 9,
    "avg": 7.11,
    "bias": -0.11,
@@ -1415,7 +1415,7 @@
    }
   },
   {
-   "name": "Irene",
+   "name": "Irene_TC",
    "count": 8,
    "avg": 6.88,
    "bias": -0.41,
@@ -1429,7 +1429,7 @@
    }
   },
   {
-   "name": "Malhadas",
+   "name": "Malhas",
    "count": 5,
    "avg": 7.48,
    "bias": 0.67,
@@ -1443,7 +1443,7 @@
    }
   },
   {
-   "name": "Bonzinho",
+   "name": "Miguelbnz",
    "count": 2,
    "avg": 7.4,
    "bias": -0.17,
@@ -1457,7 +1457,7 @@
    }
   },
   {
-   "name": "Filipa",
+   "name": "Fili",
    "count": 1,
    "avg": 9.0,
    "bias": 0.61,
@@ -1474,7 +1474,7 @@
  "pairs": [
   {
    "a": "Toni",
-   "b": "Malhadas",
+   "b": "Malhas",
    "shared": 4,
    "mean_gap": 2.78,
    "biggest": {
@@ -1485,8 +1485,8 @@
    }
   },
   {
-   "a": "Malhadas",
-   "b": "Arden",
+   "a": "Malhas",
+   "b": "Shaggy",
    "shared": 4,
    "mean_gap": 1.8,
    "biggest": {
@@ -1498,7 +1498,7 @@
   },
   {
    "a": "João",
-   "b": "Irene",
+   "b": "Irene_TC",
    "shared": 8,
    "mean_gap": 1.4,
    "biggest": {
@@ -1510,7 +1510,7 @@
   },
   {
    "a": "João",
-   "b": "Arden",
+   "b": "Shaggy",
    "shared": 9,
    "mean_gap": 1.33,
    "biggest": {
@@ -1521,8 +1521,8 @@
    }
   },
   {
-   "a": "Helena",
-   "b": "Irene",
+   "a": "magical potato",
+   "b": "Irene_TC",
    "shared": 7,
    "mean_gap": 1.3,
    "biggest": {
@@ -1533,8 +1533,8 @@
    }
   },
   {
-   "a": "Sebas",
-   "b": "Irene",
+   "a": "Traff",
+   "b": "Irene_TC",
    "shared": 7,
    "mean_gap": 1.29,
    "biggest": {
@@ -1546,7 +1546,7 @@
   },
   {
    "a": "Toni",
-   "b": "Arden",
+   "b": "Shaggy",
    "shared": 9,
    "mean_gap": 1.28,
    "biggest": {
@@ -1557,8 +1557,8 @@
    }
   },
   {
-   "a": "Sebas",
-   "b": "Arden",
+   "a": "Traff",
+   "b": "Shaggy",
    "shared": 9,
    "mean_gap": 1.24,
    "biggest": {
@@ -1569,7 +1569,7 @@
    }
   },
   {
-   "a": "Sebas",
+   "a": "Traff",
    "b": "Toni",
    "shared": 14,
    "mean_gap": 1.18,
@@ -1581,7 +1581,7 @@
    }
   },
   {
-   "a": "Helena",
+   "a": "magical potato",
    "b": "Toni",
    "shared": 10,
    "mean_gap": 1.14,
@@ -1605,8 +1605,8 @@
    }
   },
   {
-   "a": "Helena",
-   "b": "Sebas",
+   "a": "magical potato",
+   "b": "Traff",
    "shared": 15,
    "mean_gap": 1.09,
    "biggest": {
@@ -1617,8 +1617,8 @@
    }
   },
   {
-   "a": "Helena",
-   "b": "Malhadas",
+   "a": "magical potato",
+   "b": "Malhas",
    "shared": 5,
    "mean_gap": 1.06,
    "biggest": {
@@ -1629,8 +1629,8 @@
    }
   },
   {
-   "a": "Jota",
-   "b": "Malhadas",
+   "a": "Giotara",
+   "b": "Malhas",
    "shared": 5,
    "mean_gap": 1.04,
    "biggest": {
@@ -1641,8 +1641,8 @@
    }
   },
   {
-   "a": "Helena",
-   "b": "Arden",
+   "a": "magical potato",
+   "b": "Shaggy",
    "shared": 8,
    "mean_gap": 1.04,
    "biggest": {
@@ -1653,8 +1653,8 @@
    }
   },
   {
-   "a": "Jota",
-   "b": "Arden",
+   "a": "Giotara",
+   "b": "Shaggy",
    "shared": 9,
    "mean_gap": 0.94,
    "biggest": {
@@ -1665,8 +1665,8 @@
    }
   },
   {
-   "a": "Jota",
-   "b": "Irene",
+   "a": "Giotara",
+   "b": "Irene_TC",
    "shared": 8,
    "mean_gap": 0.93,
    "biggest": {
@@ -1678,7 +1678,7 @@
   },
   {
    "a": "Toni",
-   "b": "Irene",
+   "b": "Irene_TC",
    "shared": 7,
    "mean_gap": 0.91,
    "biggest": {
@@ -1690,7 +1690,7 @@
   },
   {
    "a": "João",
-   "b": "Helena",
+   "b": "magical potato",
    "shared": 20,
    "mean_gap": 0.87,
    "biggest": {
@@ -1702,7 +1702,7 @@
   },
   {
    "a": "João",
-   "b": "Malhadas",
+   "b": "Malhas",
    "shared": 5,
    "mean_gap": 0.84,
    "biggest": {
@@ -1714,7 +1714,7 @@
   },
   {
    "a": "João",
-   "b": "Luis",
+   "b": "Slader",
    "shared": 11,
    "mean_gap": 0.83,
    "biggest": {
@@ -1725,7 +1725,7 @@
    }
   },
   {
-   "a": "Jota",
+   "a": "Giotara",
    "b": "Toni",
    "shared": 14,
    "mean_gap": 0.81,
@@ -1737,8 +1737,8 @@
    }
   },
   {
-   "a": "Sebas",
-   "b": "Luis",
+   "a": "Traff",
+   "b": "Slader",
    "shared": 11,
    "mean_gap": 0.79,
    "biggest": {
@@ -1749,8 +1749,8 @@
    }
   },
   {
-   "a": "Arden",
-   "b": "Irene",
+   "a": "Shaggy",
+   "b": "Irene_TC",
    "shared": 7,
    "mean_gap": 0.79,
    "biggest": {
@@ -1761,8 +1761,8 @@
    }
   },
   {
-   "a": "Helena",
-   "b": "Luis",
+   "a": "magical potato",
+   "b": "Slader",
    "shared": 10,
    "mean_gap": 0.77,
    "biggest": {
@@ -1774,7 +1774,7 @@
   },
   {
    "a": "João",
-   "b": "Sebas",
+   "b": "Traff",
    "shared": 21,
    "mean_gap": 0.59,
    "biggest": {
@@ -1785,8 +1785,8 @@
    }
   },
   {
-   "a": "Jota",
-   "b": "Helena",
+   "a": "Giotara",
+   "b": "magical potato",
    "shared": 20,
    "mean_gap": 0.57,
    "biggest": {
@@ -1797,8 +1797,8 @@
    }
   },
   {
-   "a": "Jota",
-   "b": "Sebas",
+   "a": "Giotara",
+   "b": "Traff",
    "shared": 21,
    "mean_gap": 0.53,
    "biggest": {
@@ -1809,8 +1809,8 @@
    }
   },
   {
-   "a": "Sebas",
-   "b": "Malhadas",
+   "a": "Traff",
+   "b": "Malhas",
    "shared": 5,
    "mean_gap": 0.52,
    "biggest": {
@@ -1821,8 +1821,8 @@
    }
   },
   {
-   "a": "Luis",
-   "b": "Arden",
+   "a": "Slader",
+   "b": "Shaggy",
    "shared": 5,
    "mean_gap": 0.52,
    "biggest": {
@@ -1834,7 +1834,7 @@
   },
   {
    "a": "João",
-   "b": "Jota",
+   "b": "Giotara",
    "shared": 26,
    "mean_gap": 0.48,
    "biggest": {
@@ -1845,7 +1845,7 @@
    }
   },
   {
-   "a": "Luis",
+   "a": "Slader",
    "b": "Toni",
    "shared": 7,
    "mean_gap": 0.46,
@@ -1857,8 +1857,8 @@
    }
   },
   {
-   "a": "Jota",
-   "b": "Luis",
+   "a": "Giotara",
+   "b": "Slader",
    "shared": 11,
    "mean_gap": 0.45,
    "biggest": {
@@ -1869,8 +1869,8 @@
    }
   },
   {
-   "a": "Luis",
-   "b": "Irene",
+   "a": "Slader",
+   "b": "Irene_TC",
    "shared": 5,
    "mean_gap": 0.42,
    "biggest": {
@@ -1893,7 +1893,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/ujERk3aKABXU3NDXOAxEQYTHe9A.jpg",
    "tmdb": "https://www.themoviedb.org/movie/4951",
    "suggested_by": [
-    "Arden"
+    "Shaggy"
    ]
   },
   {
@@ -1907,7 +1907,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/eebUPRI4Z5e1Z7Hev4JZAwMIFkX.jpg",
    "tmdb": "https://www.themoviedb.org/movie/1163258",
    "suggested_by": [
-    "Jota"
+    "Giotara"
    ]
   },
   {
@@ -1921,7 +1921,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/850chzYHYbT3IISl6Q7dbBuFP2B.jpg",
    "tmdb": "https://www.themoviedb.org/movie/187017",
    "suggested_by": [
-    "Luis"
+    "Slader"
    ]
   },
   {
@@ -1935,7 +1935,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/dMbkoFzD5sEQvEaqRsIh4pTBJVq.jpg",
    "tmdb": "https://www.themoviedb.org/movie/4917",
    "suggested_by": [
-    "Malhadas"
+    "Malhas"
    ]
   },
   {
@@ -1949,7 +1949,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/evKz85EKouVbIr51zy5fOtpNRPg.jpg",
    "tmdb": "https://www.themoviedb.org/movie/965150",
    "suggested_by": [
-    "Irene"
+    "Irene_TC"
    ]
   },
   {
@@ -1963,7 +1963,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/neZ0ykEsPqxamsX6o5QNUFILQrz.jpg",
    "tmdb": "https://www.themoviedb.org/movie/149",
    "suggested_by": [
-    "Bonzinho"
+    "Miguelbnz"
    ]
   },
   {
@@ -1991,7 +1991,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/rhGx6E3qRNMgj3i5su2oukNHwIQ.jpg",
    "tmdb": "https://www.themoviedb.org/movie/1083381",
    "suggested_by": [
-    "Luis"
+    "Slader"
    ]
   },
   {
@@ -2005,7 +2005,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/kf1Jb1c2JAOqjuzA3H4oDM263uB.jpg",
    "tmdb": "https://www.themoviedb.org/movie/76",
    "suggested_by": [
-    "Irene"
+    "Irene_TC"
    ]
   },
   {
@@ -2019,7 +2019,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/BzVjmm8l23rPsijLiNLUzuQtyd.jpg",
    "tmdb": "https://www.themoviedb.org/movie/776503",
    "suggested_by": [
-    "Arden"
+    "Shaggy"
    ]
   },
   {
@@ -2033,7 +2033,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/ezUtb9m5DeLwL2gxi4gktzNCvQv.jpg",
    "tmdb": "https://www.themoviedb.org/movie/220289",
    "suggested_by": [
-    "Sebas"
+    "Traff"
    ]
   },
   {
@@ -2047,7 +2047,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/yYVHGe7U55Ojx11y5A82phPpCHv.jpg",
    "tmdb": "https://www.themoviedb.org/movie/15584",
    "suggested_by": [
-    "Sebas"
+    "Traff"
    ]
   },
   {
@@ -2061,7 +2061,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/j2AtZFsflxiluaNtajMTI0Avm8C.jpg",
    "tmdb": "https://www.themoviedb.org/movie/141",
    "suggested_by": [
-    "Bonzinho"
+    "Miguelbnz"
    ]
   },
   {
@@ -2075,7 +2075,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/gHm96BRW4GoI339rF1vYoYTB6Qe.jpg",
    "tmdb": "https://www.themoviedb.org/movie/935",
    "suggested_by": [
-    "Bonzinho"
+    "Miguelbnz"
    ]
   },
   {
@@ -2089,7 +2089,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/omReuKQ8ItWYD5pOLmsKh3MF24w.jpg",
    "tmdb": "https://www.themoviedb.org/movie/6877",
    "suggested_by": [
-    "Luis"
+    "Slader"
    ]
   },
   {
@@ -2103,7 +2103,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/sV3kIAmvJ9tPz4Lq5fuf9LLMxte.jpg",
    "tmdb": "https://www.themoviedb.org/movie/755",
    "suggested_by": [
-    "Bonzinho"
+    "Miguelbnz"
    ]
   },
   {
@@ -2117,7 +2117,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/9gC88zYUBARRSThcG93MvW14sqx.jpg",
    "tmdb": "https://www.themoviedb.org/movie/9323",
    "suggested_by": [
-    "Jota"
+    "Giotara"
    ]
   },
   {
@@ -2131,7 +2131,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/5vO7R4xYlDipTp8gzfRbWegO8eb.jpg",
    "tmdb": "https://www.themoviedb.org/movie/11282",
    "suggested_by": [
-    "Luis"
+    "Slader"
    ]
   },
   {
@@ -2145,7 +2145,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/eCOtqtfvn7mxGl6nfmq4b1exJRc.jpg",
    "tmdb": "https://www.themoviedb.org/movie/152601",
    "suggested_by": [
-    "Irene"
+    "Irene_TC"
    ]
   },
   {
@@ -2159,7 +2159,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/4GFPuL14eXi66V96xBWY73Y9PfR.jpg",
    "tmdb": "https://www.themoviedb.org/movie/493922",
    "suggested_by": [
-    "Bonzinho"
+    "Miguelbnz"
    ]
   },
   {
@@ -2173,7 +2173,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/iPDkaSdKk2jRLTM65UOEoKtsIZ8.jpg",
    "tmdb": "https://www.themoviedb.org/movie/6479",
    "suggested_by": [
-    "Luis"
+    "Slader"
    ]
   },
   {
@@ -2201,7 +2201,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/s2LcyaA9zSi3JDOqskfW1rQfn0Z.jpg",
    "tmdb": "https://www.themoviedb.org/movie/25499",
    "suggested_by": [
-    "Sebas"
+    "Traff"
    ]
   },
   {
@@ -2215,7 +2215,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/kL55wY0s2H9JdwfjoWIp9plvYnl.jpg",
    "tmdb": "https://www.themoviedb.org/movie/88751",
    "suggested_by": [
-    "Arden"
+    "Shaggy"
    ]
   },
   {
@@ -2229,7 +2229,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/niNdhTpPHSgw22tK0PLjQMV640v.jpg",
    "tmdb": "https://www.themoviedb.org/movie/773",
    "suggested_by": [
-    "Irene"
+    "Irene_TC"
    ]
   },
   {
@@ -2243,7 +2243,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/edKpE9B5qN3e559OuMCLZdW1iBZ.jpg",
    "tmdb": "https://www.themoviedb.org/movie/696506",
    "suggested_by": [
-    "Filipa"
+    "Fili"
    ]
   },
   {
@@ -2271,7 +2271,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/jcfEqKdWF1zeyvECPqp3mkWLct2.jpg",
    "tmdb": "https://www.themoviedb.org/movie/70",
    "suggested_by": [
-    "Bonzinho"
+    "Miguelbnz"
    ]
   },
   {
@@ -2299,7 +2299,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/pDsAAYf6Zn0yiAGJ6lYGs6hoZ4E.jpg",
    "tmdb": "https://www.themoviedb.org/movie/1593",
    "suggested_by": [
-    "Arden"
+    "Shaggy"
    ]
   },
   {
@@ -2313,7 +2313,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/2NQljeavtfl22207D1kxLpa4LS3.jpg",
    "tmdb": "https://www.themoviedb.org/movie/961323",
    "suggested_by": [
-    "Arden"
+    "Shaggy"
    ]
   },
   {
@@ -2327,7 +2327,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/356oqQpug682OERsWV0bGZ0YxwQ.jpg",
    "tmdb": "https://www.themoviedb.org/movie/5924",
    "suggested_by": [
-    "Malhadas"
+    "Malhas"
    ]
   },
   {
@@ -2341,7 +2341,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/nHJljo2Pi7XimYEgV9hvRchQWmg.jpg",
    "tmdb": "https://www.themoviedb.org/movie/4977",
    "suggested_by": [
-    "Jota"
+    "Giotara"
    ]
   },
   {
@@ -2355,7 +2355,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg",
    "tmdb": "https://www.themoviedb.org/movie/496243",
    "suggested_by": [
-    "Luis"
+    "Slader"
    ]
   },
   {
@@ -2369,7 +2369,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/k3waqVXSnvCZWfJYNtdamTgTtTA.jpg",
    "tmdb": "https://www.themoviedb.org/movie/666277",
    "suggested_by": [
-    "Irene"
+    "Irene_TC"
    ]
   },
   {
@@ -2383,7 +2383,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/6WTiOCfDPP8XV4jqfloiVWf7KHq.jpg",
    "tmdb": "https://www.themoviedb.org/movie/10494",
    "suggested_by": [
-    "Jota"
+    "Giotara"
    ]
   },
   {
@@ -2425,7 +2425,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/ceG9VzoRAVGwivFU403Wc3AHRys.jpg",
    "tmdb": "https://www.themoviedb.org/movie/85",
    "suggested_by": [
-    "Jota"
+    "Giotara"
    ]
   },
   {
@@ -2453,7 +2453,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/9BTwsLaMVHOGFlmsSlx5QYCaXb.jpg",
    "tmdb": "https://www.themoviedb.org/movie/641",
    "suggested_by": [
-    "Bonzinho"
+    "Miguelbnz"
    ]
   },
   {
@@ -2467,7 +2467,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/cXJYFEIGNxiNTCekP1A68ICzJen.jpg",
    "tmdb": "https://www.themoviedb.org/movie/10851",
    "suggested_by": [
-    "Malhadas"
+    "Malhas"
    ]
   },
   {
@@ -2481,7 +2481,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/zurVOCpOLwLTBknYlgcXHWE0xvu.jpg",
    "tmdb": "https://www.themoviedb.org/movie/45752",
    "suggested_by": [
-    "Arden"
+    "Shaggy"
    ]
   },
   {
@@ -2495,7 +2495,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/gwyT0ljh8mVViwO6N5p4ACcIsW5.jpg",
    "tmdb": "https://www.themoviedb.org/movie/302960",
    "suggested_by": [
-    "Arden"
+    "Shaggy"
    ]
   },
   {
@@ -2509,7 +2509,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/yUpiEk2EojS9ZEXb3nIQonQCYYF.jpg",
    "tmdb": "https://www.themoviedb.org/movie/819",
    "suggested_by": [
-    "Luis"
+    "Slader"
    ]
   },
   {
@@ -2537,7 +2537,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/2b7oexm173SF1FSEq0DdgxZZNRH.jpg",
    "tmdb": "https://www.themoviedb.org/movie/38985",
    "suggested_by": [
-    "Sebas"
+    "Traff"
    ]
   },
   {
@@ -2565,7 +2565,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/1qhOyf5C4s9ZdvY8d5JDx9DFMeT.jpg",
    "tmdb": "https://www.themoviedb.org/movie/1398",
    "suggested_by": [
-    "Sebas"
+    "Traff"
    ]
   },
   {
@@ -2579,7 +2579,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/4B2NFKN713AdXJExc8Kayr6qofu.jpg",
    "tmdb": "https://www.themoviedb.org/movie/432011",
    "suggested_by": [
-    "Sebas"
+    "Traff"
    ]
   },
   {
@@ -2607,7 +2607,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/5x0CeVHJI8tcDx8tUUwYHQSNILq.jpg",
    "tmdb": "https://www.themoviedb.org/movie/9552",
    "suggested_by": [
-    "Bonzinho"
+    "Miguelbnz"
    ]
   },
   {
@@ -2621,7 +2621,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/ez7xavvDr5yDz4sSvI55xDp0BoU.jpg",
    "tmdb": "https://www.themoviedb.org/movie/14784",
    "suggested_by": [
-    "Sebas"
+    "Traff"
    ]
   },
   {
@@ -2635,7 +2635,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/VHSzNBTwxV8vh7wylo7O9CLdac.jpg",
    "tmdb": "https://www.themoviedb.org/movie/840430",
    "suggested_by": [
-    "Irene"
+    "Irene_TC"
    ]
   },
   {
@@ -2649,7 +2649,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/yhIsVvcUm7QxzLfT6HW2wLf5ajY.jpg",
    "tmdb": "https://www.themoviedb.org/movie/564",
    "suggested_by": [
-    "Jota"
+    "Giotara"
    ]
   },
   {
@@ -2663,7 +2663,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/cPB3ZMM4UdsSAhNdS4c7ps5nypY.jpg",
    "tmdb": "https://www.themoviedb.org/movie/594",
    "suggested_by": [
-    "Irene"
+    "Irene_TC"
    ]
   },
   {
@@ -2677,7 +2677,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/99X2SgyFunJFXGAYnDv3sb9pnUD.jpg",
    "tmdb": "https://www.themoviedb.org/movie/629",
    "suggested_by": [
-    "Malhadas"
+    "Malhas"
    ]
   },
   {
@@ -2691,7 +2691,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/z1xOCxw780WFJC5uCTMfCkQ4Agi.jpg",
    "tmdb": "https://www.themoviedb.org/movie/538858",
    "suggested_by": [
-    "Sebas"
+    "Traff"
    ]
   },
   {
@@ -2705,7 +2705,7 @@
    "poster": "https://image.tmdb.org/t/p/w342/54roTwbX9fltg85zjsmrooXAs12.jpg",
    "tmdb": "https://www.themoviedb.org/movie/33",
    "suggested_by": [
-    "Luis"
+    "Slader"
    ]
   }
  ]
