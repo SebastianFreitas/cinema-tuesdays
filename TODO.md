@@ -31,5 +31,5 @@ One at a time, top to bottom. Tick each off when it's live.
 - [x] Tap to show chart tooltips (they only work with a mouse now)
 
 ## 7. Data cleanup (bot side)
-- [ ] Remove the bot "The Legend" from Group ω
-- [ ] Put Fili and magical potato in a group
+- [x] Remove the bot "The Legend" from Group ω
+- [x] Put Fili and magical potato in a group (decided: no group for now. Fili and Mafalda barely show up, review when they do; magical potato is active but doesn't suggest movies, so she doesn't need one)
