@@ -331,12 +331,8 @@ footer { color: var(--muted); font-size: .85rem; padding-top: 24px; padding-bott
   .chart-card { padding: 14px; }
 }
 
-/* Greek group letter: a small gold badge so it doesn't read as a Latin a / w */
-.gsym {
-  display: inline-grid; place-items: center; width: 1.35em; height: 1.35em; margin-right: .3em; vertical-align: .05em;
-  border-radius: 50%; background: rgba(var(--accent-rgb), .16); color: var(--accent);
-  font: italic 600 .85em/1 "Times New Roman", Times, serif;
-}
+/* Greek group letter (Noto Serif, loaded for just these two glyphs) so α and ω don't read as a / w */
+.gk { font-family: "Noto Serif", "Times New Roman", serif; font-style: italic; font-weight: 700; font-size: 1.12em; line-height: 1; color: var(--accent); }
 
 /* ---------- stats page: dense layout ---------- */
 .kpis { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; margin-top: 20px; }

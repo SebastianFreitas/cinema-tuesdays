@@ -7,8 +7,8 @@ const mean = (xs) => (xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : nu
 const date = (iso, opts = { day: "numeric", month: "short", year: "numeric" }) =>
   new Date(iso + "T12:00:00").toLocaleDateString("en-GB", opts);
 const realDate = (iso) => iso && !iso.startsWith("1970");
-// Spelled out, with the Greek letter as a badge: on its own α reads as "a" and ω as "w".
-const GROUPS = { alpha: `<span class="gsym">α</span>Group Alpha`, omega: `<span class="gsym">ω</span>Group Omega` };
+// The site's fonts have no Greek, so the fallback α looks like an "a"; .gk draws it in Noto Serif italic instead.
+const GROUPS = { alpha: `Group <span class="gk">α</span>`, omega: `Group <span class="gk">ω</span>` };
 const personHref = (name) => `#person/${encodeURIComponent(name)}`;
 const personLink = (name) => `<a href="${personHref(name)}">${esc(name)}</a>`;
 const lastSeen = (m) => m.watched_on.at(-1);
@@ -625,7 +625,7 @@ function renderKpis() {
     [pct(all.filter((s) => s < 6).length, all.length), "scores under 6", `lowest ${fmt(Math.min(...all))}`],
     [years.length ? Math.round(median(years)) : "–", "typical release year", years.length ? `${Math.min(...years)} to ${Math.max(...years)}` : ""],
     [rated.filter((m) => m.avg >= 8).length, "movies averaging 8+", `${rated.filter((m) => m.avg < 6.5).length} under 6.5`],
-    [fmt(grpAvg("alpha"), 2), "Group Alpha scores", `Group Omega ${fmt(grpAvg("omega"), 2)}`],
+    [fmt(grpAvg("alpha"), 2), `${GROUPS.alpha} average`, `${GROUPS.omega} ${fmt(grpAvg("omega"), 2)}`],
     [DATA.suggestions.length, "on the Movie List", listMin ? `${Math.round(listMin / 60)}h of movies` : ""],
     [weeks, "weeks running", `movie on ${pct(W.length, weeks)} of them`],
     [new Set(W.flatMap((m) => (m.director || "").split(", ").filter(Boolean))).size, "directors", `${new Set(W.flatMap((m) => m.genres || [])).size} genres`],
