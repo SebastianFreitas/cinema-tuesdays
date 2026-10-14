@@ -28,7 +28,7 @@ One at a time, top to bottom. Tick each off when it's live.
 - [x] Favourites / least favourites show the group's score next to theirs
 
 ## 6. Phones
-- [ ] Tap to show chart tooltips (they only work with a mouse now)
+- [x] Tap to show chart tooltips (they only work with a mouse now)
 
 ## 7. Data cleanup (bot side)
 - [ ] Remove the bot "The Legend" from Group ω

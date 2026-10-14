@@ -79,14 +79,32 @@ function placeTip(e) {
   tip.style.left = `${Math.max(8, x)}px`;
   tip.style.top = `${Math.max(8, y)}px`;
 }
-document.addEventListener("pointermove", (e) => {
-  const el = e.target.closest?.("[data-tip]");
-  if (!el) { tip.hidden = true; return; }
+function showTip(el, e) {
+  // the movie popup sits in the browser's top layer, so the tooltip has to live inside it to show up
+  const host = el.closest("dialog") || document.body;
+  if (tip.parentElement !== host) host.append(tip);
   if (tip.dataset.for !== el.dataset.tip) { tip.innerHTML = el.dataset.tip; tip.dataset.for = el.dataset.tip; }
   tip.hidden = false;
   placeTip(e);
+}
+document.addEventListener("pointermove", (e) => {
+  if (e.pointerType !== "mouse") return;   // touch: tooltips open on tap instead (see tapTip)
+  const el = e.target.closest?.("[data-tip]");
+  if (!el) { tip.hidden = true; return; }
+  showTip(el, e);
 });
-document.addEventListener("pointerleave", () => (tip.hidden = true));
+// Phones have no hover: the first tap on something with a tooltip shows it, a second tap acts as a click.
+let lastPointer = "mouse";
+document.addEventListener("pointerdown", (e) => (lastPointer = e.pointerType), { capture: true });
+function tapTip(e) {
+  if (lastPointer === "mouse") return false;
+  const el = e.target.closest?.("[data-tip]");
+  if (!el) { tip.hidden = true; return false; }
+  if (!tip.hidden && tip.dataset.for === el.dataset.tip) { tip.hidden = true; return false; }
+  showTip(el, e);
+  return true;
+}
+document.addEventListener("pointerleave", (e) => { if (e.pointerType === "mouse") tip.hidden = true; });
 document.addEventListener("scroll", () => (tip.hidden = true), { passive: true });
 
 /* ---------------------------------------------------------------- hero */
@@ -496,7 +514,7 @@ function renderTimeline() {
   });
   el.innerHTML = svg(W, H, body, `Group average per Tuesday, ${pts.length} screenings; overall ${fmt(avg, 2)}`);
   const cross = el.querySelector("#tl-cross");
-  el.querySelector("svg").addEventListener("pointermove", (e) => {
+  const hot = (e) => {
     const i = e.target.dataset?.i;
     el.querySelectorAll(".dot.hot").forEach((d) => d.classList.remove("hot"));
     if (i == null) { cross.setAttribute("visibility", "hidden"); return; }
@@ -504,8 +522,11 @@ function renderTimeline() {
     dot.classList.add("hot");
     cross.setAttribute("x1", dot.getAttribute("cx")); cross.setAttribute("x2", dot.getAttribute("cx"));
     cross.setAttribute("visibility", "visible");
-  });
-  el.querySelector("svg").addEventListener("pointerleave", () => {
+  };
+  el.querySelector("svg").addEventListener("pointermove", hot);
+  el.querySelector("svg").addEventListener("pointerdown", hot);
+  el.querySelector("svg").addEventListener("pointerleave", (e) => {
+    if (e.pointerType !== "mouse") return;
     cross.setAttribute("visibility", "hidden");
     el.querySelectorAll(".dot.hot").forEach((d) => d.classList.remove("hot"));
   });
@@ -641,6 +662,7 @@ async function init() {
 
   document.addEventListener("click", (e) => {
     if (e.target.closest("a")) return;
+    if (tapTip(e)) return;
     const el = e.target.closest("[data-movie]");
     if (el) showMovie(Number(el.dataset.movie), true);
   });
