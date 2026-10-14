@@ -15,7 +15,7 @@ from discord.ext import commands
 
 from .starthere import _bare, fill
 
-STILL = Path(__file__).resolve().parent.parent / "assets" / "hastings" / "with-poirot-pointing.jpg"
+STILL = Path(__file__).resolve().parent.parent / "assets" / "hastings" / "car.jpg"
 
 MESSAGE_1 = """\
 Good evening, everyone. :hastings_hello: Caption Arthur Hastings here. I'm new, so do forgive me if I fumble a little.

@@ -13,4 +13,4 @@ Final text is in `bot/cogs/starthere.py` (the `/starthere` command): a still (po
 
 ## C. Announcement in #general
 
-Final text is in `bot/cogs/announce.py` (the `/announce` command): a still (with-poirot-pointing.jpg), then two messages. `/announce` posts a test copy where you run it; `/announce post:True` posts in #general or edits the copy already there.
+Final text is in `bot/cogs/announce.py` (the `/announce` command): a still (car.jpg), then two messages. `/announce` posts a test copy where you run it; `/announce post:True` posts in #general or edits the copy already there.
