@@ -292,6 +292,22 @@ class Groups(commands.GroupCog, group_name="group", group_description="Poll rota
         self.bot.mark_dirty()
         await itx.response.send_message(f"{member.mention} → **{group.name}**", ephemeral=True)
 
+    @app_commands.command(name="sitout", description="Make someone sit out (or not) their group's next vote (moderators)")
+    @app_commands.describe(member="Who", sitting_out="True = skip their group's next vote; False = undo")
+    @app_commands.checks.has_permissions(manage_messages=True)
+    async def sitout(self, itx: discord.Interaction, member: discord.Member, sitting_out: bool = True):
+        user_id = self.db.upsert_user(member.id, member.display_name)
+        grp = self.db.one("SELECT grp FROM users WHERE id = ?", (user_id,))["grp"]
+        self.db.set_benched([user_id], sitting_out)
+        self.bot.mark_dirty()
+        if not sitting_out:
+            text = f"{member.mention} is back in their group's next vote."
+        elif grp:
+            text = f"{member.mention} sits out {GROUPS[grp]}'s next vote. It clears itself once that vote closes."
+        else:
+            text = f"{member.mention} is marked as sitting out, but they're not in a group yet (`/group set`)."
+        await itx.response.send_message(text, ephemeral=True)
+
     @app_commands.command(name="list", description="Show both groups and whose week is next")
     async def list(self, itx: discord.Interaction):
         embed = discord.Embed(title="Poll rotation", color=discord.Color.dark_red())

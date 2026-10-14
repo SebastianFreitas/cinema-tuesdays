@@ -158,7 +158,7 @@
     <div class="group a"><h3><span class="sym">α</span> Group α</h3><p>João, Giotara, Miguelbnz, Irene_TC, Shaggy</p></div>
     <div class="group o"><h3><span class="sym">ω</span> Group ω</h3><p>Traff, Toni, Malhas, Slader, Fili</p></div>
   </div>
-  <p style="margin-top:14px">Put someone in a group with <code>/group set member:@them group:Group α</code>. Check with <code>/group list</code>, which also shows who is sitting out and whose week is next.</p>
+  <p style="margin-top:14px">Put someone in a group with <code>/group set member:@them group:Group α</code>. Check with <code>/group list</code>, which also shows who is sitting out and whose week is next. If a pick won a vote held outside the bot, mark its suggester with <code>/group sitout member:@them</code>; it clears itself once their group's next vote closes.</p>
   <p class="note">The vote for 20 Oct ran as a normal Discord poll (Group α). So the first vote in the bot, for 27 Oct, is <b>Group ω</b>: use <code>/poll open group:Group ω</code> that one time. After that the bot alternates on its own.</p>
 
   <h2>Special weeks and mistakes</h2>
@@ -202,6 +202,7 @@
         <tr><td><code>/poll pick</code></td><td>mods</td><td>Birthweek pick instead of a vote</td></tr>
         <tr><td><code>/watched</code></td><td>mods</td><td>Mark a movie as watched, unlocks <code>/rate</code></td></tr>
         <tr><td><code>/group set</code></td><td>mods</td><td>Put someone in Group α or ω</td></tr>
+        <tr><td><code>/group sitout</code></td><td>mods</td><td>Make someone sit out their group's next vote (<code>sitting_out:False</code> undoes it)</td></tr>
         <tr><td><code>/admin link</code></td><td>admins</td><td>Attach old spreadsheet history to a member</td></tr>
       </tbody>
     </table>

@@ -24,6 +24,7 @@ data/       cinema.db lives here (not committed)
 | `/poll cancel` | mods | Deletes the open vote without a winner. Doesn't use up the group's turn. |
 | `/poll pick member movie` | mods | Birthweek: the birthday person's pick replaces the vote. Doesn't use up a group's turn. |
 | `/group set member group` | mods | Puts someone in Group α or Group ω. |
+| `/group sitout member [sitting_out]` | mods | Makes someone sit out their group's next vote (e.g. their pick won a vote held outside the bot). `sitting_out:False` undoes it. Clears itself when that vote closes. |
 | `/group list` | everyone | Shows both groups, who's sitting out, and whose week is next. |
 | `/watched [movie] [date]` | mods | Marks a movie as watched (defaults to the vote winner, today). Unlocks `/rate`. |
 | `/admin link name member` | admins | Attaches imported spreadsheet history to a Discord member. |
