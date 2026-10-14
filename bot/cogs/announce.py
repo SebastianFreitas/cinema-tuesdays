@@ -3,7 +3,7 @@
 /announce            posts a test copy in the channel you run it in (use #bot-work)
 /announce post:True  posts it in #general, or edits the copy already there
 
-Posts a still, then two messages (too long for one); the second shows the website's preview card.
+Pings @everyone with a still, then two messages (too long for one); the second shows the website's preview card.
 Emotes and channels are looked up by name, like /starthere. Can be deleted once it's been posted.
 """
 import json
@@ -53,7 +53,8 @@ class Announce(commands.Cog):
         missing: set[str] = set()
         texts = [fill(MESSAGE_1, guild, missing), fill(MESSAGE_2.format(site=self.bot.cfg.site_url), guild, missing)]
 
-        quiet = discord.AllowedMentions.none()  # never pings anyone
+        # Pings @everyone in #general; the test copy shows "@everyone" without pinging anybody.
+        ping = discord.AllowedMentions(everyone=post, users=False, roles=False)
         if not post:
             target = itx.channel
         else:
@@ -66,9 +67,9 @@ class Announce(commands.Cog):
             await msgs[2].edit(content=texts[1])
             done = f"Edited the messages in {target.mention}."
         else:
-            sent = [await target.send(file=discord.File(STILL), allowed_mentions=quiet),
-                    await target.send(texts[0], allowed_mentions=quiet),
-                    await target.send(texts[1], allowed_mentions=quiet)]  # the website preview card shows under it
+            sent = [await target.send("@everyone", file=discord.File(STILL), allowed_mentions=ping),
+                    await target.send(texts[0], allowed_mentions=discord.AllowedMentions.none()),
+                    await target.send(texts[1], allowed_mentions=discord.AllowedMentions.none())]  # the website preview card shows under it
             if post:
                 self.saved.write_text(json.dumps({"channel": target.id, "messages": [m.id for m in sent]}))
             done = f"Posted in {target.mention}." + ("" if post else " Run `/announce post:True` to post it in #general.")
