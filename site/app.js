@@ -271,6 +271,7 @@ function openDetail(id) {
       ${seen ? `<div>Watched<b class="sm">${seen}</b></div>` : ""}
       ${m.suggested_by?.length ? `<div>Suggested by<b class="sm">${m.suggested_by.map(personLink).join(", ")}</b></div>` : ""}
       ${m.tmdb_rating != null && m.tmdb_votes >= MIN_TMDB_VOTES ? `<div>TMDB<b class="sm">${fmt(m.tmdb_rating)} <small style="color:var(--muted)">${m.tmdb_votes.toLocaleString("en-GB")} votes</small></b></div>` : ""}
+      ${watched && ageYears(m) != null && ageYears(m) >= 0 ? `<div>Age when watched<b class="sm">${ageText(ageYears(m))}</b></div>` : ""}
       ${m.lost_votes ? `<div>Past votes<b class="sm">Lost ${m.lost_votes}</b></div>` : ""}
     </div>
     ${strip}
@@ -959,6 +960,31 @@ function renderGenres() {
   groupTable("#decades", [...d].sort((a, b) => b[0].localeCompare(a[0])), "Decade");
 }
 
+// Movie age: years from release date to the night we watched it (last watch). Closed movies with both dates.
+const ageYears = (m) => (m.release_date && realDate(lastSeen(m)) ? (new Date(lastSeen(m)) - new Date(m.release_date)) / 31557600000 : null);
+const ageText = (y) => (y < 1 / 12 ? plural(Math.max(0, Math.round(y * 52.18)), "week") : y < 1 ? plural(Math.round(y * 12), "month") : plural(Math.floor(y), "year"));
+const AGE_BANDS = [["Under 2 years", 2], ["2 to 10 years", 10], ["10 to 25 years", 25], ["25 to 50 years", 50], ["50 years or more", Infinity]];
+
+function renderAges() {
+  const aged = closedMovies().map((m) => ({ m, y: ageYears(m) })).filter((x) => x.y != null && x.y >= 0);
+  if (!aged.length) {
+    $("#ages").innerHTML = `<tbody><tr><td class="empty">No dated movies yet.</td></tr></tbody>`;
+    $("#age-sum").textContent = ""; $("#age-old").innerHTML = $("#age-new").innerHTML = ""; return;
+  }
+  groupTable("#ages", AGE_BANDS.map(([k, hi], i) => [k, aged.filter((x) => x.y >= (i ? AGE_BANDS[i - 1][1] : 0) && x.y < hi).map((x) => x.m)])
+    .filter(([, ms]) => ms.length), "Age");
+  // older half against newer half, split at the median age
+  const mid = median(aged.map((x) => x.y)), rated = aged.filter((x) => x.m.avg != null);
+  const older = mean(rated.filter((x) => x.y > mid).map((x) => x.m.avg)), newer = mean(rated.filter((x) => x.y <= mid).map((x) => x.m.avg));
+  $("#age-sum").textContent = `Typical age: ${ageText(mid)}.` + (older != null && newer != null
+    ? ` Movies older than that average ${fmt(older, 2)}, newer ones ${fmt(newer, 2)}.` : "");
+  const li = (x) => `<li data-movie="${x.m.id}"><div>${esc(x.m.title)}<div class="sub">${ageText(x.y)} old · ${x.m.year ?? ""}</div></div>
+      <span class="v">${fmt(x.m.avg, 2)}</span></li>`;
+  const byAge = [...aged].sort((a, b) => b.y - a.y);
+  $("#age-old").innerHTML = byAge.slice(0, 5).map(li).join("");
+  $("#age-new").innerHTML = byAge.slice(-5).reverse().map(li).join("");
+}
+
 // When we watched (month, weekday) and how long the movie is, closed movies only. Reuses groupTable.
 function renderWhen() {
   const add = (map, k, m) => map.set(k, [...(map.get(k) || []), m]);
@@ -1198,7 +1224,7 @@ function renderPairs() {
 }
 
 function renderStats() {
-  renderKpis(); renderGroups(); renderScorecard(); renderTopBottom(); renderRecords(); renderFair(); renderWorld(); renderGenres(); renderWhen(); renderPairs(); renderRanks(); renderWolves(); renderConsensus(); renderHabits();
+  renderKpis(); renderGroups(); renderScorecard(); renderTopBottom(); renderRecords(); renderFair(); renderWorld(); renderGenres(); renderAges(); renderWhen(); renderPairs(); renderRanks(); renderWolves(); renderConsensus(); renderHabits();
   const sortBy = (th) => {
     const k = th.dataset.sort;
     scoreSort = { key: k, dir: scoreSort.key === k ? -scoreSort.dir : (k === "name" ? 1 : -1) };
