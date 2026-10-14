@@ -2,7 +2,8 @@ const $ = (sel) => document.querySelector(sel);
 const $$ = (sel) => [...document.querySelectorAll(sel)];
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 const fmt = (n, d = 1) => (n == null || Number.isNaN(n) ? "–" : Number(n).toFixed(d));
-const signed = (n, d = 2) => (n >= 0 ? "+" : "−") + Math.abs(n).toFixed(d);
+// "+0.23" / "−0.40"; anything that rounds to zero shows as a plain "0.0" (no "−0.0")
+const signed = (n, d = 2) => (Number(Math.abs(n).toFixed(d)) === 0 ? (0).toFixed(d) : (n > 0 ? "+" : "−") + Math.abs(n).toFixed(d));
 const mean = (xs) => (xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : null);
 const date = (iso, opts = { day: "numeric", month: "short", year: "numeric" }) =>
   new Date(iso + "T12:00:00").toLocaleDateString("en-GB", opts);
@@ -634,6 +635,8 @@ function renderKpis() {
   const turnout = W.map((m) => m.ratings.length);
   const grpAvg = (g) => mean(W.flatMap((m) => m.ratings.filter((r) => memberInfo.get(r.name)?.group === g).map((r) => r.score)));
   const weeks = dates.length ? Math.floor((Date.now() - new Date(dates[0] + "T12:00:00")) / 6048e5) + 1 : 0;
+  // weeks (counted from the first screening) that had at least one movie; some weeks had two, some none
+  const weeksWithMovie = new Set(dates.map((d) => Math.floor((new Date(d + "T12:00:00") - new Date(dates[0] + "T12:00:00")) / 6048e5))).size;
   const tiles = [
     [W.length, "movies watched", dates.length ? `since ${date(dates[0])}` : ""],
     [all.length, "scores given", `by ${DATA.people.length} people`],
@@ -647,7 +650,7 @@ function renderKpis() {
     [rated.filter((m) => m.avg >= 8).length, "movies averaging 8+", `${rated.filter((m) => m.avg < 6.5).length} under 6.5`],
     [fmt(grpAvg("alpha"), 2), `${GROUPS.alpha} average`, `${GROUPS.omega} ${fmt(grpAvg("omega"), 2)}`],
     [DATA.suggestions.length, "on the Movie List", listMin ? `${Math.round(listMin / 60)}h of movies` : ""],
-    [weeks, "weeks running", `movie on ${pct(W.length, weeks)} of them`],
+    [weeks, "weeks running", `a movie in ${weeksWithMovie} of them`],
     [new Set(W.flatMap((m) => (m.director || "").split(", ").filter(Boolean))).size, "directors", `${new Set(W.flatMap((m) => m.genres || [])).size} genres`],
   ];
   $("#kpis").innerHTML = tiles.map(([v, l, s]) => `<div class="kpi"><b>${v}</b><span>${l}</span>${s ? `<small>${s}</small>` : ""}</div>`).join("");
