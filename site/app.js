@@ -270,6 +270,7 @@ function openDetail(id) {
       <div>Scores<b>${ratings.length}</b></div>` : `<div>Status<b class="sm">Not watched yet</b></div>`}
       ${seen ? `<div>Watched<b class="sm">${seen}</b></div>` : ""}
       ${m.suggested_by?.length ? `<div>Suggested by<b class="sm">${m.suggested_by.map(personLink).join(", ")}</b></div>` : ""}
+      ${m.tmdb_rating != null && m.tmdb_votes >= MIN_TMDB_VOTES ? `<div>TMDB<b class="sm">${fmt(m.tmdb_rating)} <small style="color:var(--muted)">${m.tmdb_votes.toLocaleString("en-GB")} votes</small></b></div>` : ""}
       ${m.lost_votes ? `<div>Past votes<b class="sm">Lost ${m.lost_votes}</b></div>` : ""}
     </div>
     ${strip}
@@ -450,6 +451,11 @@ function personMore(name, rows, picks) {
       <div class="legend"><span><i style="background:var(--accent)"></i>Their score</span><span><i style="background:var(--muted)"></i>Group average (dashed)</span></div>
       <div id="p-trend" class="chart" data-name="${esc(name)}"></div></div>`;
   }
+
+  // how close their scores are to TMDB's
+  const agree = tmdbAgreement(), me = agree.findIndex((x) => x.name === name);
+  if (me >= 0) tiles.push([`±${fmt(agree[me].gap, 2)}`, "from TMDB", "",
+    `${ord(me + 1)} closest of ${agree.length} · usually ${fmt(Math.abs(agree[me].lean), 2)} ${agree[me].lean < 0 ? "below" : "above"}`]);
 
   // their picks, placed among every closed movie
   const { rank, total } = movieRanks();
@@ -1074,6 +1080,45 @@ function renderFair() {
       <td>${wPlace.get(r.m.id)} ${move(wPlace, r)}</td></tr>`).join("")}</tbody>`;
 }
 
+// Us vs the world: the group average next to TMDB's user rating. Closed movies only, and only where enough
+// people on TMDB have rated it for the number to mean something.
+const MIN_TMDB_VOTES = 50;
+const vsWorld = () => closedMovies().filter((m) => m.avg != null && m.tmdb_rating != null && m.tmdb_votes >= MIN_TMDB_VOTES)
+  .map((m) => ({ m, diff: m.avg - m.tmdb_rating }));
+
+// everyone with 3+ such scores: average distance between their score and TMDB's (closest first), and which way they lean
+function tmdbAgreement() {
+  const by = new Map();
+  vsWorld().forEach(({ m }) => m.ratings.forEach((r) => by.set(r.name, [...(by.get(r.name) || []), r.score - m.tmdb_rating])));
+  return [...by].filter(([, g]) => g.length >= 3).map(([name, g]) => ({ name, gap: mean(g.map(Math.abs)), lean: mean(g), n: g.length }))
+    .sort((a, b) => a.gap - b.gap);
+}
+
+function renderWorld() {
+  const rows = vsWorld().sort((a, b) => b.diff - a.diff);
+  if (!rows.length) {
+    $("#world").innerHTML = "";
+    ["#w-more", "#w-less", "#w-people"].forEach((id) => { $(id).innerHTML = `<p class="empty">No TMDB ratings yet.</p>`; });
+    return;
+  }
+  const gap = mean(rows.map((r) => r.diff));
+  $("#world-sum").textContent = `Across ${plural(rows.length, "movie")} we score ${fmt(Math.abs(gap), 2)} ${gap < 0 ? "below" : "above"} TMDB on average.`;
+  const k = Math.min(5, rows.length >> 1);
+  const li = (r) => `<li data-movie="${r.m.id}"><div>${esc(r.m.title)}<div class="sub">us ${fmt(r.m.avg, 2)} · TMDB ${fmt(r.m.tmdb_rating, 2)}</div></div>
+    <span class="v"><span class="${r.diff > 0 ? "pos" : "neg"}">${signed(r.diff)}</span></span></li>`;
+  $("#w-more").innerHTML = rows.slice(0, k).filter((r) => r.diff > 0).map(li).join("") || `<p class="empty">TMDB liked everything more.</p>`;
+  $("#w-less").innerHTML = rows.slice(-k).reverse().filter((r) => r.diff < 0).map(li).join("") || `<p class="empty">We liked everything more.</p>`;
+  $("#w-people").innerHTML = tmdbAgreement().slice(0, 5).map((p) => `<li><div>${personLink(p.name)}<div class="sub">${plural(p.n, "movie")} · usually ${fmt(Math.abs(p.lean), 2)} ${p.lean < 0 ? "below" : "above"}</div></div>
+    <span class="v">±${fmt(p.gap, 2)}</span></li>`).join("") || `<p class="empty">Needs 3+ scores each.</p>`;
+  const tPlace = new Map([...rows].sort((a, b) => b.m.tmdb_rating - a.m.tmdb_rating).map((r, i) => [r.m.id, i + 1]));
+  $("#world").innerHTML = `<thead><tr><th style="text-align:left">Movie</th><th data-tip="Our group average">Us</th><th data-tip="TMDB users' average">TMDB</th>
+      <th data-tip="Ours minus TMDB's">Diff</th><th data-tip="Place by our average, among the movies in this table">Our place</th><th data-tip="Place by TMDB rating, among the movies in this table">TMDB place</th>
+      <th data-tip="How many people rated it on TMDB">TMDB votes</th></tr></thead>
+    <tbody>${rows.map((r) => `<tr><td class="clip">${movieLink(r.m)}</td><td><b>${fmt(r.m.avg, 2)}</b></td><td>${fmt(r.m.tmdb_rating, 2)}</td>
+      <td><span class="${Math.abs(r.diff) < 0.005 ? "" : r.diff > 0 ? "pos" : "neg"}">${signed(r.diff)}</span></td>
+      <td>${[...rows].filter((x) => x.m.avg > r.m.avg).length + 1}</td><td>${tPlace.get(r.m.id)}</td><td>${r.m.tmdb_votes.toLocaleString("en-GB")}</td></tr>`).join("")}</tbody>`;
+}
+
 function renderPairs() {
   const ps = [...DATA.pairs].sort((a, b) => a.mean_gap - b.mean_gap);
   const k = Math.min(6, Math.floor(ps.length / 2));
@@ -1083,7 +1128,7 @@ function renderPairs() {
 }
 
 function renderStats() {
-  renderKpis(); renderGroups(); renderScorecard(); renderTopBottom(); renderRecords(); renderFair(); renderGenres(); renderWhen(); renderPairs(); renderRanks();
+  renderKpis(); renderGroups(); renderScorecard(); renderTopBottom(); renderRecords(); renderFair(); renderWorld(); renderGenres(); renderWhen(); renderPairs(); renderRanks();
   const sortBy = (th) => {
     const k = th.dataset.sort;
     scoreSort = { key: k, dir: scoreSort.key === k ? -scoreSort.dir : (k === "name" ? 1 : -1) };
