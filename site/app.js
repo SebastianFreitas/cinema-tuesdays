@@ -7,7 +7,8 @@ const mean = (xs) => (xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : nu
 const date = (iso, opts = { day: "numeric", month: "short", year: "numeric" }) =>
   new Date(iso + "T12:00:00").toLocaleDateString("en-GB", opts);
 const realDate = (iso) => iso && !iso.startsWith("1970");
-const GROUPS = { alpha: "Group α", omega: "Group ω" };
+// Spelled out, with the Greek letter as a badge: on its own α reads as "a" and ω as "w".
+const GROUPS = { alpha: `<span class="gsym">α</span>Group Alpha`, omega: `<span class="gsym">ω</span>Group Omega` };
 const personHref = (name) => `#person/${encodeURIComponent(name)}`;
 const personLink = (name) => `<a href="${personHref(name)}">${esc(name)}</a>`;
 const lastSeen = (m) => m.watched_on.at(-1);

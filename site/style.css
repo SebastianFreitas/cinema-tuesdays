@@ -330,3 +330,10 @@ footer { color: var(--muted); font-size: .85rem; padding-top: 24px; padding-bott
   .diverge li { grid-template-columns: minmax(0, 1fr) 90px 40px; gap: 8px; }
   .chart-card { padding: 14px; }
 }
+
+/* Greek group letter: a small gold badge so it doesn't read as a Latin a / w */
+.gsym {
+  display: inline-grid; place-items: center; width: 1.35em; height: 1.35em; margin-right: .3em; vertical-align: .05em;
+  border-radius: 50%; background: rgba(var(--accent-rgb), .16); color: var(--accent);
+  font: italic 600 .85em/1 "Times New Roman", Times, serif;
+}
