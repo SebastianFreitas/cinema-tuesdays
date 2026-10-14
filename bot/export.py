@@ -119,14 +119,22 @@ def write(data: dict) -> bool:
 
 
 def write_and_push(data: dict) -> bool:
-    if not write(data):
-        return False
     rel = OUT.relative_to(ROOT).as_posix()
 
-    def git(*args):
-        subprocess.run(["git", *args], cwd=ROOT, check=True, capture_output=True, text=True)
+    def git(*args) -> str:
+        try:
+            return subprocess.run(["git", *args], cwd=ROOT, check=True, capture_output=True, text=True).stdout
+        except subprocess.CalledProcessError as e:
+            raise RuntimeError(f"git {' '.join(args)} failed: {(e.stderr or e.stdout).strip()}") from None
 
-    git("add", rel)
-    git("commit", "-m", "Update site data", "--", rel)
+    if write(data):
+        git("add", rel)
+        git("commit", "-m", "Update site data", "--", rel)
+    # Push anything not pushed yet, including a commit left behind by an earlier failed push.
+    git("fetch")
+    if not int(git("rev-list", "--count", "@{u}..HEAD")):
+        return False
+    # Someone else may have pushed meanwhile; our freshly generated data.json wins any conflict.
+    git("rebase", "-X", "theirs", "@{u}")
     git("push")
     return True
