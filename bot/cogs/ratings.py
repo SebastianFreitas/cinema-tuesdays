@@ -5,7 +5,7 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 
-from ..util import choices, label, movie_embed, parse_date, resolve_movie
+from ..util import LISBON, choices, label, lisbon, movie_embed, parse_date, resolve_movie, ts
 
 
 def is_mod(itx: discord.Interaction) -> bool:
@@ -13,18 +13,18 @@ def is_mod(itx: discord.Interaction) -> bool:
 
 
 def rating_closes(watched_on: str) -> dt.datetime:
-    """Scores are open until midnight at the end of the day after the screening (about 24h after the movie ends)."""
-    return dt.datetime.combine(dt.date.fromisoformat(watched_on) + dt.timedelta(days=2), dt.time())
+    """Scores are open until midnight (Portuguese time) at the end of the day after the screening."""
+    return lisbon(dt.date.fromisoformat(watched_on) + dt.timedelta(days=2))
 
 
 def rating_open(bot, movie_id: int) -> bool:
     seen = bot.db.last_screening(movie_id)
-    return bool(seen) and dt.datetime.now() < rating_closes(seen)
+    return bool(seen) and dt.datetime.now(LISBON) < rating_closes(seen)
 
 
 def closed_message(bot, row) -> str:
     closed = rating_closes(bot.db.last_screening(row["id"])) - dt.timedelta(minutes=1)
-    return (f"Rating for **{label(row)}** closed on {closed:%a %d %b} at midnight. "
+    return (f"Rating for **{label(row)}** closed {ts(closed, 'f')}. "
             "Ask a moderator if you need to fix a score.")
 
 
@@ -175,10 +175,10 @@ class Ratings(commands.Cog):
         # Everyone gets a button to score it, instead of typing /rate.
         view = discord.ui.View(timeout=None)
         view.add_item(RateButton(row["id"], f"Rate {row['title']}"))
-        closes = rating_closes(self.db.last_screening(row["id"])) - dt.timedelta(minutes=1)
+        closes = rating_closes(self.db.last_screening(row["id"])) - dt.timedelta(minutes=1)   # shows as 23:59, not 00:00 the next day
         text = (f"🍿 We watched **{label(row)}**. How was it? Click below to give it a score.\n"
-                "-# Scores stay private here so nobody's swayed; see them on the website. "
-                f"Rating closes {closes:%A} at midnight.")
+                f"⏰ Rating closes {ts(closes, 'F')} ({ts(closes, 'R')}).\n"
+                "-# Scores stay private here so nobody's swayed; see them on the website.")
         rate_channel = self.bot.get_channel(self.bot.cfg.rate_channel_id) if self.bot.cfg.rate_channel_id else None
         if rate_channel and rate_channel.id != itx.channel_id:
             await rate_channel.send(text, view=view)

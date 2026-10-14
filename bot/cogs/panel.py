@@ -6,7 +6,7 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 
-from ..util import label, movie_embed, movie_from_tmdb
+from ..util import LISBON, label, movie_embed, movie_from_tmdb, next_screening, ts
 from .ratings import is_mod, open_rate_form, rating_closes
 from .suggestions import add_for, announcement
 
@@ -105,7 +105,7 @@ class MyListView(discord.ui.View):
 class PickWatched(discord.ui.View):
     def __init__(self, bot, user_id: int, mod: bool):
         super().__init__(timeout=600)
-        now = dt.datetime.now()
+        now = dt.datetime.now(LISBON)
         rows = bot.db.q(
             "SELECT m.id, m.title, m.year, MAX(s.watched_on) AS seen, r.score FROM movies m "
             "JOIN screenings s ON s.movie_id = m.id "
@@ -146,7 +146,7 @@ class PanelView(discord.ui.View):
         view = PickWatched(bot, bot.db.upsert_user(itx.user.id, itx.user.display_name), is_mod(itx))
         if not view.pick.options:
             return await itx.response.send_message(
-                "Nothing to rate right now. Rating opens after movie night and closes at midnight the next day.",
+                "Nothing to rate right now. Rating opens after movie night and closes at midnight (Portugal) the next day.",
                 ephemeral=True)
         await itx.response.send_message("Which movie do you want to rate?", view=view, ephemeral=True)
 
@@ -156,10 +156,11 @@ def panel_embed(bot) -> discord.Embed:
     return discord.Embed(
         title="🎬 Cinema Tuesdays",
         description=(
-            "Movie night is every **Tuesday at 21:15**. Use the buttons below, no commands needed.\n\n"
+            f"Movie night is every **Tuesday at {ts(next_screening(), 't')}** your time "
+            "(21:15 in Portugal). Use the buttons below, no commands needed.\n\n"
             f"➕ **Suggest a movie**: type a title and pick the right one. Up to {cap} each.\n"
             "📋 **My list**: see your suggestions and remove any.\n"
-            "⭐ **Rate a movie**: score the latest movie, 0.0 to 10.0, until midnight the day after. "
+            "⭐ **Rate a movie**: score the latest movie, 0.0 to 10.0, until midnight (Portugal) the day after. "
             "Only you see your score.\n"
             "🌐 **Website**: everything we've watched, the stats and the full Movie List.\n\n"
             "-# Each week one group's suggestions go to the vote. Only you see your own list."),

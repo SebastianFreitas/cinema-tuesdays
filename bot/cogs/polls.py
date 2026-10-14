@@ -15,7 +15,7 @@ from discord import app_commands
 from discord.ext import commands
 
 from ..tmdb import movie_url, poster_url
-from ..util import GROUPS, label, movie_from_tmdb, tmdb_choices
+from ..util import GROUPS, SCREENING_TIME, label, lisbon, movie_from_tmdb, tmdb_choices, ts
 
 MAX_OPTIONS = 9   # + the header card = Discord's 10-embed limit
 GROUP_CHOICES = [app_commands.Choice(name=v, value=k) for k, v in GROUPS.items()]
@@ -38,12 +38,12 @@ def poll_embeds(db, poll_id: int) -> list[discord.Embed]:
     closed = poll["status"] == "closed"
     total = sum(len(t["voters"]) for t in tally)
 
-    when = _tuesday_after(poll["created_at"]).strftime("%A %d %b").replace(" 0", " ")
+    when = ts(lisbon(_tuesday_after(poll["created_at"]), SCREENING_TIME), "F")
     title = "🎬 Movie night vote" + (f" · {GROUPS[poll['grp']]}" if poll["grp"] else "")
     if closed:
         desc = f"Voting is closed for **{when}**."
     else:
-        desc = (f"Pick what we watch on **{when} at 21:15**.\n"
+        desc = (f"Pick what we watch on **{when}** (your time).\n"
                 "One vote each, only if you're coming. Click your vote again to remove it.")
     if poll["note"]:
         desc += f"\n-# {poll['note']}"

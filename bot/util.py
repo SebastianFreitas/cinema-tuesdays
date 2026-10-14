@@ -1,10 +1,30 @@
 import datetime as dt
+from zoneinfo import ZoneInfo
 
 import discord
 from discord import app_commands
 
 from .db import DB
 from .tmdb import movie_url, poster_url
+
+
+# Movie night times are Portuguese time. Discord's <t:…> timestamps show them in each reader's own timezone.
+LISBON = ZoneInfo("Europe/Lisbon")
+SCREENING_TIME = dt.time(21, 15)
+
+
+def lisbon(day: dt.date, time: dt.time = dt.time()) -> dt.datetime:
+    return dt.datetime.combine(day, time, tzinfo=LISBON)
+
+
+def next_screening() -> dt.datetime:
+    today = dt.datetime.now(LISBON).date()
+    return lisbon(today + dt.timedelta(days=(1 - today.weekday()) % 7), SCREENING_TIME)
+
+
+def ts(when: dt.datetime, style: str = "F") -> str:
+    """Discord timestamp: F = Tuesday 20 October 2026 21:15, f = 20 October 2026 21:15, t = 21:15, R = in 3 days."""
+    return f"<t:{int(when.timestamp())}:{style}>"
 
 
 def label(movie) -> str:
