@@ -26,6 +26,7 @@ class Config:
     db_path: Path
     cartaz_channel_id: int | None
     rate_channel_id: int | None
+    general_channel_id: int | None
     max_suggestions: int
     min_remark_chars: int
     publish_enabled: bool
@@ -41,6 +42,7 @@ def load() -> Config:
         db_path=ROOT / os.getenv("DB_PATH", "data/cinema.db"),
         cartaz_channel_id=_int("CARTAZ_CHANNEL_ID"),
         rate_channel_id=_int("RATE_CHANNEL_ID"),
+        general_channel_id=_int("GENERAL_CHANNEL_ID"),
         max_suggestions=_int("MAX_SUGGESTIONS", 10),
         min_remark_chars=_int("MIN_REMARK_CHARS", 0),
         publish_enabled=_bool("PUBLISH_ENABLED"),
