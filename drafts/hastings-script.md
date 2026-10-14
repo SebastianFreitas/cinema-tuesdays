@@ -1,4 +1,4 @@
-# Everything Captain Hastings says
+# Everything Caption Hastings says
 
 This file lists all of the bot's text, so you can review it in one place. Mark anything you want changed (cross it out, rewrite it, or leave a note) and I'll update the bot to match.
 

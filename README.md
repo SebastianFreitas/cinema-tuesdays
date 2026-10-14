@@ -38,7 +38,7 @@ People are split into **Group α** and **Group ω**, which take turns each week.
 1. People `/suggest` whenever they like (max 10 each).
 2. A mod runs `/poll open curated:<movie>`. The bot works out whose week it is, picks one movie from each member of that group (skipping anyone whose pick won last time), and adds the curated option last.
 3. A mod runs `/poll close` before Tuesday. Birthweek? Use `/poll pick` instead.
-   - Tuesday 21:00 (Portugal), the bot posts a Captain Hastings reminder for the winner in #general by itself (set `GENERAL_CHANNEL_ID` in `.env`). The texts and pictures are in `bot/cogs/reminders.py` and `bot/assets/hastings/`.
+   - Tuesday 21:00 (Portugal), the bot posts a Caption Hastings reminder for the winner in #general by itself (set `GENERAL_CHANNEL_ID` in `.env`). The texts and pictures are in `bot/cogs/reminders.py` and `bot/assets/hastings/`.
 4. After the screening a mod runs `/watched`; everyone runs `/rate`.
 
 First-time setup: assign everyone with `/group set` (α: João, Giotara, Miguelbnz, Irene_TC, Shaggy; ω: Traff, Toni, Malhas, Slader, Fili).

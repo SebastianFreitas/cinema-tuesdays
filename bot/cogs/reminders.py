@@ -1,4 +1,4 @@
-"""Movie night reminder: 15 minutes before the screening, Captain Hastings posts a still and a line in #general.
+"""Movie night reminder: 15 minutes before the screening, Caption Hastings posts a still and a line in #general.
 
 Runs by itself every Tuesday. The film is this week's vote winner (or birthweek pick); if there isn't one,
 nothing is posted. The version rotates weekly so the same one doesn't come round twice in a row.

@@ -1,4 +1,4 @@
-"""One-off: the #start-here messages, in Captain Hastings' voice (text approved in drafts/hastings-messages.md).
+"""One-off: the #start-here messages, in Caption Hastings' voice (text approved in drafts/hastings-messages.md).
 
 /starthere            posts a test copy in the channel you run it in (use #bot-work)
 /starthere post:True  posts it in #start-here, or edits the copy already there

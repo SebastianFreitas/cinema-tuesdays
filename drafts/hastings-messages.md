@@ -1,4 +1,4 @@
-# Captain Hastings: draft messages (NOT posted)
+# Caption Hastings: draft messages (NOT posted)
 
 Status: drafts only, waiting for the other mods to approve. Nothing has been sent to Discord.
 Channel names are written as #name here; when posted they become real channel links (<#id>).

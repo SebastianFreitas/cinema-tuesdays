@@ -1,4 +1,4 @@
-# Captain Hastings pictures
+# Caption Hastings pictures
 
 Stills from *Agatha Christie's Poirot* (ITV), max 800px. The bot sends these as "picture first, then Hastings speaks".
 Text rules are in `drafts/hastings-voice.md`.

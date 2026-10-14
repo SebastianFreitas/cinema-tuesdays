@@ -1,4 +1,4 @@
-# How to write Captain Hastings
+# How to write Caption Hastings
 
 A guide for writing everything the bot says. It's based on Hugh Fraser's Hastings in *Agatha Christie's Poirot* (ITV, 1989–2013), with the books for background.
 
