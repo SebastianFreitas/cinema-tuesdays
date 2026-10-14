@@ -35,6 +35,21 @@ class CinemaBot(commands.Bot):
         else:
             synced = await self.tree.sync()
         log.info("Synced %d slash commands", len(synced))
+        self.loop.create_task(self.backfill_movies())
+
+    async def backfill_movies(self) -> None:
+        """Fetch details added in later versions (backdrops, genres) for movies saved before them."""
+        if not self.tmdb.enabled:
+            return
+        rows = self.db.q("SELECT tmdb_id FROM movies WHERE tmdb_id IS NOT NULL AND genres IS NULL")
+        for row in rows:
+            try:
+                self.db.upsert_movie(await self.tmdb.details(row["tmdb_id"]))
+            except Exception:
+                log.warning("Couldn't refresh TMDB movie %s", row["tmdb_id"], exc_info=True)
+        if rows:
+            log.info("Refreshed %d movies from TMDB", len(rows))
+            self.mark_dirty()
 
     async def on_ready(self) -> None:
         log.info("Logged in as %s", self.user)

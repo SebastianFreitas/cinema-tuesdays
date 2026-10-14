@@ -17,6 +17,8 @@ CREATE TABLE IF NOT EXISTS movies (
     director        TEXT,
     runtime         INTEGER,
     poster_path     TEXT,
+    backdrop_path   TEXT,
+    genres          TEXT,                 -- comma-separated TMDB genres
     overview        TEXT,
     created_at      TEXT NOT NULL DEFAULT (datetime('now'))
 );

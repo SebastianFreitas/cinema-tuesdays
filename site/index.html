@@ -5,66 +5,109 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Cinema Tuesdays</title>
   <meta name="description" content="Every movie we've watched on Tuesday nights, and what we thought of it.">
+  <meta name="theme-color" content="#0f0d0c">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;1,9..144,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="top">
-    <div class="wrap">
-      <h1>Cinema <em>Tuesdays</em></h1>
-      <p class="tagline">Tuesdays at 21:15 · <span id="count"></span></p>
-      <nav>
-        <a href="#watched" class="tab active" data-tab="watched">Watched</a>
-        <a href="#stats" class="tab" data-tab="stats">Stats</a>
-        <a href="#list" class="tab" data-tab="list">Movie List</a>
-      </nav>
+  <header class="hero" id="hero">
+    <div class="hero-bg" id="hero-bg"></div>
+    <div class="wrap hero-in">
+      <h1><a href="#watched">Cinema <em>Tuesdays</em></a></h1>
+      <p class="tagline" id="tagline">Tuesdays at 21:15</p>
+      <div id="spotlight"></div>
+      <div class="tiles" id="tiles"></div>
     </div>
+    <nav class="tabs">
+      <div class="wrap">
+        <a href="#watched" data-tab="watched">Watched</a>
+        <a href="#list" data-tab="list">Movie List</a>
+        <a href="#people" data-tab="people">People</a>
+        <a href="#stats" data-tab="stats">Stats</a>
+      </div>
+    </nav>
   </header>
 
   <main class="wrap">
-    <section id="next"></section>
-
     <section data-panel="watched">
       <div class="toolbar">
-        <input id="search" type="search" placeholder="Search title or director…" aria-label="Search">
+        <input id="search" type="search" placeholder="Search title or director…" aria-label="Search watched movies">
+        <select id="genre" aria-label="Genre"></select>
         <select id="sort" aria-label="Sort">
           <option value="date">Most recent</option>
           <option value="avg">Highest rated</option>
           <option value="low">Lowest rated</option>
           <option value="stdev">Most divisive</option>
+          <option value="count">Most scores</option>
         </select>
       </div>
       <div id="wall" class="wall"></div>
     </section>
 
-    <section data-panel="stats" hidden>
-      <h2>The raters</h2>
-      <p class="hint">“Bias” is how far above or below the group average someone scores, on average.</p>
-      <div id="people" class="people"></div>
+    <section data-panel="list" hidden>
+      <div id="poll"></div>
+      <div class="toolbar">
+        <input id="lsearch" type="search" placeholder="Search the Movie List…" aria-label="Search the Movie List">
+        <select id="lgenre" aria-label="Genre"></select>
+        <select id="lruntime" aria-label="Length">
+          <option value="">Any length</option>
+          <option value="100">Under 1h40</option>
+          <option value="120">Under 2h</option>
+          <option value="150">Under 2h30</option>
+        </select>
+        <div class="seg" role="group" aria-label="Layout">
+          <button data-view="person" class="on">By person</button>
+          <button data-view="all">All</button>
+        </div>
+      </div>
+      <p class="hint">Suggest movies with <code>/suggest</code> on Discord, up to 10 each. Each week one group's picks go to the vote.</p>
+      <div id="suggestions"></div>
+    </section>
 
+    <section data-panel="people" hidden>
+      <p class="hint">How everyone scores. “Bias” is how far above or below the rest of the group someone scores on the same movies.</p>
+      <div id="people" class="people"></div>
+    </section>
+
+    <section data-panel="person" hidden>
+      <div id="person"></div>
+    </section>
+
+    <section data-panel="stats" hidden>
+      <div class="chart-card">
+        <h2>How we score</h2>
+        <p class="hint">Every score anyone has given, in half-point steps.</p>
+        <div id="hist" class="chart"></div>
+      </div>
+      <div class="chart-card">
+        <h2>Group average, week by week</h2>
+        <p class="hint">Each dot is one Tuesday. Click a dot to open the movie.</p>
+        <div id="timeline" class="chart"></div>
+      </div>
+      <div class="chart-card">
+        <h2>Who agrees with whom</h2>
+        <p class="hint">Average gap between two people's scores on the movies both rated. Darker means they disagree more. Blank: fewer than 3 movies in common.</p>
+        <div id="grid" class="chart scroll"></div>
+      </div>
       <div class="cols">
         <div>
           <h2>Most divisive</h2>
           <ol id="divisive" class="rank"></ol>
         </div>
         <div>
-          <h2>Who disagrees most</h2>
-          <ol id="pairs" class="rank"></ol>
+          <h2>Biggest fights</h2>
+          <ol id="fights" class="rank"></ol>
         </div>
       </div>
     </section>
-
-    <section data-panel="list" hidden>
-      <p class="hint">Suggest movies with <code>/suggest</code> on Discord. Up to 10 each.</p>
-      <div id="suggestions" class="wall small"></div>
-    </section>
   </main>
 
-  <dialog id="detail"></dialog>
+  <dialog id="detail" aria-label="Movie details"></dialog>
+  <div id="tip" class="tip" role="tooltip" hidden></div>
 
-  <footer class="wrap"><span id="updated"></span> · Posters from TMDB</footer>
+  <footer class="wrap"><span id="updated"></span> · Posters and backdrops from TMDB</footer>
   <script src="app.js"></script>
 </body>
 </html>

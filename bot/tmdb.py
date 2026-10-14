@@ -54,6 +54,8 @@ class TMDB:
             "director": ", ".join(directors) or None,
             "runtime": d.get("runtime") or None,
             "poster_path": d.get("poster_path"),
+            "backdrop_path": d.get("backdrop_path"),
+            "genres": ", ".join(g["name"] for g in d.get("genres", [])),
             "overview": d.get("overview") or None,
         }
 

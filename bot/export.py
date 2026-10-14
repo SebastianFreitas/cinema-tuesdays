@@ -18,12 +18,14 @@ def _movie(m) -> dict:
     return {
         "id": m["id"], "title": m["title"], "original_title": m["original_title"], "year": m["year"],
         "director": m["director"], "runtime": m["runtime"], "overview": m["overview"],
-        "poster": poster_url(m["poster_path"]), "tmdb": movie_url(m["tmdb_id"]),
+        "poster": poster_url(m["poster_path"]), "backdrop": poster_url(m["backdrop_path"], "w1280"),
+        "genres": [g for g in (m["genres"] or "").split(", ") if g], "tmdb": movie_url(m["tmdb_id"]),
     }
 
 
 def build(db: DB) -> dict:
-    users = {r["id"]: r["name"] for r in db.q("SELECT id, name FROM users")}
+    user_rows = db.q("SELECT id, name, grp, benched FROM users ORDER BY name COLLATE NOCASE")
+    users = {r["id"]: r["name"] for r in user_rows}
     ratings = db.q("SELECT * FROM ratings")
     by_movie: dict[int, list] = {}
     by_user: dict[int, dict[int, float]] = {}
@@ -93,8 +95,14 @@ def build(db: DB) -> dict:
     return {
         "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
         "next_up": _movie(next_up) if next_up else None,
-        "poll": [{"title": t["movie"]["title"], "votes": len(t["voters"])} for t in db.poll_tally(open_poll["id"])]
-        if open_poll else None,
+        "poll": {
+            "group": open_poll["grp"],
+            "options": [_movie(t["movie"]) | {"votes": len(t["voters"]), "curated": t["curated"],
+                                              "suggested_by": db.suggesters(t["movie"]["id"])}
+                        for t in db.poll_tally(open_poll["id"])],
+        } if open_poll else None,
+        "next_group": db.next_group(),
+        "members": [{"name": r["name"], "group": r["grp"], "benched": bool(r["benched"])} for r in user_rows],
         "watched": watched,
         "people": people,
         "pairs": pairs,

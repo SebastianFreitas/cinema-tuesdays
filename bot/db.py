@@ -14,6 +14,11 @@ class DB:
         self.conn.row_factory = sqlite3.Row
         self.conn.execute("PRAGMA foreign_keys = ON")
         self.conn.executescript(SCHEMA.read_text(encoding="utf-8"))
+        # Columns added after the first release.
+        have = {r["name"] for r in self.q("PRAGMA table_info(movies)")}
+        for col in ("backdrop_path", "genres"):
+            if col not in have:
+                self.conn.execute(f"ALTER TABLE movies ADD COLUMN {col} TEXT")
 
     # -- low level -----------------------------------------------------------
 
@@ -53,7 +58,8 @@ class DB:
     # -- movies --------------------------------------------------------------
 
     def upsert_movie(self, m: dict) -> int:
-        cols = ("tmdb_id", "title", "original_title", "year", "director", "runtime", "poster_path", "overview")
+        cols = ("tmdb_id", "title", "original_title", "year", "director", "runtime", "poster_path", "backdrop_path",
+                "genres", "overview")
         values = tuple(m.get(c) for c in cols)
         if m.get("tmdb_id") is None:
             return self.run(f"INSERT INTO movies ({', '.join(cols)}) VALUES ({', '.join('?' * len(cols))})", values)
