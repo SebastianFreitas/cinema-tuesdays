@@ -49,19 +49,33 @@ def handoff_path(cwd: Path) -> Path:
 
 
 def context_tokens(transcript: Path) -> int:
-    """Context size as of the most recent assistant message."""
-    lines = transcript.read_text(encoding="utf-8", errors="ignore").splitlines()
-    for line in reversed(lines):
-        try:
-            entry = json.loads(line)
-        except json.JSONDecodeError:
-            continue
-        message = entry.get("message")
-        if entry.get("type") == "assistant" and isinstance(message, dict) and message.get("usage"):
-            u = message["usage"]
-            return sum(u.get(k) or 0 for k in (
-                "input_tokens", "cache_read_input_tokens", "cache_creation_input_tokens", "output_tokens"))
-    return 0
+    """Context size as of the most recent assistant message.
+
+    Transcripts grow to tens of MB and this runs after every tool call, so only the end of the file is
+    read, four times more each round until an assistant message turns up.
+    """
+    size = transcript.stat().st_size
+    chunk = 256 * 1024
+    with transcript.open("rb") as f:
+        while True:
+            start = max(0, size - chunk)
+            f.seek(start)
+            lines = f.read().decode("utf-8", errors="ignore").splitlines()
+            if start:
+                lines = lines[1:]  # the first line is probably cut off
+            for line in reversed(lines):
+                try:
+                    entry = json.loads(line)
+                except json.JSONDecodeError:
+                    continue
+                message = entry.get("message")
+                if entry.get("type") == "assistant" and isinstance(message, dict) and message.get("usage"):
+                    u = message["usage"]
+                    return sum(u.get(k) or 0 for k in (
+                        "input_tokens", "cache_read_input_tokens", "cache_creation_input_tokens", "output_tokens"))
+            if not start:
+                return 0
+            chunk *= 4
 
 
 WRAP_UP = (
