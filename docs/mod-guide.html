@@ -1,0 +1,204 @@
+<title>Cinema Tuesdays Mod Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;1,9..144,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  /* Layout: one reading column; the weekly cycle is a numbered timeline, the rest are reference cards. */
+  :root {
+    color-scheme: dark;
+    --bg: #0f0d0c;
+    --surface: #1a1715;
+    --surface-2: #24201d;
+    --line: #342e29;
+    --text: #f1e9df;
+    --muted: #a99c8c;
+    --accent: #e0b04f;
+    --alpha: #6da7ec;
+    --omega: #e87ba4;
+    --display: Fraunces, Georgia, serif;
+    --body: Inter, system-ui, -apple-system, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font: 16px/1.6 var(--body); margin: 0; }
+  .page { max-width: 760px; margin: 0 auto; padding-inline: 20px; padding-block: 48px 72px; }
+  h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; }
+  h1 { font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; letter-spacing: -0.02em; }
+  h1 em { color: var(--accent); }
+  h2 { font-size: 1.55rem; margin-top: 52px; margin-bottom: 6px; }
+  h3 { font-size: 1.15rem; }
+  p { margin: 0 0 12px; }
+  .lede { color: #d9cdbf; font-size: 1.08rem; margin-top: 14px; max-width: 62ch; }
+  .muted { color: var(--muted); }
+  a { color: var(--accent); }
+  code {
+    font-family: var(--mono); font-size: .86em; background: var(--surface-2); border: 1px solid var(--line);
+    padding: 1px 6px; border-radius: 5px; white-space: nowrap;
+  }
+  .cmd {
+    display: block; font-family: var(--mono); font-size: .9rem; background: #0b0a09; border: 1px solid var(--line);
+    border-radius: 8px; padding: 10px 12px; margin: 8px 0 4px; overflow-x: auto; white-space: pre; color: var(--text);
+  }
+  .cmd .opt { color: var(--accent); }
+
+  .rhythm { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 22px; }
+  .rhythm span { font-size: .85rem; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); }
+  .rhythm b { color: var(--text); font-weight: 600; }
+
+  /* the weekly cycle */
+  .steps { list-style: none; padding: 0; margin: 20px 0 0; counter-reset: s; }
+  .steps > li { position: relative; padding: 0 0 26px 52px; counter-increment: s; }
+  .steps > li::before {
+    content: counter(s); position: absolute; left: 0; top: 0; width: 34px; height: 34px; border-radius: 50%;
+    display: grid; place-items: center; font-family: var(--display); font-weight: 700;
+    background: var(--surface-2); border: 1px solid var(--accent); color: var(--accent);
+  }
+  .steps > li::after { content: ""; position: absolute; left: 17px; top: 38px; bottom: 4px; width: 1px; background: var(--line); }
+  .steps > li:last-child::after { display: none; }
+  .when { font-size: .74rem; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); }
+  .steps h3 { margin: 2px 0 6px; }
+  .steps ul { margin: 6px 0 0; padding-left: 18px; color: #d4c9bc; }
+  .steps ul li { margin: 2px 0; }
+
+  /* groups */
+  .groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-top: 14px; }
+  .group { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; min-width: 0; }
+  .group h3 { display: flex; align-items: baseline; gap: 8px; }
+  .group .sym { font-size: 1.5rem; line-height: 1; }
+  .group.a .sym { color: var(--alpha); } .group.o .sym { color: var(--omega); }
+  .group p { color: #d4c9bc; margin: 6px 0 0; }
+
+  /* situations */
+  .cases { display: grid; gap: 12px; margin-top: 14px; }
+  .case { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; min-width: 0; }
+  .case h3 { margin-bottom: 4px; }
+  .case p { color: #d4c9bc; margin: 4px 0 0; }
+
+  table { width: 100%; border-collapse: collapse; font-size: .93rem; }
+  .table-wrap { overflow-x: auto; margin-top: 12px; }
+  th, td { text-align: left; padding: 9px 10px 9px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 500; font-size: .8rem; text-transform: uppercase; letter-spacing: .06em; }
+  td:first-child { white-space: nowrap; }
+
+  .note { border-left: 2px solid var(--accent); padding: 4px 0 4px 14px; color: #d4c9bc; margin-top: 16px; }
+  footer { margin-top: 56px; color: var(--muted); font-size: .88rem; border-top: 1px solid var(--line); padding-top: 16px; }
+
+  @media (max-width: 520px) {
+    .steps > li { padding-left: 46px; }
+    code { white-space: normal; }
+  }
+</style>
+
+<div class="page">
+  <h1>Cinema <em>Tuesdays</em><br>mod guide</h1>
+  <p class="lede">How to run movie night with <b>The Legend</b>, the bot that replaced the Google Sheet. People suggest and rate with slash commands; mods run the weekly vote. Everything appears on the <a href="https://sebastianfreitas.github.io/cinema-tuesdays/" target="_blank" rel="noopener">website</a> within about 10 minutes.</p>
+  <div class="rhythm">
+    <span><b>Tuesdays 21:15</b> movie night</span>
+    <span><b>Group α / ω</b> take turns</span>
+    <span><b>10</b> suggestions each</span>
+    <span>Mod commands need <b>Manage Messages</b></span>
+  </div>
+
+  <h2>The weekly cycle</h2>
+  <ol class="steps">
+    <li>
+      <div class="when">Any time · everyone</div>
+      <h3>People fill the Movie List</h3>
+      <p><code>/suggest</code> adds a movie (it searches TMDB as you type, so everyone gets the same poster and year). <code>/unsuggest</code> removes one. Max 10 each.</p>
+    </li>
+    <li>
+      <div class="when">Before the weekend · mod</div>
+      <h3>Open the vote</h3>
+      <span class="cmd">/poll open <span class="opt">curated:</span>Seven Samurai</span>
+      <ul>
+        <li>The bot knows whose week it is and takes one random suggestion from each member of that group.</li>
+        <li>Anyone whose pick won last time is skipped (it says so on the vote).</li>
+        <li><code>curated</code> is the Cultured Snobs' pick, always the last option. Leave it out if there isn't one.</li>
+        <li>Each movie gets a card with its poster and a button. One vote per person; clicking another movie moves your vote, clicking the same one removes it.</li>
+      </ul>
+    </li>
+    <li>
+      <div class="when">Before Tuesday · mod</div>
+      <h3>Close the vote</h3>
+      <span class="cmd">/poll close</span>
+      <ul>
+        <li>The bot announces the winner. A tie is broken at random.</li>
+        <li>Whoever suggested the winner sits out their group's next vote.</li>
+        <li>Then post the download in #link as usual.</li>
+      </ul>
+    </li>
+    <li>
+      <div class="when">After the screening · mod</div>
+      <h3>Mark it as watched</h3>
+      <span class="cmd">/watched</span>
+      <ul>
+        <li>With no options it uses the vote winner and today's date. For anything else: <code>/watched movie:… date:…</code></li>
+        <li>This adds it to the website and unlocks <code>/rate</code> for that movie.</li>
+      </ul>
+    </li>
+    <li>
+      <div class="when">After the screening · everyone</div>
+      <h3>Everyone rates</h3>
+      <span class="cmd">/rate <span class="opt">movie:</span>Seven Samurai <span class="opt">score:</span>8.1 <span class="opt">remark:</span>…</span>
+      <ul>
+        <li>Scores go from 0.0 to 10.0 and are posted in #rate-movies. Running it again changes your score.</li>
+        <li><code>/ratings movie:…</code> shows everyone's scores for one movie.</li>
+      </ul>
+    </li>
+  </ol>
+
+  <h2>The two groups</h2>
+  <p class="muted">The groups alternate each week. Only the current group's suggestions go into the vote.</p>
+  <div class="groups">
+    <div class="group a"><h3><span class="sym">α</span> Group α</h3><p>João, Giotara, Miguelbnz, Irene_TC, Shaggy</p></div>
+    <div class="group o"><h3><span class="sym">ω</span> Group ω</h3><p>Traff, Toni, Malhas, Slader, Fili</p></div>
+  </div>
+  <p style="margin-top:14px">Put someone in a group with <code>/group set member:@them group:Group α</code>. Check with <code>/group list</code>, which also shows who is sitting out and whose week is next.</p>
+  <p class="note">The vote for 20 Oct ran as a normal Discord poll (Group α). So the first vote in the bot, for 27 Oct, is <b>Group ω</b>: use <code>/poll open group:Group ω</code> that one time. After that the bot alternates on its own.</p>
+
+  <h2>Special weeks and mistakes</h2>
+  <div class="cases">
+    <div class="case">
+      <h3>Birthweek</h3>
+      <span class="cmd">/poll pick <span class="opt">member:</span>@them <span class="opt">movie:</span>…</span>
+      <p>The birthday person's pick replaces the vote. If a vote is already open it gets cancelled. It doesn't use up a group's turn and nobody has to sit out.</p>
+    </div>
+    <div class="case">
+      <h3>Opened a vote by accident, or for the wrong group</h3>
+      <span class="cmd">/poll cancel</span>
+      <p>Deletes the open vote and its votes. It doesn't count as anyone's turn. Open it again with <code>/poll open group:…</code> if needed.</p>
+    </div>
+    <div class="case">
+      <h3>Choosing the options yourself</h3>
+      <span class="cmd">/poll open <span class="opt">movies:</span>Rango; Stalker; Coherence</span>
+      <p>Skips the rotation and uses those Movie List titles, separated by <code>;</code>. Use <code>per_person:2</code> instead to give each group member two movies in a normal vote.</p>
+    </div>
+    <div class="case">
+      <h3>Someone joins the server</h3>
+      <p>They can <code>/suggest</code> straight away. Add them to a group with <code>/group set</code>, or they won't appear in votes.</p>
+    </div>
+  </div>
+
+  <h2>All commands</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Command</th><th>Who</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td><code>/suggest</code></td><td>everyone</td><td>Add a movie to the Movie List (max 10)</td></tr>
+        <tr><td><code>/unsuggest</code></td><td>everyone</td><td>Remove one of your suggestions</td></tr>
+        <tr><td><code>/suggestions</code></td><td>everyone</td><td>Show the Movie List, or one person's picks</td></tr>
+        <tr><td><code>/rate</code></td><td>everyone</td><td>Score a watched movie 0.0 to 10.0</td></tr>
+        <tr><td><code>/ratings</code></td><td>everyone</td><td>Everyone's scores for a movie</td></tr>
+        <tr><td><code>/group list</code></td><td>everyone</td><td>Both groups, who sits out, whose week is next</td></tr>
+        <tr><td><code>/poll open</code></td><td>mods</td><td>Post this week's vote</td></tr>
+        <tr><td><code>/poll close</code></td><td>mods</td><td>End the vote and announce the winner</td></tr>
+        <tr><td><code>/poll cancel</code></td><td>mods</td><td>Delete the open vote, no winner</td></tr>
+        <tr><td><code>/poll pick</code></td><td>mods</td><td>Birthweek pick instead of a vote</td></tr>
+        <tr><td><code>/watched</code></td><td>mods</td><td>Mark a movie as watched, unlocks <code>/rate</code></td></tr>
+        <tr><td><code>/group set</code></td><td>mods</td><td>Put someone in Group α or ω</td></tr>
+        <tr><td><code>/admin link</code></td><td>admins</td><td>Attach old spreadsheet history to a member</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <footer>The bot runs around the clock on Traff's Raspberry Pi. If a command doesn't show up, press Ctrl+R in Discord. If the bot is offline or misbehaving, tell Traff.</footer>
+</div>
