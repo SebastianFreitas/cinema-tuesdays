@@ -53,6 +53,7 @@ class Announce(commands.Cog):
         missing: set[str] = set()
         texts = [fill(MESSAGE_1, guild, missing), fill(MESSAGE_2.format(site=self.bot.cfg.site_url), guild, missing)]
 
+        quiet = discord.AllowedMentions.none()  # never pings anyone
         if not post:
             target = itx.channel
         else:
@@ -65,9 +66,9 @@ class Announce(commands.Cog):
             await msgs[2].edit(content=texts[1])
             done = f"Edited the messages in {target.mention}."
         else:
-            sent = [await target.send(file=discord.File(STILL)),
-                    await target.send(texts[0]),
-                    await target.send(texts[1])]  # the website preview card shows under it
+            sent = [await target.send(file=discord.File(STILL), allowed_mentions=quiet),
+                    await target.send(texts[0], allowed_mentions=quiet),
+                    await target.send(texts[1], allowed_mentions=quiet)]  # the website preview card shows under it
             if post:
                 self.saved.write_text(json.dumps({"channel": target.id, "messages": [m.id for m in sent]}))
             done = f"Posted in {target.mention}." + ("" if post else " Run `/announce post:True` to post it in #general.")

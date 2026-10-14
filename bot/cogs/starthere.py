@@ -100,6 +100,7 @@ class StartHere(commands.Cog):
         missing |= {f":{BUTTON_EMOTES[k]}:" for k, e in emoji.items() if e is None}
         view = PanelView(self.bot.cfg.site_url, emoji)
 
+        quiet = discord.AllowedMentions.none()  # never pings anyone
         if not post:
             target = itx.channel
         else:
@@ -112,9 +113,9 @@ class StartHere(commands.Cog):
             await msgs[2].edit(content=texts[1], view=view, suppress=False)  # keeps the website preview card
             done = f"Edited the messages in {target.mention}."
         else:
-            sent = [await target.send(file=discord.File(STILL)),
-                    await target.send(texts[0], suppress_embeds=True),
-                    await target.send(texts[1], view=view)]  # the website preview card shows under it
+            sent = [await target.send(file=discord.File(STILL), allowed_mentions=quiet),
+                    await target.send(texts[0], suppress_embeds=True, allowed_mentions=quiet),
+                    await target.send(texts[1], view=view, allowed_mentions=quiet)]  # the website preview card shows under it
             if post:
                 self.saved.write_text(json.dumps({"channel": target.id, "messages": [m.id for m in sent]}))
             done = f"Posted in {target.mention}." + ("" if post else " Run `/starthere post:True` to post it in #start-here.")
