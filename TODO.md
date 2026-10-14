@@ -14,9 +14,9 @@ One at a time, top to bottom. Tick each off when it's live.
 - [x] Preview card (image + description) when the site link is pasted in Discord
 
 ## 3. Top of the page
-- [ ] "Up next: Tue 20 Oct" with the movie or "vote running", not only "Last watched"
-- [ ] While rating is open: "Rate it on Discord before Wednesday midnight"
-- [ ] Smaller header on every tab except Watched
+- [x] "Up next: Tue 20 Oct" with the movie or "vote running", not only "Last watched"
+- [x] While rating is open: "Rate it on Discord before Wednesday midnight"
+- [x] Smaller header on every tab except Watched
 
 ## 4. Movie List
 - [ ] Clicking a suggested movie opens the popup (plot, runtime, director, genres, TMDB link)

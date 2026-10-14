@@ -42,15 +42,25 @@ function fillGenres(select, movies, label) {
   select.innerHTML = `<option value="">${label}</option>` + genres.map((g) => `<option>${esc(g)}</option>`).join("");
 }
 
-function nextTuesday() {
+// The next screening: today if it's Tuesday and the movie isn't over yet (21:15 + ~2h15), else next Tuesday.
+function nextScreening() {
   const now = new Date();
-  const d = new Date(now);
+  const d = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 21, 15);
   let days = (2 - now.getDay() + 7) % 7;
-  if (days === 0 && (now.getHours() > 23 || (now.getHours() === 23 && now.getMinutes() >= 30))) days = 7;
-  d.setDate(now.getDate() + days);
-  if (days === 0) return now.getHours() >= 21 && now.getMinutes() >= 15 || now.getHours() >= 22 ? "on right now" : "tonight at 21:15";
-  if (days === 1) return "tomorrow at 21:15";
-  return `${d.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" })} at 21:15`;
+  if (days === 0 && now.getHours() * 60 + now.getMinutes() >= 23 * 60 + 30) days = 7;
+  d.setDate(d.getDate() + days);
+  const live = days === 0 && now >= d;
+  const when = days === 0 ? (live ? "on right now" : "tonight, 21:15")
+    : days === 1 ? "tomorrow, 21:15"
+    : `${d.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" })}, 21:15`;
+  return { date: d, when, live };
+}
+
+// Same rule as the bot: scores are open until midnight at the end of the day after the screening.
+function ratingCloses(iso) {
+  const d = new Date(iso + "T00:00:00");
+  d.setDate(d.getDate() + 2);
+  return d;
 }
 
 /* ---------------------------------------------------------------- tooltip */
@@ -84,28 +94,50 @@ function renderHero() {
     img.onload = () => { $("#hero-bg").style.backgroundImage = `url("${bg}")`; $("#hero-bg").classList.add("on"); };
     img.src = bg;
   }
-  $("#tagline").innerHTML = `Every Tuesday at 21:15 · next one <b>${esc(nextTuesday())}</b>`;
+  const next = nextScreening();
+  $("#tagline").innerHTML = `Movie night every Tuesday at 21:15`;
 
-  let spot = "";
+  const dateTile = `<div class="date-tile"><span>${next.date.toLocaleDateString("en-GB", { month: "short" })}</span><b>${next.date.getDate()}</b></div>`;
+  const label = `Up next · ${esc(next.when)}`;
+  let up;
   if (DATA.next_up) {
     const m = DATA.next_up;
-    spot = `<a class="spot" href="#list" style="text-decoration:none">${m.poster ? `<img src="${esc(m.poster)}" alt="">` : ""}
-      <div><div class="label">Up next</div><h3>${esc(m.title)}</h3>
+    up = `<a class="spot" href="#list">${m.poster ? `<img src="${esc(m.poster)}" alt="">` : dateTile}
+      <div><div class="label">${label}</div><h3>${esc(m.title)}</h3>
       <p>${[m.year, m.director].filter(Boolean).map(esc).join(" · ")}</p></div></a>`;
   } else if (DATA.poll) {
     const opts = [...DATA.poll.options].sort((a, b) => b.votes - a.votes);
     const total = opts.reduce((s, o) => s + o.votes, 0);
-    spot = `<a class="spot" href="#list" style="text-decoration:none">${opts[0].poster ? `<img src="${esc(opts[0].poster)}" alt="">` : ""}
-      <div><div class="label">Voting now${DATA.poll.group ? ` · ${GROUPS[DATA.poll.group]}` : ""}</div>
-      <h3>${opts.length} movies, ${total} vote${total === 1 ? "" : "s"}</h3>
-      <p>${total ? `Leading: ${esc(opts[0].title)}` : "No votes yet"} · see the options →</p></div></a>`;
-  } else if (latest) {
-    spot = `<button class="spot" data-movie="${latest.id}">${latest.poster ? `<img src="${esc(latest.poster)}" alt="">` : ""}
-      <div><div class="label">Last watched${realDate(lastSeen(latest)) ? ` · ${date(lastSeen(latest), { day: "numeric", month: "short" })}` : ""}</div>
-      <h3>${esc(latest.title)}</h3>
-      <p>Group average <b style="color:var(--text)">${fmt(latest.avg, 2)}</b> from ${latest.ratings.length} scores</p></div></button>`;
+    up = `<a class="spot" href="#list">${dateTile}
+      <div><div class="label">${label}</div>
+      <h3>Voting now${DATA.poll.group ? ` · ${GROUPS[DATA.poll.group]}` : ""}</h3>
+      <p>${opts.length} movies, ${total} vote${total === 1 ? "" : "s"}${total ? ` · leading: ${esc(opts[0].title)}` : ""}</p></div></a>`;
+  } else {
+    const g = DATA.next_group && GROUPS[DATA.next_group];
+    up = `<a class="spot" href="#list">${dateTile}
+      <div><div class="label">${label}</div>
+      <h3>${g ? `${g}'s turn to pick` : "Movie to be announced"}</h3>
+      <p>The movie is announced on Discord · see the Movie List →</p></div></a>`;
   }
-  $("#spotlight").innerHTML = spot;
+
+  let last = "";
+  if (latest) {
+    const seen = lastSeen(latest);
+    const closes = realDate(seen) ? ratingCloses(seen) : null;
+    const open = closes && new Date() < closes;
+    const lastDay = closes && new Date(closes - 60000);
+    const deadline = !lastDay ? ""
+      : lastDay.toDateString() === new Date().toDateString() ? "tonight"
+      : lastDay.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" });
+    const n = latest.ratings.length;
+    last = `<button class="spot${open ? " rate" : ""}" data-movie="${latest.id}">${latest.poster ? `<img src="${esc(latest.poster)}" alt="">` : ""}
+      <div><div class="label">Last watched${realDate(seen) ? ` · ${date(seen, { day: "numeric", month: "short" })}` : ""}</div>
+      <h3>${esc(latest.title)}</h3>
+      ${open
+        ? `<p class="cta">⭐ Rate it on Discord by ${esc(deadline)}${deadline === "tonight" ? " at" : ","} 23:59</p><p>${n ? `${n} score${n === 1 ? "" : "s"} so far · average ${fmt(latest.avg, 2)}` : "No scores yet"}</p>`
+        : `<p>Group average <b style="color:var(--text)">${fmt(latest.avg, 2)}</b> from ${n} scores</p>`}</div></button>`;
+  }
+  $("#spotlight").innerHTML = up + last;
 
   const scores = DATA.watched.flatMap((m) => m.ratings.map((r) => r.score));
   const tiles = [
@@ -547,6 +579,7 @@ function showTab(hash) {
   let tab = ["watched", "stats", "people", "list"].includes(hash) ? hash : "watched";
   if (hash.startsWith("person/")) { tab = "person"; renderPerson(hash.slice(7)); }
   $$("[data-panel]").forEach((el) => (el.hidden = el.dataset.panel !== tab));
+  $("#hero").classList.toggle("compact", tab !== "watched");
   $$(".tabs a").forEach((el) => el.classList.toggle("active", el.dataset.tab === (tab === "person" ? "people" : tab)));
   if (tab === "stats") renderCharts();
   if (current && current !== hash) {

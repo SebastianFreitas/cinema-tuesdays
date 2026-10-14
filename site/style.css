@@ -50,8 +50,9 @@ h1 em { color: var(--accent); }
 .tagline { color: #d9cdbf; margin: 12px 0 22px; font-size: 1.02rem; }
 .tagline b { color: var(--text); font-weight: 600; }
 
+#spotlight { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 10px; max-width: 900px; margin-bottom: 12px; }
 .spot {
-  display: flex; gap: 16px; align-items: center; max-width: 560px; margin-bottom: 22px;
+  display: flex; gap: 16px; align-items: center; text-decoration: none; color: inherit;
   background: #1a1715cc; backdrop-filter: blur(8px); border: 1px solid var(--line);
   border-radius: var(--radius); padding: 12px; cursor: pointer; text-align: left; width: 100%;
 }
@@ -59,8 +60,23 @@ h1 em { color: var(--accent); }
 .spot .label { color: var(--accent); font-size: .75rem; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; }
 .spot h3 { font-size: 1.3rem; line-height: 1.15; }
 .spot p { margin: 2px 0 0; color: var(--muted); font-size: .9rem; }
+.spot p.cta { color: var(--accent); font-weight: 600; }
+.spot.rate { border-color: #e0b04f88; }
+.spot:hover { border-color: #e0b04f88; }
+.date-tile {
+  width: 64px; aspect-ratio: 2/3; flex: none; border-radius: 6px; display: grid; place-content: center; text-align: center;
+  background: var(--surface-2); border: 1px solid var(--line);
+}
+.date-tile span { color: var(--accent); font-size: .72rem; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; }
+.date-tile b { font-family: Fraunces, serif; font-size: 1.9rem; line-height: 1; }
 
-.tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; max-width: 760px; }
+/* every tab except Watched: just the title */
+.hero.compact .hero-in { padding-top: 22px; padding-bottom: 6px; }
+.hero.compact h1 { font-size: clamp(1.9rem, 5vw, 2.6rem); }
+.hero.compact .tagline { margin: 6px 0 8px; font-size: .92rem; }
+.hero.compact #spotlight, .hero.compact .tiles { display: none; }
+
+.tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; max-width: 900px; }
 .tile { background: #1a1715b3; backdrop-filter: blur(6px); border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; }
 .tile b { display: block; font-size: 1.6rem; font-weight: 600; line-height: 1.2; font-variant-numeric: tabular-nums; }
 .tile span { color: var(--muted); font-size: .8rem; }
