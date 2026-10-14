@@ -109,12 +109,12 @@ class StartHere(commands.Cog):
 
         if post and (msgs := await self._existing(target)):
             await msgs[1].edit(content=texts[0], suppress=True)
-            await msgs[2].edit(content=texts[1], view=view, suppress=True)
+            await msgs[2].edit(content=texts[1], view=view, suppress=False)  # keeps the website preview card
             done = f"Edited the messages in {target.mention}."
         else:
             sent = [await target.send(file=discord.File(STILL)),
                     await target.send(texts[0], suppress_embeds=True),
-                    await target.send(texts[1], view=view, suppress_embeds=True)]
+                    await target.send(texts[1], view=view)]  # the website preview card shows under it
             if post:
                 self.saved.write_text(json.dumps({"channel": target.id, "messages": [m.id for m in sent]}))
             done = f"Posted in {target.mention}." + ("" if post else " Run `/starthere post:True` to post it in #start-here.")
