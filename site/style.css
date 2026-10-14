@@ -375,7 +375,7 @@ footer.wrap { color: var(--muted); font-size: .85rem; padding-top: 24px; padding
 .tbl td.pname a:hover { text-decoration: underline; }
 .tbl td.clip { max-width: 180px; overflow: hidden; text-overflow: ellipsis; text-align: left; }
 .tbl th:last-child { text-align: left; }
-#scorecard th:last-child { text-align: right; }
+#scorecard th:last-child, #fair th:last-child { text-align: right; }
 .tbl td.barcell { width: 30%; min-width: 50px; padding-left: 0; }
 @media (max-width: 640px) { .tbl td.clip { max-width: 120px; } }
 .abar { display: block; height: 6px; background: var(--surface-2); border-radius: 3px; }

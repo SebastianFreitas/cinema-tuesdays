@@ -1010,6 +1010,37 @@ function renderGroups() {
     <div class="tbl-wrap"><table class="tbl"><thead><tr><th></th><th>${GROUPS.alpha}</th><th>${GROUPS.omega}</th></tr></thead><tbody>${body}</tbody></table></div>`;
 }
 
+// Fair ranking: each score minus that person's usual lean (how far above or below the others they score on
+// the same movies), so a movie isn't helped or hurt by who happened to score it. Closed movies only.
+// A lean from only a few scores is trusted less: it's scaled by n / (n + 3).
+function fairScores() {
+  const done = closedMovies().filter((m) => m.avg != null);
+  const gaps = new Map();
+  done.forEach((m) => m.ratings.forEach((r) => {
+    const others = m.ratings.filter((x) => x !== r).map((x) => x.score);
+    if (others.length) gaps.set(r.name, [...(gaps.get(r.name) || []), r.score - mean(others)]);
+  }));
+  const lean = new Map([...gaps].map(([n, g]) => [n, mean(g) * g.length / (g.length + 3)]));
+  return done.map((m) => ({ m, fair: mean(m.ratings.map((r) => r.score - (lean.get(r.name) || 0))) }));
+}
+
+function renderFair() {
+  const { rank } = movieRanks();
+  const rows = fairScores().sort((a, b) => b.fair - a.fair || b.m.avg - a.m.avg);
+  if (!rows.length) { $("#fair").innerHTML = `<tbody><tr><td class="empty">No scores yet.</td></tr></tbody>`; return; }
+  const place = new Map();   // ties share a place, as in movieRanks
+  rows.forEach((r, i) => place.set(r.m.id, i && Math.abs(rows[i - 1].fair - r.fair) < 1e-9 ? place.get(rows[i - 1].m.id) : i + 1));
+  const move = (r) => {
+    const d = rank.get(r.m.id) - place.get(r.m.id);
+    return d ? `<span class="${d > 0 ? "pos" : "neg"}">${d > 0 ? "▲" : "▼"}${Math.abs(d)}</span>` : `<span style="color:var(--muted)">=</span>`;
+  };
+  const diff = (r) => { const d = r.fair - r.m.avg; return `<span class="${Math.abs(d) < 0.005 ? "" : d > 0 ? "pos" : "neg"}">${signed(d)}</span>`; };
+  $("#fair").innerHTML = `<thead><tr><th>#</th><th style="text-align:left">Movie</th><th data-tip="Average after taking out each person's usual lean">Fair</th><th data-tip="The plain group average">Avg</th>
+      <th data-tip="Fair minus average">Diff</th><th data-tip="Place by the plain average">Was</th><th data-tip="Places gained (▲) or lost (▼) by the fair score">Move</th></tr></thead>
+    <tbody>${rows.map((r) => `<tr><td>${place.get(r.m.id)}</td><td class="clip">${movieLink(r.m)}</td><td><b>${fmt(r.fair, 2)}</b></td><td>${fmt(r.m.avg, 2)}</td><td>${diff(r)}</td>
+      <td>${rank.get(r.m.id)}</td><td>${move(r)}</td></tr>`).join("")}</tbody>`;
+}
+
 function renderPairs() {
   const ps = [...DATA.pairs].sort((a, b) => a.mean_gap - b.mean_gap);
   const k = Math.min(6, Math.floor(ps.length / 2));
@@ -1019,7 +1050,7 @@ function renderPairs() {
 }
 
 function renderStats() {
-  renderKpis(); renderGroups(); renderScorecard(); renderTopBottom(); renderRecords(); renderGenres(); renderWhen(); renderPairs(); renderRanks();
+  renderKpis(); renderGroups(); renderScorecard(); renderTopBottom(); renderRecords(); renderFair(); renderGenres(); renderWhen(); renderPairs(); renderRanks();
   const sortBy = (th) => {
     const k = th.dataset.sort;
     scoreSort = { key: k, dir: scoreSort.key === k ? -scoreSort.dir : (k === "name" ? 1 : -1) };
