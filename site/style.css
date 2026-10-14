@@ -120,7 +120,9 @@ main { padding-top: 8px; padding-bottom: 56px; }
 .poster .fallback { display: grid; place-items: center; height: 100%; padding: 10px; text-align: center; font-family: Fraunces, serif; color: var(--muted); }
 .score {
   position: absolute; top: 8px; right: 8px; padding: 2px 9px; border-radius: 999px;
-  background: #000c; font-weight: 600; font-size: .9rem; backdrop-filter: blur(4px); font-variant-numeric: tabular-nums;
+  background: var(--accent); color: #1a1208; font-weight: 700; font-size: .95rem; font-variant-numeric: tabular-nums;
+  /* dark ring + shadow so it still stands out on yellow posters */
+  box-shadow: 0 0 0 1.5px #000b, 0 2px 8px #000c;
 }
 .meter { position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: #0008; }
 .meter span { display: block; height: 100%; background: var(--accent); border-radius: 0 2px 2px 0; }
