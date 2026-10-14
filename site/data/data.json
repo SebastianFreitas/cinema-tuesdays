@@ -1,120 +1,8 @@
 {
- "generated_at": "2026-10-14T11:21:56+00:00",
+ "generated_at": "2026-10-14T11:31:56+00:00",
  "next_up": null,
- "poll": {
-  "group": "alpha",
-  "options": [
-   {
-    "id": 46,
-    "title": "Her",
-    "original_title": "Her",
-    "year": 2013,
-    "director": "Spike Jonze",
-    "runtime": 126,
-    "overview": "In the not so distant future, Theodore, a lonely writer, purchases a newly developed operating system designed to meet the user's every need. To Theodore's surprise, a romantic relationship develops between him and his operating system. This unconventional love story blends science fiction and romance in a sweet tale that explores the nature of love and the ways that technology isolates and connects us all.",
-    "poster": "https://image.tmdb.org/t/p/w342/eCOtqtfvn7mxGl6nfmq4b1exJRc.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w1280/1YnZchmaGc8dchgRPDpR1KGrixA.jpg",
-    "genres": [
-     "Romance",
-     "Science Fiction",
-     "Drama"
-    ],
-    "tmdb": "https://www.themoviedb.org/movie/152601",
-    "votes": 0,
-    "curated": false,
-    "suggested_by": [
-     "Irene_TC"
-    ]
-   },
-   {
-    "id": 51,
-    "title": "Perfect Blue",
-    "original_title": "PERFECT BLUE",
-    "year": 1998,
-    "director": "Satoshi Kon",
-    "runtime": 81,
-    "overview": "Rising pop star Mima Kirigoe quits singing to pursue a career as an actress. After she takes up a role on a popular detective show, her handlers and collaborators begin turning up murdered. Harboring feelings of guilt and haunted by visions of her former self, Mima's reality and fantasy meld into a frenzied paranoia.",
-    "poster": "https://image.tmdb.org/t/p/w342/6WTiOCfDPP8XV4jqfloiVWf7KHq.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w1280/mHG7dpLb0ZScSY3LpP443IHRmjy.jpg",
-    "genres": [
-     "Animation",
-     "Thriller"
-    ],
-    "tmdb": "https://www.themoviedb.org/movie/10494",
-    "votes": 0,
-    "curated": false,
-    "suggested_by": [
-     "Giotara"
-    ]
-   },
-   {
-    "id": 35,
-    "title": "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb",
-    "original_title": "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb",
-    "year": 1964,
-    "director": "Stanley Kubrick",
-    "runtime": 95,
-    "overview": "After the insane General Jack D. Ripper initiates a nuclear strike on the Soviet Union, a war room full of politicians, generals and a Russian diplomat all frantically try to stop it.",
-    "poster": "https://image.tmdb.org/t/p/w342/gHm96BRW4GoI339rF1vYoYTB6Qe.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w1280/7i0L2ee4Iy0aXV6vR5u1ZmblOrx.jpg",
-    "genres": [
-     "Comedy",
-     "War"
-    ],
-    "tmdb": "https://www.themoviedb.org/movie/935",
-    "votes": 0,
-    "curated": false,
-    "suggested_by": [
-     "Miguelbnz"
-    ]
-   },
-   {
-    "id": 33,
-    "title": "CODA",
-    "original_title": "CODA",
-    "year": 2021,
-    "director": "Sian Heder",
-    "runtime": 112,
-    "overview": "As a CODA (Child of Deaf Adults), Ruby is the only hearing person in her deaf family. When the family's fishing business is threatened, Ruby finds herself torn between pursuing her love of music and her fear of abandoning her parents.",
-    "poster": "https://image.tmdb.org/t/p/w342/BzVjmm8l23rPsijLiNLUzuQtyd.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w1280/v85FlkbMYKa5du1glm0YfYNsL2n.jpg",
-    "genres": [
-     "Drama",
-     "Music",
-     "Romance"
-    ],
-    "tmdb": "https://www.themoviedb.org/movie/776503",
-    "votes": 0,
-    "curated": false,
-    "suggested_by": [
-     "Shaggy"
-    ]
-   },
-   {
-    "id": 85,
-    "title": "Arrival",
-    "original_title": "Arrival",
-    "year": 2016,
-    "director": "Denis Villeneuve",
-    "runtime": 116,
-    "overview": "Taking place after alien crafts land around the world, an expert linguist is recruited by the military to determine whether they come in peace or are a threat.",
-    "poster": "https://image.tmdb.org/t/p/w342/pEzNVQfdzYDzVK0XqxERIw2x2se.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w1280/8MUZz7oPXQftFTslZpRP3CVMOoq.jpg",
-    "genres": [
-     "Drama",
-     "Science Fiction",
-     "Mystery"
-    ],
-    "tmdb": "https://www.themoviedb.org/movie/329865",
-    "votes": 0,
-    "curated": false,
-    "suggested_by": [
-     "João"
-    ]
-   }
-  ]
- },
- "next_group": "omega",
+ "poll": null,
+ "next_group": "alpha",
  "members": [
   {
    "name": "Fili",
@@ -209,7 +97,7 @@
     },
     {
      "name": "Traff",
-     "score": 7.7,
+     "score": 7.5,
      "remark": null
     },
     {
@@ -243,8 +131,8 @@
      "remark": null
     }
    ],
-   "avg": 6.65,
-   "stdev": 0.91,
+   "avg": 6.62,
+   "stdev": 0.89,
    "min": 5.1,
    "max": 8.0
   },
@@ -1669,8 +1557,8 @@
   {
    "name": "Traff",
    "count": 21,
-   "avg": 7.63,
-   "bias": 0.2,
+   "avg": 7.62,
+   "bias": 0.19,
    "favourite": {
     "title": "The Godfather",
     "score": 8.4
@@ -1855,18 +1743,6 @@
    }
   },
   {
-   "a": "Traff",
-   "b": "Irene_TC",
-   "shared": 7,
-   "mean_gap": 1.29,
-   "biggest": {
-    "title": "Tampopo",
-    "gap": 5.2,
-    "a": 7.7,
-    "b": 2.5
-   }
-  },
-  {
    "a": "Toni",
    "b": "Shaggy",
    "shared": 9,
@@ -1882,7 +1758,7 @@
    "a": "Traff",
    "b": "Shaggy",
    "shared": 9,
-   "mean_gap": 1.24,
+   "mean_gap": 1.27,
    "biggest": {
     "title": "Tampopo",
     "gap": 3.7,
@@ -1892,9 +1768,21 @@
   },
   {
    "a": "Traff",
+   "b": "Irene_TC",
+   "shared": 7,
+   "mean_gap": 1.26,
+   "biggest": {
+    "title": "Tampopo",
+    "gap": 5.2,
+    "a": 7.7,
+    "b": 2.5
+   }
+  },
+  {
+   "a": "Traff",
    "b": "Toni",
    "shared": 14,
-   "mean_gap": 1.18,
+   "mean_gap": 1.16,
    "biggest": {
     "title": "Tampopo",
     "gap": 6.7,
@@ -1930,12 +1818,12 @@
    "a": "magical potato",
    "b": "Traff",
    "shared": 15,
-   "mean_gap": 1.09,
+   "mean_gap": 1.07,
    "biggest": {
     "title": "Scooby-Doo! and KISS: Rock and Roll Mystery",
-    "gap": 2.6,
+    "gap": 2.4,
     "a": 5.1,
-    "b": 7.7
+    "b": 7.5
    }
   },
   {
@@ -2059,18 +1947,6 @@
    }
   },
   {
-   "a": "Traff",
-   "b": "Slader",
-   "shared": 11,
-   "mean_gap": 0.79,
-   "biggest": {
-    "title": "Obsession",
-    "gap": 2.3,
-    "a": 6.9,
-    "b": 9.2
-   }
-  },
-  {
    "a": "Shaggy",
    "b": "Irene_TC",
    "shared": 7,
@@ -2095,15 +1971,27 @@
    }
   },
   {
+   "a": "Traff",
+   "b": "Slader",
+   "shared": 11,
+   "mean_gap": 0.77,
+   "biggest": {
+    "title": "Obsession",
+    "gap": 2.3,
+    "a": 6.9,
+    "b": 9.2
+   }
+  },
+  {
    "a": "João",
    "b": "Traff",
    "shared": 21,
-   "mean_gap": 0.59,
+   "mean_gap": 0.58,
    "biggest": {
-    "title": "Scooby-Doo! and KISS: Rock and Roll Mystery",
-    "gap": 2.0,
-    "a": 5.7,
-    "b": 7.7
+    "title": "Obsession",
+    "gap": 1.9,
+    "a": 8.8,
+    "b": 6.9
    }
   },
   {
@@ -2122,12 +2010,12 @@
    "a": "Giotara",
    "b": "Traff",
    "shared": 21,
-   "mean_gap": 0.53,
+   "mean_gap": 0.52,
    "biggest": {
-    "title": "Scooby-Doo! and KISS: Rock and Roll Mystery",
+    "title": "Obsession",
     "gap": 1.4,
-    "a": 6.3,
-    "b": 7.7
+    "a": 8.3,
+    "b": 6.9
    }
   },
   {
