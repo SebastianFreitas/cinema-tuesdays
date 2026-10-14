@@ -150,7 +150,8 @@ function openDetail(id) {
         ${m.avg != null ? `<span class="avg" style="left:${m.avg * 10}%" data-tip="Group average <b>${fmt(m.avg, 2)}</b>"></span>` : ""}
         ${m.ratings.map((r) => `<span class="pt" style="left:${r.score * 10}%" data-tip="<b>${esc(esc(r.name))}</b> ${fmt(r.score)}"></span>`).join("")}
       </div>` : "";
-  $("#detail").innerHTML = `<button class="close" aria-label="Close">✕</button>
+  $("#detail").innerHTML = `<div class="d-actions"><button class="share" aria-label="Copy link to this movie">🔗 Copy link</button>
+    <button class="close" aria-label="Close">✕</button></div>
     ${m.backdrop ? `<div class="d-back" style="background-image:url('${esc(m.backdrop)}')"></div>` : ""}
     <div class="d-head">${m.poster ? `<img src="${esc(m.poster)}" alt="">` : ""}
       <div><h3>${esc(m.title)}</h3><div class="meta">${meta}</div>
@@ -511,11 +512,40 @@ function renderCharts() { renderHistogram(); renderTimeline(); renderGrid(); }
 /* ---------------------------------------------------------------- routing */
 
 let current = "";
+let pushedMovie = false;   // true when we opened the popup ourselves, so closing it can go back
+const movieHash = () => /^#movie\/(\d+)$/.exec(location.hash)?.[1];
+
+function showMovie(id, push) {
+  if (!byId.has(id)) return;
+  if (push) { history.pushState(null, "", `#movie/${id}`); pushedMovie = true; }
+  openDetail(id);
+}
+
+function closeMovie() {
+  if (!movieHash()) return;
+  if (pushedMovie) history.back();
+  else history.replaceState(null, "", `#${current || "watched"}`);
+  pushedMovie = false;
+}
+
 function route() {
+  const id = movieHash();
+  if (id) {
+    // a shared movie link: keep whatever tab is showing (Watched on first load) and open the popup
+    if (!current) { current = "watched"; showTab("watched"); }
+    if (byId.has(Number(id))) openDetail(Number(id));
+    else history.replaceState(null, "", `#${current}`);
+    return;
+  }
+  pushedMovie = false;
   const hash = decodeURIComponent(location.hash.slice(1));
+  if ($("#detail").open) $("#detail").close();
+  showTab(hash);
+}
+
+function showTab(hash) {
   let tab = ["watched", "stats", "people", "list"].includes(hash) ? hash : "watched";
   if (hash.startsWith("person/")) { tab = "person"; renderPerson(hash.slice(7)); }
-  if ($("#detail").open) $("#detail").close();
   $$("[data-panel]").forEach((el) => (el.hidden = el.dataset.panel !== tab));
   $$(".tabs a").forEach((el) => el.classList.toggle("active", el.dataset.tab === (tab === "person" ? "people" : tab)));
   if (tab === "stats") renderCharts();
@@ -552,11 +582,20 @@ async function init() {
   document.addEventListener("click", (e) => {
     if (e.target.closest("a")) return;
     const el = e.target.closest("[data-movie]");
-    if (el) openDetail(Number(el.dataset.movie));
+    if (el) showMovie(Number(el.dataset.movie), true);
   });
   $("#detail").addEventListener("click", (e) => {
     if (e.target.closest(".close") || e.target === $("#detail")) $("#detail").close();
+    const share = e.target.closest(".share");
+    if (share) {
+      const url = location.href.split("#")[0] + location.hash;
+      navigator.clipboard.writeText(url).then(() => {
+        share.textContent = "✓ Copied";
+        setTimeout(() => (share.textContent = "🔗 Copy link"), 1600);
+      }, () => prompt("Copy this link:", url));
+    }
   });
+  $("#detail").addEventListener("close", closeMovie);
 
   let resizeTimer;
   addEventListener("resize", () => {

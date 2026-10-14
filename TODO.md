@@ -10,8 +10,8 @@ One at a time, top to bottom. Tick each off when it's live.
 - [x] Movie List hint points at the ➕ Suggest button instead of /suggest
 
 ## 2. Sharing in Discord
-- [ ] Each movie gets its own link (`#movie/123`) so it can be pasted in chat
-- [ ] Preview card (image + description) when the site link is pasted in Discord
+- [x] Each movie gets its own link (`#movie/123`) so it can be pasted in chat
+- [x] Preview card (image + description) when the site link is pasted in Discord
 
 ## 3. Top of the page
 - [ ] "Up next: Tue 20 Oct" with the movie or "vote running", not only "Last watched"
