@@ -1002,6 +1002,28 @@ function renderOrigins() {
   $("#lang-sum").textContent = known.length ? `${other.length} of ${plural(known.length, "movie")} weren't in English (${pct(other.length, known.length)}).` : "";
 }
 
+// Actors (top 5 billed from TMDB) we've seen in more than one movie, and the ones who'd be back with a Movie List pick
+function renderActors() {
+  const seen = new Map(); // actor id -> { name, movies }
+  closedMovies().forEach((m) => (m.cast || []).forEach((a) => {
+    if (!seen.has(a.id)) seen.set(a.id, { name: a.name, movies: [] });
+    seen.get(a.id).movies.push(m);
+  }));
+  const again = [...seen.values()].filter((a) => a.movies.length > 1)
+    .sort((a, b) => b.movies.length - a.movies.length || a.name.localeCompare(b.name));
+  $("#actors-again").innerHTML = again.map((a) => {
+    const rated = a.movies.filter((m) => m.avg != null);
+    return `<li><div>${esc(a.name)}<div class="sub">${a.movies.map(movieLink).join(", ")}</div></div>
+      <span class="v">${rated.length ? fmt(mean(rated.map((m) => m.avg)), 2) : "–"}</span></li>`;
+  }).join("") || `<p class="empty">No actor in two of our movies yet.</p>`;
+  const back = new Map(); // actor id -> list picks they're in
+  DATA.suggestions.forEach((s) => (s.cast || []).forEach((a) => { if (seen.has(a.id)) back.set(a.id, [...(back.get(a.id) || []), s]); }));
+  $("#actors-list").innerHTML = [...back].sort((a, b) => seen.get(a[0]).name.localeCompare(seen.get(b[0]).name)).map(([id, picks]) => {
+    const a = seen.get(id);
+    return `<li><div>${esc(a.name)}<div class="sub">${picks.map(movieLink).join(", ")} · seen in ${a.movies.map(movieLink).join(", ")}</div></div></li>`;
+  }).join("") || `<p class="empty">Nobody we've seen is on the Movie List.</p>`;
+}
+
 // When we watched (month, weekday) and how long the movie is, closed movies only. Reuses groupTable.
 function renderWhen() {
   const add = (map, k, m) => map.set(k, [...(map.get(k) || []), m]);
@@ -1241,7 +1263,7 @@ function renderPairs() {
 }
 
 function renderStats() {
-  renderKpis(); renderGroups(); renderScorecard(); renderTopBottom(); renderRecords(); renderFair(); renderWorld(); renderGenres(); renderAges(); renderOrigins(); renderWhen(); renderPairs(); renderRanks(); renderWolves(); renderConsensus(); renderHabits();
+  renderKpis(); renderGroups(); renderScorecard(); renderTopBottom(); renderRecords(); renderFair(); renderWorld(); renderGenres(); renderAges(); renderOrigins(); renderActors(); renderWhen(); renderPairs(); renderRanks(); renderWolves(); renderConsensus(); renderHabits();
   const sortBy = (th) => {
     const k = th.dataset.sort;
     scoreSort = { key: k, dir: scoreSort.key === k ? -scoreSort.dir : (k === "name" ? 1 : -1) };
