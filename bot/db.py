@@ -19,6 +19,8 @@ class DB:
         for col in ("backdrop_path", "genres"):
             if col not in have:
                 self.conn.execute(f"ALTER TABLE movies ADD COLUMN {col} TEXT")
+        if "avatar" not in {r["name"] for r in self.q("PRAGMA table_info(users)")}:
+            self.conn.execute("ALTER TABLE users ADD COLUMN avatar TEXT")
 
     # -- low level -----------------------------------------------------------
 
@@ -40,6 +42,12 @@ class DB:
             self.run("UPDATE users SET name = ? WHERE id = ?", (name, row["id"]))
             return row["id"]
         return self.run("INSERT INTO users (discord_id, name) VALUES (?, ?)", (str(discord_id), name))
+
+    def set_avatar(self, user_id: int, url: str | None) -> bool:
+        """Saves a user's avatar URL. Returns True if it changed."""
+        cur = self.conn.execute("UPDATE users SET avatar = ? WHERE id = ? AND avatar IS NOT ?", (url, user_id, url))
+        self.conn.commit()
+        return cur.rowcount > 0
 
     def user_by_name(self, name: str, create: bool = False) -> int | None:
         row = self.one("SELECT id FROM users WHERE name = ? COLLATE NOCASE", (name,))

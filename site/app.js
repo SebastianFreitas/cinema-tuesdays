@@ -12,6 +12,11 @@ const personHref = (name) => `#person/${encodeURIComponent(name)}`;
 const personLink = (name) => `<a href="${personHref(name)}">${esc(name)}</a>`;
 const lastSeen = (m) => m.watched_on.at(-1);
 const initials = (name) => [...name.trim()][0]?.toUpperCase() ?? "?";
+// Discord avatar when the bot has one, otherwise the first letter.
+const avatar = (name, big = false) => {
+  const url = memberInfo.get(name)?.avatar, cls = `avatar${big ? " big" : ""}`;
+  return url ? `<img class="${cls}" src="${esc(url)}" alt="" loading="lazy">` : `<span class="${cls}">${esc(initials(name))}</span>`;
+};
 
 let DATA;
 const byId = new Map();          // movie id -> movie (watched ones win over Movie List / poll copies)
@@ -268,7 +273,7 @@ function renderList() {
       ? `<div class="group-head"><h2>${GROUPS[g]}</h2><span class="sub">${g === DATA.next_group ? "their picks go to the next vote" : "the week after"}</span></div>`
       : (order.slice(0, 2).some((x) => [...perPerson.keys()].some((n) => memberInfo.get(n)?.group === x))
         ? `<div class="group-head"><h2>No group yet</h2></div>` : "");
-    return head + names.map((n) => `<div class="who"><span class="avatar">${esc(initials(n))}</span>${personLink(n)}
+    return head + names.map((n) => `<div class="who">${avatar(n)}${personLink(n)}
         <span class="n">${totals.get(n)}/10</span>
         ${memberInfo.get(n)?.benched ? `<span class="pill warn" title="Their pick won last time">sits out the next vote</span>` : ""}</div>
       <div class="wall small">${perPerson.get(n).map((m) => listCard(m, false)).join("")}</div>`).join("");
@@ -313,7 +318,7 @@ function renderPeople() {
         <div class="kv"><span>Bias</span><b class="${p.bias >= 0 ? "pos" : "neg"}">${signed(p.bias)}</b></div>
         <div class="kv"><span>Favourite</span><b>${esc(p.favourite.title)}</b></div>`;
     }
-    return `<a class="person-card" href="${personHref(name)}"><div class="top"><span class="avatar">${esc(initials(name))}</span>
+    return `<a class="person-card" href="${personHref(name)}"><div class="top">${avatar(name)}
       <div><h3>${esc(name)}</h3><div class="sub">${sub}</div></div></div>${body}</a>`;
   }).join("");
 }
@@ -330,7 +335,7 @@ function renderPerson(name) {
   }
 
   const head = `<a class="back" href="#people">← People</a>
-    <div class="p-head"><span class="avatar big">${esc(initials(name))}</span><div><h2>${esc(name)}</h2>
+    <div class="p-head">${avatar(name, true)}<div><h2>${esc(name)}</h2>
     <div class="sub">${[info?.group && GROUPS[info.group], info?.benched && "sits out the next vote"].filter(Boolean).join(" · ") || "&nbsp;"}</div></div></div>`;
 
   const pickAvg = mean(picks.map((m) => m.avg).filter((x) => x != null));
@@ -346,15 +351,16 @@ function renderPerson(name) {
   let boxes = "";
   if (p) {
     const sorted = [...rows].sort((a, b) => b.score - a.score);
-    const item = (r) => `<li><button class="tt" data-movie="${r.m.id}">${esc(r.m.title)}</button><b>${fmt(r.score)}</b></li>`;
+    const item = (r) => `<li><button class="tt" data-movie="${r.m.id}">${esc(r.m.title)}</button>
+      <span class="pair">${r.others != null ? `<small data-tip="Everyone else's average">others ${fmt(r.others)}</small>` : ""}<b>${fmt(r.score)}</b></span></li>`;
 
     const mine = DATA.pairs.filter((x) => x.a === name || x.b === name)
       .map((x) => ({ other: x.a === name ? x.b : x.a, gap: x.mean_gap, shared: x.shared }))
       .sort((a, b) => a.gap - b.gap);
     const mates = mine.length >= 2
-      ? `<div class="mate"><span class="avatar">${esc(initials(mine[0].other))}</span><div><div class="label">Taste twin</div>
+      ? `<div class="mate">${avatar(mine[0].other)}<div><div class="label">Taste twin</div>
           ${personLink(mine[0].other)}<div class="sub">${fmt(mine[0].gap, 2)} apart on average over ${mine[0].shared} movies</div></div></div>
-         <div class="mate"><span class="avatar">${esc(initials(mine.at(-1).other))}</span><div><div class="label">Nemesis</div>
+         <div class="mate">${avatar(mine.at(-1).other)}<div><div class="label">Nemesis</div>
           ${personLink(mine.at(-1).other)}<div class="sub">${fmt(mine.at(-1).gap, 2)} apart on average over ${mine.at(-1).shared} movies</div></div></div>`
       : `<p class="hint">Needs at least 3 movies in common with two people.</p>`;
 
@@ -364,8 +370,8 @@ function renderPerson(name) {
       .sort((a, b) => b.avg - a.avg);
 
     boxes = `<div class="p-grid">
-      <div class="box"><h3>Favourites</h3><ul class="mini">${sorted.slice(0, 5).map(item).join("")}</ul></div>
-      <div class="box"><h3>Least favourite</h3><ul class="mini">${sorted.slice(-5).reverse().map(item).join("")}</ul></div>
+      <div class="box"><h3>Favourites</h3><p class="hint">Their score, and everyone else's average.</p><ul class="mini">${sorted.slice(0, 5).map(item).join("")}</ul></div>
+      <div class="box"><h3>Least favourite</h3><p class="hint">Their score, and everyone else's average.</p><ul class="mini">${sorted.slice(-5).reverse().map(item).join("")}</ul></div>
       <div class="box"><h3>Taste twin &amp; nemesis</h3>${mates}</div>
       <div class="box"><h3>Genres</h3><p class="hint">Their average per genre (2+ movies).</p>
         ${gl.length ? `<ul class="mini">${gl.slice(0, 6).map((x) => `<li><span class="tt">${esc(x.g)} <small style="color:var(--muted)">${x.n}</small></span><b>${fmt(x.avg)}</b></li>`).join("")}</ul>` : `<p class="hint">Not enough yet.</p>`}</div>
@@ -387,13 +393,29 @@ function renderPerson(name) {
     }
   }
 
+  // Rating is only open until the end of the day after a screening, so "to rate" is at most the latest movie.
+  const latest = DATA.watched[0];
+  const unrated = info || p ? DATA.watched.filter((m) => realDate(lastSeen(m)) && !m.ratings.some((r) => r.name === name)) : [];
+  let todo = "";
+  if (latest && unrated.includes(latest) && new Date() < ratingCloses(lastSeen(latest))) {
+    const lastDay = new Date(ratingCloses(lastSeen(latest)) - 60000);
+    const when = lastDay.toDateString() === new Date().toDateString() ? "tonight"
+      : lastDay.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" });
+    todo = `<button class="spot rate todo" data-movie="${latest.id}">${latest.poster ? `<img src="${esc(latest.poster)}" alt="">` : ""}
+      <div><div class="label">Still to rate</div><h3>${esc(latest.title)}</h3>
+      <p class="cta">⭐ Rate it on Discord by ${esc(when)}${when === "tonight" ? " at" : ","} 23:59</p></div></button>`;
+  }
+  const missed = unrated.filter((m) => m !== latest || !todo);
+  const missedHtml = missed.length && p ? `<details class="missed"><summary>Haven't scored ${missed.length} of the movies we watched</summary>
+    <div class="wall small" style="margin-top:14px">${missed.map(watchedCard).join("")}</div></details>` : "";
+
   const picksHtml = picks.length ? `<h2 style="margin-top:8px">Their picks we watched</h2>
     <div class="wall small" style="margin:14px 0 28px">${picks.map(watchedCard).join("")}</div>` : "";
   const openHtml = open.length ? `<h2>On the Movie List</h2>
     <div class="wall small" style="margin-top:14px">${open.map((m) => listCard(m, false)).join("")}</div>` : "";
 
-  $("#person").innerHTML = head + `<div class="p-tiles">${tiles.map(([v, l, c]) => `<div class="tile"><b class="${c || ""}">${v}</b><span>${l}</span></div>`).join("")}</div>`
-    + boxes + picksHtml + openHtml;
+  $("#person").innerHTML = head + todo + `<div class="p-tiles">${tiles.map(([v, l, c]) => `<div class="tile"><b class="${c || ""}">${v}</b><span>${l}</span></div>`).join("")}</div>`
+    + boxes + picksHtml + openHtml + missedHtml;
 }
 
 /* ---------------------------------------------------------------- charts */

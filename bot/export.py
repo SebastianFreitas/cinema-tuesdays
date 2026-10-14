@@ -24,7 +24,7 @@ def _movie(m) -> dict:
 
 
 def build(db: DB) -> dict:
-    user_rows = db.q("SELECT id, name, grp, benched FROM users ORDER BY name COLLATE NOCASE")
+    user_rows = db.q("SELECT id, name, grp, benched, avatar FROM users ORDER BY name COLLATE NOCASE")
     users = {r["id"]: r["name"] for r in user_rows}
     ratings = db.q("SELECT * FROM ratings")
     by_movie: dict[int, list] = {}
@@ -108,7 +108,8 @@ def build(db: DB) -> dict:
                         for t in db.poll_tally(open_poll["id"])],
         } if open_poll else None,
         "next_group": db.next_group(),
-        "members": [{"name": r["name"], "group": r["grp"], "benched": bool(r["benched"])} for r in user_rows],
+        "members": [{"name": r["name"], "group": r["grp"], "benched": bool(r["benched"]), "avatar": r["avatar"]}
+                    for r in user_rows],
         "watched": watched,
         "people": people,
         "pairs": pairs,

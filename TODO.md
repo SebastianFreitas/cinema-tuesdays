@@ -23,9 +23,9 @@ One at a time, top to bottom. Tick each off when it's live.
 - [x] "Lost 1 vote" tag on movies that were in a past vote (only counts bot votes from now on)
 
 ## 5. Personal touches
-- [ ] Real Discord profile pictures instead of initials (bot exports them)
-- [ ] "Still to rate" list on each person's page
-- [ ] Favourites / least favourites show the group's score next to theirs
+- [x] Real Discord profile pictures instead of initials (bot exports them)
+- [x] "Still to rate" on each person's page (only the latest movie can still be rated) + "Haven't scored" list
+- [x] Favourites / least favourites show the group's score next to theirs
 
 ## 6. Phones
 - [ ] Tap to show chart tooltips (they only work with a mouse now)

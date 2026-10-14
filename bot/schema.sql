@@ -5,7 +5,8 @@ CREATE TABLE IF NOT EXISTS users (
     discord_id  TEXT UNIQUE,              -- NULL for people imported from the old spreadsheet until linked
     name        TEXT NOT NULL,
     grp         TEXT CHECK (grp IN ('alpha', 'omega')),   -- poll rotation group
-    benched     INTEGER NOT NULL DEFAULT 0                -- 1 = had a winner, skips their group's next poll
+    benched     INTEGER NOT NULL DEFAULT 0,               -- 1 = had a winner, skips their group's next poll
+    avatar      TEXT                                      -- Discord avatar URL, refreshed by the bot
 );
 
 CREATE TABLE IF NOT EXISTS movies (

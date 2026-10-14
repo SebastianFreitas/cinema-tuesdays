@@ -169,6 +169,13 @@ main { padding-top: 8px; padding-bottom: 56px; }
   background: var(--surface-2); border: 1px solid var(--line); font-family: Fraunces, serif; font-weight: 800; color: var(--accent);
 }
 .avatar.big { width: 64px; height: 64px; font-size: 1.6rem; }
+img.avatar { object-fit: cover; padding: 0; }
+.mini .pair { display: flex; align-items: baseline; gap: 10px; flex: none; }
+.mini .pair small { color: var(--muted); font-variant-numeric: tabular-nums; }
+.spot.todo { max-width: 560px; margin-bottom: 18px; }
+.missed { margin: 8px 0 28px; }
+.missed summary { cursor: pointer; color: var(--muted); font-weight: 600; }
+.missed summary:hover { color: var(--text); }
 .person-card h3 { font-size: 1.2rem; line-height: 1.2; overflow-wrap: anywhere; }
 .person-card .sub { color: var(--muted); font-size: .82rem; }
 .kv { display: flex; justify-content: space-between; gap: 8px; color: var(--muted); font-size: .88rem; padding: 2px 0; }

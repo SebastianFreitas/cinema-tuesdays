@@ -1,4 +1,5 @@
 """Run with:  python -m bot"""
+import asyncio
 import logging
 
 import discord
@@ -36,6 +37,27 @@ class CinemaBot(commands.Bot):
             synced = await self.tree.sync()
         log.info("Synced %d slash commands", len(synced))
         self.loop.create_task(self.backfill_movies())
+        self.loop.create_task(self.refresh_avatars())
+
+    async def refresh_avatars(self) -> None:
+        """Keeps everyone's Discord avatar URL current for the website (server avatar if they set one)."""
+        await self.wait_until_ready()
+        while not self.is_closed():
+            guild = self.get_guild(self.cfg.guild_id) if self.cfg.guild_id else None
+            changed = 0
+            for row in self.db.q("SELECT id, discord_id FROM users WHERE discord_id IS NOT NULL"):
+                try:
+                    uid = int(row["discord_id"])
+                    who = await guild.fetch_member(uid) if guild else await self.fetch_user(uid)
+                    changed += self.db.set_avatar(row["id"], who.display_avatar.with_size(128).url)
+                except discord.NotFound:
+                    pass
+                except Exception:
+                    log.warning("Couldn't fetch avatar for user %s", row["discord_id"], exc_info=True)
+            if changed:
+                log.info("Updated %d avatars", changed)
+                self.mark_dirty()
+            await asyncio.sleep(6 * 3600)
 
     async def backfill_movies(self) -> None:
         """Fetch details added in later versions (backdrops, genres) for movies saved before them."""
