@@ -195,6 +195,30 @@ function renderHero() {
     [DATA.suggestions.length, "on the Movie List"],
   ];
   $("#tiles").innerHTML = tiles.map(([v, l]) => `<div class="tile"><b>${v}</b><span>${l}</span></div>`).join("");
+  renderFacts();
+}
+
+// A line of small headline numbers under the hero tiles. Leaves out a movie whose rating is still open.
+function renderFacts() {
+  const done = closedMovies(), rated = done.filter((m) => m.avg != null);
+  const mins = sum(DATA.watched.map((m) => m.runtime || 0));
+  const first = DATA.watched.map(lastSeen).filter(realDate).sort()[0];
+  const days = first ? Math.round((new Date(lisbonToday() + "T12:00:00Z") - new Date(first + "T12:00:00Z")) / 864e5) : null;
+  const top = rated.filter((m) => m.ratings.length >= 3).sort((a, b) => b.avg - a.avg)[0];
+  const lastDone = rated.find((m) => realDate(lastSeen(m)));   // DATA.watched is newest first
+  const grpPicks = (g) => mean(rated.filter((m) => m.suggested_by.some((n) => memberInfo.get(n)?.group === g)).map((m) => m.avg));
+  const gen = generosity();
+  const facts = [
+    mins && `<b>${Math.round(mins / 60)}h</b> watched`,
+    days != null && `<b>${days}</b> days since the first movie`,
+    `<b>${new Set(done.flatMap((m) => m.ratings.map((r) => r.name))).size}</b> people have scored`,
+    top && `top: ${movieLink(top)} <b>${fmt(top.avg, 2)}</b>`,
+    lastDone && `last result: ${movieLink(lastDone)} <b>${fmt(lastDone.avg, 2)}</b>`,
+    gen.length > 1 && `kindest: ${personLink(gen[0].name)} <b>${fmt(gen[0].avg, 2)}</b>`,
+    gen.length > 1 && `toughest: ${personLink(gen.at(-1).name)} <b>${fmt(gen.at(-1).avg, 2)}</b>`,
+    rated.length && `picks: ${GROUPS.alpha} <b>${fmt(grpPicks("alpha"), 2)}</b> vs ${GROUPS.omega} <b>${fmt(grpPicks("omega"), 2)}</b>`,
+  ].filter(Boolean);
+  $("#facts").innerHTML = facts.map((f) => `<span>${f}</span>`).join("");
 }
 
 /* ---------------------------------------------------------------- watched */
@@ -366,6 +390,113 @@ function renderPeople() {
   }).join("");
 }
 
+// Extra tiles and boxes for a person page, from closed movies only (see isOpen).
+function personMore(name, rows, picks) {
+  const done = rows.filter((r) => !isOpen(r.m));
+  const closed = closedMovies();
+  const tiles = [], hint = (t) => `<p class="hint">${t}</p>`;
+  let grid = "", wide = "";
+
+  // turnout and streaks over closed screenings with a known date, oldest first
+  const seq = closed.filter((m) => realDate(lastSeen(m))).sort((a, b) => lastSeen(a).localeCompare(lastSeen(b)));
+  const scored = new Set(done.map((r) => r.m.id));
+  let run = 0, longest = 0;
+  seq.forEach((m) => { run = scored.has(m.id) ? run + 1 : 0; longest = Math.max(longest, run); });
+
+  if (done.length) {
+    const scores = done.map((r) => r.score);
+    const gen = generosity(), place = gen.findIndex((x) => x.name === name);
+    const hi = done.reduce((a, b) => (b.score > a.score ? b : a)), lo = done.reduce((a, b) => (b.score < a.score ? b : a));
+    const vs = done.filter((r) => r.nOthers > 0).map((r) => ({ ...r, diff: r.score - r.others }));
+    const up = vs.filter((r) => r.diff >= 0.05).length, down = vs.filter((r) => r.diff <= -0.05).length;
+    const remarks = done.filter((r) => r.m.ratings.find((x) => x.name === name)?.remark).length;
+    const firstSeen = seq.find((m) => scored.has(m.id));
+    if (place >= 0) tiles.push([ord(place + 1), `most generous of ${gen.length}`, "", "by average score, 3+ scores"]);
+    if (scores.length > 1) tiles.push([`±${fmt(stdev(scores), 2)}`, "score spread", "", "how much their scores vary"]);
+    tiles.push(
+      [fmt(median(scores), 2), "median score", "", "half their scores are above"],
+      [fmt(hi.score), "highest score", "", esc(hi.m.title)],
+      [fmt(lo.score), "lowest score", "", esc(lo.m.title)],
+      [pct(done.length, closed.length), "turnout", "", `${done.length} of ${closed.length} movies scored`],
+      [run, "in a row now", "", `movies scored back to back · best ${longest}`],
+    );
+    if (vs.length) tiles.push([pct(up, vs.length), "higher than the others", "", `lower ${pct(down, vs.length)} · level ${pct(vs.length - up - down, vs.length)}`]);
+    tiles.push(
+      [pct(scores.filter((s) => s === Math.round(s)).length, scores.length), "whole numbers", "", "scores like 7 rather than 7.5"],
+      [remarks, remarks === 1 ? "remark" : "remarks", "", `on ${pct(remarks, scores.length)} of their scores`],
+    );
+    if (firstSeen) tiles.push([date(lastSeen(firstSeen), { month: "short", year: "numeric" }), "first score", "", esc(firstSeen.title)]);
+
+    // closest to and furthest from everyone else
+    if (vs.length >= 2) {
+      const byGap = [...vs].sort((a, b) => Math.abs(a.diff) - Math.abs(b.diff)), k = Math.min(3, vs.length >> 1);
+      const li = (r) => `<li><button class="tt" data-movie="${r.m.id}">${esc(r.m.title)}</button>
+        <span class="pair"><small>others ${fmt(r.others)}</small><b class="${Math.abs(r.diff) < 0.05 ? "" : r.diff > 0 ? "pos" : "neg"}">${signed(r.diff, 1)}</b></span></li>`;
+      grid += `<div class="box"><h3>With and against the group</h3>${hint("Their score minus everyone else's average.")}
+        <h4 class="sub-h" style="margin:0 0 2px">Most in line</h4><ul class="mini">${byGap.slice(0, k).map(li).join("")}</ul>
+        <h4 class="sub-h" style="margin:12px 0 2px">Most at odds</h4><ul class="mini">${byGap.slice(-k).reverse().map(li).join("")}</ul></div>`;
+    }
+
+    // average per decade the movie came out
+    const dec = new Map();
+    done.filter((r) => r.m.year).forEach((r) => { const k = Math.floor(r.m.year / 10) * 10; dec.set(k, [...(dec.get(k) || []), r.score]); });
+    if (dec.size) {
+      grid += `<div class="box"><h3>By decade</h3>${hint("Their average per decade the movie came out.")}
+        <ul class="mini">${[...dec].sort((a, b) => b[0] - a[0]).map(([d, s]) => `<li><span class="tt">${d}s <small style="color:var(--muted)">${s.length}</small></span><b>${fmt(mean(s))}</b></li>`).join("")}</ul></div>`;
+    }
+
+    // scores over time: the chart is drawn by renderTrend once the page is showing (it needs the width)
+    wide = `<div class="box" style="margin-bottom:28px"><h3>Over time</h3>${hint("Their score and the group average for each movie, oldest first. Blue: above the group, red: below.")}
+      <div class="legend"><span><i style="background:var(--accent)"></i>Their score</span><span><i style="background:var(--muted)"></i>Group average (dashed)</span></div>
+      <div id="p-trend" class="chart" data-name="${esc(name)}"></div></div>`;
+  }
+
+  // their picks, placed among every closed movie
+  const { rank, total } = movieRanks();
+  const ranked = picks.filter((m) => rank.has(m.id)).sort((a, b) => rank.get(a.id) - rank.get(b.id));
+  if (ranked.length) {
+    tiles.push([fmt(mean(ranked.map((m) => rank.get(m.id))), 1), "avg place of picks", "", `among ${total} movies, 1 = best`]);
+    grid += `<div class="box"><h3>Their picks, ranked</h3>${hint(`Group average, and where it sits among all ${total} movies.`)}
+      <ul class="mini">${ranked.map((m) => `<li><button class="tt" data-movie="${m.id}">${esc(m.title)}</button>
+        <span class="pair"><small>${ord(rank.get(m.id))} of ${total}</small><b>${fmt(m.avg, 2)}</b></span></li>`).join("")}</ul></div>`;
+  }
+  return { tiles, grid, wide };
+}
+
+// Their score vs the group average per movie, in date order (person page).
+function renderTrend() {
+  const el = $("#p-trend");
+  if (!el || !el.clientWidth) return;
+  const name = el.dataset.name;
+  const pts = personStats(name).filter((r) => !isOpen(r.m) && realDate(lastSeen(r.m)) && r.m.avg != null)
+    .sort((a, b) => lastSeen(a.m).localeCompare(lastSeen(b.m)));
+  if (pts.length < 2) { el.innerHTML = `<p class="empty" style="padding:8px 0">Needs a couple of scores first.</p>`; return; }
+  const W = el.clientWidth, H = 170, L = 30, R = 10, T = 12, B = 24;
+  const vals = pts.flatMap((p) => [p.score, p.m.avg]);
+  const lo = Math.max(0, Math.floor(Math.min(...vals) - 0.3)), hi = Math.min(10, Math.ceil(Math.max(...vals) + 0.3));
+  const x = (i) => L + (i / (pts.length - 1)) * (W - L - R);
+  const y = (v) => T + (1 - (v - lo) / (hi - lo)) * (H - T - B);
+  let body = `<g class="grid">`;
+  for (let v = lo; v <= hi; v += hi - lo > 5 ? 2 : 1) body += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}"/><text x="${L - 8}" y="${y(v) + 4}" text-anchor="end">${v}</text>`;
+  body += `</g>`;
+  [...new Set([0, pts.length >> 1, pts.length - 1])].forEach((i) => {
+    const anchor = i === 0 ? "start" : i === pts.length - 1 ? "end" : "middle";
+    body += `<text x="${x(i)}" y="${H - 6}" text-anchor="${anchor}">${date(lastSeen(pts[i].m), { day: "numeric", month: "short" })}</text>`;
+  });
+  const path = (f) => pts.map((p, i) => `${i ? "L" : "M"}${x(i)},${y(f(p))}`).join("");
+  body += `<path class="gline" d="${path((p) => p.m.avg)}"/><path class="line" d="${path((p) => p.score)}"/>`;
+  pts.forEach((p, i) => {
+    const d = p.score - p.m.avg;
+    body += `<circle class="dot${d >= 0.05 ? " hi" : d <= -0.05 ? " lo" : ""}" cx="${x(i)}" cy="${y(p.score)}" r="4"/>`;
+  });
+  pts.forEach((p, i) => {
+    const a = i ? (x(i - 1) + x(i)) / 2 : L, b = i < pts.length - 1 ? (x(i) + x(i + 1)) / 2 : W - R;
+    const t = `<b>${esc(esc(p.m.title))}</b><br>${date(lastSeen(p.m))}<br>${esc(esc(name))}: ${fmt(p.score)} <span class='m'>· group ${fmt(p.m.avg, 2)}</span>`;
+    body += `<rect class="hit" data-movie="${p.m.id}" x="${a}" y="${T}" width="${b - a}" height="${H - T - B}" data-tip="${t}"/>`;
+  });
+  el.innerHTML = svg(W, H, body, `${name}'s scores over ${pts.length} movies next to the group average`);
+}
+
 function renderPerson(name) {
   const p = DATA.people.find((x) => x.name === name);
   const info = memberInfo.get(name);
@@ -388,8 +519,10 @@ function renderPerson(name) {
     p && [signed(p.bias), "vs the group", p.bias >= 0 ? "pos" : "neg"],
     [picks.length, "of their picks watched"],
     pickAvg != null && [fmt(pickAvg, 2), "group avg for their picks"],
-    [open.length, "on the Movie List"],
+    [open.length, "on the Movie List", "", open.some((m) => m.lost_votes) ? `lost ${plural(sum(open.map((m) => m.lost_votes || 0)), "vote")} so far` : ""],
   ].filter(Boolean);
+  const more = personMore(name, rows, picks);
+  tiles.push(...more.tiles);
 
   let boxes = "";
   if (p) {
@@ -418,7 +551,8 @@ function renderPerson(name) {
       ${mates ? `<div class="box"><h3>Taste twin &amp; nemesis</h3>${mates}</div>` : ""}
       ${gl.length ? `<div class="box"><h3>Genres</h3><p class="hint">Their average per genre (2+ movies).</p>
         <ul class="mini">${gl.slice(0, 6).map((x) => `<li><span class="tt">${esc(x.g)} <small style="color:var(--muted)">${x.n}</small></span><b>${fmt(x.avg)}</b></li>`).join("")}</ul></div>` : ""}
-    </div>`;
+      ${more.grid}
+    </div>${more.wide}`;
 
     const cmp = rows.filter((r) => r.nOthers > 0).map((r) => ({ ...r, diff: r.score - r.others })).sort((a, b) => b.diff - a.diff);
     if (cmp.length) {
@@ -434,7 +568,7 @@ function renderPerson(name) {
             <span class="v ${Math.abs(r.diff) < 0.05 ? "" : r.diff > 0 ? "pos" : "neg"}">${signed(r.diff, 1)}</span></li>`;
         }).join("")}</ul></div>`;
     }
-  }
+  } else if (more.grid) boxes = `<div class="p-grid">${more.grid}</div>`;
 
   // Rating is only open until the end of the day after a screening, so "to rate" is at most the latest movie.
   const latest = DATA.watched[0];
@@ -454,7 +588,7 @@ function renderPerson(name) {
   const openHtml = open.length ? `<h2>On the Movie List</h2>
     <div class="wall small" style="margin-top:14px">${open.map((m) => listCard(m, false)).join("")}</div>` : "";
 
-  $("#person").innerHTML = head + todo + `<div class="p-tiles">${tiles.map(([v, l, c]) => `<div class="tile"><b class="${c || ""}">${v}</b><span>${l}</span></div>`).join("")}</div>`
+  $("#person").innerHTML = head + todo + `<div class="p-tiles">${tiles.map(([v, l, c, s]) => `<div class="tile"><b class="${c || ""}">${v}</b><span>${l}</span>${s ? `<small>${s}</small>` : ""}</div>`).join("")}</div>`
     + boxes + picksHtml + openHtml + missedHtml;
 }
 
@@ -624,6 +758,27 @@ const movieLink = (m) => `<span class="ml" role="button" tabindex="0" data-movie
 const avgBar = (v) => `<span class="abar"><span style="width:${Math.max(2, Math.min(100, ((v - 5) / 5) * 100))}%"></span></span>`;
 const picksOf = (name) => DATA.watched.filter((m) => m.suggested_by?.includes(name) && m.avg != null);
 
+// Scores stay private until rating closes, so the newer stats leave out a movie that's still open.
+const isOpen = (m) => realDate(lastSeen(m)) && new Date() < ratingCloses(lastSeen(m));
+const closedMovies = () => DATA.watched.filter((m) => !isOpen(m));
+const ord = (n) => { const s = ["th", "st", "nd", "rd"], v = n % 100; return n + (s[(v - 20) % 10] || s[v] || s[0]); };
+const plural = (n, w) => `${n} ${w}${n === 1 ? "" : "s"}`;
+const sum = (xs) => xs.reduce((a, b) => a + b, 0);
+// movie id -> place by group average among closed movies (1 = best; ties share a place)
+function movieRanks() {
+  const ms = closedMovies().filter((m) => m.avg != null).sort((a, b) => b.avg - a.avg);
+  const rank = new Map();
+  ms.forEach((m, i) => rank.set(m.id, i && ms[i - 1].avg === m.avg ? rank.get(ms[i - 1].id) : i + 1));
+  return { rank, total: ms.length };
+}
+// everyone with 3+ closed scores, most generous (highest average) first
+function generosity() {
+  const by = new Map();
+  closedMovies().forEach((m) => m.ratings.forEach((r) => by.set(r.name, [...(by.get(r.name) || []), r.score])));
+  return [...by].filter(([, s]) => s.length >= 3).map(([name, s]) => ({ name, avg: mean(s), n: s.length }))
+    .sort((a, b) => b.avg - a.avg);
+}
+
 function renderKpis() {
   const W = DATA.watched, all = W.flatMap((m) => m.ratings.map((r) => r.score));
   if (!all.length) { $("#kpis").innerHTML = ""; return; }
@@ -653,6 +808,23 @@ function renderKpis() {
     [weeks, "weeks running", `a movie in ${weeksWithMovie} of them`],
     [new Set(W.flatMap((m) => (m.director || "").split(", ").filter(Boolean))).size, "directors", `${new Set(W.flatMap((m) => m.genres || [])).size} genres`],
   ];
+  // newer tiles: closed movies only (see isOpen)
+  const done = closedMovies();
+  const dirs = new Map();
+  done.forEach((m) => (m.director || "").split(", ").filter(Boolean).forEach((d) => dirs.set(d, (dirs.get(d) || 0) + 1)));
+  const topDir = Math.max(0, ...dirs.values()), topDirs = [...dirs].filter(([, n]) => n === topDir).map(([d]) => d);
+  // how the person who picked a movie scored it, minus everyone else's average for it
+  const bonus = done.flatMap((m) => {
+    const others = m.ratings.filter((r) => !m.suggested_by.includes(r.name)).map((r) => r.score);
+    return others.length ? m.ratings.filter((r) => m.suggested_by.includes(r.name)).map((r) => r.score - mean(others)) : [];
+  });
+  const sds = done.filter((m) => m.stdev != null).map((m) => m.stdev);
+  const ownBonus = mean(bonus);
+  tiles.push(
+    [ownBonus == null ? "–" : `<span class="${ownBonus >= 0 ? "pos" : "neg"}">${signed(ownBonus)}</span>`, "own-pick bonus", "how pickers score their pick vs the rest"],
+    [sds.length ? "±" + fmt(mean(sds), 2) : "–", "typical spread", "how much we disagree on a movie"],
+    [topDir > 1 ? topDir : "–", "most by one director", topDir > 1 ? esc(topDirs.join(", ")) : "no repeats yet"],
+  );
   $("#kpis").innerHTML = tiles.map(([v, l, s]) => `<div class="kpi"><b>${v}</b><span>${l}</span>${s ? `<small>${s}</small>` : ""}</div>`).join("");
 }
 
@@ -762,6 +934,82 @@ function renderGenres() {
   groupTable("#decades", [...d].sort((a, b) => b[0].localeCompare(a[0])), "Decade");
 }
 
+// When we watched (month, weekday) and how long the movie is, closed movies only. Reuses groupTable.
+function renderWhen() {
+  const add = (map, k, m) => map.set(k, [...(map.get(k) || []), m]);
+  const months = new Map(), days = new Map(), lengths = new Map();
+  const dated = closedMovies().filter((m) => realDate(lastSeen(m))).sort((a, b) => lastSeen(b).localeCompare(lastSeen(a)));
+  dated.forEach((m) => add(months, date(lastSeen(m), { month: "short", year: "numeric" }), m));
+  // Monday first; dates are calendar days, so read them in UTC to keep the weekday right everywhere
+  const order = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  dated.forEach((m) => add(days, new Date(lastSeen(m) + "T12:00:00Z").toLocaleDateString("en-GB", { weekday: "short", timeZone: "UTC" }), m));
+  const band = (r) => (r < 100 ? "Under 1h40" : r < 120 ? "1h40 to 2h" : r < 150 ? "2h to 2h30" : "2h30 or more");
+  closedMovies().filter((m) => m.runtime).forEach((m) => add(lengths, band(m.runtime), m));
+  groupTable("#months", [...months], "Month");
+  groupTable("#weekdays", [...days].sort((a, b) => order.indexOf(a[0]) - order.indexOf(b[0])), "Day");
+  groupTable("#lengths", ["Under 1h40", "1h40 to 2h", "2h to 2h30", "2h30 or more"].filter((k) => lengths.has(k)).map((k) => [k, lengths.get(k)]), "Length");
+}
+
+// Group α vs ω, side by side. Members with no group count for neither; open movies are left out.
+function renderGroups() {
+  const closed = closedMovies(), { rank, total } = movieRanks();
+  const grp = (n) => memberInfo.get(n)?.group ?? null;
+  const side = (g) => {
+    const names = DATA.members.filter((m) => m.group === g).map((m) => m.name);
+    const mine = (n) => grp(n) === g, theirs = (n) => grp(n) != null && grp(n) !== g;
+    const picks = closed.filter((m) => m.avg != null && m.suggested_by.some(mine)).sort((a, b) => b.avg - a.avg);
+    const given = closed.flatMap((m) => m.ratings.filter((r) => mine(r.name)).map((r) => ({ m, s: r.score })));
+    const toOwn = mean(given.filter((x) => x.m.suggested_by.some(mine)).map((x) => x.s));
+    const toOther = mean(given.filter((x) => x.m.suggested_by.some(theirs) && !x.m.suggested_by.some(mine)).map((x) => x.s));
+    const open = DATA.suggestions.filter((m) => m.suggested_by.some(mine));
+    return {
+      names, picks, best: picks[0], worst: picks.at(-1),
+      avg: mean(picks.map((m) => m.avg)), place: mean(picks.map((m) => rank.get(m.id))),
+      top10: picks.filter((m) => rank.get(m.id) <= 10).length,
+      given: mean(given.map((x) => x.s)), nGiven: given.length, toOwn, toOther,
+      home: toOwn != null && toOther != null ? toOwn - toOther : null,
+      turnout: names.length && closed.length ? mean(names.map((n) => closed.filter((m) => m.ratings.some((r) => r.name === n)).length / closed.length)) : null,
+      hours: sum(picks.map((m) => m.runtime || 0)) / 60,
+      open: open.length, lost: sum(open.map((m) => m.lost_votes || 0)),
+    };
+  };
+  const A = side("alpha"), O = side("omega");
+  const pick = (m) => (m ? `<b>${fmt(m.avg, 2)}</b> ${movieLink(m)}` : "–");
+  // [label, hint, value for a side, shown, which is better: 1 more, -1 less, 0 neither]
+  const rows = [
+    ["Members", "People in the group", (s) => s.names.length, (s) => `<span data-tip="${esc(esc(s.names.join(", ") || "nobody yet"))}">${s.names.length}</span>`, 0],
+    ["Picks watched", "Their suggestions that won a vote and got watched", (s) => s.picks.length, (s) => s.picks.length, 1],
+    ["Pick average", "Group average of their picks", (s) => s.avg, (s) => fmt(s.avg, 2), 1],
+    ["Avg place", `Where their picks sit among all ${total} movies, 1 = best`, (s) => s.place, (s) => fmt(s.place, 1), -1],
+    ["In the top 10", "Their picks among the 10 best-rated movies", (s) => s.top10, (s) => s.top10, 1],
+    ["Best pick", "Their highest-rated pick", (s) => s.best?.avg, (s) => pick(s.best), 1],
+    ["Worst pick", "Their lowest-rated pick", (s) => s.worst?.avg, (s) => pick(s.worst), 1],
+    ["Hours picked", "Total runtime of their picks", (s) => s.hours, (s) => (s.picks.length ? hm(s.hours * 60) : "–"), 0],
+    ["Scores given", "Scores from the group's members", (s) => s.nGiven, (s) => s.nGiven, 0],
+    ["Turnout", "Share of our movies the average member scored", (s) => s.turnout, (s) => (s.turnout == null ? "–" : pct(s.turnout, 1)), 1],
+    ["Avg score given", "How generous the group is overall", (s) => s.given, (s) => fmt(s.given, 2), 0],
+    ["To own picks", "Their average for their own group's picks", (s) => s.toOwn, (s) => fmt(s.toOwn, 2), 0],
+    ["To rival picks", "Their average for the other group's picks", (s) => s.toOther, (s) => fmt(s.toOther, 2), 0],
+    ["Home bias", "Own picks minus rival picks: + means they favour their own", (s) => s.home, (s) => (s.home == null ? "–" : signed(s.home)), 0],
+    ["On the Movie List", "Suggestions waiting for a vote", (s) => s.open, (s) => s.open, 0],
+    ["Votes lost", "Past votes lost by the movies still on the list", (s) => s.lost, (s) => s.lost, 0],
+  ];
+  let wa = 0, wo = 0;
+  const body = rows.map(([label, tipText, val, show, dir]) => {
+    const a = val(A), o = val(O);
+    const win = dir && a != null && o != null && Math.abs(a - o) > 1e-9 ? ((a - o) * dir > 0 ? "a" : "o") : "";
+    if (win === "a") wa++; else if (win === "o") wo++;
+    return `<tr><td data-tip="${esc(tipText)}">${label}</td><td class="${win === "a" ? "best" : ""}">${show(A)}</td><td class="${win === "o" ? "best" : ""}">${show(O)}</td></tr>`;
+  }).join("");
+  const kpi = (v, l, s) => `<div class="kpi"><b>${v}</b><span>${l}</span>${s ? `<small>${s}</small>` : ""}</div>`;
+  $("#groups").innerHTML = `<div class="kpis" style="margin:0 0 12px">
+      ${kpi(fmt(A.avg, 2), `${GROUPS.alpha} picks`, `${plural(A.picks.length, "movie")} · ${plural(A.names.length, "member")}`)}
+      ${kpi(fmt(O.avg, 2), `${GROUPS.omega} picks`, `${plural(O.picks.length, "movie")} · ${plural(O.names.length, "member")}`)}
+      ${kpi(`${wa}–${wo}`, "rows won", wa === wo ? "all square" : `${wa > wo ? GROUPS.alpha : GROUPS.omega} ahead`)}
+    </div>
+    <div class="tbl-wrap"><table class="tbl"><thead><tr><th></th><th>${GROUPS.alpha}</th><th>${GROUPS.omega}</th></tr></thead><tbody>${body}</tbody></table></div>`;
+}
+
 function renderPairs() {
   const ps = [...DATA.pairs].sort((a, b) => a.mean_gap - b.mean_gap);
   const k = Math.min(6, Math.floor(ps.length / 2));
@@ -771,7 +1019,7 @@ function renderPairs() {
 }
 
 function renderStats() {
-  renderKpis(); renderScorecard(); renderTopBottom(); renderRecords(); renderGenres(); renderPairs(); renderRanks();
+  renderKpis(); renderGroups(); renderScorecard(); renderTopBottom(); renderRecords(); renderGenres(); renderWhen(); renderPairs(); renderRanks();
   const sortBy = (th) => {
     const k = th.dataset.sort;
     scoreSort = { key: k, dir: scoreSort.key === k ? -scoreSort.dir : (k === "name" ? 1 : -1) };
@@ -826,6 +1074,7 @@ function showTab(hash) {
   let tab = ["watched", "stats", "people", "list"].includes(hash) ? hash : "watched";
   if (hash.startsWith("person/")) { tab = "person"; renderPerson(hash.slice(7)); }
   $$("[data-panel]").forEach((el) => (el.hidden = el.dataset.panel !== tab));
+  if (tab === "person") renderTrend();   // needs the page showing to know its width
   $("#hero").classList.toggle("compact", tab !== "watched");
   $$(".tabs a").forEach((el) => el.classList.toggle("active", el.dataset.tab === (tab === "person" ? "people" : tab)));
   if (tab === "stats") renderCharts();
@@ -889,7 +1138,10 @@ async function init() {
     if (innerWidth === lastWidth) return;
     lastWidth = innerWidth;
     clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => { if (!$('[data-panel="stats"]').hidden) renderCharts(); }, 150);
+    resizeTimer = setTimeout(() => {
+      if (!$('[data-panel="stats"]').hidden) renderCharts();
+      if (!$('[data-panel="person"]').hidden) renderTrend();
+    }, 150);
   });
   addEventListener("hashchange", route);
   route();

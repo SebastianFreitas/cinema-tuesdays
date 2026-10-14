@@ -29,6 +29,7 @@
       <p class="tagline" id="tagline">Tuesdays at 21:15</p>
       <div id="spotlight"></div>
       <div class="tiles" id="tiles"></div>
+      <div class="facts" id="facts"></div>
     </div>
     <nav class="tabs">
       <div class="wrap">
@@ -88,6 +89,12 @@
     <section data-panel="stats" hidden>
       <div id="kpis" class="kpis"></div>
 
+      <div class="chart-card sc">
+        <h2>Group <span class="gk">α</span> vs <span class="gk">ω</span></h2>
+        <p class="hint">Head to head. Picks: suggestions that won a vote and got watched. Highlighted: the better side for that row. Hover or tap a row name for what it means. People with no group are left out; a movie still being rated isn't counted yet.</p>
+        <div id="groups"></div>
+      </div>
+
       <div class="sgrid two">
         <div class="chart-card sc">
           <h2>How we score</h2>
@@ -116,6 +123,12 @@
       <div class="sgrid two">
         <div class="chart-card sc"><h2>By genre</h2><p class="hint">A movie counts for each of its genres. Bar: average score, 5 to 10.</p><div class="tbl-wrap"><table id="genres" class="tbl"></table></div></div>
         <div class="chart-card sc"><h2>By decade</h2><p class="hint">When the movie came out. Bar: average score, 5 to 10.</p><div class="tbl-wrap"><table id="decades" class="tbl"></table></div></div>
+      </div>
+
+      <div class="sgrid three">
+        <div class="chart-card sc"><h2>By month</h2><p class="hint">When we watched it. Bar: average score, 5 to 10.</p><div class="tbl-wrap"><table id="months" class="tbl"></table></div></div>
+        <div class="chart-card sc"><h2>By day</h2><p class="hint">Mostly Tuesdays, plus the odd moved night.</p><div class="tbl-wrap"><table id="weekdays" class="tbl"></table></div></div>
+        <div class="chart-card sc"><h2>By length</h2><p class="hint">Runtime of the movie. Bar: average score, 5 to 10.</p><div class="tbl-wrap"><table id="lengths" class="tbl"></table></div></div>
       </div>
 
       <div class="sgrid two">
