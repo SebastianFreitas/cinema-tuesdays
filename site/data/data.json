@@ -1,9 +1,2712 @@
 {
- "generated_at": "2026-10-14T09:19:34+00:00",
+ "generated_at": "2026-10-14T09:54:47+00:00",
  "next_up": null,
  "poll": null,
- "watched": [],
- "people": [],
- "pairs": [],
- "suggestions": []
+ "watched": [
+  {
+   "id": 26,
+   "title": "Scooby-Doo! and KISS: Rock and Roll Mystery",
+   "original_title": "Scooby-Doo! and KISS: Rock and Roll Mystery",
+   "year": 2015,
+   "director": "Spike Brandt, Tony Cervone",
+   "runtime": 79,
+   "overview": "Get ready to Rock! Scooby-Doo and the Mystery Inc. Gang team up with the one and only KISS in this all-new, out-of-this-world adventure! We join the Gang at KISS World – the all-things-KISS theme park, as they investigate a series of strange hauntings. With help from KISS, they discover that the Crimson Witch has returned to summon The Destroyer from the alternate dimension of Kissteria! The evil duos ghastly plan, to destroy the earth! Can the Gang's cunning and KISS's power of rock save the day?!",
+   "poster": "https://image.tmdb.org/t/p/w342/nTkQZPXZl9yx3tfPS9TSDZBdhHC.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/347688",
+   "watched_on": [
+    "2026-10-13"
+   ],
+   "suggested_by": [
+    "Arden"
+   ],
+   "ratings": [
+    {
+     "name": "Arden",
+     "score": 8.0,
+     "remark": null
+    },
+    {
+     "name": "Sebas",
+     "score": 7.7,
+     "remark": null
+    },
+    {
+     "name": "Luis",
+     "score": 7.0,
+     "remark": null
+    },
+    {
+     "name": "Irene",
+     "score": 7.0,
+     "remark": null
+    },
+    {
+     "name": "Toni",
+     "score": 6.4,
+     "remark": null
+    },
+    {
+     "name": "Jota",
+     "score": 6.3,
+     "remark": null
+    },
+    {
+     "name": "Me",
+     "score": 5.7,
+     "remark": null
+    },
+    {
+     "name": "Helena",
+     "score": 5.1,
+     "remark": null
+    }
+   ],
+   "avg": 6.65,
+   "stdev": 0.91,
+   "min": 5.1,
+   "max": 8.0
+  },
+  {
+   "id": 25,
+   "title": "Seven Samurai",
+   "original_title": "七人の侍",
+   "year": 1954,
+   "director": "Akira Kurosawa",
+   "runtime": 207,
+   "overview": "A samurai answers a village's request for protection after he falls on hard times. The town needs protection from bandits, so the samurai gathers six others to help him teach the people how to defend themselves, and the villagers provide the soldiers with food.",
+   "poster": "https://image.tmdb.org/t/p/w342/lOMGc8bnSwQhS4XyE1S99uH8NXf.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/346",
+   "watched_on": [
+    "2026-10-10"
+   ],
+   "suggested_by": [],
+   "ratings": [
+    {
+     "name": "Sebas",
+     "score": 8.1,
+     "remark": null
+    },
+    {
+     "name": "Me",
+     "score": 7.8,
+     "remark": null
+    },
+    {
+     "name": "Jota",
+     "score": 7.5,
+     "remark": null
+    },
+    {
+     "name": "Helena",
+     "score": 6.4,
+     "remark": null
+    }
+   ],
+   "avg": 7.45,
+   "stdev": 0.64,
+   "min": 6.4,
+   "max": 8.1
+  },
+  {
+   "id": 24,
+   "title": "The Birdcage",
+   "original_title": "The Birdcage",
+   "year": 1996,
+   "director": "Mike Nichols",
+   "runtime": 119,
+   "overview": "A gay cabaret owner and his drag queen partner agree to put up a false heterosexual front so that their son can introduce them to his fiancée's conservative parents.",
+   "poster": "https://image.tmdb.org/t/p/w342/4IpC35BoA5aRO0Q1DpFGJ8iKKYq.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/11000",
+   "watched_on": [
+    "2026-09-29"
+   ],
+   "suggested_by": [
+    "Me"
+   ],
+   "ratings": [
+    {
+     "name": "Me",
+     "score": 7.5,
+     "remark": null
+    },
+    {
+     "name": "Irene",
+     "score": 7.5,
+     "remark": null
+    },
+    {
+     "name": "Jota",
+     "score": 7.3,
+     "remark": null
+    },
+    {
+     "name": "Helena",
+     "score": 6.9,
+     "remark": null
+    }
+   ],
+   "avg": 7.3,
+   "stdev": 0.24,
+   "min": 6.9,
+   "max": 7.5
+  },
+  {
+   "id": 23,
+   "title": "Team America: World Police",
+   "original_title": "Team America: World Police",
+   "year": 2004,
+   "director": "Trey Parker",
+   "runtime": 98,
+   "overview": "When North Korean ruler Kim Jong-il orchestrates a global terrorist plot, it's up to the heavily armed, highly specialized Team America unit to stop his dastardly scheme. The group, which has recruited troubled Broadway actor Gary Johnston, not only has to face off against Jong-il, but they must also contend with the Film Actors Guild, a cadre of Hollywood liberals at odds with Team America's 'policing the world' tactics.",
+   "poster": "https://image.tmdb.org/t/p/w342/m1Q2VFe1DVVbjfu1LDZe7tlp9yb.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/3989",
+   "watched_on": [
+    "2026-09-22"
+   ],
+   "suggested_by": [
+    "Me"
+   ],
+   "ratings": [
+    {
+     "name": "Me",
+     "score": 7.3,
+     "remark": null
+    },
+    {
+     "name": "Sebas",
+     "score": 7.1,
+     "remark": null
+    },
+    {
+     "name": "Jota",
+     "score": 6.5,
+     "remark": null
+    },
+    {
+     "name": "Helena",
+     "score": 5.6,
+     "remark": null
+    }
+   ],
+   "avg": 6.62,
+   "stdev": 0.66,
+   "min": 5.6,
+   "max": 7.3
+  },
+  {
+   "id": 22,
+   "title": "Atlantis: The Lost Empire",
+   "original_title": "Atlantis: The Lost Empire",
+   "year": 2001,
+   "director": "Gary Trousdale, Kirk Wise",
+   "runtime": 95,
+   "overview": "A young linguist named Milo Thatch joins an intrepid group of explorers to find the mysterious lost continent of Atlantis.",
+   "poster": "https://image.tmdb.org/t/p/w342/oK8yR6xSQreWf1ouP1VpXKwoop5.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/10865",
+   "watched_on": [
+    "2026-09-15"
+   ],
+   "suggested_by": [
+    "Jota"
+   ],
+   "ratings": [
+    {
+     "name": "Luis",
+     "score": 9.0,
+     "remark": null
+    },
+    {
+     "name": "Arden",
+     "score": 9.0,
+     "remark": null
+    },
+    {
+     "name": "Filipa",
+     "score": 9.0,
+     "remark": null
+    },
+    {
+     "name": "Irene",
+     "score": 9.0,
+     "remark": null
+    },
+    {
+     "name": "Jota",
+     "score": 8.4,
+     "remark": null
+    },
+    {
+     "name": "Helena",
+     "score": 8.0,
+     "remark": null
+    },
+    {
+     "name": "Toni",
+     "score": 8.0,
+     "remark": null
+    },
+    {
+     "name": "Sebas",
+     "score": 7.9,
+     "remark": null
+    },
+    {
+     "name": "Me",
+     "score": 7.2,
+     "remark": null
+    }
+   ],
+   "avg": 8.39,
+   "stdev": 0.62,
+   "min": 7.2,
+   "max": 9.0
+  },
+  {
+   "id": 21,
+   "title": "Tropic Thunder",
+   "original_title": "Tropic Thunder",
+   "year": 2008,
+   "director": "Ben Stiller",
+   "runtime": 107,
+   "overview": "A group of self-absorbed actors set out to make the most expensive war film ever. After ballooning costs force the studio to cancel the movie, the frustrated director refuses to stop shooting, leading his cast into the jungles of Southeast Asia, where they encounter real bad guys.",
+   "poster": "https://image.tmdb.org/t/p/w342/zAurB9mNxfYRoVrVjAJJwGV3sPg.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/7446",
+   "watched_on": [
+    "2026-09-09"
+   ],
+   "suggested_by": [
+    "Malhadas"
+   ],
+   "ratings": [
+    {
+     "name": "Luis",
+     "score": 7.8,
+     "remark": null
+    },
+    {
+     "name": "Jota",
+     "score": 7.7,
+     "remark": null
+    },
+    {
+     "name": "Me",
+     "score": 7.6,
+     "remark": null
+    },
+    {
+     "name": "Sebas",
+     "score": 7.6,
+     "remark": null
+    }
+   ],
+   "avg": 7.67,
+   "stdev": 0.08,
+   "min": 7.6,
+   "max": 7.8
+  },
+  {
+   "id": 20,
+   "title": "Oldboy",
+   "original_title": "올드보이",
+   "year": 2003,
+   "director": "Park Chan-wook",
+   "runtime": 120,
+   "overview": "With no clue how he came to be imprisoned, drugged and tortured for 15 years, a desperate man seeks revenge on his captors.",
+   "poster": "https://image.tmdb.org/t/p/w342/pWDtjs568ZfOTMbURQBYuT4Qxka.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/670",
+   "watched_on": [
+    "2026-09-01"
+   ],
+   "suggested_by": [
+    "Malhadas"
+   ],
+   "ratings": [
+    {
+     "name": "Me",
+     "score": 8.2,
+     "remark": null
+    },
+    {
+     "name": "Jota",
+     "score": 8.0,
+     "remark": null
+    },
+    {
+     "name": "Sebas",
+     "score": 8.0,
+     "remark": null
+    },
+    {
+     "name": "Toni",
+     "score": 8.0,
+     "remark": null
+    },
+    {
+     "name": "Luis",
+     "score": 8.0,
+     "remark": null
+    },
+    {
+     "name": "Irene",
+     "score": 8.0,
+     "remark": null
+    },
+    {
+     "name": "Arden",
+     "score": 7.0,
+     "remark": null
+    },
+    {
+     "name": "Helena",
+     "score": 6.8,
+     "remark": null
+    }
+   ],
+   "avg": 7.75,
+   "stdev": 0.5,
+   "min": 6.8,
+   "max": 8.2
+  },
+  {
+   "id": 19,
+   "title": "Sanctuary",
+   "original_title": "Sanctuary",
+   "year": 2023,
+   "director": "Zachary Wigon",
+   "runtime": 96,
+   "overview": "Confined to a claustrophobic hotel room, the heir to a hotel empire and the dominatrix who has primed him for success become locked in a battle of wits and wills as he tries to end his relationship with her.",
+   "poster": "https://image.tmdb.org/t/p/w342/yGQAZupyZgT2ESbBSMZ9R0OBToo.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/870518",
+   "watched_on": [
+    "2026-08-25"
+   ],
+   "suggested_by": [
+    "Toni"
+   ],
+   "ratings": [
+    {
+     "name": "Me",
+     "score": 7.6,
+     "remark": null
+    },
+    {
+     "name": "Toni",
+     "score": 7.4,
+     "remark": null
+    },
+    {
+     "name": "Sebas",
+     "score": 6.8,
+     "remark": null
+    },
+    {
+     "name": "Jota",
+     "score": 6.6,
+     "remark": null
+    },
+    {
+     "name": "Irene",
+     "score": 5.5,
+     "remark": null
+    },
+    {
+     "name": "Arden",
+     "score": 5.0,
+     "remark": null
+    }
+   ],
+   "avg": 6.48,
+   "stdev": 0.95,
+   "min": 5.0,
+   "max": 7.6
+  },
+  {
+   "id": 18,
+   "title": "Tampopo",
+   "original_title": "タンポポ",
+   "year": 1985,
+   "director": "Jūzō Itami",
+   "runtime": 115,
+   "overview": "In this humorous paean to the joys of food, a pair of truck drivers happen onto a decrepit roadside shop selling ramen noodles. The widowed owner, Tampopo, begs them to help her turn her establishment into a paragon of the \"art of noodle-soup making\". Interspersed are satirical vignettes about the importance of food to different aspects of human life.",
+   "poster": "https://image.tmdb.org/t/p/w342/ArYdSuX3zY9fMsE4LqmBl7xJq5R.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/11830",
+   "watched_on": [
+    "2026-08-18"
+   ],
+   "suggested_by": [
+    "Sebas"
+   ],
+   "ratings": [
+    {
+     "name": "Malhadas",
+     "score": 8.0,
+     "remark": null
+    },
+    {
+     "name": "Sebas",
+     "score": 7.7,
+     "remark": null
+    },
+    {
+     "name": "Me",
+     "score": 7.0,
+     "remark": null
+    },
+    {
+     "name": "Jota",
+     "score": 6.5,
+     "remark": null
+    },
+    {
+     "name": "Helena",
+     "score": 5.9,
+     "remark": null
+    },
+    {
+     "name": "Arden",
+     "score": 4.0,
+     "remark": null
+    },
+    {
+     "name": "Irene",
+     "score": 2.5,
+     "remark": null
+    },
+    {
+     "name": "Toni",
+     "score": 1.0,
+     "remark": null
+    }
+   ],
+   "avg": 5.33,
+   "stdev": 2.39,
+   "min": 1.0,
+   "max": 8.0
+  },
+  {
+   "id": 17,
+   "title": "2001: A Space Odyssey",
+   "original_title": "2001: A Space Odyssey",
+   "year": 1968,
+   "director": "Stanley Kubrick",
+   "runtime": 149,
+   "overview": "Humanity finds a mysterious object buried beneath the lunar surface and sets off to find its origins with the help of HAL 9000, the world's most advanced super computer.",
+   "poster": "https://image.tmdb.org/t/p/w342/ve72VxNqjGM69Uky4WTo2bK6rfq.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/62",
+   "watched_on": [
+    "2026-08-11"
+   ],
+   "suggested_by": [
+    "Malhadas"
+   ],
+   "ratings": [
+    {
+     "name": "Malhadas",
+     "score": 7.6,
+     "remark": null
+    },
+    {
+     "name": "Sebas",
+     "score": 7.3,
+     "remark": null
+    },
+    {
+     "name": "Me",
+     "score": 6.5,
+     "remark": null
+    },
+    {
+     "name": "Jota",
+     "score": 6.0,
+     "remark": null
+    },
+    {
+     "name": "Helena",
+     "score": 5.9,
+     "remark": null
+    },
+    {
+     "name": "Luis",
+     "score": 5.6,
+     "remark": null
+    }
+   ],
+   "avg": 6.48,
+   "stdev": 0.74,
+   "min": 5.6,
+   "max": 7.6
+  },
+  {
+   "id": 16,
+   "title": "12 Angry Men",
+   "original_title": "12 Angry Men",
+   "year": 1957,
+   "director": "Sidney Lumet",
+   "runtime": 97,
+   "overview": "The defense and the prosecution have rested and the jury is filing into the jury room to decide if a young Spanish-American is guilty or innocent of murdering his father. What begins as an open and shut case soon becomes a mini-drama of each of the jurors' prejudices and preconceptions about the trial, the accused, and each other.",
+   "poster": "https://image.tmdb.org/t/p/w342/zhG3vKWyDRaZYoaww1UVAi29T9h.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/389",
+   "watched_on": [
+    "2026-08-04"
+   ],
+   "suggested_by": [
+    "Sebas"
+   ],
+   "ratings": [
+    {
+     "name": "Helena",
+     "score": 8.6,
+     "remark": null
+    },
+    {
+     "name": "Toni",
+     "score": 8.4,
+     "remark": null
+    },
+    {
+     "name": "Luis",
+     "score": 8.4,
+     "remark": null
+    },
+    {
+     "name": "Me",
+     "score": 8.0,
+     "remark": null
+    },
+    {
+     "name": "Jota",
+     "score": 8.0,
+     "remark": null
+    },
+    {
+     "name": "Arden",
+     "score": 8.0,
+     "remark": null
+    },
+    {
+     "name": "Irene",
+     "score": 8.0,
+     "remark": null
+    },
+    {
+     "name": "Sebas",
+     "score": 7.9,
+     "remark": null
+    }
+   ],
+   "avg": 8.16,
+   "stdev": 0.24,
+   "min": 7.9,
+   "max": 8.6
+  },
+  {
+   "id": 15,
+   "title": "Obsession",
+   "original_title": "Obsession",
+   "year": 2026,
+   "director": "Curry Barker",
+   "runtime": 109,
+   "overview": "After breaking the mysterious \"One Wish Willow\" to win his crush's heart, a hopeless romantic finds himself getting exactly what he asked for but soon discovers that some desires come at a dark, sinister price.",
+   "poster": "https://image.tmdb.org/t/p/w342/bRwnj8WEKBCvmfeUNOukJPwB43K.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/1339713",
+   "watched_on": [
+    "2026-07-28"
+   ],
+   "suggested_by": [
+    "Me"
+   ],
+   "ratings": [
+    {
+     "name": "Luis",
+     "score": 9.2,
+     "remark": null
+    },
+    {
+     "name": "Arden",
+     "score": 9.0,
+     "remark": null
+    },
+    {
+     "name": "Me",
+     "score": 8.8,
+     "remark": null
+    },
+    {
+     "name": "Toni",
+     "score": 8.5,
+     "remark": null
+    },
+    {
+     "name": "Jota",
+     "score": 8.3,
+     "remark": null
+    },
+    {
+     "name": "Helena",
+     "score": 7.9,
+     "remark": null
+    },
+    {
+     "name": "Malhadas",
+     "score": 7.8,
+     "remark": null
+    },
+    {
+     "name": "Irene",
+     "score": 7.5,
+     "remark": null
+    },
+    {
+     "name": "Sebas",
+     "score": 6.9,
+     "remark": null
+    }
+   ],
+   "avg": 8.21,
+   "stdev": 0.71,
+   "min": 6.9,
+   "max": 9.2
+  },
+  {
+   "id": 14,
+   "title": "Stargate",
+   "original_title": "Stargate",
+   "year": 1994,
+   "director": "Roland Emmerich",
+   "runtime": 121,
+   "overview": "An interstellar teleportation device, found in Egypt, leads to a planet with humans resembling ancient Egyptians who worship the god Ra.",
+   "poster": "https://image.tmdb.org/t/p/w342/4T6Po0XnZlevmhfPh3ZfEs5butR.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/2164",
+   "watched_on": [
+    "2026-07-21"
+   ],
+   "suggested_by": [
+    "Bonzinho"
+   ],
+   "ratings": [
+    {
+     "name": "Sebas",
+     "score": 7.1,
+     "remark": null
+    },
+    {
+     "name": "Malhadas",
+     "score": 7.0,
+     "remark": null
+    },
+    {
+     "name": "Me",
+     "score": 6.9,
+     "remark": null
+    },
+    {
+     "name": "Jota",
+     "score": 6.4,
+     "remark": null
+    },
+    {
+     "name": "Helena",
+     "score": 6.0,
+     "remark": null
+    },
+    {
+     "name": "Arden",
+     "score": 6.0,
+     "remark": null
+    },
+    {
+     "name": "Toni",
+     "score": 4.5,
+     "remark": null
+    }
+   ],
+   "avg": 6.27,
+   "stdev": 0.84,
+   "min": 4.5,
+   "max": 7.1
+  },
+  {
+   "id": 13,
+   "title": "Klaus",
+   "original_title": "Klaus",
+   "year": 2019,
+   "director": "Sergio Pablos",
+   "runtime": 97,
+   "overview": "A selfish postman and a reclusive toymaker form an unlikely friendship, delivering joy to a cold, dark town that desperately needs it.",
+   "poster": "https://image.tmdb.org/t/p/w342/q125RHUDgR4gjwh1QkfYuJLYkL.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/508965",
+   "watched_on": [
+    "2026-07-14"
+   ],
+   "suggested_by": [
+    "Toni"
+   ],
+   "ratings": [
+    {
+     "name": "Me",
+     "score": 8.0,
+     "remark": null
+    },
+    {
+     "name": "Jota",
+     "score": 8.0,
+     "remark": null
+    },
+    {
+     "name": "Sebas",
+     "score": 8.0,
+     "remark": null
+    },
+    {
+     "name": "Arden",
+     "score": 8.0,
+     "remark": null
+    },
+    {
+     "name": "Toni",
+     "score": 7.9,
+     "remark": null
+    },
+    {
+     "name": "Helena",
+     "score": 7.4,
+     "remark": null
+    },
+    {
+     "name": "Malhadas",
+     "score": 7.0,
+     "remark": null
+    }
+   ],
+   "avg": 7.76,
+   "stdev": 0.37,
+   "min": 7.0,
+   "max": 8.0
+  },
+  {
+   "id": 12,
+   "title": "When Harry Met Sally...",
+   "original_title": "When Harry Met Sally...",
+   "year": 1989,
+   "director": "Rob Reiner",
+   "runtime": 96,
+   "overview": "Sex always gets in the way of friendships between men and women. At least, that's what Harry Burns believes. So when Harry meets Sally Albright and a deep friendship blossoms between them, Harry's determined not to let his attraction to Sally destroy it. But when a night of weakness ends in a morning of panic, can the pair avoid succumbing to Harry's fears by remaining friends and admitting they just might be the perfect match for each other?",
+   "poster": "https://image.tmdb.org/t/p/w342/rFOiFUhTMtDetqCGClC9PIgnC1P.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/639",
+   "watched_on": [
+    "2026-07-07"
+   ],
+   "suggested_by": [
+    "Sebas"
+   ],
+   "ratings": [
+    {
+     "name": "Me",
+     "score": 7.9,
+     "remark": null
+    },
+    {
+     "name": "Sebas",
+     "score": 6.3,
+     "remark": null
+    },
+    {
+     "name": "Helena",
+     "score": 6.1,
+     "remark": null
+    },
+    {
+     "name": "Luis",
+     "score": 5.8,
+     "remark": null
+    },
+    {
+     "name": "Jota",
+     "score": 5.7,
+     "remark": null
+    },
+    {
+     "name": "Toni",
+     "score": 5.3,
+     "remark": null
+    }
+   ],
+   "avg": 6.18,
+   "stdev": 0.83,
+   "min": 5.3,
+   "max": 7.9
+  },
+  {
+   "id": 11,
+   "title": "Grave of the Fireflies",
+   "original_title": "火垂るの墓",
+   "year": 1988,
+   "director": "Isao Takahata",
+   "runtime": 89,
+   "overview": "In the final months of World War II, 14-year-old Seita and his sister Setsuko are orphaned when their mother is killed during an air raid in Kobe, Japan. After a falling out with their aunt, they move into an abandoned bomb shelter. With no surviving relatives and their emergency rations depleted, Seita and Setsuko struggle to survive.",
+   "poster": "https://image.tmdb.org/t/p/w342/k9tv1rXZbOhH7eiCk378x61kNQ1.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/12477",
+   "watched_on": [
+    "2026-06-30"
+   ],
+   "suggested_by": [
+    "Toni"
+   ],
+   "ratings": [
+    {
+     "name": "Toni",
+     "score": 8.6,
+     "remark": null
+    },
+    {
+     "name": "Jota",
+     "score": 8.5,
+     "remark": null
+    },
+    {
+     "name": "Sebas",
+     "score": 8.3,
+     "remark": null
+    },
+    {
+     "name": "Me",
+     "score": 7.8,
+     "remark": null
+    }
+   ],
+   "avg": 8.3,
+   "stdev": 0.31,
+   "min": 7.8,
+   "max": 8.6
+  },
+  {
+   "id": 10,
+   "title": "City of God",
+   "original_title": "Cidade de Deus",
+   "year": 2002,
+   "director": "Fernando Meirelles",
+   "runtime": 129,
+   "overview": "In the poverty-stricken favelas of Rio de Janeiro in the 1970s, two young men choose different paths. Rocket is a budding photographer who documents the increasing drug-related violence of his neighborhood, while José “Zé” Pequeno is an ambitious drug dealer diving into a dangerous life of crime.",
+   "poster": "https://image.tmdb.org/t/p/w342/k7eYdWvhYQyRQoU2TB2A2Xu2TfD.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/598",
+   "watched_on": [
+    "2026-06-23"
+   ],
+   "suggested_by": [
+    "Toni"
+   ],
+   "ratings": [
+    {
+     "name": "Toni",
+     "score": 9.4,
+     "remark": null
+    },
+    {
+     "name": "Me",
+     "score": 8.7,
+     "remark": null
+    },
+    {
+     "name": "Sebas",
+     "score": 8.4,
+     "remark": null
+    },
+    {
+     "name": "Jota",
+     "score": 8.3,
+     "remark": null
+    }
+   ],
+   "avg": 8.7,
+   "stdev": 0.43,
+   "min": 8.3,
+   "max": 9.4
+  },
+  {
+   "id": 9,
+   "title": "Blade II",
+   "original_title": "Blade II",
+   "year": 2002,
+   "director": "Guillermo del Toro",
+   "runtime": 117,
+   "overview": "Blade forms an uneasy alliance with the vampire council in order to combat the Reapers, who are feeding on vampires.",
+   "poster": "https://image.tmdb.org/t/p/w342/wAn6VYamKbnOtfyTZ6arVtkMzDv.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/36586",
+   "watched_on": [
+    "2026-06-15"
+   ],
+   "suggested_by": [
+    "Me"
+   ],
+   "ratings": [
+    {
+     "name": "Sebas",
+     "score": 6.9,
+     "remark": null
+    },
+    {
+     "name": "Luis",
+     "score": 6.8,
+     "remark": null
+    },
+    {
+     "name": "Me",
+     "score": 6.5,
+     "remark": null
+    },
+    {
+     "name": "Bonzinho",
+     "score": 6.5,
+     "remark": null
+    },
+    {
+     "name": "Toni",
+     "score": 6.4,
+     "remark": null
+    },
+    {
+     "name": "Jota",
+     "score": 6.0,
+     "remark": null
+    },
+    {
+     "name": "Helena",
+     "score": 6.0,
+     "remark": null
+    }
+   ],
+   "avg": 6.44,
+   "stdev": 0.32,
+   "min": 6.0,
+   "max": 6.9
+  },
+  {
+   "id": 8,
+   "title": "The Thing",
+   "original_title": "The Thing",
+   "year": 1982,
+   "director": "John Carpenter",
+   "runtime": 109,
+   "overview": "A research team in Antarctica is hunted by a shape-shifting alien that assumes the appearance of its victims.",
+   "poster": "https://image.tmdb.org/t/p/w342/tzGY49kseSE9QAKk47uuDGwnSCu.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/1091",
+   "watched_on": [
+    "2026-06-09"
+   ],
+   "suggested_by": [
+    "Me"
+   ],
+   "ratings": [
+    {
+     "name": "Me",
+     "score": 8.5,
+     "remark": null
+    },
+    {
+     "name": "Jota",
+     "score": 8.4,
+     "remark": null
+    },
+    {
+     "name": "Toni",
+     "score": 8.4,
+     "remark": null
+    },
+    {
+     "name": "Sebas",
+     "score": 8.2,
+     "remark": null
+    }
+   ],
+   "avg": 8.38,
+   "stdev": 0.11,
+   "min": 8.2,
+   "max": 8.5
+  },
+  {
+   "id": 7,
+   "title": "Eternal Sunshine of the Spotless Mind",
+   "original_title": "Eternal Sunshine of the Spotless Mind",
+   "year": 2004,
+   "director": "Michel Gondry",
+   "runtime": 108,
+   "overview": "Joel Barish, heartbroken that his girlfriend underwent a procedure to erase him from her memory, decides to do the same. However, as he watches his memories of her fade away, he realises that he still loves her, and may be too late to correct his mistake.",
+   "poster": "https://image.tmdb.org/t/p/w342/5MwkWH9tYHv3mV9OdYTMR5qreIz.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/38",
+   "watched_on": [
+    "2026-06-03"
+   ],
+   "suggested_by": [
+    "Bonzinho"
+   ],
+   "ratings": [
+    {
+     "name": "Me",
+     "score": 7.0,
+     "remark": null
+    },
+    {
+     "name": "Jota",
+     "score": 6.4,
+     "remark": null
+    },
+    {
+     "name": "Helena",
+     "score": 4.7,
+     "remark": null
+    }
+   ],
+   "avg": 6.03,
+   "stdev": 0.97,
+   "min": 4.7,
+   "max": 7.0
+  },
+  {
+   "id": 6,
+   "title": "One Cut of the Dead",
+   "original_title": "カメラを止めるな！",
+   "year": 2017,
+   "director": "Shinichiro Ueda",
+   "runtime": 96,
+   "overview": "Real zombies arrive and terrorize the crew of a zombie film being shot in an abandoned warehouse, said to be the site of military experiments on humans.",
+   "poster": "https://image.tmdb.org/t/p/w342/rws34k2bqYVo2B5MkhKAbV8925j.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/513434",
+   "watched_on": [
+    "2026-05-26"
+   ],
+   "suggested_by": [
+    "Sebas"
+   ],
+   "ratings": [
+    {
+     "name": "Luis",
+     "score": 8.3,
+     "remark": null
+    },
+    {
+     "name": "Sebas",
+     "score": 7.9,
+     "remark": null
+    },
+    {
+     "name": "Jota",
+     "score": 7.8,
+     "remark": null
+    },
+    {
+     "name": "Helena",
+     "score": 7.7,
+     "remark": null
+    },
+    {
+     "name": "Me",
+     "score": 7.4,
+     "remark": null
+    }
+   ],
+   "avg": 7.82,
+   "stdev": 0.29,
+   "min": 7.4,
+   "max": 8.3
+  },
+  {
+   "id": 5,
+   "title": "The Grand Budapest Hotel",
+   "original_title": "The Grand Budapest Hotel",
+   "year": 2014,
+   "director": "Wes Anderson",
+   "runtime": 100,
+   "overview": "The Grand Budapest Hotel tells of a legendary concierge at a famous European hotel between the wars and his friendship with a young employee who becomes his trusted protégé. The story involves the theft and recovery of a priceless Renaissance painting, the battle for an enormous family fortune and the slow and then sudden upheavals that transformed Europe during the first half of the 20th century.",
+   "poster": "https://image.tmdb.org/t/p/w342/eWdyYQreja6JGCzqHWXpWHDrrPo.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/120467",
+   "watched_on": [
+    "2026-05-19"
+   ],
+   "suggested_by": [
+    "Jota"
+   ],
+   "ratings": [
+    {
+     "name": "Me",
+     "score": 9.0,
+     "remark": null
+    },
+    {
+     "name": "Helena",
+     "score": 8.8,
+     "remark": null
+    },
+    {
+     "name": "Jota",
+     "score": 8.7,
+     "remark": null
+    },
+    {
+     "name": "Bonzinho",
+     "score": 8.3,
+     "remark": null
+    }
+   ],
+   "avg": 8.7,
+   "stdev": 0.25,
+   "min": 8.3,
+   "max": 9.0
+  },
+  {
+   "id": 4,
+   "title": "The Godfather",
+   "original_title": "The Godfather",
+   "year": 1972,
+   "director": "Francis Ford Coppola",
+   "runtime": 175,
+   "overview": "Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge.",
+   "poster": "https://image.tmdb.org/t/p/w342/3bhkrj58Vtu7enYsRolD1fZdja1.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/238",
+   "watched_on": [
+    "2026-05-12"
+   ],
+   "suggested_by": [
+    "Sebas"
+   ],
+   "ratings": [
+    {
+     "name": "Me",
+     "score": 8.6,
+     "remark": null
+    },
+    {
+     "name": "Sebas",
+     "score": 8.4,
+     "remark": null
+    },
+    {
+     "name": "Jota",
+     "score": 8.3,
+     "remark": null
+    }
+   ],
+   "avg": 8.43,
+   "stdev": 0.12,
+   "min": 8.3,
+   "max": 8.6
+  },
+  {
+   "id": 3,
+   "title": "Fantastic Mr. Fox",
+   "original_title": "Fantastic Mr. Fox",
+   "year": 2009,
+   "director": "Wes Anderson",
+   "runtime": 87,
+   "overview": "The Fantastic Mr. Fox, bored with his current life, plans a heist against the three local farmers. The farmers, tired of sharing their chickens with the sly fox, seek revenge against him and his family.",
+   "poster": "https://image.tmdb.org/t/p/w342/bOVr292mwn3jxr1e0NmUPM1rcjo.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/10315",
+   "watched_on": [
+    "2026-05-05"
+   ],
+   "suggested_by": [
+    "Jota"
+   ],
+   "ratings": [
+    {
+     "name": "Me",
+     "score": 7.6,
+     "remark": null
+    },
+    {
+     "name": "Jota",
+     "score": 7.5,
+     "remark": null
+    },
+    {
+     "name": "Helena",
+     "score": 7.2,
+     "remark": null
+    }
+   ],
+   "avg": 7.43,
+   "stdev": 0.17,
+   "min": 7.2,
+   "max": 7.6
+  },
+  {
+   "id": 2,
+   "title": "Project Hail Mary",
+   "original_title": "Project Hail Mary",
+   "year": 2026,
+   "director": "Phil Lord, Christopher Miller",
+   "runtime": 157,
+   "overview": "Science teacher Ryland Grace wakes up on a spaceship light years from home with no recollection of who he is or how he got there. As his memory returns, he begins to uncover his mission: solve the riddle of the mysterious substance causing the sun to die out. He must call on his scientific knowledge and unorthodox ideas to save everything on Earth from extinction.",
+   "poster": "https://image.tmdb.org/t/p/w342/iOb2fjXLbpJgyQXe46n1WtGCnaa.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/687163",
+   "watched_on": [
+    "2026-04-29"
+   ],
+   "suggested_by": [
+    "Jota"
+   ],
+   "ratings": [
+    {
+     "name": "Helena",
+     "score": 9.1,
+     "remark": null
+    },
+    {
+     "name": "Luis",
+     "score": 9.0,
+     "remark": null
+    },
+    {
+     "name": "Jota",
+     "score": 8.6,
+     "remark": null
+    },
+    {
+     "name": "Me",
+     "score": 8.4,
+     "remark": null
+    },
+    {
+     "name": "Sebas",
+     "score": 7.8,
+     "remark": null
+    }
+   ],
+   "avg": 8.58,
+   "stdev": 0.47,
+   "min": 7.8,
+   "max": 9.1
+  },
+  {
+   "id": 1,
+   "title": "No Other Choice",
+   "original_title": "어쩔수가없다",
+   "year": 2025,
+   "director": "Park Chan-wook",
+   "runtime": 139,
+   "overview": "After being laid off and humiliated by a ruthless job market, a veteran paper mill manager descends into violence in a desperate bid to reclaim his dignity.",
+   "poster": "https://image.tmdb.org/t/p/w342/vc2S0dvgpsM0XfSiXZDMVkRCSSU.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/639988",
+   "watched_on": [
+    "2026-04-22"
+   ],
+   "suggested_by": [
+    "Bonzinho"
+   ],
+   "ratings": [
+    {
+     "name": "Jota",
+     "score": 8.3,
+     "remark": null
+    },
+    {
+     "name": "Helena",
+     "score": 8.0,
+     "remark": null
+    },
+    {
+     "name": "Me",
+     "score": 7.9,
+     "remark": null
+    }
+   ],
+   "avg": 8.07,
+   "stdev": 0.17,
+   "min": 7.9,
+   "max": 8.3
+  }
+ ],
+ "people": [
+  {
+   "name": "Me",
+   "count": 26,
+   "avg": 7.67,
+   "bias": 0.22,
+   "favourite": {
+    "title": "The Grand Budapest Hotel",
+    "score": 9.0
+   },
+   "least": {
+    "title": "Scooby-Doo! and KISS: Rock and Roll Mystery",
+    "score": 5.7
+   }
+  },
+  {
+   "name": "Jota",
+   "count": 26,
+   "avg": 7.46,
+   "bias": 0.02,
+   "favourite": {
+    "title": "The Grand Budapest Hotel",
+    "score": 8.7
+   },
+   "least": {
+    "title": "When Harry Met Sally...",
+    "score": 5.7
+   }
+  },
+  {
+   "name": "Sebas",
+   "count": 21,
+   "avg": 7.63,
+   "bias": 0.2,
+   "favourite": {
+    "title": "The Godfather",
+    "score": 8.4
+   },
+   "least": {
+    "title": "When Harry Met Sally...",
+    "score": 6.3
+   }
+  },
+  {
+   "name": "Helena",
+   "count": 20,
+   "avg": 6.91,
+   "bias": -0.38,
+   "favourite": {
+    "title": "Project Hail Mary",
+    "score": 9.1
+   },
+   "least": {
+    "title": "Eternal Sunshine of the Spotless Mind",
+    "score": 4.7
+   }
+  },
+  {
+   "name": "Toni",
+   "count": 14,
+   "avg": 7.01,
+   "bias": -0.34,
+   "favourite": {
+    "title": "City of God",
+    "score": 9.4
+   },
+   "least": {
+    "title": "Tampopo",
+    "score": 1.0
+   }
+  },
+  {
+   "name": "Luis",
+   "count": 11,
+   "avg": 7.72,
+   "bias": 0.23,
+   "favourite": {
+    "title": "Obsession",
+    "score": 9.2
+   },
+   "least": {
+    "title": "2001: A Space Odyssey",
+    "score": 5.6
+   }
+  },
+  {
+   "name": "Arden",
+   "count": 9,
+   "avg": 7.11,
+   "bias": -0.11,
+   "favourite": {
+    "title": "Obsession",
+    "score": 9.0
+   },
+   "least": {
+    "title": "Tampopo",
+    "score": 4.0
+   }
+  },
+  {
+   "name": "Irene",
+   "count": 8,
+   "avg": 6.88,
+   "bias": -0.41,
+   "favourite": {
+    "title": "Atlantis: The Lost Empire",
+    "score": 9.0
+   },
+   "least": {
+    "title": "Tampopo",
+    "score": 2.5
+   }
+  },
+  {
+   "name": "Malhadas",
+   "count": 5,
+   "avg": 7.48,
+   "bias": 0.67,
+   "favourite": {
+    "title": "Tampopo",
+    "score": 8.0
+   },
+   "least": {
+    "title": "Klaus",
+    "score": 7.0
+   }
+  },
+  {
+   "name": "Bonzinho",
+   "count": 2,
+   "avg": 7.4,
+   "bias": -0.17,
+   "favourite": {
+    "title": "The Grand Budapest Hotel",
+    "score": 8.3
+   },
+   "least": {
+    "title": "Blade II",
+    "score": 6.5
+   }
+  },
+  {
+   "name": "Filipa",
+   "count": 1,
+   "avg": 9.0,
+   "bias": 0.61,
+   "favourite": {
+    "title": "Atlantis: The Lost Empire",
+    "score": 9.0
+   },
+   "least": {
+    "title": "Atlantis: The Lost Empire",
+    "score": 9.0
+   }
+  }
+ ],
+ "pairs": [
+  {
+   "a": "Toni",
+   "b": "Malhadas",
+   "shared": 4,
+   "mean_gap": 2.78,
+   "biggest": {
+    "title": "Tampopo",
+    "gap": 7.0,
+    "a": 1.0,
+    "b": 8.0
+   }
+  },
+  {
+   "a": "Malhadas",
+   "b": "Arden",
+   "shared": 4,
+   "mean_gap": 1.8,
+   "biggest": {
+    "title": "Tampopo",
+    "gap": 4.0,
+    "a": 8.0,
+    "b": 4.0
+   }
+  },
+  {
+   "a": "Me",
+   "b": "Irene",
+   "shared": 8,
+   "mean_gap": 1.4,
+   "biggest": {
+    "title": "Tampopo",
+    "gap": 4.5,
+    "a": 7.0,
+    "b": 2.5
+   }
+  },
+  {
+   "a": "Me",
+   "b": "Arden",
+   "shared": 9,
+   "mean_gap": 1.33,
+   "biggest": {
+    "title": "Tampopo",
+    "gap": 3.0,
+    "a": 7.0,
+    "b": 4.0
+   }
+  },
+  {
+   "a": "Helena",
+   "b": "Irene",
+   "shared": 7,
+   "mean_gap": 1.3,
+   "biggest": {
+    "title": "Tampopo",
+    "gap": 3.4,
+    "a": 5.9,
+    "b": 2.5
+   }
+  },
+  {
+   "a": "Sebas",
+   "b": "Irene",
+   "shared": 7,
+   "mean_gap": 1.29,
+   "biggest": {
+    "title": "Tampopo",
+    "gap": 5.2,
+    "a": 7.7,
+    "b": 2.5
+   }
+  },
+  {
+   "a": "Toni",
+   "b": "Arden",
+   "shared": 9,
+   "mean_gap": 1.28,
+   "biggest": {
+    "title": "Tampopo",
+    "gap": 3.0,
+    "a": 1.0,
+    "b": 4.0
+   }
+  },
+  {
+   "a": "Sebas",
+   "b": "Arden",
+   "shared": 9,
+   "mean_gap": 1.24,
+   "biggest": {
+    "title": "Tampopo",
+    "gap": 3.7,
+    "a": 7.7,
+    "b": 4.0
+   }
+  },
+  {
+   "a": "Sebas",
+   "b": "Toni",
+   "shared": 14,
+   "mean_gap": 1.18,
+   "biggest": {
+    "title": "Tampopo",
+    "gap": 6.7,
+    "a": 7.7,
+    "b": 1.0
+   }
+  },
+  {
+   "a": "Helena",
+   "b": "Toni",
+   "shared": 10,
+   "mean_gap": 1.14,
+   "biggest": {
+    "title": "Tampopo",
+    "gap": 4.9,
+    "a": 5.9,
+    "b": 1.0
+   }
+  },
+  {
+   "a": "Me",
+   "b": "Toni",
+   "shared": 14,
+   "mean_gap": 1.1,
+   "biggest": {
+    "title": "Tampopo",
+    "gap": 6.0,
+    "a": 7.0,
+    "b": 1.0
+   }
+  },
+  {
+   "a": "Helena",
+   "b": "Sebas",
+   "shared": 15,
+   "mean_gap": 1.09,
+   "biggest": {
+    "title": "Scooby-Doo! and KISS: Rock and Roll Mystery",
+    "gap": 2.6,
+    "a": 5.1,
+    "b": 7.7
+   }
+  },
+  {
+   "a": "Helena",
+   "b": "Malhadas",
+   "shared": 5,
+   "mean_gap": 1.06,
+   "biggest": {
+    "title": "Tampopo",
+    "gap": 2.1,
+    "a": 5.9,
+    "b": 8.0
+   }
+  },
+  {
+   "a": "Jota",
+   "b": "Malhadas",
+   "shared": 5,
+   "mean_gap": 1.04,
+   "biggest": {
+    "title": "2001: A Space Odyssey",
+    "gap": 1.6,
+    "a": 6.0,
+    "b": 7.6
+   }
+  },
+  {
+   "a": "Helena",
+   "b": "Arden",
+   "shared": 8,
+   "mean_gap": 1.04,
+   "biggest": {
+    "title": "Scooby-Doo! and KISS: Rock and Roll Mystery",
+    "gap": 2.9,
+    "a": 5.1,
+    "b": 8.0
+   }
+  },
+  {
+   "a": "Jota",
+   "b": "Arden",
+   "shared": 9,
+   "mean_gap": 0.94,
+   "biggest": {
+    "title": "Tampopo",
+    "gap": 2.5,
+    "a": 6.5,
+    "b": 4.0
+   }
+  },
+  {
+   "a": "Jota",
+   "b": "Irene",
+   "shared": 8,
+   "mean_gap": 0.93,
+   "biggest": {
+    "title": "Tampopo",
+    "gap": 4.0,
+    "a": 6.5,
+    "b": 2.5
+   }
+  },
+  {
+   "a": "Toni",
+   "b": "Irene",
+   "shared": 7,
+   "mean_gap": 0.91,
+   "biggest": {
+    "title": "Sanctuary",
+    "gap": 1.9,
+    "a": 7.4,
+    "b": 5.5
+   }
+  },
+  {
+   "a": "Me",
+   "b": "Helena",
+   "shared": 20,
+   "mean_gap": 0.87,
+   "biggest": {
+    "title": "Eternal Sunshine of the Spotless Mind",
+    "gap": 2.3,
+    "a": 7.0,
+    "b": 4.7
+   }
+  },
+  {
+   "a": "Me",
+   "b": "Malhadas",
+   "shared": 5,
+   "mean_gap": 0.84,
+   "biggest": {
+    "title": "2001: A Space Odyssey",
+    "gap": 1.1,
+    "a": 6.5,
+    "b": 7.6
+   }
+  },
+  {
+   "a": "Me",
+   "b": "Luis",
+   "shared": 11,
+   "mean_gap": 0.83,
+   "biggest": {
+    "title": "When Harry Met Sally...",
+    "gap": 2.1,
+    "a": 7.9,
+    "b": 5.8
+   }
+  },
+  {
+   "a": "Jota",
+   "b": "Toni",
+   "shared": 14,
+   "mean_gap": 0.81,
+   "biggest": {
+    "title": "Tampopo",
+    "gap": 5.5,
+    "a": 6.5,
+    "b": 1.0
+   }
+  },
+  {
+   "a": "Sebas",
+   "b": "Luis",
+   "shared": 11,
+   "mean_gap": 0.79,
+   "biggest": {
+    "title": "Obsession",
+    "gap": 2.3,
+    "a": 6.9,
+    "b": 9.2
+   }
+  },
+  {
+   "a": "Arden",
+   "b": "Irene",
+   "shared": 7,
+   "mean_gap": 0.79,
+   "biggest": {
+    "title": "Tampopo",
+    "gap": 1.5,
+    "a": 4.0,
+    "b": 2.5
+   }
+  },
+  {
+   "a": "Helena",
+   "b": "Luis",
+   "shared": 10,
+   "mean_gap": 0.77,
+   "biggest": {
+    "title": "Scooby-Doo! and KISS: Rock and Roll Mystery",
+    "gap": 1.9,
+    "a": 5.1,
+    "b": 7.0
+   }
+  },
+  {
+   "a": "Me",
+   "b": "Sebas",
+   "shared": 21,
+   "mean_gap": 0.59,
+   "biggest": {
+    "title": "Scooby-Doo! and KISS: Rock and Roll Mystery",
+    "gap": 2.0,
+    "a": 5.7,
+    "b": 7.7
+   }
+  },
+  {
+   "a": "Jota",
+   "b": "Helena",
+   "shared": 20,
+   "mean_gap": 0.57,
+   "biggest": {
+    "title": "Eternal Sunshine of the Spotless Mind",
+    "gap": 1.7,
+    "a": 6.4,
+    "b": 4.7
+   }
+  },
+  {
+   "a": "Jota",
+   "b": "Sebas",
+   "shared": 21,
+   "mean_gap": 0.53,
+   "biggest": {
+    "title": "Scooby-Doo! and KISS: Rock and Roll Mystery",
+    "gap": 1.4,
+    "a": 6.3,
+    "b": 7.7
+   }
+  },
+  {
+   "a": "Sebas",
+   "b": "Malhadas",
+   "shared": 5,
+   "mean_gap": 0.52,
+   "biggest": {
+    "title": "Klaus",
+    "gap": 1.0,
+    "a": 8.0,
+    "b": 7.0
+   }
+  },
+  {
+   "a": "Luis",
+   "b": "Arden",
+   "shared": 5,
+   "mean_gap": 0.52,
+   "biggest": {
+    "title": "Scooby-Doo! and KISS: Rock and Roll Mystery",
+    "gap": 1.0,
+    "a": 7.0,
+    "b": 8.0
+   }
+  },
+  {
+   "a": "Me",
+   "b": "Jota",
+   "shared": 26,
+   "mean_gap": 0.48,
+   "biggest": {
+    "title": "When Harry Met Sally...",
+    "gap": 2.2,
+    "a": 7.9,
+    "b": 5.7
+   }
+  },
+  {
+   "a": "Luis",
+   "b": "Toni",
+   "shared": 7,
+   "mean_gap": 0.46,
+   "biggest": {
+    "title": "Atlantis: The Lost Empire",
+    "gap": 1.0,
+    "a": 9.0,
+    "b": 8.0
+   }
+  },
+  {
+   "a": "Jota",
+   "b": "Luis",
+   "shared": 11,
+   "mean_gap": 0.45,
+   "biggest": {
+    "title": "Obsession",
+    "gap": 0.9,
+    "a": 8.3,
+    "b": 9.2
+   }
+  },
+  {
+   "a": "Luis",
+   "b": "Irene",
+   "shared": 5,
+   "mean_gap": 0.42,
+   "biggest": {
+    "title": "Obsession",
+    "gap": 1.7,
+    "a": 9.2,
+    "b": 7.5
+   }
+  }
+ ],
+ "suggestions": [
+  {
+   "id": 30,
+   "title": "10 Things I Hate About You",
+   "original_title": "10 Things I Hate About You",
+   "year": 1999,
+   "director": "Gil Junger",
+   "runtime": 97,
+   "overview": "On the first day at his new school, Cameron instantly falls for Bianca, the gorgeous girl of his dreams. The only problem is that Bianca is forbidden to date until her ill-tempered, completely un-dateable older sister Kat goes out, too. In an attempt to solve his problem, Cameron singles out the only guy who could possibly be a match for Kat: a mysterious bad boy with a nasty reputation of his own.",
+   "poster": "https://image.tmdb.org/t/p/w342/ujERk3aKABXU3NDXOAxEQYTHe9A.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/4951",
+   "suggested_by": [
+    "Arden"
+   ]
+  },
+  {
+   "id": 50,
+   "title": "12th Fail",
+   "original_title": "12वीं फेल",
+   "year": 2023,
+   "director": "Vidhu Vinod Chopra",
+   "runtime": 146,
+   "overview": "Based on the true story of IPS officer Manoj Kumar Sharma, 12th Fail sheds limelight on fearlessly embracing the idea of restarting the academic journey despite the setbacks and challenges and reclaiming one's destiny at a place where millions of students attempt the world's toughest competitive exam: UPSC.",
+   "poster": "https://image.tmdb.org/t/p/w342/eebUPRI4Z5e1Z7Hev4JZAwMIFkX.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/1163258",
+   "suggested_by": [
+    "Jota"
+   ]
+  },
+  {
+   "id": 60,
+   "title": "22 Jump Street",
+   "original_title": "22 Jump Street",
+   "year": 2014,
+   "director": "Phil Lord, Christopher Miller",
+   "runtime": 112,
+   "overview": "After making their way through high school (twice), big changes are in store for officers Schmidt and Jenko when they go deep undercover at a local college. But when Jenko meets a kindred spirit on the football team, and Schmidt infiltrates the bohemian art major scene, they begin to question their partnership. Now they don't have to just crack the case - they have to figure out if they can have a mature relationship. If these two overgrown adolescents can grow from freshmen into real men, college might be the best thing that ever happened to them.",
+   "poster": "https://image.tmdb.org/t/p/w342/850chzYHYbT3IISl6Q7dbBuFP2B.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/187017",
+   "suggested_by": [
+    "Luis"
+   ]
+  },
+  {
+   "id": 66,
+   "title": "A Boy and His Dog",
+   "original_title": "A Boy and His Dog",
+   "year": 1975,
+   "director": "L.Q. Jones",
+   "runtime": 91,
+   "overview": "Set in the year 2024 in post-apocalyptic America, 18-year old Vic and his telepathic dog, Blood, are scavengers in the desolate wilderness ravaged by World War IV, where survivors must battle for food and shelter in the desert-like wasteland. Vic and Blood eke out a meager existence, foraging for food and fighting gangs of cutthroats.",
+   "poster": "https://image.tmdb.org/t/p/w342/dMbkoFzD5sEQvEaqRsIh4pTBJVq.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/4917",
+   "suggested_by": [
+    "Malhadas"
+   ]
+  },
+  {
+   "id": 45,
+   "title": "Aftersun",
+   "original_title": "Aftersun",
+   "year": 2022,
+   "director": "Charlotte Wells",
+   "runtime": 101,
+   "overview": "Sophie reflects on the shared joy and private melancholy of a holiday she took with her father twenty years earlier. Memories fill the gaps between camcorder footages as she tries to reconcile the father she knew with the troubled man she didn't.",
+   "poster": "https://image.tmdb.org/t/p/w342/evKz85EKouVbIr51zy5fOtpNRPg.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/965150",
+   "suggested_by": [
+    "Irene"
+   ]
+  },
+  {
+   "id": 40,
+   "title": "Akira",
+   "original_title": "AKIRA",
+   "year": 1988,
+   "director": "Katsuhiro Otomo",
+   "runtime": 124,
+   "overview": "A secret military project endangers Neo-Tokyo when it turns a biker gang member into a rampaging psychic psychopath that only two teenagers and a group of psychics can stop.",
+   "poster": "https://image.tmdb.org/t/p/w342/neZ0ykEsPqxamsX6o5QNUFILQrz.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/149",
+   "suggested_by": [
+    "Bonzinho"
+   ]
+  },
+  {
+   "id": 85,
+   "title": "Arrival",
+   "original_title": "Arrival",
+   "year": 2016,
+   "director": "Denis Villeneuve",
+   "runtime": 116,
+   "overview": "Taking place after alien crafts land around the world, an expert linguist is recruited by the military to determine whether they come in peace or are a threat.",
+   "poster": "https://image.tmdb.org/t/p/w342/pEzNVQfdzYDzVK0XqxERIw2x2se.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/329865",
+   "suggested_by": [
+    "Me"
+   ]
+  },
+  {
+   "id": 59,
+   "title": "Backrooms",
+   "original_title": "Backrooms",
+   "year": 2026,
+   "director": "Kane Parsons",
+   "runtime": 111,
+   "overview": "A strange doorway appears in the basement of a furniture showroom.",
+   "poster": "https://image.tmdb.org/t/p/w342/rhGx6E3qRNMgj3i5su2oukNHwIQ.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/1083381",
+   "suggested_by": [
+    "Luis"
+   ]
+  },
+  {
+   "id": 44,
+   "title": "Before Sunrise",
+   "original_title": "Before Sunrise",
+   "year": 1995,
+   "director": "Richard Linklater",
+   "runtime": 101,
+   "overview": "An unexpected meeting on a train leads two travelers to spend an evening wandering through Vienna. As the night unfolds, they share stories and conversations about life and love, exploring new ideas while a quiet intimacy grows between them, knowing it may be their only night together.",
+   "poster": "https://image.tmdb.org/t/p/w342/kf1Jb1c2JAOqjuzA3H4oDM263uB.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/76",
+   "suggested_by": [
+    "Irene"
+   ]
+  },
+  {
+   "id": 33,
+   "title": "CODA",
+   "original_title": "CODA",
+   "year": 2021,
+   "director": "Sian Heder",
+   "runtime": 112,
+   "overview": "As a CODA (Child of Deaf Adults), Ruby is the only hearing person in her deaf family. When the family's fishing business is threatened, Ruby finds herself torn between pursuing her love of music and her fear of abandoning her parents.",
+   "poster": "https://image.tmdb.org/t/p/w342/BzVjmm8l23rPsijLiNLUzuQtyd.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/776503",
+   "suggested_by": [
+    "Arden"
+   ]
+  },
+  {
+   "id": 72,
+   "title": "Coherence",
+   "original_title": "Coherence",
+   "year": 2014,
+   "director": "James Ward Byrkit",
+   "runtime": 89,
+   "overview": "Four couples gather for dinner the night a mysterious and powerful comet passes overhead.",
+   "poster": "https://image.tmdb.org/t/p/w342/ezUtb9m5DeLwL2gxi4gktzNCvQv.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/220289",
+   "suggested_by": [
+    "Sebas"
+   ]
+  },
+  {
+   "id": 77,
+   "title": "Dear Zachary: A Letter to a Son About His Father",
+   "original_title": "Dear Zachary: A Letter to a Son About His Father",
+   "year": 2008,
+   "director": "Kurt Kuenne",
+   "runtime": 94,
+   "overview": "In 2001, Andrew Bagby, a medical resident, is murdered not long after breaking up with his girlfriend. Soon after, when she announces she's pregnant, one of Andrew's many close friends, Kurt Kuenne, begins this film, a gift to the child.",
+   "poster": "https://image.tmdb.org/t/p/w342/yYVHGe7U55Ojx11y5A82phPpCHv.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/15584",
+   "suggested_by": [
+    "Sebas"
+   ]
+  },
+  {
+   "id": 34,
+   "title": "Donnie Darko",
+   "original_title": "Donnie Darko",
+   "year": 2001,
+   "director": "Richard Kelly",
+   "runtime": 114,
+   "overview": "After narrowly escaping a bizarre accident, a troubled teenager is plagued by visions of a large bunny rabbit that manipulates him to commit a series of crimes.",
+   "poster": "https://image.tmdb.org/t/p/w342/j2AtZFsflxiluaNtajMTI0Avm8C.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/141",
+   "suggested_by": [
+    "Bonzinho"
+   ]
+  },
+  {
+   "id": 35,
+   "title": "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb",
+   "original_title": "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb",
+   "year": 1964,
+   "director": "Stanley Kubrick",
+   "runtime": 95,
+   "overview": "After the insane General Jack D. Ripper initiates a nuclear strike on the Soviet Union, a war room full of politicians, generals and a Russian diplomat all frantically try to stop it.",
+   "poster": "https://image.tmdb.org/t/p/w342/gHm96BRW4GoI339rF1vYoYTB6Qe.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/935",
+   "suggested_by": [
+    "Bonzinho"
+   ]
+  },
+  {
+   "id": 58,
+   "title": "Failure to Launch",
+   "original_title": "Failure to Launch",
+   "year": 2006,
+   "director": "Tom Dey",
+   "runtime": 97,
+   "overview": "At 35, Tripp has an interesting job, a hip car, a passion for sailing, an active dating life, and a great house - trouble is, he still lives with his parents, Al and Sue, who are not happy about it. Al and Sue are fascinated when friends whose adult son has recently moved away from home reveal they hired an expert to help. In desperation to push Tripp out of the nest once and for all, Al and Sue hatch a plan to hire Paula, an \"interventionist,\" who has a formula in these cases.",
+   "poster": "https://image.tmdb.org/t/p/w342/omReuKQ8ItWYD5pOLmsKh3MF24w.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/6877",
+   "suggested_by": [
+    "Luis"
+   ]
+  },
+  {
+   "id": 41,
+   "title": "From Dusk Till Dawn",
+   "original_title": "From Dusk Till Dawn",
+   "year": 1996,
+   "director": "Robert Rodriguez",
+   "runtime": 108,
+   "overview": "After kidnapping a father and his two kids, the Gecko brothers head south to a seedy Mexican bar to hide out in safety, unaware of its notorious clientele.",
+   "poster": "https://image.tmdb.org/t/p/w342/sV3kIAmvJ9tPz4Lq5fuf9LLMxte.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/755",
+   "suggested_by": [
+    "Bonzinho"
+   ]
+  },
+  {
+   "id": 52,
+   "title": "Ghost in the Shell",
+   "original_title": "GHOST IN THE SHELL / 攻殻機動隊",
+   "year": 1995,
+   "director": "Mamoru Oshii",
+   "runtime": 83,
+   "overview": "In the year 2029, the barriers of our world have been broken down by the net and by cybernetics, but this brings new vulnerability to humans in the form of brain-hacking. When a highly-wanted hacker known as 'The Puppetmaster' begins involving them in politics, Section 9, a group of cybernetically enhanced cops, are called in to investigate and stop the Puppetmaster.",
+   "poster": "https://image.tmdb.org/t/p/w342/9gC88zYUBARRSThcG93MvW14sqx.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/9323",
+   "suggested_by": [
+    "Jota"
+   ]
+  },
+  {
+   "id": 56,
+   "title": "Harold & Kumar Go to White Castle",
+   "original_title": "Harold & Kumar Go to White Castle",
+   "year": 2004,
+   "director": "Danny Leiner",
+   "runtime": 88,
+   "overview": "Nerdy accountant Harold and his irrepressible friend, Kumar, get stoned watching television and find themselves utterly bewitched by a commercial for White Castle. Convinced there must be one nearby, the two set out on a late-night odyssey that takes them deep into New Jersey. Somehow, the boys manage to run afoul of rednecks, cops and even a car-stealing Neil Patrick Harris before getting anywhere near their beloved sliders.",
+   "poster": "https://image.tmdb.org/t/p/w342/5vO7R4xYlDipTp8gzfRbWegO8eb.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/11282",
+   "suggested_by": [
+    "Luis"
+   ]
+  },
+  {
+   "id": 46,
+   "title": "Her",
+   "original_title": "Her",
+   "year": 2013,
+   "director": "Spike Jonze",
+   "runtime": 126,
+   "overview": "In the not so distant future, Theodore, a lonely writer, purchases a newly developed operating system designed to meet the user's every need. To Theodore's surprise, a romantic relationship develops between him and his operating system. This unconventional love story blends science fiction and romance in a sweet tale that explores the nature of love and the ways that technology isolates and connects us all.",
+   "poster": "https://image.tmdb.org/t/p/w342/eCOtqtfvn7mxGl6nfmq4b1exJRc.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/152601",
+   "suggested_by": [
+    "Irene"
+   ]
+  },
+  {
+   "id": 36,
+   "title": "Hereditary",
+   "original_title": "Hereditary",
+   "year": 2018,
+   "director": "Ari Aster",
+   "runtime": 128,
+   "overview": "Following the death of the Leigh family matriarch, Annie and her children uncover disturbing secrets about their heritage. Their daily lives are not only impacted, but they also become entangled in a chilling fate from which they cannot escape, driving them to the brink of madness.",
+   "poster": "https://image.tmdb.org/t/p/w342/4GFPuL14eXi66V96xBWY73Y9PfR.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/493922",
+   "suggested_by": [
+    "Bonzinho"
+   ]
+  },
+  {
+   "id": 55,
+   "title": "I Am Legend",
+   "original_title": "I Am Legend",
+   "year": 2007,
+   "director": "Francis Lawrence",
+   "runtime": 101,
+   "overview": "Robert Neville is a scientist who was unable to stop the spread of the terrible virus that was incurable and man-made. Immune, Neville is now the last human survivor in what is left of New York City and perhaps the world. For three years, Neville has faithfully sent out daily radio messages, desperate to find any other survivors who might be out there. But he is not alone.",
+   "poster": "https://image.tmdb.org/t/p/w342/iPDkaSdKk2jRLTM65UOEoKtsIZ8.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/6479",
+   "suggested_by": [
+    "Luis"
+   ]
+  },
+  {
+   "id": 69,
+   "title": "In Bruges",
+   "original_title": "In Bruges",
+   "year": 2008,
+   "director": "Martin McDonagh",
+   "runtime": 108,
+   "overview": "Ray and Ken, two hit men, are in Bruges, Belgium, waiting for their next mission. While they are there they have time to think and discuss their previous assignment. When the mission is revealed to Ken, it is not what he expected.",
+   "poster": "https://image.tmdb.org/t/p/w342/vz3Vd6nfq9YZrVvyYx5RHFaYKV3.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/8321",
+   "suggested_by": [
+    "Me"
+   ]
+  },
+  {
+   "id": 76,
+   "title": "Jaane Bhi Do Yaaro",
+   "original_title": "जाने भी दो यारों",
+   "year": 1983,
+   "director": "Kundan Shah",
+   "runtime": 132,
+   "overview": "Two zanies open a photography studio. They score a partnership with a gossip magazine that suddenly thrusts them into a world of corruption, murder, and hijinks.",
+   "poster": "https://image.tmdb.org/t/p/w342/s2LcyaA9zSi3JDOqskfW1rQfn0Z.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/25499",
+   "suggested_by": [
+    "Sebas"
+   ]
+  },
+  {
+   "id": 31,
+   "title": "Journey to the Center of the Earth",
+   "original_title": "Journey to the Center of the Earth",
+   "year": 2008,
+   "director": "Eric Brevig",
+   "runtime": 93,
+   "overview": "On a quest to find out what happened to his missing brother, a scientist, his nephew and their mountain guide discover a fantastic and dangerous lost world in the center of the earth.",
+   "poster": "https://image.tmdb.org/t/p/w342/kL55wY0s2H9JdwfjoWIp9plvYnl.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/88751",
+   "suggested_by": [
+    "Arden"
+   ]
+  },
+  {
+   "id": 42,
+   "title": "Little Miss Sunshine",
+   "original_title": "Little Miss Sunshine",
+   "year": 2006,
+   "director": "Valerie Faris, Jonathan Dayton",
+   "runtime": 102,
+   "overview": "A family loaded with quirky, colorful characters piles into an old van and road trips to California for little Olive to compete in a beauty pageant.",
+   "poster": "https://image.tmdb.org/t/p/w342/niNdhTpPHSgw22tK0PLjQMV640v.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/773",
+   "suggested_by": [
+    "Irene"
+   ]
+  },
+  {
+   "id": 84,
+   "title": "Mickey 17",
+   "original_title": "Mickey 17",
+   "year": 2025,
+   "director": "Bong Joon Ho",
+   "runtime": 137,
+   "overview": "Unlikely hero Mickey Barnes finds himself in the extraordinary circumstance of working for an employer who demands the ultimate commitment to the job… to die, for a living.",
+   "poster": "https://image.tmdb.org/t/p/w342/edKpE9B5qN3e559OuMCLZdW1iBZ.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/696506",
+   "suggested_by": [
+    "Filipa"
+   ]
+  },
+  {
+   "id": 68,
+   "title": "Midnight in Paris",
+   "original_title": "Midnight in Paris",
+   "year": 2011,
+   "director": "Woody Allen",
+   "runtime": 94,
+   "overview": "While on a trip to Paris with his fiancée's family, a nostalgic screenwriter finds himself mysteriously going back to the 1920s every day at midnight.",
+   "poster": "https://image.tmdb.org/t/p/w342/4wBG5kbfagTQclETblPRRGihk0I.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/59436",
+   "suggested_by": [
+    "Me"
+   ]
+  },
+  {
+   "id": 39,
+   "title": "Million Dollar Baby",
+   "original_title": "Million Dollar Baby",
+   "year": 2004,
+   "director": "Clint Eastwood",
+   "runtime": 132,
+   "overview": "Despondent over a painful estrangement from his daughter, trainer Frankie Dunn isn't prepared for boxer Maggie Fitzgerald to enter his life. But Maggie's determined to go pro and to convince Dunn and his cohort to help her.",
+   "poster": "https://image.tmdb.org/t/p/w342/jcfEqKdWF1zeyvECPqp3mkWLct2.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/70",
+   "suggested_by": [
+    "Bonzinho"
+   ]
+  },
+  {
+   "id": 82,
+   "title": "Monty Python and the Holy Grail",
+   "original_title": "Monty Python and the Holy Grail",
+   "year": 1975,
+   "director": "Terry Jones, Terry Gilliam",
+   "runtime": 91,
+   "overview": "King Arthur, accompanied by his squire, recruits his Knights of the Round Table, including Sir Bedevere the Wise, Sir Lancelot the Brave, Sir Robin the Not-Quite-So-Brave-As-Sir-Lancelot and Sir Galahad the Pure. On the way, Arthur battles the Black Knight who, despite having had all his limbs chopped off, insists he can still fight. They reach Camelot, but Arthur decides not  to enter, as \"it is a silly place\".",
+   "poster": "https://image.tmdb.org/t/p/w342/7nTkHjETdGMYK1phHwDbPsrzbYl.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/762",
+   "suggested_by": [
+    "Toni"
+   ]
+  },
+  {
+   "id": 28,
+   "title": "Night at the Museum",
+   "original_title": "Night at the Museum",
+   "year": 2006,
+   "director": "Shawn Levy",
+   "runtime": 108,
+   "overview": "Chaos reigns at the natural history museum when night watchman Larry Daley accidentally stirs up an ancient curse, awakening Attila the Hun, an army of gladiators, a Tyrannosaurus rex and other exhibits.",
+   "poster": "https://image.tmdb.org/t/p/w342/pDsAAYf6Zn0yiAGJ6lYGs6hoZ4E.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/1593",
+   "suggested_by": [
+    "Arden"
+   ]
+  },
+  {
+   "id": 29,
+   "title": "Nimona",
+   "original_title": "Nimona",
+   "year": 2023,
+   "director": "Troy Quane, Nick Bruno",
+   "runtime": 99,
+   "overview": "A knight framed for a tragic crime teams with a scrappy, shape-shifting teen to prove his innocence.",
+   "poster": "https://image.tmdb.org/t/p/w342/2NQljeavtfl22207D1kxLpa4LS3.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/961323",
+   "suggested_by": [
+    "Arden"
+   ]
+  },
+  {
+   "id": 65,
+   "title": "Papillon",
+   "original_title": "Papillon",
+   "year": 1973,
+   "director": "Franklin J. Schaffner",
+   "runtime": 151,
+   "overview": "A man befriends a fellow criminal as the two of them begin serving their sentence on a dreadful prison island, which inspires the man to plot his escape.",
+   "poster": "https://image.tmdb.org/t/p/w342/356oqQpug682OERsWV0bGZ0YxwQ.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/5924",
+   "suggested_by": [
+    "Malhadas"
+   ]
+  },
+  {
+   "id": 53,
+   "title": "Paprika",
+   "original_title": "パプリカ",
+   "year": 2006,
+   "director": "Satoshi Kon",
+   "runtime": 90,
+   "overview": "Dr. Atsuko Chiba is a research psychologist who uses a device called the DC Mini to enter her patients' dreams, wherein she adopts the alter-ego \"Paprika\". When the device is stolen, she must stop rogue elements from merging the dream and waking worlds.",
+   "poster": "https://image.tmdb.org/t/p/w342/nHJljo2Pi7XimYEgV9hvRchQWmg.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/4977",
+   "suggested_by": [
+    "Jota"
+   ]
+  },
+  {
+   "id": 57,
+   "title": "Parasite",
+   "original_title": "기생충",
+   "year": 2019,
+   "director": "Bong Joon Ho",
+   "runtime": 133,
+   "overview": "All unemployed, Ki-taek's family takes peculiar interest in the wealthy and glamorous Parks for their livelihood until they get entangled in an unexpected incident.",
+   "poster": "https://image.tmdb.org/t/p/w342/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/496243",
+   "suggested_by": [
+    "Luis"
+   ]
+  },
+  {
+   "id": 43,
+   "title": "Past Lives",
+   "original_title": "Past Lives",
+   "year": 2023,
+   "director": "Celine Song",
+   "runtime": 106,
+   "overview": "After decades apart, childhood friends Nora and Hae Sung are reunited in New York for one fateful weekend as they confront notions of destiny, love, and the choices that make a life.",
+   "poster": "https://image.tmdb.org/t/p/w342/k3waqVXSnvCZWfJYNtdamTgTtTA.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/666277",
+   "suggested_by": [
+    "Irene"
+   ]
+  },
+  {
+   "id": 51,
+   "title": "Perfect Blue",
+   "original_title": "PERFECT BLUE",
+   "year": 1998,
+   "director": "Satoshi Kon",
+   "runtime": 81,
+   "overview": "Rising pop star Mima Kirigoe quits singing to pursue a career as an actress. After she takes up a role on a popular detective show, her handlers and collaborators begin turning up murdered. Harboring feelings of guilt and haunted by visions of her former self, Mima's reality and fantasy meld into a frenzied paranoia.",
+   "poster": "https://image.tmdb.org/t/p/w342/6WTiOCfDPP8XV4jqfloiVWf7KHq.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/10494",
+   "suggested_by": [
+    "Jota"
+   ]
+  },
+  {
+   "id": 78,
+   "title": "Pirates of the Caribbean: Dead Man's Chest",
+   "original_title": "Pirates of the Caribbean: Dead Man's Chest",
+   "year": 2006,
+   "director": "Gore Verbinski",
+   "runtime": 151,
+   "overview": "Captain Jack Sparrow’s got a blood debt to pay: he owes his soul to the legendary Davy Jones, ghastly Ruler of the Ocean Depths. To escape eternal servitude aboard the Flying Dutchman, ever-crafty Jack must track down the still-beating heart of Jones. But he won’t do it alone: Will Turner and Elizabeth Swann are drawn back into another one of his perilous quests—assuming they can evade execution for aiding a pirate.",
+   "poster": "https://image.tmdb.org/t/p/w342/uXEqmloGyP7UXAiphJUu2v2pcuE.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/58",
+   "suggested_by": [
+    "Toni"
+   ]
+  },
+  {
+   "id": 67,
+   "title": "Pleasantville",
+   "original_title": "Pleasantville",
+   "year": 1998,
+   "director": "Gary Ross",
+   "runtime": 124,
+   "overview": "Geeky teenager David and his popular twin sister, Jennifer, get sucked into the black-and-white world of a 1950s TV sitcom called \"Pleasantville,\" and find a world where everything is peachy keen all the time. But when Jennifer's modern attitude disrupts Pleasantville's peaceful but boring routine, she literally brings color into its life.",
+   "poster": "https://image.tmdb.org/t/p/w342/sjnRihb0OdmtD5GBe5lfdfBjSxo.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/2657",
+   "suggested_by": [
+    "Me"
+   ]
+  },
+  {
+   "id": 54,
+   "title": "Raiders of the Lost Ark",
+   "original_title": "Raiders of the Lost Ark",
+   "year": 1981,
+   "director": "Steven Spielberg",
+   "runtime": 115,
+   "overview": "When Dr. Indiana Jones – the tweed-suited professor who just happens to be a celebrated archaeologist – is hired by the government to locate the legendary Ark of the Covenant, he finds himself up against the entire Nazi regime.",
+   "poster": "https://image.tmdb.org/t/p/w342/ceG9VzoRAVGwivFU403Wc3AHRys.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/85",
+   "suggested_by": [
+    "Jota"
+   ]
+  },
+  {
+   "id": 79,
+   "title": "Rango",
+   "original_title": "Rango",
+   "year": 2011,
+   "director": "Gore Verbinski",
+   "runtime": 107,
+   "overview": "When Rango, a lost family pet, accidentally winds up in the gritty, gun-slinging Western town of Dirt, the theater-loving lizard suddenly finds himself the newly appointed sheriff. Welcomed as the last hope the town has been waiting for, Rango is forced to play his new role to the hilt and uncover the truth behind a looming water crisis—before his act catches up with him.",
+   "poster": "https://image.tmdb.org/t/p/w342/A5MP1guV8pbruieG0tnpPIbaJtt.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/44896",
+   "suggested_by": [
+    "Toni"
+   ]
+  },
+  {
+   "id": 38,
+   "title": "Requiem for a Dream",
+   "original_title": "Requiem for a Dream",
+   "year": 2000,
+   "director": "Darren Aronofsky",
+   "runtime": 102,
+   "overview": "The drug-induced utopias of four Coney Island residents are shattered when their addictions run deep.",
+   "poster": "https://image.tmdb.org/t/p/w342/9BTwsLaMVHOGFlmsSlx5QYCaXb.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/641",
+   "suggested_by": [
+    "Bonzinho"
+   ]
+  },
+  {
+   "id": 63,
+   "title": "Revolver",
+   "original_title": "Revolver",
+   "year": 2005,
+   "director": "Guy Ritchie",
+   "runtime": 111,
+   "overview": "Hotshot gambler Jake Green is long on bravado and seriously short of common sense. Rarely is he allowed in any casino because he's a bona fide winner and, in fact, has taken so much money over the years that he's the sole client of his accountant elder brother, Billy. Invited to a private game, Jake is in fear of losing his life.",
+   "poster": "https://image.tmdb.org/t/p/w342/cXJYFEIGNxiNTCekP1A68ICzJen.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/10851",
+   "suggested_by": [
+    "Malhadas"
+   ]
+  },
+  {
+   "id": 27,
+   "title": "Scooby-Doo! Camp Scare",
+   "original_title": "Scooby-Doo! Camp Scare",
+   "year": 2010,
+   "director": "Ethan Spaulding",
+   "runtime": 72,
+   "overview": "Scooby and the gang experience outdoor fun as they go back to Fred's old summer camp. As summer goes on, it becomes increasingly clear that the spooky camp stories told by the fireplace, are more real than they've though and soon, it's up to the gang to try and solve the mystery of camp scare.",
+   "poster": "https://image.tmdb.org/t/p/w342/zurVOCpOLwLTBknYlgcXHWE0xvu.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/45752",
+   "suggested_by": [
+    "Arden"
+   ]
+  },
+  {
+   "id": 32,
+   "title": "Scooby-Doo! Moon Monster Madness",
+   "original_title": "Scooby-Doo! Moon Monster Madness",
+   "year": 2015,
+   "director": "Paul McEvoy",
+   "runtime": 80,
+   "overview": "It's one giant step for dog-kind as Scooby-Doo and the Gang blast off for an epic, other-worldly adventure in this all-new original movie! After winning the last 5 seats in a lottery, Scooby-Doo, Shaggy, Fred, Daphne and Velma are off to space in billionaire Sly Baron's brand new ship, the Sly Star One. It's all gravity-free fun until a mysterious alien begins destroying the ship! As the ship breaks down, the crew is forced to land on Sly Baron's base... on the dark side of the moon! Will the gang unravel this alien mystery? Will Scooby-Doo and Shaggy find snacks on the moon? Will Fred ever take his space helmet off?! Journey to the outer limits with Scooby-Doo to find out!",
+   "poster": "https://image.tmdb.org/t/p/w342/gwyT0ljh8mVViwO6N5p4ACcIsW5.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/302960",
+   "suggested_by": [
+    "Arden"
+   ]
+  },
+  {
+   "id": 62,
+   "title": "Sleepers",
+   "original_title": "Sleepers",
+   "year": 1996,
+   "director": "Barry Levinson",
+   "runtime": 147,
+   "overview": "Two gangsters seek revenge on the state jail worker who during their stay at a youth prison sexually abused them. A sensational court hearing takes place to charge him for the crimes.",
+   "poster": "https://image.tmdb.org/t/p/w342/yUpiEk2EojS9ZEXb3nIQonQCYYF.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/819",
+   "suggested_by": [
+    "Luis"
+   ]
+  },
+  {
+   "id": 80,
+   "title": "Snatch",
+   "original_title": "Snatch",
+   "year": 2000,
+   "director": "Guy Ritchie",
+   "runtime": 103,
+   "overview": "Unscrupulous boxing promoters, violent bookies, a Russian gangster, incompetent amateur robbers, and supposedly Jewish jewellers fight to track down a priceless stolen diamond.",
+   "poster": "https://image.tmdb.org/t/p/w342/kJZoAHq1SLDdWjeNGtlHAnGpmFV.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/107",
+   "suggested_by": [
+    "Toni"
+   ]
+  },
+  {
+   "id": 71,
+   "title": "Sorcerer",
+   "original_title": "Sorcerer",
+   "year": 1977,
+   "director": "William Friedkin",
+   "runtime": 122,
+   "overview": "Four men from different parts of the globe, all hiding from their pasts in the same remote South American town, agree to risk their lives transporting several cases of dynamite (which is so old that it is dripping unstable nitroglycerin) across dangerous jungle terrain.",
+   "poster": "https://image.tmdb.org/t/p/w342/2b7oexm173SF1FSEq0DdgxZZNRH.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/38985",
+   "suggested_by": [
+    "Sebas"
+   ]
+  },
+  {
+   "id": 81,
+   "title": "Spotlight",
+   "original_title": "Spotlight",
+   "year": 2015,
+   "director": "Tom McCarthy",
+   "runtime": 129,
+   "overview": "The true story of how the Boston Globe uncovered the massive scandal of child molestation and cover-up within the local Catholic Archdiocese, shaking the entire Catholic Church to its core.",
+   "poster": "https://image.tmdb.org/t/p/w342/8DPGG400FgaFWaqcv11n8mRd2NG.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/314365",
+   "suggested_by": [
+    "Toni"
+   ]
+  },
+  {
+   "id": 73,
+   "title": "Stalker",
+   "original_title": "Сталкер",
+   "year": 1979,
+   "director": "Andrei Tarkovsky",
+   "runtime": 162,
+   "overview": "Near a gray and unnamed city is the Zone, a place guarded by barbed wire and soldiers, and where the normal laws of physics are victim to frequent anomalies. A stalker guides two men into the Zone, specifically to an area in which deep-seated desires are granted.",
+   "poster": "https://image.tmdb.org/t/p/w342/1qhOyf5C4s9ZdvY8d5JDx9DFMeT.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/1398",
+   "suggested_by": [
+    "Sebas"
+   ]
+  },
+  {
+   "id": 75,
+   "title": "Super Deluxe",
+   "original_title": "சூப்பர் டீலக்ஸ்",
+   "year": 2019,
+   "director": "Thiagarajan Kumararaja",
+   "runtime": 176,
+   "overview": "An unfaithful newly-wed wife, an estranged parent, a priest and an angry son suddenly find themselves in the most unexpected predicaments, each poised to experience their destiny, all on one fateful day.",
+   "poster": "https://image.tmdb.org/t/p/w342/4B2NFKN713AdXJExc8Kayr6qofu.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/432011",
+   "suggested_by": [
+    "Sebas"
+   ]
+  },
+  {
+   "id": 83,
+   "title": "The Death of Stalin",
+   "original_title": "The Death of Stalin",
+   "year": 2017,
+   "director": "Armando Iannucci",
+   "runtime": 107,
+   "overview": "When dictator Joseph Stalin dies, his parasitic cronies square off in a frantic power struggle to become the next Soviet leader. As they bumble, brawl and back-stab their way to the top, the question remains — just who is running the government?",
+   "poster": "https://image.tmdb.org/t/p/w342/AqH7q89NxGRDAyRWKqsL3OBtYfV.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/402897",
+   "suggested_by": [
+    "Toni"
+   ]
+  },
+  {
+   "id": 37,
+   "title": "The Exorcist",
+   "original_title": "The Exorcist",
+   "year": 1973,
+   "director": "William Friedkin",
+   "runtime": 122,
+   "overview": "When a mysterious entity possesses a young girl, her mother seeks the help of two Catholic priests to save her life.",
+   "poster": "https://image.tmdb.org/t/p/w342/5x0CeVHJI8tcDx8tUUwYHQSNILq.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/9552",
+   "suggested_by": [
+    "Bonzinho"
+   ]
+  },
+  {
+   "id": 70,
+   "title": "The Fall",
+   "original_title": "The Fall",
+   "year": 2008,
+   "director": "Tarsem Singh",
+   "runtime": 117,
+   "overview": "In a hospital on the outskirts of 1920s Los Angeles, an injured stuntman begins to tell a fellow patient, a little girl with a broken arm, a fantastic story about 5 mythical heroes. Thanks to his fractured state of mind and her vivid imagination, the line between fiction and reality starts to blur as the tale advances.",
+   "poster": "https://image.tmdb.org/t/p/w342/ez7xavvDr5yDz4sSvI55xDp0BoU.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/14784",
+   "suggested_by": [
+    "Sebas"
+   ]
+  },
+  {
+   "id": 47,
+   "title": "The Holdovers",
+   "original_title": "The Holdovers",
+   "year": 2023,
+   "director": "Alexander Payne",
+   "runtime": 133,
+   "overview": "A curmudgeonly instructor at a New England prep school is forced to remain on campus during Christmas break to babysit the handful of students with nowhere to go. Eventually, he forms an unlikely bond with one of them — a damaged, brainy troublemaker — and with the school’s head cook, who has just lost a son in Vietnam.",
+   "poster": "https://image.tmdb.org/t/p/w342/VHSzNBTwxV8vh7wylo7O9CLdac.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/840430",
+   "suggested_by": [
+    "Irene"
+   ]
+  },
+  {
+   "id": 49,
+   "title": "The Mummy",
+   "original_title": "The Mummy",
+   "year": 1999,
+   "director": "Stephen Sommers",
+   "runtime": 124,
+   "overview": "Dashing legionnaire Rick O'Connell stumbles upon the hidden ruins of Hamunaptra while in the midst of a battle to claim the area in 1920s Egypt. It has been over three thousand years since former High Priest Imhotep suffered a fate worse than death as a punishment for a forbidden love—along with a curse that guarantees eternal doom upon the world if he is ever awoken.",
+   "poster": "https://image.tmdb.org/t/p/w342/yhIsVvcUm7QxzLfT6HW2wLf5ajY.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/564",
+   "suggested_by": [
+    "Jota"
+   ]
+  },
+  {
+   "id": 48,
+   "title": "The Terminal",
+   "original_title": "The Terminal",
+   "year": 2004,
+   "director": "Steven Spielberg",
+   "runtime": 128,
+   "overview": "An Eastern European tourist unexpectedly finds himself stranded in JFK airport, and must take up temporary residence there.",
+   "poster": "https://image.tmdb.org/t/p/w342/cPB3ZMM4UdsSAhNdS4c7ps5nypY.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/594",
+   "suggested_by": [
+    "Irene"
+   ]
+  },
+  {
+   "id": 64,
+   "title": "The Usual Suspects",
+   "original_title": "The Usual Suspects",
+   "year": 1995,
+   "director": "Bryan Singer",
+   "runtime": 106,
+   "overview": "Held in an L.A. interrogation room, Verbal Kint attempts to convince the feds that a mythic crime lord, Keyser Soze, not only exists, but was also responsible for drawing him and his four partners into a multi-million dollar heist that ended with an explosion in San Pedro harbor – leaving few survivors. Verbal lures his interrogators with an incredible story of the crime lord's almost supernatural prowess.",
+   "poster": "https://image.tmdb.org/t/p/w342/99X2SgyFunJFXGAYnDv3sb9pnUD.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/629",
+   "suggested_by": [
+    "Malhadas"
+   ]
+  },
+  {
+   "id": 74,
+   "title": "Tumbbad",
+   "original_title": "तुम्बाड",
+   "year": 2018,
+   "director": "Rahi Anil Barve",
+   "runtime": 113,
+   "overview": "India, 1918. On the outskirts of Tumbbad, a cursed village where it always rains, Vinayak, along with his mother and his brother, care of a mysterious old woman who keeps the secret of an ancestral treasure that Vinayak gets obsessed with.",
+   "poster": "https://image.tmdb.org/t/p/w342/z1xOCxw780WFJC5uCTMfCkQ4Agi.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/538858",
+   "suggested_by": [
+    "Sebas"
+   ]
+  },
+  {
+   "id": 61,
+   "title": "Unforgiven",
+   "original_title": "Unforgiven",
+   "year": 1992,
+   "director": "Clint Eastwood",
+   "runtime": 130,
+   "overview": "William Munny is a retired, once-ruthless killer turned gentle widower and hog farmer. To help support his two motherless children, he accepts one last bounty-hunter mission to find the men who brutalized a prostitute. Joined by his former partner and a cocky greenhorn, he takes on a corrupt sheriff.",
+   "poster": "https://image.tmdb.org/t/p/w342/54roTwbX9fltg85zjsmrooXAs12.jpg",
+   "tmdb": "https://www.themoviedb.org/movie/33",
+   "suggested_by": [
+    "Luis"
+   ]
+  }
+ ]
 }

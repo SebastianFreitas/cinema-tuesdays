@@ -4,7 +4,7 @@ Discord bot + website for our Tuesday movie nights. It replaces the Movie List d
 
 ```
 bot/        Discord bot (Python, discord.py) and SQLite database
-scripts/    export_site.py (DB -> site JSON), import_ratings.py (old spreadsheet -> DB)
+scripts/    export_site.py (DB -> site JSON), import_sheet.py (old spreadsheet -> DB)
 site/       Static website, deployed to GitHub Pages from site/
 data/       cinema.db lives here (not committed)
 ```
@@ -69,10 +69,10 @@ To let the bot do it automatically, set `PUBLISH_ENABLED=true` in `.env` on the 
 Preview locally: `python -m http.server -d site 8000` and open http://localhost:8000.
 
 ### 5. Import the old spreadsheet
-Download the Movie Ratings sheet as CSV, then:
+Download the sheet's *Vistos* and *Fila* tabs as CSV (File > Download > CSV), then:
 ```bash
-python scripts/import_ratings.py ratings.csv --tmdb --dry-run   # check it reads correctly
-python scripts/import_ratings.py ratings.csv --tmdb
+python scripts/import_sheet.py --vistos Vistos.csv --fila Fila.csv --dry-run   # check it reads correctly
+python scripts/import_sheet.py --vistos Vistos.csv --fila Fila.csv
 ```
 Then link each spreadsheet name to a Discord member with `/admin link`.
 
