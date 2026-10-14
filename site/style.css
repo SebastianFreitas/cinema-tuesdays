@@ -417,3 +417,5 @@ footer.wrap { color: var(--muted); font-size: .85rem; padding-top: 24px; padding
 #groups td { max-width: 200px; overflow: hidden; text-overflow: ellipsis; }
 #groups td:first-child { cursor: help; text-decoration: underline dotted var(--muted); text-underline-offset: 3px; }
 @media (max-width: 640px) { #groups td { max-width: 120px; } }
+/* stats: runtime as travel, an icon instead of the rank number */
+.rank.plain li::before { display: none; }

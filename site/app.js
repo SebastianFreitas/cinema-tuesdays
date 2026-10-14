@@ -1101,6 +1101,23 @@ function renderObscurity() {
       <span class="v">${Math.round(r.med).toLocaleString("en-GB")}</span></li>`).join("") || `<p class="empty">Needs people with 3+ picks.</p>`;
 }
 
+// Total runtime of closed movies, measured in trips. Durations are rough, everyday figures (minutes).
+const TRIPS = [
+  ["🛰️", "laps round the Earth on the ISS", "of a lap round the Earth on the ISS", "one orbit: about 1h32", 92],
+  ["🚆", "Lisbon → Porto trains", "of a Lisbon → Porto train", "Alfa Pendular: about 2h50", 170],
+  ["✈️", "Lisbon → New York flights", "of a Lisbon → New York flight", "nonstop: about 8h", 480],
+  ["💍", "Lord of the Rings marathons", "of a Lord of the Rings marathon", "the three films, cinema cuts: 9h18", 558],
+  ["✈️", "Lisbon → Tokyo trips", "of a Lisbon → Tokyo trip", "no direct flight, so about 17h with a change", 1020],
+  ["🚶", "walks from Lisbon to Porto", "of a walk from Lisbon to Porto", "about 310 km at 5 km/h: about 62h", 3720],
+];
+function renderTravel() {
+  const min = sum(closedMovies().map((m) => m.runtime || 0));
+  $("#travel-sum").textContent = min ? `${hm(min)} of movies so far, enough for:` : "";
+  const times = (k) => (k >= 10 ? `×${Math.round(k)}` : k >= 1 ? `×${fmt(k, 1).replace(/\.0$/, "")}` : pct(k, 1));
+  $("#travel").innerHTML = min ? TRIPS.map(([icon, many, part, sub, m]) => `<li><span>${icon}</span><div>${min >= m ? many : part}<div class="sub">${sub}</div></div>
+      <span class="v">${times(min / m)}</span></li>`).join("") : `<p class="empty">No runtimes yet.</p>`;
+}
+
 // When we watched (month, weekday) and how long the movie is, closed movies only. Reuses groupTable.
 function renderWhen() {
   const add = (map, k, m) => map.set(k, [...(map.get(k) || []), m]);
@@ -1340,7 +1357,7 @@ function renderPairs() {
 }
 
 function renderStats() {
-  renderKpis(); renderGroups(); renderScorecard(); renderTopBottom(); renderRecords(); renderFair(); renderWorld(); renderGenres(); renderAges(); renderOrigins(); renderActors(); renderBudgets(); renderObscurity(); renderWhen(); renderPairs(); renderRanks(); renderWolves(); renderConsensus(); renderHabits();
+  renderKpis(); renderGroups(); renderScorecard(); renderTopBottom(); renderRecords(); renderFair(); renderWorld(); renderGenres(); renderAges(); renderOrigins(); renderActors(); renderBudgets(); renderObscurity(); renderWhen(); renderTravel(); renderPairs(); renderRanks(); renderWolves(); renderConsensus(); renderHabits();
   const sortBy = (th) => {
     const k = th.dataset.sort;
     scoreSort = { key: k, dir: scoreSort.key === k ? -scoreSort.dir : (k === "name" ? 1 : -1) };
