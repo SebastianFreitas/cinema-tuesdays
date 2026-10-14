@@ -64,6 +64,8 @@ cp .env.example .env            # then fill it in
 python -m bot
 ```
 
+Tests: `python -m unittest` from the repo root.
+
 ### 4. Website
 Push this repo to GitHub, then Settings > Pages > Source: **GitHub Actions**. The workflow deploys `site/` on every push.
 

@@ -27,6 +27,7 @@ Discord bot (Python, discord.py, SQLite) and static website (`site/`, GitHub Pag
 - The venv is `.venv` in the main checkout (`C:\Users\Traff\Desktop\CinemaTuesdays\.venv`). From a worktree under `.claude/worktrees/<name>/` it is `../../../.venv/Scripts/python.exe`.
 - Windows has no time zone database, so the venv needs `tzdata` or the bot's imports fail.
 - Use `python -X utf8` for scripts that print names or emoji.
+- After changing bot code, run the tests from the repo root: `python -m unittest`. They use temporary databases and never touch Discord.
 
 ## Things auto mode blocks (hand these to the user with exact steps)
 - Editing `~/.claude/settings.json` or `~/.claude/hooks/*`.

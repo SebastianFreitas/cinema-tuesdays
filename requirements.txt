@@ -1,2 +1,4 @@
 discord.py>=2.4,<3
 python-dotenv>=1.0
+# Windows has no time zone database of its own (bot/util.py needs Europe/Lisbon)
+tzdata; sys_platform == "win32"
