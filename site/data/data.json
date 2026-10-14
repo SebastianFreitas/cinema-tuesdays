@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-14T11:54:02+00:00",
+ "generated_at": "2026-10-14T12:01:36+00:00",
  "next_up": null,
  "poll": null,
  "next_group": "alpha",
@@ -7,62 +7,74 @@
   {
    "name": "Fili",
    "group": null,
-   "benched": false
+   "benched": false,
+   "avatar": null
   },
   {
    "name": "Giotara",
    "group": "alpha",
-   "benched": false
+   "benched": false,
+   "avatar": null
   },
   {
    "name": "Irene_TC",
    "group": "alpha",
-   "benched": false
+   "benched": false,
+   "avatar": null
   },
   {
    "name": "João",
    "group": "alpha",
-   "benched": false
+   "benched": false,
+   "avatar": null
   },
   {
    "name": "magical potato",
    "group": null,
-   "benched": false
+   "benched": false,
+   "avatar": null
   },
   {
    "name": "Malhas",
    "group": "omega",
-   "benched": false
+   "benched": false,
+   "avatar": null
   },
   {
    "name": "Miguelbnz",
    "group": "alpha",
-   "benched": false
+   "benched": false,
+   "avatar": null
   },
   {
    "name": "Shaggy",
    "group": "alpha",
-   "benched": false
+   "benched": false,
+   "avatar": null
   },
   {
    "name": "Slader",
    "group": "omega",
-   "benched": false
+   "benched": false,
+   "avatar": null
   },
   {
    "name": "The Legend",
    "group": null,
-   "benched": false
+   "benched": false,
+   "avatar": null
   },
   {
    "name": "Toni",
    "group": "omega",
-   "benched": false
+   "benched": false,
+   "avatar": null
   },
   {
    "name": "Traff",
    "group": "omega",
-   "benched": false
+   "benched": false,
+   "avatar": null
   }
  ],
  "watched": [
