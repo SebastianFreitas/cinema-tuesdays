@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-14T12:38:28+00:00",
+ "generated_at": "2026-10-14T21:51:15+00:00",
  "next_up": null,
  "poll": null,
  "next_group": "alpha",
@@ -95,6 +95,14 @@
     "Mystery"
    ],
    "tmdb": "https://www.themoviedb.org/movie/347688",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "watched_on": [
     "2026-10-13"
    ],
@@ -163,6 +171,14 @@
     "Drama"
    ],
    "tmdb": "https://www.themoviedb.org/movie/346",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "watched_on": [
     "2026-10-10"
    ],
@@ -209,6 +225,14 @@
     "Romance"
    ],
    "tmdb": "https://www.themoviedb.org/movie/11000",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "watched_on": [
     "2026-09-29"
    ],
@@ -258,6 +282,14 @@
     "Comedy"
    ],
    "tmdb": "https://www.themoviedb.org/movie/3989",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "watched_on": [
     "2026-09-22"
    ],
@@ -308,6 +340,14 @@
     "Science Fiction"
    ],
    "tmdb": "https://www.themoviedb.org/movie/10865",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "watched_on": [
     "2026-09-15"
    ],
@@ -382,6 +422,14 @@
     "War"
    ],
    "tmdb": "https://www.themoviedb.org/movie/7446",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "watched_on": [
     "2026-09-09"
    ],
@@ -430,6 +478,14 @@
     "Mystery"
    ],
    "tmdb": "https://www.themoviedb.org/movie/670",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "watched_on": [
     "2026-09-01"
    ],
@@ -498,6 +554,14 @@
     "Thriller"
    ],
    "tmdb": "https://www.themoviedb.org/movie/870518",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "watched_on": [
     "2026-08-25"
    ],
@@ -555,6 +619,37 @@
     "Comedy"
    ],
    "tmdb": "https://www.themoviedb.org/movie/11830",
+   "tmdb_rating": 7.793,
+   "tmdb_votes": 463,
+   "release_date": "1985-11-23",
+   "language": "ja",
+   "countries": [
+    "JP"
+   ],
+   "budget": 1500000,
+   "revenue": null,
+   "cast": [
+    {
+     "id": 70626,
+     "name": "Tsutomu Yamazaki"
+    },
+    {
+     "id": 70627,
+     "name": "Nobuko Miyamoto"
+    },
+    {
+     "id": 3899,
+     "name": "Ken Watanabe"
+    },
+    {
+     "id": 18056,
+     "name": "Koji Yakusho"
+    },
+    {
+     "id": 136879,
+     "name": "Rikiya Yasuoka"
+    }
+   ],
    "watched_on": [
     "2026-08-18"
    ],
@@ -624,6 +719,38 @@
     "Adventure"
    ],
    "tmdb": "https://www.themoviedb.org/movie/62",
+   "tmdb_rating": 8.041,
+   "tmdb_votes": 13038,
+   "release_date": "1968-04-02",
+   "language": "en",
+   "countries": [
+    "GB",
+    "US"
+   ],
+   "budget": 12000000,
+   "revenue": 71923560,
+   "cast": [
+    {
+     "id": 245,
+     "name": "Keir Dullea"
+    },
+    {
+     "id": 246,
+     "name": "Gary Lockwood"
+    },
+    {
+     "id": 247,
+     "name": "William Sylvester"
+    },
+    {
+     "id": 253,
+     "name": "Douglas Rain"
+    },
+    {
+     "id": 248,
+     "name": "Daniel Richter"
+    }
+   ],
    "watched_on": [
     "2026-08-11"
    ],
@@ -681,6 +808,37 @@
     "Drama"
    ],
    "tmdb": "https://www.themoviedb.org/movie/389",
+   "tmdb_rating": 8.575,
+   "tmdb_votes": 10472,
+   "release_date": "1957-04-10",
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "budget": 397751,
+   "revenue": 4360000,
+   "cast": [
+    {
+     "id": 1936,
+     "name": "Martin Balsam"
+    },
+    {
+     "id": 5247,
+     "name": "John Fiedler"
+    },
+    {
+     "id": 5248,
+     "name": "Lee J. Cobb"
+    },
+    {
+     "id": 5249,
+     "name": "E.G. Marshall"
+    },
+    {
+     "id": 5250,
+     "name": "Jack Klugman"
+    }
+   ],
    "watched_on": [
     "2026-08-04"
    ],
@@ -749,6 +907,38 @@
     "Thriller"
    ],
    "tmdb": "https://www.themoviedb.org/movie/1339713",
+   "tmdb_rating": 8.181,
+   "tmdb_votes": 6108,
+   "release_date": "2026-05-13",
+   "language": "en",
+   "countries": [
+    "US",
+    "GB"
+   ],
+   "budget": 750000,
+   "revenue": 522198470,
+   "cast": [
+    {
+     "id": 1561370,
+     "name": "Michael Johnston"
+    },
+    {
+     "id": 2638587,
+     "name": "Inde Navarrette"
+    },
+    {
+     "id": 2823609,
+     "name": "Cooper Tomlinson"
+    },
+    {
+     "id": 1519711,
+     "name": "Megan Lawless"
+    },
+    {
+     "id": 28637,
+     "name": "Andy Richter"
+    }
+   ],
    "watched_on": [
     "2026-07-28"
    ],
@@ -823,6 +1013,38 @@
     "Science Fiction"
    ],
    "tmdb": "https://www.themoviedb.org/movie/2164",
+   "tmdb_rating": 7.035,
+   "tmdb_votes": 4001,
+   "release_date": "1994-10-28",
+   "language": "en",
+   "countries": [
+    "US",
+    "FR"
+   ],
+   "budget": 55000000,
+   "revenue": 196567262,
+   "cast": [
+    {
+     "id": 13548,
+     "name": "James Spader"
+    },
+    {
+     "id": 6856,
+     "name": "Kurt Russell"
+    },
+    {
+     "id": 228173,
+     "name": "Jaye Davidson"
+    },
+    {
+     "id": 22137,
+     "name": "Viveca Lindfors"
+    },
+    {
+     "id": 22138,
+     "name": "Alexis Cruz"
+    }
+   ],
    "watched_on": [
     "2026-07-21"
    ],
@@ -887,6 +1109,37 @@
     "Comedy"
    ],
    "tmdb": "https://www.themoviedb.org/movie/508965",
+   "tmdb_rating": 8.216,
+   "tmdb_votes": 4864,
+   "release_date": "2019-11-08",
+   "language": "en",
+   "countries": [
+    "ES"
+   ],
+   "budget": null,
+   "revenue": null,
+   "cast": [
+    {
+     "id": 17881,
+     "name": "Jason Schwartzman"
+    },
+    {
+     "id": 18999,
+     "name": "J.K. Simmons"
+    },
+    {
+     "id": 80591,
+     "name": "Rashida Jones"
+    },
+    {
+     "id": 3234,
+     "name": "Joan Cusack"
+    },
+    {
+     "id": 77075,
+     "name": "Norm Macdonald"
+    }
+   ],
    "watched_on": [
     "2026-07-14"
    ],
@@ -951,6 +1204,37 @@
     "Drama"
    ],
    "tmdb": "https://www.themoviedb.org/movie/639",
+   "tmdb_rating": 7.409,
+   "tmdb_votes": 4776,
+   "release_date": "1989-07-12",
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "budget": 16000000,
+   "revenue": 92823546,
+   "cast": [
+    {
+     "id": 7904,
+     "name": "Billy Crystal"
+    },
+    {
+     "id": 5344,
+     "name": "Meg Ryan"
+    },
+    {
+     "id": 4,
+     "name": "Carrie Fisher"
+    },
+    {
+     "id": 9257,
+     "name": "Bruno Kirby"
+    },
+    {
+     "id": 9258,
+     "name": "Steven Ford"
+    }
+   ],
    "watched_on": [
     "2026-07-07"
    ],
@@ -1010,6 +1294,37 @@
     "War"
    ],
    "tmdb": "https://www.themoviedb.org/movie/12477",
+   "tmdb_rating": 8.4,
+   "tmdb_votes": 6875,
+   "release_date": "1988-04-16",
+   "language": "ja",
+   "countries": [
+    "JP"
+   ],
+   "budget": 3700000,
+   "revenue": 842132,
+   "cast": [
+    {
+     "id": 72413,
+     "name": "Tsutomu Tatsumi"
+    },
+    {
+     "id": 72414,
+     "name": "Ayano Shiraishi"
+    },
+    {
+     "id": 72415,
+     "name": "Yoshiko Shinohara"
+    },
+    {
+     "id": 72416,
+     "name": "Akemi Yamaguchi"
+    },
+    {
+     "id": 3773484,
+     "name": "Masayo Sakai"
+    }
+   ],
    "watched_on": [
     "2026-06-30"
    ],
@@ -1058,6 +1373,39 @@
     "Crime"
    ],
    "tmdb": "https://www.themoviedb.org/movie/598",
+   "tmdb_rating": 8.4,
+   "tmdb_votes": 8517,
+   "release_date": "2002-08-30",
+   "language": "pt",
+   "countries": [
+    "BR",
+    "FR",
+    "DE"
+   ],
+   "budget": 3300000,
+   "revenue": 30641770,
+   "cast": [
+    {
+     "id": 8595,
+     "name": "Alexandre Rodrigues"
+    },
+    {
+     "id": 8596,
+     "name": "Leandro Firmino"
+    },
+    {
+     "id": 8597,
+     "name": "Phellipe Haagensen"
+    },
+    {
+     "id": 8598,
+     "name": "Douglas Silva"
+    },
+    {
+     "id": 8599,
+     "name": "Jonathan Haagensen"
+    }
+   ],
    "watched_on": [
     "2026-06-23"
    ],
@@ -1108,6 +1456,37 @@
     "Thriller"
    ],
    "tmdb": "https://www.themoviedb.org/movie/36586",
+   "tmdb_rating": 6.576,
+   "tmdb_votes": 5445,
+   "release_date": "2002-03-22",
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "budget": 54000000,
+   "revenue": 155010032,
+   "cast": [
+    {
+     "id": 10814,
+     "name": "Wesley Snipes"
+    },
+    {
+     "id": 10823,
+     "name": "Kris Kristofferson"
+    },
+    {
+     "id": 2372,
+     "name": "Ron Perlman"
+    },
+    {
+     "id": 10839,
+     "name": "Leonor Varela"
+    },
+    {
+     "id": 4886,
+     "name": "Norman Reedus"
+    }
+   ],
    "watched_on": [
     "2026-06-15"
    ],
@@ -1172,6 +1551,37 @@
     "Science Fiction"
    ],
    "tmdb": "https://www.themoviedb.org/movie/1091",
+   "tmdb_rating": 8.074,
+   "tmdb_votes": 8343,
+   "release_date": "1982-06-25",
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "budget": 15000000,
+   "revenue": 19629760,
+   "cast": [
+    {
+     "id": 6856,
+     "name": "Kurt Russell"
+    },
+    {
+     "id": 11065,
+     "name": "Wilford Brimley"
+    },
+    {
+     "id": 15411,
+     "name": "T.K. Carter"
+    },
+    {
+     "id": 15412,
+     "name": "David Clennon"
+    },
+    {
+     "id": 65827,
+     "name": "Keith David"
+    }
+   ],
    "watched_on": [
     "2026-06-09"
    ],
@@ -1221,6 +1631,37 @@
     "Romance"
    ],
    "tmdb": "https://www.themoviedb.org/movie/38",
+   "tmdb_rating": 8.09,
+   "tmdb_votes": 16849,
+   "release_date": "2004-03-19",
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "budget": 20000000,
+   "revenue": 72258126,
+   "cast": [
+    {
+     "id": 206,
+     "name": "Jim Carrey"
+    },
+    {
+     "id": 204,
+     "name": "Kate Winslet"
+    },
+    {
+     "id": 205,
+     "name": "Kirsten Dunst"
+    },
+    {
+     "id": 103,
+     "name": "Mark Ruffalo"
+    },
+    {
+     "id": 109,
+     "name": "Elijah Wood"
+    }
+   ],
    "watched_on": [
     "2026-06-03"
    ],
@@ -1265,6 +1706,37 @@
     "Drama"
    ],
    "tmdb": "https://www.themoviedb.org/movie/513434",
+   "tmdb_rating": 7.62,
+   "tmdb_votes": 1048,
+   "release_date": "2017-11-04",
+   "language": "ja",
+   "countries": [
+    "JP"
+   ],
+   "budget": 52406,
+   "revenue": 27590180,
+   "cast": [
+    {
+     "id": 2043852,
+     "name": "Takayuki Hamatsu"
+    },
+    {
+     "id": 2043849,
+     "name": "Yuzuki Akiyama"
+    },
+    {
+     "id": 2043858,
+     "name": "Kazuaki Nagaya"
+    },
+    {
+     "id": 2043861,
+     "name": "Harumi Shuhama"
+    },
+    {
+     "id": 2043857,
+     "name": "Mao"
+    }
+   ],
    "watched_on": [
     "2026-05-26"
    ],
@@ -1318,6 +1790,38 @@
     "Drama"
    ],
    "tmdb": "https://www.themoviedb.org/movie/120467",
+   "tmdb_rating": 8.026,
+   "tmdb_votes": 16604,
+   "release_date": "2014-02-26",
+   "language": "en",
+   "countries": [
+    "US",
+    "DE"
+   ],
+   "budget": 30000000,
+   "revenue": 174600318,
+   "cast": [
+    {
+     "id": 5469,
+     "name": "Ralph Fiennes"
+    },
+    {
+     "id": 1164,
+     "name": "F. Murray Abraham"
+    },
+    {
+     "id": 1291350,
+     "name": "Tony Revolori"
+    },
+    {
+     "id": 3490,
+     "name": "Adrien Brody"
+    },
+    {
+     "id": 5293,
+     "name": "Willem Dafoe"
+    }
+   ],
    "watched_on": [
     "2026-05-19"
    ],
@@ -1366,6 +1870,37 @@
     "Crime"
    ],
    "tmdb": "https://www.themoviedb.org/movie/238",
+   "tmdb_rating": 8.689,
+   "tmdb_votes": 23755,
+   "release_date": "1972-03-14",
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "budget": 6000000,
+   "revenue": 245066411,
+   "cast": [
+    {
+     "id": 3084,
+     "name": "Marlon Brando"
+    },
+    {
+     "id": 1158,
+     "name": "Al Pacino"
+    },
+    {
+     "id": 3085,
+     "name": "James Caan"
+    },
+    {
+     "id": 3087,
+     "name": "Robert Duvall"
+    },
+    {
+     "id": 3086,
+     "name": "Richard S. Castellano"
+    }
+   ],
    "watched_on": [
     "2026-05-12"
    ],
@@ -1411,6 +1946,37 @@
     "Family"
    ],
    "tmdb": "https://www.themoviedb.org/movie/10315",
+   "tmdb_rating": 7.828,
+   "tmdb_votes": 6380,
+   "release_date": "2009-10-14",
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "budget": 40000000,
+   "revenue": 46471023,
+   "cast": [
+    {
+     "id": 1461,
+     "name": "George Clooney"
+    },
+    {
+     "id": 5064,
+     "name": "Meryl Streep"
+    },
+    {
+     "id": 17881,
+     "name": "Jason Schwartzman"
+    },
+    {
+     "id": 1332415,
+     "name": "Eric Chase Anderson"
+    },
+    {
+     "id": 486,
+     "name": "Wallace Wolodarsky"
+    }
+   ],
    "watched_on": [
     "2026-05-05"
    ],
@@ -1454,6 +2020,37 @@
     "Adventure"
    ],
    "tmdb": "https://www.themoviedb.org/movie/687163",
+   "tmdb_rating": 8.634,
+   "tmdb_votes": 8286,
+   "release_date": "2026-03-15",
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "budget": 200000000,
+   "revenue": 684586806,
+   "cast": [
+    {
+     "id": 30614,
+     "name": "Ryan Gosling"
+    },
+    {
+     "id": 7152,
+     "name": "Sandra Hüller"
+    },
+    {
+     "id": 2096164,
+     "name": "James Ortiz"
+    },
+    {
+     "id": 2320708,
+     "name": "Lionel Boyce"
+    },
+    {
+     "id": 1454946,
+     "name": "Milana Vayntrub"
+    }
+   ],
    "watched_on": [
     "2026-04-29"
    ],
@@ -1508,6 +2105,38 @@
     "Thriller"
    ],
    "tmdb": "https://www.themoviedb.org/movie/639988",
+   "tmdb_rating": 7.509,
+   "tmdb_votes": 1339,
+   "release_date": "2025-09-24",
+   "language": "ko",
+   "countries": [
+    "KR",
+    "FR"
+   ],
+   "budget": 12200000,
+   "revenue": 40223568,
+   "cast": [
+    {
+     "id": 25002,
+     "name": "Lee Byung-hun"
+    },
+    {
+     "id": 86889,
+     "name": "Son Ye-jin"
+    },
+    {
+     "id": 93999,
+     "name": "Park Hee-soon"
+    },
+    {
+     "id": 141548,
+     "name": "Lee Sung-min"
+    },
+    {
+     "id": 2084416,
+     "name": "Yeom Hye-ran"
+    }
+   ],
    "watched_on": [
     "2026-04-22"
    ],
@@ -2120,6 +2749,14 @@
     "Drama"
    ],
    "tmdb": "https://www.themoviedb.org/movie/4951",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Shaggy"
    ],
@@ -2139,6 +2776,14 @@
     "Drama"
    ],
    "tmdb": "https://www.themoviedb.org/movie/1163258",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Giotara"
    ],
@@ -2160,6 +2805,14 @@
     "Action"
    ],
    "tmdb": "https://www.themoviedb.org/movie/187017",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Slader"
    ],
@@ -2181,6 +2834,14 @@
     "Comedy"
    ],
    "tmdb": "https://www.themoviedb.org/movie/4917",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Malhas"
    ],
@@ -2200,6 +2861,14 @@
     "Drama"
    ],
    "tmdb": "https://www.themoviedb.org/movie/965150",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Irene_TC"
    ],
@@ -2221,6 +2890,14 @@
     "Action"
    ],
    "tmdb": "https://www.themoviedb.org/movie/149",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Miguelbnz"
    ],
@@ -2242,6 +2919,14 @@
     "Mystery"
    ],
    "tmdb": "https://www.themoviedb.org/movie/329865",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "João"
    ],
@@ -2263,6 +2948,14 @@
     "Science Fiction"
    ],
    "tmdb": "https://www.themoviedb.org/movie/1083381",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Slader"
    ],
@@ -2283,6 +2976,14 @@
     "Romance"
    ],
    "tmdb": "https://www.themoviedb.org/movie/76",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Irene_TC"
    ],
@@ -2304,6 +3005,14 @@
     "Romance"
    ],
    "tmdb": "https://www.themoviedb.org/movie/776503",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Shaggy"
    ],
@@ -2324,6 +3033,14 @@
     "Science Fiction"
    ],
    "tmdb": "https://www.themoviedb.org/movie/220289",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Traff"
    ],
@@ -2344,6 +3061,14 @@
     "Crime"
    ],
    "tmdb": "https://www.themoviedb.org/movie/15584",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Traff"
    ],
@@ -2365,6 +3090,14 @@
     "Mystery"
    ],
    "tmdb": "https://www.themoviedb.org/movie/141",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Miguelbnz"
    ],
@@ -2385,6 +3118,14 @@
     "War"
    ],
    "tmdb": "https://www.themoviedb.org/movie/935",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Miguelbnz"
    ],
@@ -2405,6 +3146,14 @@
     "Comedy"
    ],
    "tmdb": "https://www.themoviedb.org/movie/6877",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Slader"
    ],
@@ -2426,6 +3175,14 @@
     "Crime"
    ],
    "tmdb": "https://www.themoviedb.org/movie/755",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Miguelbnz"
    ],
@@ -2447,6 +3204,14 @@
     "Science Fiction"
    ],
    "tmdb": "https://www.themoviedb.org/movie/9323",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Giotara"
    ],
@@ -2467,6 +3232,14 @@
     "Adventure"
    ],
    "tmdb": "https://www.themoviedb.org/movie/11282",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Slader"
    ],
@@ -2488,6 +3261,14 @@
     "Drama"
    ],
    "tmdb": "https://www.themoviedb.org/movie/152601",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Irene_TC"
    ],
@@ -2509,6 +3290,14 @@
     "Thriller"
    ],
    "tmdb": "https://www.themoviedb.org/movie/493922",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Miguelbnz"
    ],
@@ -2530,6 +3319,14 @@
     "Thriller"
    ],
    "tmdb": "https://www.themoviedb.org/movie/6479",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Slader"
    ],
@@ -2551,6 +3348,14 @@
     "Crime"
    ],
    "tmdb": "https://www.themoviedb.org/movie/8321",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "João"
    ],
@@ -2571,6 +3376,14 @@
     "Crime"
    ],
    "tmdb": "https://www.themoviedb.org/movie/25499",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Traff"
    ],
@@ -2594,6 +3407,14 @@
     "Family"
    ],
    "tmdb": "https://www.themoviedb.org/movie/88751",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Shaggy"
    ],
@@ -2614,6 +3435,14 @@
     "Drama"
    ],
    "tmdb": "https://www.themoviedb.org/movie/773",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Irene_TC"
    ],
@@ -2635,6 +3464,14 @@
     "Adventure"
    ],
    "tmdb": "https://www.themoviedb.org/movie/696506",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Fili"
    ],
@@ -2656,6 +3493,14 @@
     "Romance"
    ],
    "tmdb": "https://www.themoviedb.org/movie/59436",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "João"
    ],
@@ -2675,6 +3520,14 @@
     "Drama"
    ],
    "tmdb": "https://www.themoviedb.org/movie/70",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Miguelbnz"
    ],
@@ -2696,6 +3549,14 @@
     "Fantasy"
    ],
    "tmdb": "https://www.themoviedb.org/movie/762",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Toni"
    ],
@@ -2717,6 +3578,14 @@
     "Comedy"
    ],
    "tmdb": "https://www.themoviedb.org/movie/1593",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Shaggy"
    ],
@@ -2741,6 +3610,14 @@
     "Action"
    ],
    "tmdb": "https://www.themoviedb.org/movie/961323",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Shaggy"
    ],
@@ -2761,6 +3638,14 @@
     "Drama"
    ],
    "tmdb": "https://www.themoviedb.org/movie/5924",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Malhas"
    ],
@@ -2782,6 +3667,14 @@
     "Thriller"
    ],
    "tmdb": "https://www.themoviedb.org/movie/4977",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Giotara"
    ],
@@ -2803,6 +3696,14 @@
     "Drama"
    ],
    "tmdb": "https://www.themoviedb.org/movie/496243",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Slader"
    ],
@@ -2823,6 +3724,14 @@
     "Romance"
    ],
    "tmdb": "https://www.themoviedb.org/movie/666277",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Irene_TC"
    ],
@@ -2843,6 +3752,14 @@
     "Thriller"
    ],
    "tmdb": "https://www.themoviedb.org/movie/10494",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Giotara"
    ],
@@ -2864,6 +3781,14 @@
     "Action"
    ],
    "tmdb": "https://www.themoviedb.org/movie/58",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Toni"
    ],
@@ -2885,6 +3810,14 @@
     "Drama"
    ],
    "tmdb": "https://www.themoviedb.org/movie/2657",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "João"
    ],
@@ -2905,6 +3838,14 @@
     "Action"
    ],
    "tmdb": "https://www.themoviedb.org/movie/85",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Giotara"
    ],
@@ -2928,6 +3869,14 @@
     "Adventure"
    ],
    "tmdb": "https://www.themoviedb.org/movie/44896",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Toni"
    ],
@@ -2948,6 +3897,14 @@
     "Drama"
    ],
    "tmdb": "https://www.themoviedb.org/movie/641",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Miguelbnz"
    ],
@@ -2970,6 +3927,14 @@
     "Mystery"
    ],
    "tmdb": "https://www.themoviedb.org/movie/10851",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Malhas"
    ],
@@ -2992,6 +3957,14 @@
     "Mystery"
    ],
    "tmdb": "https://www.themoviedb.org/movie/45752",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Shaggy"
    ],
@@ -3016,6 +3989,14 @@
     "Science Fiction"
    ],
    "tmdb": "https://www.themoviedb.org/movie/302960",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Shaggy"
    ],
@@ -3037,6 +4018,14 @@
     "Thriller"
    ],
    "tmdb": "https://www.themoviedb.org/movie/819",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Slader"
    ],
@@ -3057,6 +4046,14 @@
     "Comedy"
    ],
    "tmdb": "https://www.themoviedb.org/movie/107",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Toni"
    ],
@@ -3077,6 +4074,14 @@
     "Adventure"
    ],
    "tmdb": "https://www.themoviedb.org/movie/38985",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Traff"
    ],
@@ -3097,6 +4102,14 @@
     "History"
    ],
    "tmdb": "https://www.themoviedb.org/movie/314365",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Toni"
    ],
@@ -3119,6 +4132,14 @@
     "Crime"
    ],
    "tmdb": "https://www.themoviedb.org/movie/432011",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Traff"
    ],
@@ -3140,6 +4161,14 @@
     "History"
    ],
    "tmdb": "https://www.themoviedb.org/movie/402897",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Toni"
    ],
@@ -3159,6 +4188,14 @@
     "Horror"
    ],
    "tmdb": "https://www.themoviedb.org/movie/9552",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Miguelbnz"
    ],
@@ -3180,6 +4217,14 @@
     "Drama"
    ],
    "tmdb": "https://www.themoviedb.org/movie/14784",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Traff"
    ],
@@ -3200,6 +4245,14 @@
     "Comedy"
    ],
    "tmdb": "https://www.themoviedb.org/movie/840430",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Irene_TC"
    ],
@@ -3221,6 +4274,14 @@
     "Fantasy"
    ],
    "tmdb": "https://www.themoviedb.org/movie/564",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Giotara"
    ],
@@ -3241,6 +4302,14 @@
     "Drama"
    ],
    "tmdb": "https://www.themoviedb.org/movie/594",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Irene_TC"
    ],
@@ -3262,6 +4331,14 @@
     "Thriller"
    ],
    "tmdb": "https://www.themoviedb.org/movie/629",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Malhas"
    ],
@@ -3282,6 +4359,14 @@
     "Horror"
    ],
    "tmdb": "https://www.themoviedb.org/movie/538858",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Traff"
    ],
@@ -3301,6 +4386,14 @@
     "Western"
    ],
    "tmdb": "https://www.themoviedb.org/movie/33",
+   "tmdb_rating": null,
+   "tmdb_votes": null,
+   "release_date": null,
+   "language": null,
+   "countries": [],
+   "budget": null,
+   "revenue": null,
+   "cast": [],
    "suggested_by": [
     "Slader"
    ],
