@@ -779,7 +779,7 @@ function renderGrid() {
 
 function renderRanks() {
   const divisive = DATA.watched.filter((m) => m.stdev != null && m.ratings.length >= 3).sort((a, b) => b.stdev - a.stdev).slice(0, 8);
-  $("#divisive").innerHTML = divisive.map((m) => `<li data-movie="${m.id}" style="cursor:pointer"><div>${esc(m.title)}
+  $("#divisive").innerHTML = divisive.map((m) => `<li data-movie="${m.id}"${bw(m.stdev / divisive[0].stdev)}><div>${esc(m.title)}
       <div class="sub">${fmt(m.min)} to ${fmt(m.max)} · average ${fmt(m.avg, 2)}</div></div><span class="v">±${fmt(m.stdev, 2)}</span></li>`).join("")
     || `<p class="empty">Needs at least 3 scores per movie.</p>`;
 
@@ -793,7 +793,7 @@ function renderRanks() {
   fights.sort((a, b) => b.gap - a.gap);
   const seen = new Set();
   const top = fights.filter((f) => !seen.has(f.m.id) && seen.add(f.m.id)).slice(0, 8);   // one per movie
-  $("#fights").innerHTML = top.map((f) => `<li data-movie="${f.m.id}" style="cursor:pointer"><div>${esc(f.m.title)}
+  $("#fights").innerHTML = top.map((f) => `<li data-movie="${f.m.id}"${bw(f.gap / top[0].gap)}><div>${esc(f.m.title)}
       <div class="sub">${esc(f.hi.name)} ${fmt(f.hi.score)} vs ${esc(f.lo.name)} ${fmt(f.lo.score)}</div></div>
       <span class="v">${fmt(f.gap)}</span></li>`).join("") || `<p class="empty">No disagreements yet.</p>`;
 }
@@ -811,6 +811,8 @@ const hm = (min) => `${Math.floor(min / 60)}h${String(Math.round(min % 60)).padS
 const movieLink = (m) => `<span class="ml" role="button" tabindex="0" data-movie="${m.id}">${esc(m.title)}</span>`;
 // a 5–10 bar for averages (nearly every average sits in that range, so 0–10 would flatten them)
 const avgBar = (v) => `<span class="abar"><span style="width:${Math.max(2, Math.min(100, ((v - 5) / 5) * 100))}%"></span></span>`;
+// a background bar on a ranked list row (lists with class "bars"): f is 0–1 of the row's width; neg draws it red
+const bw = (f, neg = false) => ` style="--w:${(Math.max(0.02, Math.min(1, f || 0)) * 100).toFixed(1)}%"${neg ? ` class="nb"` : ""}`;
 const picksOf = (name) => DATA.watched.filter((m) => m.suggested_by?.includes(name) && m.avg != null);
 
 // Scores stay private until rating closes, so the newer stats leave out a movie that's still open.
@@ -887,7 +889,17 @@ function renderKpis() {
     [sds.length ? "±" + fmt(mean(sds), 2) : "–", "typical spread", "how much we disagree on a movie"],
     [topDir > 1 ? topDir : "–", "most by one director", topDir > 1 ? esc(topDirs.join(", ")) : "no repeats yet"],
   );
-  $("#kpis").innerHTML = tiles.map(([v, l, s]) => `<div class="kpi"><b>${v}</b><span>${l}</span>${s ? `<small>${s}</small>` : ""}</div>`).join("");
+  // the four headline numbers lead, big; tiles that are a share get a thin meter
+  const HERO = ["movies watched", "average score", "watched together", "weeks running"];
+  const meter = {
+    "scores of 8 or more": all.filter((s) => s >= 8).length / all.length,
+    "scores under 6": all.filter((s) => s < 6).length / all.length,
+    "weeks running": weeks ? weeksWithMovie / weeks : null,
+  };
+  const tile = ([v, l, s], hero) => `<div class="kpi${hero ? " big" : ""}"><b>${v}</b><span>${l}</span>${s ? `<small>${s}</small>` : ""}${meter[l] != null
+    ? `<i class="kmeter"><i style="width:${(meter[l] * 100).toFixed(1)}%"></i></i>` : ""}</div>`;
+  $("#kpis").innerHTML = `<div class="kpis-hero">${HERO.map((h) => tiles.find((t) => t[1] === h)).filter(Boolean).map((t) => tile(t, true)).join("")}</div>`
+    + `<div class="kpis-rest">${tiles.filter((t) => !HERO.includes(t[1])).map((t) => tile(t)).join("")}</div>`;
 }
 
 const SCORE_COLS = [
@@ -935,7 +947,7 @@ function renderScorecard() {
 
 function renderTopBottom() {
   const rated = DATA.watched.filter((m) => m.avg != null && m.ratings.length >= 3).sort((a, b) => b.avg - a.avg);
-  const li = (m) => `<li data-movie="${m.id}"><div>${esc(m.title)}<div class="sub">${m.year ?? ""} · ${m.ratings.length} scores${m.suggested_by?.length ? ` · ${esc(m.suggested_by.join(", "))}` : ""}</div></div><span class="v">${fmt(m.avg, 2)}</span></li>`;
+  const li = (m) => `<li data-movie="${m.id}"${bw((m.avg - 5) / 5)}><div>${esc(m.title)}<div class="sub">${m.year ?? ""} · ${m.ratings.length} scores${m.suggested_by?.length ? ` · ${esc(m.suggested_by.join(", "))}` : ""}</div></div><span class="v">${fmt(m.avg, 2)}</span></li>`;
   const k = Math.min(8, Math.floor(rated.length / 2));
   $("#top").innerHTML = rated.slice(0, k).map(li).join("") || `<p class="empty">No scores yet.</p>`;
   $("#bottom").innerHTML = rated.slice(-k).reverse().map(li).join("") || `<p class="empty">No scores yet.</p>`;
@@ -1075,7 +1087,8 @@ function renderBudgets() {
   const box = ms.filter((m) => m.revenue);
   $("#budget-sum").textContent = `${plural(ms.length, "movie")} that cost ${money(sum(ms.map((m) => m.budget)))} together`
     + (box.length ? `; ${box.length === ms.length ? "they" : `the ${box.length} with known box office`} took ${money(sum(box.map((m) => m.revenue)))} in cinemas.` : ".");
-  const li = (m) => `<li data-movie="${m.id}"><div>${esc(m.title)}<div class="sub">cost ${money(m.budget)}${m.revenue ? ` · took ${money(m.revenue)}` : ""}</div></div>
+  const bMax = Math.max(...ms.map((m) => m.budget));
+  const li = (m) => `<li data-movie="${m.id}"${bw(m.budget / bMax)}><div>${esc(m.title)}<div class="sub">cost ${money(m.budget)}${m.revenue ? ` · took ${money(m.revenue)}` : ""}</div></div>
       <span class="v">${fmt(m.avg, 2)}</span></li>`;
   const sorted = [...ms].sort((a, b) => b.budget - a.budget);
   $("#budget-hi").innerHTML = sorted.slice(0, 5).map(li).join("");
@@ -1137,7 +1150,7 @@ function renderTravel() {
   const min = sum(closedMovies().map((m) => m.runtime || 0));
   $("#travel-sum").textContent = min ? `${hm(min)} of movies so far, enough for:` : "";
   const times = (k) => (k >= 10 ? `×${Math.round(k)}` : k >= 1 ? `×${fmt(k, 1).replace(/\.0$/, "")}` : pct(k, 1));
-  $("#travel").innerHTML = min ? TRIPS.map(([icon, many, part, sub, m]) => `<li><span>${icon}</span><div>${min >= m ? many : part}<div class="sub">${sub}</div></div>
+  $("#travel").innerHTML = min ? TRIPS.map(([icon, many, part, sub, m]) => `<li${bw(min / m)}><span>${icon}</span><div>${min >= m ? many : part}<div class="sub">${sub}</div></div>
       <span class="v">${times(min / m)}</span></li>`).join("") : `<p class="empty">No runtimes yet.</p>`;
 }
 
@@ -1285,12 +1298,15 @@ function renderWorld() {
   }
   const gap = mean(rows.map((r) => r.diff));
   $("#world-sum").textContent = `Across ${plural(rows.length, "movie")} we score ${fmt(Math.abs(gap), 2)} ${gap < 0 ? "below" : "above"} TMDB on average.`;
+  renderDumbbell(rows);
   const k = Math.min(5, rows.length >> 1);
-  const li = (r) => `<li data-movie="${r.m.id}"><div>${esc(r.m.title)}<div class="sub">us ${fmt(r.m.avg, 2)} · TMDB ${fmt(r.m.tmdb_rating, 2)}</div></div>
+  const dMax = Math.max(...rows.map((r) => Math.abs(r.diff)));
+  const li = (r) => `<li data-movie="${r.m.id}"${bw(Math.abs(r.diff) / dMax, r.diff < 0)}><div>${esc(r.m.title)}<div class="sub">us ${fmt(r.m.avg, 2)} · TMDB ${fmt(r.m.tmdb_rating, 2)}</div></div>
     <span class="v"><span class="${r.diff > 0 ? "pos" : "neg"}">${signed(r.diff)}</span></span></li>`;
   $("#w-more").innerHTML = rows.slice(0, k).filter((r) => r.diff > 0).map(li).join("") || `<p class="empty">TMDB liked everything more.</p>`;
   $("#w-less").innerHTML = rows.slice(-k).reverse().filter((r) => r.diff < 0).map(li).join("") || `<p class="empty">We liked everything more.</p>`;
-  $("#w-people").innerHTML = tmdbAgreement().slice(0, 5).map((p) => `<li><div>${personLink(p.name)}<div class="sub">${plural(p.n, "movie")} · usually ${fmt(Math.abs(p.lean), 2)} ${p.lean < 0 ? "below" : "above"}</div></div>
+  const agree = tmdbAgreement(), aMax = Math.max(...agree.map((p) => p.gap));
+  $("#w-people").innerHTML = agree.slice(0, 5).map((p) => `<li${bw(p.gap / aMax)}><div>${personLink(p.name)}<div class="sub">${plural(p.n, "movie")} · usually ${fmt(Math.abs(p.lean), 2)} ${p.lean < 0 ? "below" : "above"}</div></div>
     <span class="v">±${fmt(p.gap, 2)}</span></li>`).join("") || `<p class="empty">Needs 3+ scores each.</p>`;
   const tPlace = new Map([...rows].sort((a, b) => b.m.tmdb_rating - a.m.tmdb_rating).map((r, i) => [r.m.id, i + 1]));
   $("#world").innerHTML = `<thead><tr><th style="text-align:left">Movie</th><th data-tip="Our group average">Us</th><th data-tip="TMDB users' average">TMDB</th>
@@ -1299,6 +1315,78 @@ function renderWorld() {
     <tbody>${rows.map((r) => `<tr><td class="clip">${movieLink(r.m)}</td><td><b>${fmt(r.m.avg, 2)}</b></td><td>${fmt(r.m.tmdb_rating, 2)}</td>
       <td><span class="${Math.abs(r.diff) < 0.005 ? "" : r.diff > 0 ? "pos" : "neg"}">${signed(r.diff)}</span></td>
       <td>${[...rows].filter((x) => x.m.avg > r.m.avg).length + 1}</td><td>${tPlace.get(r.m.id)}</td><td>${r.m.tmdb_votes.toLocaleString("en-GB")}</td></tr>`).join("")}</tbody>`;
+}
+
+// Dumbbell: one row per movie, our average and TMDB's as two dots on a shared scale, joined by a line
+// coloured by who liked it more. The axis is cropped to the scores in use so small gaps still show.
+function renderDumbbell(rows) {
+  const vals = rows.flatMap((r) => [r.m.avg, r.m.tmdb_rating]);
+  const lo = Math.max(0, Math.floor(Math.min(...vals))), hi = Math.min(10, Math.ceil(Math.max(...vals)));
+  const x = (v) => ((v - lo) / (hi - lo || 1)) * 100;
+  const ticks = Array.from({ length: hi - lo + 1 }, (_, i) => lo + i).map((t) => `<span style="left:${x(t).toFixed(2)}%">${t}</span>`).join("");
+  const row = (r) => {
+    const a = Math.min(r.m.avg, r.m.tmdb_rating), b = Math.max(r.m.avg, r.m.tmdb_rating);
+    const cls = Math.abs(r.diff) < 0.005 ? "" : r.diff > 0 ? " pos" : " neg";
+    const t = `<b>${esc(esc(r.m.title))}</b><br>Us ${fmt(r.m.avg, 2)} · TMDB ${fmt(r.m.tmdb_rating, 2)} <span class='m'>(${signed(r.diff)})</span>`;
+    return `<div class="db-row" role="button" tabindex="0" data-movie="${r.m.id}" data-tip="${t}"><span class="db-t">${esc(r.m.title)}</span>
+      <span class="db-track"><i class="db-line${cls}" style="left:${x(a).toFixed(2)}%;width:${(x(b) - x(a)).toFixed(2)}%"></i>
+        <i class="db-dot w" style="left:${x(r.m.tmdb_rating).toFixed(2)}%"></i><i class="db-dot us" style="left:${x(r.m.avg).toFixed(2)}%"></i></span>
+      <span class="db-v${cls}">${signed(r.diff)}</span></div>`;
+  };
+  $("#dumbbell").innerHTML = `<div class="db-legend"><span><i class="db-dot us"></i>Us</span><span><i class="db-dot w"></i>TMDB</span>
+      <span><i class="db-key pos"></i>we liked it more</span><span><i class="db-key neg"></i>we liked it less</span></div>
+    <div class="db-axis"><span class="db-t"></span><span class="db-track">${ticks}</span><span class="db-v"></span></div>
+    <div class="db-rows">${rows.map(row).join("")}</div>`;
+}
+
+// Long lists and tables: show the first n rows and a button for the rest.
+function fold(sel, n) {
+  const box = $(sel);
+  if (!box) return;
+  const items = [...(box.tBodies?.[0] ?? box).children].filter((el) => el.matches("li, tr, .db-row"));
+  const after = box.closest(".tbl-wrap") ?? box;
+  if (after.nextElementSibling?.classList.contains("fold-btn")) after.nextElementSibling.remove();
+  if (items.length <= n + 2) return;   // not worth a button for one or two more
+  const btn = document.createElement("button");
+  btn.type = "button"; btn.className = "fold-btn";
+  const set = (open) => {
+    items.forEach((el, i) => (el.hidden = !open && i >= n));
+    btn.textContent = open ? "Show fewer" : `Show all ${items.length}`;
+    btn.setAttribute("aria-expanded", open);
+  };
+  btn.addEventListener("click", () => {
+    const open = btn.getAttribute("aria-expanded") !== "true";
+    set(open);
+    if (!open) box.closest(".chart-card")?.scrollIntoView({ block: "nearest" });
+  });
+  after.after(btn);
+  set(false);
+}
+
+// Chapter chips: jump to a chapter, and light up the one being read.
+let markChapter = () => {};
+function setupChapters() {
+  const chips = [...$$(".chap-nav [data-chap]")];
+  chips.forEach((b) => b.addEventListener("click", () => $(`#${b.dataset.chap}`).scrollIntoView({ behavior: "smooth", block: "start" })));
+  const mark = (id) => chips.forEach((b) => {
+    const on = b.dataset.chap === id;
+    if (on === b.classList.contains("on")) return;
+    b.classList.toggle("on", on);
+    if (on) { b.setAttribute("aria-current", "true"); b.parentElement.scrollTo({ left: b.offsetLeft - 16, behavior: "smooth" }); }
+    else b.removeAttribute("aria-current");
+  });
+  // the chapter being read is the last one whose top has passed just under the chips
+  const chapters = $$(".chapter");
+  let queued = false;
+  const update = () => {
+    queued = false;
+    if ($('[data-panel="stats"]').hidden) return;
+    const line = $(".chap-nav").getBoundingClientRect().bottom + 24;
+    mark([...chapters].reverse().find((c) => c.getBoundingClientRect().top <= line)?.id ?? chapters[0].id);
+  };
+  addEventListener("scroll", () => { if (!queued) { queued = true; requestAnimationFrame(update); } }, { passive: true });
+  markChapter = update;
+  update();
 }
 
 // Lone wolves: each score against the average of everyone else on that movie. Closed movies with 3+ scores,
@@ -1317,7 +1405,7 @@ function renderWolves() {
   // the loneliest score on each movie, then the biggest of those (one per movie, so a split movie can't fill the list)
   const all = movies.map(({ m, gaps }) => ({ m, ...gaps.reduce((a, b) => (Math.abs(b.gap) > Math.abs(a.gap) ? b : a)) }))
     .sort((a, b) => Math.abs(b.gap) - Math.abs(a.gap));
-  $("#wolves").innerHTML = all.slice(0, 8).map((w) => `<li data-movie="${w.m.id}"><div>${esc(w.name)} on ${esc(w.m.title)}
+  $("#wolves").innerHTML = all.slice(0, 8).map((w) => `<li data-movie="${w.m.id}"${bw(Math.abs(w.gap) / Math.abs(all[0].gap), w.gap < 0)}><div>${esc(w.name)} on ${esc(w.m.title)}
       <div class="sub">${fmt(w.score)} vs the others' ${fmt(w.others, 2)} · ${w.gap > 0 ? "above" : "below"} the rest</div></div>
       <span class="v"><span class="${w.gap > 0 ? "pos" : "neg"}">${signed(w.gap, 1)}</span></span></li>`).join("")
     || `<p class="empty">Needs at least 3 scores per movie.</p>`;
@@ -1331,7 +1419,7 @@ function renderWolves() {
   });
   const rows = [...seen].filter(([, n]) => n >= 3).map(([name, n]) => ({ name, n, k: odd.get(name) || 0 }))
     .sort((a, b) => b.k / b.n - a.k / a.n || b.k - a.k);
-  $("#oddone").innerHTML = rows.map((r) => `<li><div>${personLink(r.name)}<div class="sub">${r.k} of ${plural(r.n, "movie")}</div></div>
+  $("#oddone").innerHTML = rows.map((r) => `<li${bw(r.k / r.n)}><div>${personLink(r.name)}<div class="sub">${r.k} of ${plural(r.n, "movie")}</div></div>
       <span class="v">${pct(r.k, r.n)}</span></li>`).join("") || `<p class="empty">Needs at least 3 scores per movie.</p>`;
 }
 
@@ -1374,13 +1462,17 @@ function renderHabits() {
 function renderPairs() {
   const ps = [...DATA.pairs].sort((a, b) => a.mean_gap - b.mean_gap);
   const k = Math.min(6, Math.floor(ps.length / 2));
-  const li = (p) => `<li><div>${esc(p.a)} &amp; ${esc(p.b)}<div class="sub">${p.shared} movies in common</div></div><span class="v">${fmt(p.mean_gap, 2)}</span></li>`;
+  const gMax = Math.max(...ps.map((p) => p.mean_gap));
+  const li = (p) => `<li${bw(p.mean_gap / gMax)}><div>${esc(p.a)} &amp; ${esc(p.b)}<div class="sub">${p.shared} movies in common</div></div><span class="v">${fmt(p.mean_gap, 2)}</span></li>`;
   $("#alike").innerHTML = ps.slice(0, k).map(li).join("") || `<p class="empty">Not enough overlap yet.</p>`;
   $("#unlike").innerHTML = ps.slice(-k).reverse().map(li).join("") || `<p class="empty">Not enough overlap yet.</p>`;
 }
 
 function renderStats() {
   renderKpis(); renderGroups(); renderScorecard(); renderTopBottom(); renderRecords(); renderFair(); renderWorld(); renderGenres(); renderAges(); renderOrigins(); renderActors(); renderBudgets(); renderObscurity(); renderWhen(); renderTravel(); renderTitles(); renderPairs(); renderRanks(); renderWolves(); renderConsensus(); renderHabits();
+  [["#fair", 10], ["#world", 10], ["#dumbbell .db-rows", 12], ["#liked", 6], ["#unloved", 6], ["#actors-again", 6], ["#actors-list", 6], ["#title-num", 6]]
+    .forEach(([sel, n]) => fold(sel, n));
+  setupChapters();
   const sortBy = (th) => {
     const k = th.dataset.sort;
     scoreSort = { key: k, dir: scoreSort.key === k ? -scoreSort.dir : (k === "name" ? 1 : -1) };
@@ -1438,7 +1530,7 @@ function showTab(hash) {
   if (tab === "person") renderTrend();   // needs the page showing to know its width
   $("#hero").classList.toggle("compact", tab !== "watched");
   $$(".tabs a").forEach((el) => el.classList.toggle("active", el.dataset.tab === (tab === "person" ? "people" : tab)));
-  if (tab === "stats") renderCharts();
+  if (tab === "stats") { renderCharts(); markChapter(); }
   if (current && current !== hash) {
     const nav = $(".tabs").getBoundingClientRect();
     if (nav.top < 0 || tab === "person") scrollTo({ top: $(".tabs").offsetTop, behavior: "instant" });

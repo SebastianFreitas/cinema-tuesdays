@@ -87,158 +87,200 @@
     </section>
 
     <section data-panel="stats" hidden>
-      <div id="kpis" class="kpis"></div>
+      <nav class="chap-nav" aria-label="Stats chapters">
+        <div class="chips">
+          <button type="button" data-chap="ch-overview">Overview</button>
+          <button type="button" data-chap="ch-rankings">Rankings</button>
+          <button type="button" data-chap="ch-people">People</button>
+          <button type="button" data-chap="ch-movies">The movies</button>
+          <button type="button" data-chap="ch-when">When and how long</button>
+          <button type="button" data-chap="ch-fun">Just for fun</button>
+        </div>
+      </nav>
 
-      <div class="chart-card sc">
-        <h2>Group <span class="gk">α</span> vs <span class="gk">ω</span></h2>
-        <p class="hint">Head to head. Picks: suggestions that won a vote and got watched. Highlighted: the better side for that row. Hover or tap a row name for what it means. People with no group are left out; a movie still being rated isn't counted yet.</p>
-        <div id="groups"></div>
+      <!-- 1. Overview -->
+      <div class="chapter" id="ch-overview">
+        <header class="chap-head"><span class="chap-n">01</span><h2>Overview</h2><p>The big numbers, the best and worst, and how we score.</p></header>
+        <div id="kpis" class="kpis"></div>
+
+        <div class="sgrid three">
+          <div class="chart-card sc"><h2>Top rated</h2><p class="hint">Group average, 3+ scores. Bar: 5 to 10.</p><ol id="top" class="rank sm bars"></ol></div>
+          <div class="chart-card sc"><h2>Lowest rated</h2><p class="hint">Group average, 3+ scores. Bar: 5 to 10.</p><ol id="bottom" class="rank sm bars"></ol></div>
+          <div class="chart-card sc"><h2>Records</h2><p class="hint">The extremes so far.</p><dl id="records" class="records"></dl></div>
+        </div>
+
+        <div class="sgrid two">
+          <div class="chart-card sc">
+            <h2>How we score</h2>
+            <p class="hint">Every score, in half-point steps. Dashed: average of all scores.</p>
+            <div id="hist" class="chart"></div>
+          </div>
+          <div class="chart-card sc">
+            <h2>Week by week</h2>
+            <p class="hint">Group average per Tuesday. Blue: the last 5 movies, to show if we're getting harsher or kinder.</p>
+            <div id="timeline" class="chart"></div>
+            <details class="how"><summary>How to read it</summary><p>Dashed: average per movie. Blue: average of the last 5 movies (the movie still being rated is left out). Click a dot to open it (phone: tap twice).</p></details>
+          </div>
+        </div>
       </div>
 
-      <div class="sgrid two">
+      <!-- 2. Rankings -->
+      <div class="chapter" id="ch-rankings">
+        <header class="chap-head"><span class="chap-n">02</span><h2>Rankings</h2><p>Every movie in order, made fair, and next to the rest of the world.</p></header>
         <div class="chart-card sc">
-          <h2>How we score</h2>
-          <p class="hint">Every score, in half-point steps. Dashed: average of all scores.</p>
-          <div id="hist" class="chart"></div>
+          <h2>Fair ranking</h2>
+          <p class="hint">Every movie ranked as if the same people had scored it, so generous and tough scorers even out. Move: places gained or lost against the plain average.</p>
+          <div class="tbl-wrap"><table id="fair" class="tbl"></table></div>
+          <details class="how"><summary>How it works</summary><p>Each score has that person's usual lean taken out first (how far above or below the others they score on the same movies), so a movie isn't helped by generous scorers or held back by tough ones. Leans from only a few scores count less. Move: places gained or lost against the plain average. Weighted: a second, separate ranking where movies with few scores are pulled toward the overall average, so a handful of 9s can't top the table. Hover or tap a column name for what it means.</p></details>
         </div>
+
         <div class="chart-card sc">
-          <h2>Week by week</h2>
-          <p class="hint">Group average per Tuesday. Dashed: average per movie. Blue: average of the last 5 movies, to show if we're getting harsher or kinder (the movie still being rated is left out). Click a dot to open it (phone: tap twice).</p>
-          <div id="timeline" class="chart"></div>
+          <h2>Us vs the world</h2>
+          <p class="hint">Our average next to the TMDB rating (TMDB users' average, out of 10). <span id="world-sum"></span></p>
+          <div id="dumbbell" class="dumbbell"></div>
+          <div class="sgrid inner" style="margin-top:14px">
+            <div><h3 class="sub-h">We liked it more</h3><ol id="w-more" class="rank sm bars"></ol></div>
+            <div><h3 class="sub-h">We liked it less</h3><ol id="w-less" class="rank sm bars"></ol></div>
+            <div><h3 class="sub-h">Closest to TMDB</h3><ol id="w-people" class="rank sm bars"></ol></div>
+          </div>
+          <h3 class="sub-h" style="margin-top:16px">Every movie</h3>
+          <div class="tbl-wrap"><table id="world" class="tbl"></table></div>
         </div>
       </div>
 
-      <div class="chart-card sc">
-        <h2>Scorecard</h2>
-        <p class="hint">Everyone side by side. Click a column to sort. Turnout: share of our movies they scored. Bias: how far above (+) or below (−) the others they score on the same movies. Picks: their suggestions we've watched and how those scored. Hit rate: share of their picks that ended above the average movie.</p>
-        <div class="tbl-wrap"><table id="scorecard" class="tbl"></table></div>
-      </div>
-
-      <div class="sgrid three">
-        <div class="chart-card sc"><h2>Top rated</h2><p class="hint">Group average, 3+ scores.</p><ol id="top" class="rank sm"></ol></div>
-        <div class="chart-card sc"><h2>Lowest rated</h2><p class="hint">Group average, 3+ scores.</p><ol id="bottom" class="rank sm"></ol></div>
-        <div class="chart-card sc"><h2>Records</h2><p class="hint">The extremes so far.</p><dl id="records" class="records"></dl></div>
-      </div>
-
-      <div class="chart-card sc">
-        <h2>Fair ranking</h2>
-        <p class="hint">Every movie ranked as if the same people had scored it. Each score has that person's usual lean taken out first (how far above or below the others they score on the same movies), so a movie isn't helped by generous scorers or held back by tough ones. Leans from only a few scores count less. Move: places gained or lost against the plain average. Weighted: a second, separate ranking where movies with few scores are pulled toward the overall average, so a handful of 9s can't top the table. Hover or tap a column name for what it means.</p>
-        <div class="tbl-wrap"><table id="fair" class="tbl"></table></div>
-      </div>
-
-      <div class="chart-card sc">
-        <h2>Us vs the world</h2>
-        <p class="hint">Our average next to the TMDB rating (the average from TMDB's users, out of 10). Diff: ours minus TMDB's. <span id="world-sum"></span></p>
-        <div class="sgrid inner">
-          <div><h3 class="sub-h">We liked it more</h3><ol id="w-more" class="rank sm"></ol></div>
-          <div><h3 class="sub-h">We liked it less</h3><ol id="w-less" class="rank sm"></ol></div>
-          <div><h3 class="sub-h">Closest to TMDB</h3><ol id="w-people" class="rank sm"></ol></div>
+      <!-- 3. People -->
+      <div class="chapter" id="ch-people">
+        <header class="chap-head"><span class="chap-n">03</span><h2>People</h2><p>How each of us scores, who agrees with whom, and where we fought.</p></header>
+        <div class="chart-card sc">
+          <h2>Group <span class="gk">α</span> vs <span class="gk">ω</span></h2>
+          <p class="hint">Head to head. Highlighted: the better side for that row. Hover or tap a row name for what it means.</p>
+          <div id="groups"></div>
+          <details class="how"><summary>What counts</summary><p>Picks: suggestions that won a vote and got watched. People with no group are left out; a movie still being rated isn't counted yet.</p></details>
         </div>
-        <div class="tbl-wrap" style="margin-top:12px"><table id="world" class="tbl"></table></div>
+
+        <div class="chart-card sc">
+          <h2>Scorecard</h2>
+          <p class="hint">Everyone side by side. Click a column to sort.</p>
+          <div class="tbl-wrap"><table id="scorecard" class="tbl"></table></div>
+          <details class="how"><summary>What the columns mean</summary><p>Turnout: share of our movies they scored. Bias: how far above (+) or below (−) the others they score on the same movies. Picks: their suggestions we've watched and how those scored. Hit rate: share of their picks that ended above the average movie.</p></details>
+        </div>
+
+        <div class="sgrid two">
+          <div class="chart-card sc">
+            <h2>Who agrees with whom</h2>
+            <p class="hint">Average gap between two people's scores on movies both rated. Brighter: disagree more. Blank: fewer than 3 in common.</p>
+            <div id="grid" class="chart scroll"></div>
+          </div>
+          <div class="chart-card sc">
+            <h2>Twins and rivals</h2>
+            <p class="hint">Pairs with 3+ movies in common. Number: their average gap.</p>
+            <div class="sgrid inner">
+              <div><h3 class="sub-h">Most alike</h3><ol id="alike" class="rank sm bars"></ol></div>
+              <div><h3 class="sub-h">Least alike</h3><ol id="unlike" class="rank sm bars"></ol></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sgrid two">
+          <div class="chart-card sc"><h2>Most divisive</h2><p class="hint">Biggest spread of scores (3+ scores).</p><ol id="divisive" class="rank sm bars"></ol></div>
+          <div class="chart-card sc"><h2>Biggest fights</h2><p class="hint">Largest gap between two people on one movie.</p><ol id="fights" class="rank sm bars"></ol></div>
+        </div>
+
+        <div class="sgrid two">
+          <div class="chart-card sc"><h2>Lone wolf moments</h2><p class="hint">One person furthest from everyone else on a movie: their score against the others' average. One per movie, 3+ scores.</p><ol id="wolves" class="rank sm bars"></ol></div>
+          <div class="chart-card sc"><h2>Odd one out</h2><p class="hint">How often each person was the furthest from the rest, out of the movies they scored with 3+ scores.</p><ol id="oddone" class="rank sm bars"></ol></div>
+        </div>
+
+        <div class="sgrid two">
+          <div class="chart-card sc"><h2>Everyone liked it</h2><p class="hint">Nobody gave less than 7. Highest lowest score first. 3+ scores.</p><ol id="liked" class="rank sm"></ol></div>
+          <div class="chart-card sc"><h2>Nobody loved it</h2><p class="hint">Nobody gave more than 7. Lowest highest score first. 3+ scores.</p><ol id="unloved" class="rank sm"></ol></div>
+        </div>
+
+        <div class="chart-card sc">
+          <h2>Score habits</h2>
+          <p class="hint">How often each person gives each score: 7 means 7.0 to 7.9. Darker: more of their scores land there. <span id="habits-sum"></span></p>
+          <div class="tbl-wrap"><table id="habits" class="tbl"></table></div>
+          <details class="how"><summary>More</summary><p>Ending: the decimal they use most. People with 3+ scores.</p></details>
+        </div>
       </div>
 
-      <div class="sgrid two">
-        <div class="chart-card sc"><h2>By genre</h2><p class="hint">A movie counts for each of its genres. Bar: average score, 5 to 10.</p><div class="tbl-wrap"><table id="genres" class="tbl"></table></div></div>
-        <div class="chart-card sc"><h2>By decade</h2><p class="hint">When the movie came out. Bar: average score, 5 to 10.</p><div class="tbl-wrap"><table id="decades" class="tbl"></table></div></div>
-      </div>
+      <!-- 4. The movies -->
+      <div class="chapter" id="ch-movies">
+        <header class="chap-head"><span class="chap-n">04</span><h2>The movies</h2><p>What we pick: genre, age, where it's from, who's in it, what it cost.</p></header>
+        <div class="sgrid two">
+          <div class="chart-card sc"><h2>By genre</h2><p class="hint">A movie counts for each of its genres. Bar: average score, 5 to 10.</p><div class="tbl-wrap"><table id="genres" class="tbl"></table></div></div>
+          <div class="chart-card sc"><h2>By decade</h2><p class="hint">When the movie came out. Bar: average score, 5 to 10.</p><div class="tbl-wrap"><table id="decades" class="tbl"></table></div></div>
+        </div>
 
-      <div class="sgrid two">
-        <div class="chart-card sc"><h2>Movie age</h2><p class="hint">How old each movie was on the night we watched it, from its release date. Bar: average score, 5 to 10. <span id="age-sum"></span></p><div class="tbl-wrap"><table id="ages" class="tbl"></table></div></div>
-        <div class="chart-card sc"><h2>Oldest and newest on the night</h2>
+        <div class="sgrid two">
+          <div class="chart-card sc"><h2>Movie age</h2><p class="hint">How old each movie was on the night we watched it. Bar: average score, 5 to 10. <span id="age-sum"></span></p><div class="tbl-wrap"><table id="ages" class="tbl"></table></div></div>
+          <div class="chart-card sc"><h2>Oldest and newest on the night</h2><p class="hint">From the release date to the night we watched it.</p>
+            <div class="sgrid inner">
+              <div><h3 class="sub-h">Oldest</h3><ol id="age-old" class="rank sm"></ol></div>
+              <div><h3 class="sub-h">Newest</h3><ol id="age-new" class="rank sm"></ol></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sgrid two">
+          <div class="chart-card sc"><h2>Where they're from</h2><p class="hint">Production country from TMDB; a co-production counts for each country. Bar: average score, 5 to 10.</p><div class="tbl-wrap"><table id="countries" class="tbl"></table></div></div>
+          <div class="chart-card sc"><h2>Language</h2><p class="hint">The movie's original language. Bar: average score, 5 to 10. <span id="lang-sum"></span></p><div class="tbl-wrap"><table id="languages" class="tbl"></table></div></div>
+        </div>
+
+        <div class="chart-card sc">
+          <h2>Actors</h2>
+          <p class="hint">From the top 5 billed actors of each movie on TMDB.</p>
           <div class="sgrid inner">
-            <div><h3 class="sub-h">Oldest</h3><ol id="age-old" class="rank sm"></ol></div>
-            <div><h3 class="sub-h">Newest</h3><ol id="age-new" class="rank sm"></ol></div>
+            <div><h3 class="sub-h">Seen more than once</h3><ol id="actors-again" class="rank sm"></ol></div>
+            <div><h3 class="sub-h">Back on the Movie List</h3><ol id="actors-list" class="rank sm"></ol></div>
           </div>
         </div>
-      </div>
 
-      <div class="sgrid two">
-        <div class="chart-card sc"><h2>Where they're from</h2><p class="hint">Production country from TMDB. A co-production counts for each of its countries. Bar: average score, 5 to 10.</p><div class="tbl-wrap"><table id="countries" class="tbl"></table></div></div>
-        <div class="chart-card sc"><h2>Language</h2><p class="hint">The movie's original language. Bar: average score, 5 to 10. <span id="lang-sum"></span></p><div class="tbl-wrap"><table id="languages" class="tbl"></table></div></div>
-      </div>
-
-      <div class="chart-card sc">
-        <h2>Actors</h2>
-        <p class="hint">From the top 5 billed actors of each movie on TMDB.</p>
-        <div class="sgrid inner">
-          <div><h3 class="sub-h">Seen more than once</h3><ol id="actors-again" class="rank sm"></ol></div>
-          <div><h3 class="sub-h">Back on the Movie List</h3><ol id="actors-list" class="rank sm"></ol></div>
-        </div>
-      </div>
-
-      <div class="sgrid two">
-        <div class="chart-card sc"><h2>Budget</h2><p class="hint">What the movie cost to make, from TMDB, in US dollars of its time (not adjusted for inflation). Movies with a known budget. Bar: average score, 5 to 10. <span id="budget-sum"></span></p><div class="tbl-wrap"><table id="budgets" class="tbl"></table></div></div>
-        <div class="chart-card sc"><h2>Cheapest and priciest</h2>
-          <div class="sgrid inner">
-            <div><h3 class="sub-h">Priciest</h3><ol id="budget-hi" class="rank sm"></ol></div>
-            <div><h3 class="sub-h">Cheapest</h3><ol id="budget-lo" class="rank sm"></ol></div>
+        <div class="sgrid two">
+          <div class="chart-card sc"><h2>Budget</h2><p class="hint">What it cost to make, from TMDB, in US dollars of its time (not adjusted for inflation). Bar: average score, 5 to 10. <span id="budget-sum"></span></p><div class="tbl-wrap"><table id="budgets" class="tbl"></table></div></div>
+          <div class="chart-card sc"><h2>Cheapest and priciest</h2><p class="hint">Bar: budget, against the priciest.</p>
+            <div class="sgrid inner">
+              <div><h3 class="sub-h">Priciest</h3><ol id="budget-hi" class="rank sm bars"></ol></div>
+              <div><h3 class="sub-h">Cheapest</h3><ol id="budget-lo" class="rank sm bars"></ol></div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="sgrid two">
-        <div class="chart-card sc"><h2>Obscurity</h2><p class="hint">How well known a movie is: how many people have rated it on TMDB. <span id="obscure-sum"></span></p>
-          <div class="sgrid inner">
-            <div><h3 class="sub-h">Most obscure</h3><ol id="obscure-lo" class="rank sm"></ol></div>
-            <div><h3 class="sub-h">Best known</h3><ol id="obscure-hi" class="rank sm"></ol></div>
+        <div class="sgrid two">
+          <div class="chart-card sc"><h2>Obscurity</h2><p class="hint">How well known a movie is: how many people rated it on TMDB. <span id="obscure-sum"></span></p>
+            <div class="sgrid inner">
+              <div><h3 class="sub-h">Most obscure</h3><ol id="obscure-lo" class="rank sm"></ol></div>
+              <div><h3 class="sub-h">Best known</h3><ol id="obscure-hi" class="rank sm"></ol></div>
+            </div>
           </div>
-        </div>
-        <div class="chart-card sc"><h2>Who digs deepest</h2><p class="hint">The typical (median) number of TMDB votes on each person's picks, watched or still on the Movie List. Fewer votes: more obscure taste. People with 3+ picks.</p><ol id="diggers" class="rank sm"></ol></div>
-      </div>
-
-      <div class="sgrid three">
-        <div class="chart-card sc"><h2>By month</h2><p class="hint">When we watched it. Bar: average score, 5 to 10.</p><div class="tbl-wrap"><table id="months" class="tbl"></table></div></div>
-        <div class="chart-card sc"><h2>By day</h2><p class="hint">Mostly Tuesdays, plus the odd moved night.</p><div class="tbl-wrap"><table id="weekdays" class="tbl"></table></div></div>
-        <div class="chart-card sc"><h2>By length</h2><p class="hint">Runtime of the movie. Bar: average score, 5 to 10.</p><div class="tbl-wrap"><table id="lengths" class="tbl"></table></div></div>
-      </div>
-
-      <div class="sgrid two">
-        <div class="chart-card sc"><h2>Score and length</h2><p class="hint">One dot per movie: group average against runtime. Dashed: the trend. Click a dot to open it (phone: tap twice). <span id="sc-run-sum"></span></p><div id="sc-run" class="chart"></div></div>
-        <div class="chart-card sc"><h2>Score and release year</h2><p class="hint">One dot per movie: group average against the year it came out. Dashed: the trend. <span id="sc-year-sum"></span></p><div id="sc-year" class="chart"></div></div>
-      </div>
-
-      <div class="chart-card sc"><h2>Miles on the sofa</h2><p class="hint">All the time we've spent watching, measured in trips. Rough, everyday durations. <span id="travel-sum"></span></p><ol id="travel" class="rank sm plain"></ol></div>
-
-      <div class="sgrid two">
-        <div class="chart-card sc"><h2>What's in a name</h2><p class="hint">Words in the title. Bar: average score, 5 to 10. <span id="title-sum"></span></p><div class="tbl-wrap"><table id="title-len" class="tbl"></table></div></div>
-        <div class="chart-card sc"><h2>Numbers in the title</h2><p class="hint">Digits, Roman numerals (II, III…) and number words like "Seven". <span id="num-sum"></span></p><ol id="title-num" class="rank sm"></ol></div>
-      </div>
-
-      <div class="sgrid two">
-        <div class="chart-card sc">
-          <h2>Who agrees with whom</h2>
-          <p class="hint">Average gap between two people's scores on movies both rated. Brighter: disagree more. Blank: fewer than 3 in common.</p>
-          <div id="grid" class="chart scroll"></div>
-        </div>
-        <div class="chart-card sc">
-          <h2>Twins and rivals</h2>
-          <p class="hint">Pairs with 3+ movies in common.</p>
-          <div class="sgrid two inner">
-            <div><h3 class="sub-h">Most alike</h3><ol id="alike" class="rank sm"></ol></div>
-            <div><h3 class="sub-h">Least alike</h3><ol id="unlike" class="rank sm"></ol></div>
-          </div>
+          <div class="chart-card sc"><h2>Who digs deepest</h2><p class="hint">Typical (median) TMDB votes on each person's picks, watched or on the Movie List. Fewer votes: more obscure taste. People with 3+ picks.</p><ol id="diggers" class="rank sm"></ol></div>
         </div>
       </div>
 
-      <div class="sgrid two">
-        <div class="chart-card sc"><h2>Most divisive</h2><p class="hint">Biggest spread of scores (3+ scores).</p><ol id="divisive" class="rank sm"></ol></div>
-        <div class="chart-card sc"><h2>Biggest fights</h2><p class="hint">Largest gap between two people on one movie.</p><ol id="fights" class="rank sm"></ol></div>
+      <!-- 5. When and how long -->
+      <div class="chapter" id="ch-when">
+        <header class="chap-head"><span class="chap-n">05</span><h2>When and how long</h2><p>Does the month, the day or the runtime change the score?</p></header>
+        <div class="sgrid three">
+          <div class="chart-card sc"><h2>By month</h2><p class="hint">When we watched it. Bar: average score, 5 to 10.</p><div class="tbl-wrap"><table id="months" class="tbl"></table></div></div>
+          <div class="chart-card sc"><h2>By day</h2><p class="hint">Mostly Tuesdays, plus the odd moved night.</p><div class="tbl-wrap"><table id="weekdays" class="tbl"></table></div></div>
+          <div class="chart-card sc"><h2>By length</h2><p class="hint">Runtime of the movie. Bar: average score, 5 to 10.</p><div class="tbl-wrap"><table id="lengths" class="tbl"></table></div></div>
+        </div>
+
+        <div class="sgrid two">
+          <div class="chart-card sc"><h2>Score and length</h2><p class="hint">One dot per movie: group average against runtime. Dashed: the trend. Click a dot to open it. <span id="sc-run-sum"></span></p><div id="sc-run" class="chart"></div></div>
+          <div class="chart-card sc"><h2>Score and release year</h2><p class="hint">One dot per movie: group average against the year it came out. Dashed: the trend. <span id="sc-year-sum"></span></p><div id="sc-year" class="chart"></div></div>
+        </div>
       </div>
 
-      <div class="sgrid two">
-        <div class="chart-card sc"><h2>Lone wolf moments</h2><p class="hint">The times one person scored furthest from everyone else on a movie: their score against the others' average. One per movie, 3+ scores.</p><ol id="wolves" class="rank sm"></ol></div>
-        <div class="chart-card sc"><h2>Odd one out</h2><p class="hint">How often each person was the furthest from the rest on a movie, out of the movies they scored with 3+ scores.</p><ol id="oddone" class="rank sm"></ol></div>
-      </div>
+      <!-- 6. Just for fun -->
+      <div class="chapter" id="ch-fun">
+        <header class="chap-head"><span class="chap-n">06</span><h2>Just for fun</h2><p>Our sofa time as journeys, and what's in a title.</p></header>
+        <div class="chart-card sc"><h2>Miles on the sofa</h2><p class="hint">All the time we've spent watching, measured in trips. Rough, everyday durations. Bar: how far we got on one trip. <span id="travel-sum"></span></p><ol id="travel" class="rank sm plain bars"></ol></div>
 
-      <div class="sgrid two">
-        <div class="chart-card sc"><h2>Everyone liked it</h2><p class="hint">Movies where nobody gave less than 7. Highest lowest score first. 3+ scores.</p><ol id="liked" class="rank sm"></ol></div>
-        <div class="chart-card sc"><h2>Nobody loved it</h2><p class="hint">Movies where nobody gave more than 7. Lowest highest score first. 3+ scores.</p><ol id="unloved" class="rank sm"></ol></div>
-      </div>
-
-      <div class="chart-card sc">
-        <h2>Score habits</h2>
-        <p class="hint">How often each person gives each score: 7 means 7.0 to 7.9. The darker the cell, the more of their scores land there. Ending: the decimal they use most. People with 3+ scores. <span id="habits-sum"></span></p>
-        <div class="tbl-wrap"><table id="habits" class="tbl"></table></div>
+        <div class="sgrid two">
+          <div class="chart-card sc"><h2>What's in a name</h2><p class="hint">Words in the title. Bar: average score, 5 to 10. <span id="title-sum"></span></p><div class="tbl-wrap"><table id="title-len" class="tbl"></table></div></div>
+          <div class="chart-card sc"><h2>Numbers in the title</h2><p class="hint">Digits, Roman numerals (II, III…) and number words like "Seven". <span id="num-sum"></span></p><ol id="title-num" class="rank sm"></ol></div>
+        </div>
       </div>
     </section>
   </main>

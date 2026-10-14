@@ -419,3 +419,74 @@ footer.wrap { color: var(--muted); font-size: .85rem; padding-top: 24px; padding
 @media (max-width: 640px) { #groups td { max-width: 120px; } }
 /* stats: runtime as travel, an icon instead of the rank number */
 .rank.plain li::before { display: none; }
+
+/* ---------- stats page: chapters (most important first) ---------- */
+.chap-nav { position: sticky; top: 0; z-index: 4; margin: 0 -16px; padding: 10px 16px; background: #0f0d0ce6; backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.chap-nav .chips { display: flex; flex-wrap: nowrap; gap: 6px; margin: 0; overflow-x: auto; scrollbar-width: none; }
+.chap-nav .chips::-webkit-scrollbar { display: none; }
+.chap-nav button { flex: none; background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 5px 14px; font-size: .82rem; color: var(--muted); cursor: pointer; white-space: nowrap; }
+.chap-nav button:hover { color: var(--text); }
+.chap-nav button.on { background: rgba(var(--accent-rgb), .14); border-color: rgba(var(--accent-rgb), .5); color: var(--accent); }
+.chapter { scroll-margin-top: 64px; padding-top: 8px; }
+.chapter + .chapter { margin-top: 36px; }
+.chap-head { display: grid; grid-template-columns: auto 1fr; column-gap: 12px; align-items: baseline; padding-top: 20px; margin-top: 12px; border-top: 1px solid var(--line); }
+.chapter:first-of-type .chap-head { border-top: 0; }
+.chap-n { grid-row: span 2; font: 600 .82rem Inter, system-ui, sans-serif; color: var(--accent); letter-spacing: .08em; }
+.chap-head h2 { font-size: clamp(1.5rem, 3.4vw, 2.1rem); line-height: 1.1; }
+.chap-head p { margin: 4px 0 0; color: var(--muted); font-size: .9rem; }
+
+/* headline numbers: four big ones, then the rest */
+#kpis.kpis { display: block; }
+.kpis-hero { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.kpis-rest { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; margin-top: 10px; }
+.kpi.big { padding: 14px 16px; border-color: rgba(var(--accent-rgb), .28); background: linear-gradient(160deg, rgba(var(--accent-rgb), .09), var(--surface) 60%); }
+.kpi.big b { font-size: clamp(1.8rem, 4vw, 2.5rem); line-height: 1.05; letter-spacing: -.02em; color: var(--text); }
+.kpi.big > span { font-size: .85rem; margin-top: 4px; }
+@media (max-width: 640px) { .kpis-hero { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.kmeter { display: block; height: 4px; margin-top: 6px; background: var(--surface-2); border-radius: 2px; overflow: hidden; }
+.kmeter > i { display: block; height: 100%; background: var(--accent); border-radius: 2px; }
+
+/* ranked lists with a data bar behind each row */
+.rank.bars li { position: relative; padding-left: 6px; padding-right: 8px; border-bottom-color: transparent; margin-bottom: 3px; isolation: isolate; }
+.rank.bars li::after { content: ""; position: absolute; inset: 0 auto 0 0; width: var(--w, 0%); background: rgba(var(--accent-rgb), .13); border-radius: 6px; z-index: -1; }
+.rank.bars li.nb::after { background: rgba(230, 103, 103, .14); }
+.rank.bars li:hover::after { background: rgba(var(--accent-rgb), .22); }
+.rank.bars li.nb:hover::after { background: rgba(230, 103, 103, .24); }
+
+/* us vs TMDB dumbbell */
+.dumbbell { margin-top: 6px; }
+.db-legend { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: .76rem; color: var(--muted); margin-bottom: 8px; }
+.db-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.db-legend .db-dot { position: static; transform: none; }
+.db-key { display: inline-block; width: 18px; height: 3px; border-radius: 2px; background: var(--mid); }
+.db-key.pos { background: var(--pos); } .db-key.neg { background: var(--neg); }
+.db-row, .db-axis { display: grid; grid-template-columns: minmax(0, 190px) minmax(0, 1fr) 48px; gap: 12px; align-items: center; }
+.db-row { padding: 4px 0; font-size: .82rem; cursor: pointer; border-radius: 6px; }
+.db-row:hover { background: #ffffff08; }
+.db-row:hover .db-t { color: var(--accent); }
+.db-t { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.db-track { position: relative; height: 14px; }
+.db-row .db-track { background: linear-gradient(var(--line), var(--line)) center / 100% 1px no-repeat; }
+.db-axis { font-size: .7rem; color: var(--muted); margin-bottom: 2px; }
+.db-axis .db-track span { position: absolute; transform: translateX(-50%); }
+.db-line { position: absolute; top: 50%; height: 3px; margin-top: -1.5px; background: var(--mid); border-radius: 2px; }
+.db-line.pos { background: var(--pos); } .db-line.neg { background: var(--neg); }
+.db-dot { position: absolute; top: 50%; width: 10px; height: 10px; border-radius: 50%; transform: translate(-50%, -50%); display: inline-block; }
+.db-dot.us { background: var(--accent); box-shadow: 0 0 0 2px var(--surface); }
+.db-dot.w { background: var(--muted); box-shadow: 0 0 0 2px var(--surface); }
+.db-v { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
+@media (max-width: 640px) { .db-row, .db-axis { grid-template-columns: minmax(0, 110px) minmax(0, 1fr) 42px; gap: 8px; } }
+
+/* long explanations, tucked away */
+details.how { margin-top: 10px; font-size: .8rem; color: var(--muted); }
+details.how summary { cursor: pointer; width: fit-content; list-style: none; color: var(--muted); }
+details.how summary::-webkit-details-marker { display: none; }
+details.how summary::before { content: "+ "; color: var(--accent); }
+details.how[open] summary::before { content: "− "; }
+details.how summary:hover { color: var(--text); }
+details.how p { margin: 6px 0 0; max-width: 70ch; line-height: 1.5; }
+
+/* show all / show fewer */
+.fold-btn { display: block; margin: 8px auto 0; background: none; border: 1px solid var(--line); border-radius: 999px; padding: 4px 14px; font-size: .78rem; color: var(--muted); cursor: pointer; }
+.fold-btn:hover { color: var(--accent); border-color: rgba(var(--accent-rgb), .5); }
+.rank li[hidden], .db-row[hidden] { display: none; }
