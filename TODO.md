@@ -33,3 +33,6 @@ One at a time, top to bottom. Tick each off when it's live.
 ## 7. Data cleanup (bot side)
 - [x] Remove the bot "The Legend" from Group ω
 - [x] Put Fili and magical potato in a group (decided: no group for now. Fili and Mafalda barely show up, review when they do; magical potato is active but doesn't suggest movies, so she doesn't need one)
+
+## 8. Stats page layout
+- [x] Most important first: six chapters with sticky chips, four big headline numbers, bars behind ranked lists, us-vs-TMDB dumbbell chart, "Show all" on long lists, long explanations behind "How it works" (every stat kept)
