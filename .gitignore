@@ -5,5 +5,7 @@ __pycache__/
 *.pyc
 .venv/
 *.csv
-.claude/
+# .claude/hooks and .claude/settings.json are shared; personal settings and app worktrees are not
+.claude/settings.local.json
+.claude/worktrees/
 HANDOFF.md
