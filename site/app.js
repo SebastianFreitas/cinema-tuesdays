@@ -314,7 +314,7 @@ function personStats(name) {
 
 function allNames() {
   const names = new Set(DATA.people.map((p) => p.name));
-  DATA.members.forEach((m) => names.add(m.name));
+  DATA.members.forEach((m) => m.group && names.add(m.name));   // members with no group and no scores/picks stay hidden
   DATA.suggestions.forEach((s) => s.suggested_by.forEach((n) => names.add(n)));
   const count = new Map(DATA.people.map((p) => [p.name, p.count]));
   return [...names].sort((a, b) => (count.get(b) || 0) - (count.get(a) || 0) || a.localeCompare(b));
