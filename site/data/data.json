@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-14T11:31:56+00:00",
+ "generated_at": "2026-10-14T11:54:02+00:00",
  "next_up": null,
  "poll": null,
  "next_group": "alpha",
@@ -2110,7 +2110,8 @@
    "tmdb": "https://www.themoviedb.org/movie/4951",
    "suggested_by": [
     "Shaggy"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 50,
@@ -2128,7 +2129,8 @@
    "tmdb": "https://www.themoviedb.org/movie/1163258",
    "suggested_by": [
     "Giotara"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 60,
@@ -2148,7 +2150,8 @@
    "tmdb": "https://www.themoviedb.org/movie/187017",
    "suggested_by": [
     "Slader"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 66,
@@ -2168,7 +2171,8 @@
    "tmdb": "https://www.themoviedb.org/movie/4917",
    "suggested_by": [
     "Malhas"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 45,
@@ -2186,7 +2190,8 @@
    "tmdb": "https://www.themoviedb.org/movie/965150",
    "suggested_by": [
     "Irene_TC"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 40,
@@ -2206,7 +2211,8 @@
    "tmdb": "https://www.themoviedb.org/movie/149",
    "suggested_by": [
     "Miguelbnz"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 85,
@@ -2226,7 +2232,8 @@
    "tmdb": "https://www.themoviedb.org/movie/329865",
    "suggested_by": [
     "João"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 59,
@@ -2246,7 +2253,8 @@
    "tmdb": "https://www.themoviedb.org/movie/1083381",
    "suggested_by": [
     "Slader"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 44,
@@ -2265,7 +2273,8 @@
    "tmdb": "https://www.themoviedb.org/movie/76",
    "suggested_by": [
     "Irene_TC"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 33,
@@ -2285,7 +2294,8 @@
    "tmdb": "https://www.themoviedb.org/movie/776503",
    "suggested_by": [
     "Shaggy"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 72,
@@ -2304,7 +2314,8 @@
    "tmdb": "https://www.themoviedb.org/movie/220289",
    "suggested_by": [
     "Traff"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 77,
@@ -2323,7 +2334,8 @@
    "tmdb": "https://www.themoviedb.org/movie/15584",
    "suggested_by": [
     "Traff"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 34,
@@ -2343,7 +2355,8 @@
    "tmdb": "https://www.themoviedb.org/movie/141",
    "suggested_by": [
     "Miguelbnz"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 35,
@@ -2362,7 +2375,8 @@
    "tmdb": "https://www.themoviedb.org/movie/935",
    "suggested_by": [
     "Miguelbnz"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 58,
@@ -2381,7 +2395,8 @@
    "tmdb": "https://www.themoviedb.org/movie/6877",
    "suggested_by": [
     "Slader"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 41,
@@ -2401,7 +2416,8 @@
    "tmdb": "https://www.themoviedb.org/movie/755",
    "suggested_by": [
     "Miguelbnz"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 52,
@@ -2421,7 +2437,8 @@
    "tmdb": "https://www.themoviedb.org/movie/9323",
    "suggested_by": [
     "Giotara"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 56,
@@ -2440,7 +2457,8 @@
    "tmdb": "https://www.themoviedb.org/movie/11282",
    "suggested_by": [
     "Slader"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 46,
@@ -2460,7 +2478,8 @@
    "tmdb": "https://www.themoviedb.org/movie/152601",
    "suggested_by": [
     "Irene_TC"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 36,
@@ -2480,7 +2499,8 @@
    "tmdb": "https://www.themoviedb.org/movie/493922",
    "suggested_by": [
     "Miguelbnz"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 55,
@@ -2500,7 +2520,8 @@
    "tmdb": "https://www.themoviedb.org/movie/6479",
    "suggested_by": [
     "Slader"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 69,
@@ -2520,7 +2541,8 @@
    "tmdb": "https://www.themoviedb.org/movie/8321",
    "suggested_by": [
     "João"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 76,
@@ -2539,7 +2561,8 @@
    "tmdb": "https://www.themoviedb.org/movie/25499",
    "suggested_by": [
     "Traff"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 31,
@@ -2561,7 +2584,8 @@
    "tmdb": "https://www.themoviedb.org/movie/88751",
    "suggested_by": [
     "Shaggy"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 42,
@@ -2580,7 +2604,8 @@
    "tmdb": "https://www.themoviedb.org/movie/773",
    "suggested_by": [
     "Irene_TC"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 84,
@@ -2600,7 +2625,8 @@
    "tmdb": "https://www.themoviedb.org/movie/696506",
    "suggested_by": [
     "Fili"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 68,
@@ -2620,7 +2646,8 @@
    "tmdb": "https://www.themoviedb.org/movie/59436",
    "suggested_by": [
     "João"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 39,
@@ -2638,7 +2665,8 @@
    "tmdb": "https://www.themoviedb.org/movie/70",
    "suggested_by": [
     "Miguelbnz"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 82,
@@ -2658,7 +2686,8 @@
    "tmdb": "https://www.themoviedb.org/movie/762",
    "suggested_by": [
     "Toni"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 28,
@@ -2678,7 +2707,8 @@
    "tmdb": "https://www.themoviedb.org/movie/1593",
    "suggested_by": [
     "Shaggy"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 29,
@@ -2701,7 +2731,8 @@
    "tmdb": "https://www.themoviedb.org/movie/961323",
    "suggested_by": [
     "Shaggy"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 65,
@@ -2720,7 +2751,8 @@
    "tmdb": "https://www.themoviedb.org/movie/5924",
    "suggested_by": [
     "Malhas"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 53,
@@ -2740,7 +2772,8 @@
    "tmdb": "https://www.themoviedb.org/movie/4977",
    "suggested_by": [
     "Giotara"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 57,
@@ -2760,7 +2793,8 @@
    "tmdb": "https://www.themoviedb.org/movie/496243",
    "suggested_by": [
     "Slader"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 43,
@@ -2779,7 +2813,8 @@
    "tmdb": "https://www.themoviedb.org/movie/666277",
    "suggested_by": [
     "Irene_TC"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 51,
@@ -2798,7 +2833,8 @@
    "tmdb": "https://www.themoviedb.org/movie/10494",
    "suggested_by": [
     "Giotara"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 78,
@@ -2818,7 +2854,8 @@
    "tmdb": "https://www.themoviedb.org/movie/58",
    "suggested_by": [
     "Toni"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 67,
@@ -2838,7 +2875,8 @@
    "tmdb": "https://www.themoviedb.org/movie/2657",
    "suggested_by": [
     "João"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 54,
@@ -2857,7 +2895,8 @@
    "tmdb": "https://www.themoviedb.org/movie/85",
    "suggested_by": [
     "Giotara"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 79,
@@ -2879,7 +2918,8 @@
    "tmdb": "https://www.themoviedb.org/movie/44896",
    "suggested_by": [
     "Toni"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 38,
@@ -2898,7 +2938,8 @@
    "tmdb": "https://www.themoviedb.org/movie/641",
    "suggested_by": [
     "Miguelbnz"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 63,
@@ -2919,7 +2960,8 @@
    "tmdb": "https://www.themoviedb.org/movie/10851",
    "suggested_by": [
     "Malhas"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 27,
@@ -2940,7 +2982,8 @@
    "tmdb": "https://www.themoviedb.org/movie/45752",
    "suggested_by": [
     "Shaggy"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 32,
@@ -2963,7 +3006,8 @@
    "tmdb": "https://www.themoviedb.org/movie/302960",
    "suggested_by": [
     "Shaggy"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 62,
@@ -2983,7 +3027,8 @@
    "tmdb": "https://www.themoviedb.org/movie/819",
    "suggested_by": [
     "Slader"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 80,
@@ -3002,7 +3047,8 @@
    "tmdb": "https://www.themoviedb.org/movie/107",
    "suggested_by": [
     "Toni"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 71,
@@ -3021,7 +3067,8 @@
    "tmdb": "https://www.themoviedb.org/movie/38985",
    "suggested_by": [
     "Traff"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 81,
@@ -3040,7 +3087,8 @@
    "tmdb": "https://www.themoviedb.org/movie/314365",
    "suggested_by": [
     "Toni"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 75,
@@ -3061,7 +3109,8 @@
    "tmdb": "https://www.themoviedb.org/movie/432011",
    "suggested_by": [
     "Traff"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 83,
@@ -3081,7 +3130,8 @@
    "tmdb": "https://www.themoviedb.org/movie/402897",
    "suggested_by": [
     "Toni"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 37,
@@ -3099,7 +3149,8 @@
    "tmdb": "https://www.themoviedb.org/movie/9552",
    "suggested_by": [
     "Miguelbnz"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 70,
@@ -3119,7 +3170,8 @@
    "tmdb": "https://www.themoviedb.org/movie/14784",
    "suggested_by": [
     "Traff"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 47,
@@ -3138,7 +3190,8 @@
    "tmdb": "https://www.themoviedb.org/movie/840430",
    "suggested_by": [
     "Irene_TC"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 49,
@@ -3158,7 +3211,8 @@
    "tmdb": "https://www.themoviedb.org/movie/564",
    "suggested_by": [
     "Giotara"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 48,
@@ -3177,7 +3231,8 @@
    "tmdb": "https://www.themoviedb.org/movie/594",
    "suggested_by": [
     "Irene_TC"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 64,
@@ -3197,7 +3252,8 @@
    "tmdb": "https://www.themoviedb.org/movie/629",
    "suggested_by": [
     "Malhas"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 74,
@@ -3216,7 +3272,8 @@
    "tmdb": "https://www.themoviedb.org/movie/538858",
    "suggested_by": [
     "Traff"
-   ]
+   ],
+   "lost_votes": 0
   },
   {
    "id": 61,
@@ -3234,7 +3291,8 @@
    "tmdb": "https://www.themoviedb.org/movie/33",
    "suggested_by": [
     "Slader"
-   ]
+   ],
+   "lost_votes": 0
   }
  ]
 }
