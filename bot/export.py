@@ -89,6 +89,12 @@ def build(db: DB) -> dict:
     by_suggestion: dict[int, dict] = {}
     for s in db.open_suggestions():
         by_suggestion.setdefault(s["id"], _movie(s) | {"suggested_by": []})["suggested_by"].append(s["suggested_by"])
+    # how many closed votes each movie was in and didn't win
+    lost = {r["movie_id"]: r["n"] for r in db.q(
+        "SELECT o.movie_id, COUNT(*) AS n FROM poll_options o JOIN polls p ON p.id = o.poll_id "
+        "WHERE p.status = 'closed' AND p.winner_movie_id IS NOT o.movie_id GROUP BY o.movie_id")}
+    for m in by_suggestion.values():
+        m["lost_votes"] = lost.get(m["id"], 0)
     next_up = db.next_up()
     open_poll = db.open_poll()
 

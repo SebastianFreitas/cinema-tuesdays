@@ -19,8 +19,8 @@ One at a time, top to bottom. Tick each off when it's live.
 - [x] Smaller header on every tab except Watched
 
 ## 4. Movie List
-- [ ] Clicking a suggested movie opens the popup (plot, runtime, director, genres, TMDB link)
-- [ ] "Lost 1 vote" tag on movies that were in a past vote (only counts bot votes from now on)
+- [x] Clicking a suggested movie opens the popup (plot, runtime, director, genres, TMDB link)
+- [x] "Lost 1 vote" tag on movies that were in a past vote (only counts bot votes from now on)
 
 ## 5. Personal touches
 - [ ] Real Discord profile pictures instead of initials (bot exports them)

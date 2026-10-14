@@ -14,17 +14,17 @@ const lastSeen = (m) => m.watched_on.at(-1);
 const initials = (name) => [...name.trim()][0]?.toUpperCase() ?? "?";
 
 let DATA;
-const byId = new Map();          // movie id -> watched movie
+const byId = new Map();          // movie id -> movie (watched ones win over Movie List / poll copies)
 const memberInfo = new Map();    // name -> {group, benched}
 
 /* ---------------------------------------------------------------- shared bits */
 
-function poster(m, { score, badge } = {}) {
+function poster(m, { score, badge, muted } = {}) {
   const img = m.poster
     ? `<img src="${esc(m.poster)}" alt="" loading="lazy">`
     : `<div class="fallback">${esc(m.title)}</div>`;
   return `<div class="poster">${img}
-    ${badge ? `<span class="badge">${esc(badge)}</span>` : ""}
+    ${badge ? `<span class="badge${muted ? " muted" : ""}">${esc(badge)}</span>` : ""}
     ${score != null ? `<span class="score">${fmt(score)}</span><div class="meter"><span style="width:${score * 10}%"></span></div>` : ""}
   </div>`;
 }
@@ -173,14 +173,16 @@ function renderWall() {
 function openDetail(id) {
   const m = byId.get(id);
   if (!m) return;
+  const watched = Array.isArray(m.ratings);
+  const ratings = m.ratings ?? [];
   const meta = [m.year, m.director, m.runtime && `${Math.floor(m.runtime / 60)}h${String(m.runtime % 60).padStart(2, "0")}`]
     .filter(Boolean).map(esc).join(" · ");
-  const seen = m.watched_on.filter(realDate).map((d) => date(d)).join(", ");
-  const strip = m.ratings.length
+  const seen = (m.watched_on ?? []).filter(realDate).map((d) => date(d)).join(", ");
+  const strip = ratings.length
     ? `<div class="strip" aria-hidden="true">
         ${[0, 2, 4, 6, 8, 10].map((t) => `<span class="tick" style="left:${t * 10}%">${t}</span>`).join("")}
         ${m.avg != null ? `<span class="avg" style="left:${m.avg * 10}%" data-tip="Group average <b>${fmt(m.avg, 2)}</b>"></span>` : ""}
-        ${m.ratings.map((r) => `<span class="pt" style="left:${r.score * 10}%" data-tip="<b>${esc(esc(r.name))}</b> ${fmt(r.score)}"></span>`).join("")}
+        ${ratings.map((r) => `<span class="pt" style="left:${r.score * 10}%" data-tip="<b>${esc(esc(r.name))}</b> ${fmt(r.score)}"></span>`).join("")}
       </div>` : "";
   $("#detail").innerHTML = `<div class="d-actions"><button class="share" aria-label="Copy link to this movie">🔗 Copy link</button>
     <button class="close" aria-label="Close">✕</button></div>
@@ -191,14 +193,15 @@ function openDetail(id) {
       ${m.tmdb ? `<div class="meta"><a href="${esc(m.tmdb)}" target="_blank" rel="noopener">TMDB ↗</a></div>` : ""}</div></div>
     ${m.overview ? `<p class="overview">${esc(m.overview)}</p>` : ""}
     <div class="d-stats">
-      <div>Average<b>${fmt(m.avg, 2)}</b></div>
+      ${watched ? `<div>Average<b>${fmt(m.avg, 2)}</b></div>
       <div>Spread<b>${m.stdev != null ? "±" + fmt(m.stdev, 2) : "–"}</b></div>
-      <div>Scores<b>${m.ratings.length}</b></div>
+      <div>Scores<b>${ratings.length}</b></div>` : `<div>Status<b class="sm">Not watched yet</b></div>`}
       ${seen ? `<div>Watched<b class="sm">${seen}</b></div>` : ""}
-      ${m.suggested_by.length ? `<div>Suggested by<b class="sm">${m.suggested_by.map(personLink).join(", ")}</b></div>` : ""}
+      ${m.suggested_by?.length ? `<div>Suggested by<b class="sm">${m.suggested_by.map(personLink).join(", ")}</b></div>` : ""}
+      ${m.lost_votes ? `<div>Past votes<b class="sm">Lost ${m.lost_votes}</b></div>` : ""}
     </div>
     ${strip}
-    <ul class="ratings">${m.ratings.map((r) => `<li><span class="n">${fmt(r.score)}</span>
+    <ul class="ratings">${ratings.map((r) => `<li><span class="n">${fmt(r.score)}</span>
       <div>${personLink(r.name)}</div>
       <div class="bar"><span style="width:${r.score * 10}%"></span></div>
       ${r.remark ? `<div class="r">${esc(r.remark)}</div>` : ""}</li>`).join("")}</ul>`;
@@ -217,7 +220,7 @@ function renderPoll() {
   const total = p.options.reduce((s, o) => s + o.votes, 0);
   $("#poll").innerHTML = `<div class="poll"><div class="label">Voting now${p.group ? ` · ${GROUPS[p.group]}'s week` : ""}</div>
     <h2>This week's vote</h2>
-    <div class="wall">${p.options.map((o) => `<div class="card static">${poster(o, { badge: o.curated ? "🎩 Curated" : null })}
+    <div class="wall">${p.options.map((o) => `<div class="card" role="button" tabindex="0" data-movie="${o.id}">${poster(o, { badge: o.curated ? "🎩 Curated" : null })}
       <div class="t">${esc(o.title)}</div>
       <div class="s">${o.curated ? "Cultured Snobs' pick" : o.suggested_by.map(personLink).join(", ")}</div>
       <div class="votes"><div class="track"><span style="width:${(o.votes / max) * 100}%"></span></div><b>${o.votes}</b></div>
@@ -227,7 +230,8 @@ function renderPoll() {
 
 function listCard(m, showWho) {
   const meta = [m.year, m.runtime && `${m.runtime} min`].filter(Boolean).join(" · ");
-  return `<div class="card static">${poster(m)}<div class="t">${esc(m.title)}</div>
+  const lost = m.lost_votes ? `Lost ${m.lost_votes} vote${m.lost_votes === 1 ? "" : "s"}` : null;
+  return `<div class="card" role="button" tabindex="0" data-movie="${m.id}">${poster(m, { badge: lost, muted: true })}<div class="t">${esc(m.title)}</div>
     <div class="s">${showWho ? m.suggested_by.map(personLink).join(", ") : esc(meta)}</div></div>`;
 }
 
@@ -594,8 +598,9 @@ async function init() {
   DATA.members ??= [];
   DATA.watched.sort((a, b) => lastSeen(b).localeCompare(lastSeen(a)));
   DATA.watched.forEach((m) => byId.set(m.id, m));
-  DATA.members.forEach((m) => memberInfo.set(m.name, m));
   if (DATA.poll && Array.isArray(DATA.poll)) DATA.poll = null;   // older export format
+  [...DATA.suggestions, ...(DATA.poll?.options ?? []), DATA.next_up].forEach((m) => { if (m && !byId.has(m.id)) byId.set(m.id, m); });
+  DATA.members.forEach((m) => memberInfo.set(m.name, m));
 
   $("#updated").textContent = `Updated ${new Date(DATA.generated_at).toLocaleString("en-GB", { dateStyle: "medium", timeStyle: "short" })}`;
   fillGenres($("#genre"), DATA.watched, "All genres");
@@ -629,6 +634,10 @@ async function init() {
     }
   });
   $("#detail").addEventListener("close", closeMovie);
+  document.addEventListener("keydown", (e) => {
+    const el = e.target.closest?.('[role="button"][data-movie]');
+    if (el && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); showMovie(Number(el.dataset.movie), true); }
+  });
 
   let resizeTimer;
   addEventListener("resize", () => {
