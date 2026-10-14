@@ -456,6 +456,8 @@ function personMore(name, rows, picks) {
   const ranked = picks.filter((m) => rank.has(m.id)).sort((a, b) => rank.get(a.id) - rank.get(b.id));
   if (ranked.length) {
     tiles.push([fmt(mean(ranked.map((m) => rank.get(m.id))), 1), "avg place of picks", "", `among ${total} movies, 1 = best`]);
+    const hr = hitRate(name);
+    if (hr) tiles.push([pct(hr.hits, hr.n), "pick hit rate", "", `${hr.hits} of ${hr.n} picks above the average movie (${fmt(hr.bar, 2)})`]);
     grid += `<div class="box"><h3>Their picks, ranked</h3>${hint(`Group average, and where it sits among all ${total} movies.`)}
       <ul class="mini">${ranked.map((m) => `<li><button class="tt" data-movie="${m.id}">${esc(m.title)}</button>
         <span class="pair"><small>${ord(rank.get(m.id))} of ${total}</small><b>${fmt(m.avg, 2)}</b></span></li>`).join("")}</ul></div>`;
@@ -779,6 +781,13 @@ function generosity() {
     .sort((a, b) => b.avg - a.avg);
 }
 
+// share of a person's closed picks that ended above the average movie (mean of all closed movie averages)
+function hitRate(name) {
+  const done = closedMovies().filter((m) => m.avg != null), bar = mean(done.map((m) => m.avg));
+  const picks = done.filter((m) => m.suggested_by?.includes(name));
+  return picks.length ? { rate: picks.filter((m) => m.avg > bar).length / picks.length, hits: picks.filter((m) => m.avg > bar).length, n: picks.length, bar } : null;
+}
+
 function renderKpis() {
   const W = DATA.watched, all = W.flatMap((m) => m.ratings.map((r) => r.score));
   if (!all.length) { $("#kpis").innerHTML = ""; return; }
@@ -830,7 +839,7 @@ function renderKpis() {
 
 const SCORE_COLS = [
   ["name", "Person"], ["count", "Scores"], ["turnout", "Turnout"], ["avg", "Avg"], ["median", "Median"],
-  ["low", "Low"], ["high", "High"], ["spread", "Spread"], ["bias", "Bias"], ["eight", "8+"], ["picks", "Picks"], ["picksAvg", "Picks avg"],
+  ["low", "Low"], ["high", "High"], ["spread", "Spread"], ["bias", "Bias"], ["eight", "8+"], ["picks", "Picks"], ["picksAvg", "Picks avg"], ["hit", "Hit rate"],
 ];
 let scoreSort = { key: "count", dir: -1 };
 function renderScorecard() {
@@ -843,6 +852,7 @@ function renderScorecard() {
       low: mine.length ? Math.min(...mine) : null, high: mine.length ? Math.max(...mine) : null,
       spread: stdev(mine), bias: p.bias, eight: mine.length ? mine.filter((s) => s >= 8).length / mine.length : null,
       picks: picks.length, picksAvg: picks.length ? mean(picks.map((m) => m.avg)) : null,
+      hit: hitRate(p.name)?.rate ?? null,
     };
   });
   const { key, dir } = scoreSort;
@@ -850,14 +860,14 @@ function renderScorecard() {
     : ((a[key] ?? -Infinity) - (b[key] ?? -Infinity)) * dir || a.name.localeCompare(b.name));
   // highlight the top value in the columns where "more" is notable
   const best = {};
-  for (const k of ["count", "turnout", "avg", "median", "high", "eight", "picks", "picksAvg"]) {
+  for (const k of ["count", "turnout", "avg", "median", "high", "eight", "picks", "picksAvg", "hit"]) {
     const vs = rows.filter((r) => r.count >= 5).map((r) => r[k]).filter((v) => v != null);   // one lucky score isn't a record
     best[k] = vs.length ? Math.max(...vs) : null;
   }
   const cell = (r, k) => {
     const v = r[k];
     if (v == null || !Number.isFinite(v)) return "–";
-    if (k === "turnout" || k === "eight") return pct(v, 1);
+    if (k === "turnout" || k === "eight" || k === "hit") return pct(v, 1);
     if (k === "bias") return `<span class="${v >= 0 ? "pos" : "neg"}">${signed(v)}</span>`;
     if (k === "avg" || k === "picksAvg") return fmt(v, 2);
     if (k === "spread") return "±" + fmt(v, 2);
