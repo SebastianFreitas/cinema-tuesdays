@@ -1119,6 +1119,40 @@ function renderWorld() {
       <td>${[...rows].filter((x) => x.m.avg > r.m.avg).length + 1}</td><td>${tPlace.get(r.m.id)}</td><td>${r.m.tmdb_votes.toLocaleString("en-GB")}</td></tr>`).join("")}</tbody>`;
 }
 
+// Lone wolves: each score against the average of everyone else on that movie. Closed movies with 3+ scores,
+// so "everyone else" is at least two people.
+function loneWolves() {
+  return closedMovies().filter((m) => m.ratings.length >= 3).map((m) => ({
+    m, gaps: m.ratings.map((r) => {
+      const others = mean(m.ratings.filter((x) => x !== r).map((x) => x.score));
+      return { name: r.name, score: r.score, others, gap: r.score - others };
+    }),
+  }));
+}
+
+function renderWolves() {
+  const movies = loneWolves();
+  // the loneliest score on each movie, then the biggest of those (one per movie, so a split movie can't fill the list)
+  const all = movies.map(({ m, gaps }) => ({ m, ...gaps.reduce((a, b) => (Math.abs(b.gap) > Math.abs(a.gap) ? b : a)) }))
+    .sort((a, b) => Math.abs(b.gap) - Math.abs(a.gap));
+  $("#wolves").innerHTML = all.slice(0, 8).map((w) => `<li data-movie="${w.m.id}"><div>${esc(w.name)} on ${esc(w.m.title)}
+      <div class="sub">${fmt(w.score)} vs the others' ${fmt(w.others, 2)} · ${w.gap > 0 ? "above" : "below"} the rest</div></div>
+      <span class="v"><span class="${w.gap > 0 ? "pos" : "neg"}">${signed(w.gap, 1)}</span></span></li>`).join("")
+    || `<p class="empty">Needs at least 3 scores per movie.</p>`;
+
+  // the odd one out on each movie: the single furthest score (a tie for furthest counts for nobody)
+  const seen = new Map(), odd = new Map();
+  movies.forEach(({ gaps }) => {
+    gaps.forEach((g) => seen.set(g.name, (seen.get(g.name) || 0) + 1));
+    const s = [...gaps].sort((a, b) => Math.abs(b.gap) - Math.abs(a.gap));
+    if (Math.abs(s[0].gap) - Math.abs(s[1].gap) > 1e-9) odd.set(s[0].name, (odd.get(s[0].name) || 0) + 1);
+  });
+  const rows = [...seen].filter(([, n]) => n >= 3).map(([name, n]) => ({ name, n, k: odd.get(name) || 0 }))
+    .sort((a, b) => b.k / b.n - a.k / a.n || b.k - a.k);
+  $("#oddone").innerHTML = rows.map((r) => `<li><div>${personLink(r.name)}<div class="sub">${r.k} of ${plural(r.n, "movie")}</div></div>
+      <span class="v">${pct(r.k, r.n)}</span></li>`).join("") || `<p class="empty">Needs at least 3 scores per movie.</p>`;
+}
+
 function renderPairs() {
   const ps = [...DATA.pairs].sort((a, b) => a.mean_gap - b.mean_gap);
   const k = Math.min(6, Math.floor(ps.length / 2));
@@ -1128,7 +1162,7 @@ function renderPairs() {
 }
 
 function renderStats() {
-  renderKpis(); renderGroups(); renderScorecard(); renderTopBottom(); renderRecords(); renderFair(); renderWorld(); renderGenres(); renderWhen(); renderPairs(); renderRanks();
+  renderKpis(); renderGroups(); renderScorecard(); renderTopBottom(); renderRecords(); renderFair(); renderWorld(); renderGenres(); renderWhen(); renderPairs(); renderRanks(); renderWolves();
   const sortBy = (th) => {
     const k = th.dataset.sort;
     scoreSort = { key: k, dir: scoreSort.key === k ? -scoreSort.dir : (k === "name" ? 1 : -1) };

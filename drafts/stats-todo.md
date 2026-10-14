@@ -26,11 +26,11 @@ Stats tiles, α vs ω scoreboard, scorecard table, top/lowest rated, records, by
 - [x] **4. Are we getting harsher?** ✅: rolling average of the last 5 movies, drawn over the week-by-week chart or next to it.
 - [x] **0. TMDB extras** 🎬 (needed by 5, 12, 13, 14, 15, 25): the bot fetches the TMDB rating and vote count, countries, original language, budget, revenue, top-billed cast, release date and poster colour, and adds them to the site data. Backfill the movies we've already watched. Bot change: needs tests and a Pi deploy. Poster colour isn't stored by the bot: the Pi can't get the image library it would need, and TMDB lets the website read poster pixels directly, so item 25 works it out in the browser.
 - [x] **5. Us vs the world** 🎬: our average next to the TMDB rating for every movie. Where we liked something more than everyone else, where we liked it less, and which person agrees with TMDB the most (also shown on the person page).
-- [ ] **6. Vote history** 🤖: how often suggestions win, closest vote, biggest landslide, which movie lost the most votes before winning, who voted for the winner most often ("kingmaker"), and whether vote winners score well. Only covers votes since the bot started; check how many polls the Pi has first.
-- [ ] **7. Waiting time on the Movie List** 🤖: how long movies wait before being watched, and the oldest one still waiting. Suggestions imported from the spreadsheet all share one date, so leave those out or mark them.
+- [ ] ⏸ *Parked (no polls with the new system yet); come back later.* **6. Vote history** 🤖: how often suggestions win, closest vote, biggest landslide, which movie lost the most votes before winning, who voted for the winner most often ("kingmaker"), and whether vote winners score well. Only covers votes since the bot started; check how many polls the Pi has first.
+- [ ] ⏸ *Parked (imported suggestions all share one date, so there's no real waiting time yet); come back later.* **7. Waiting time on the Movie List** 🤖: how long movies wait before being watched, and the oldest one still waiting. Suggestions imported from the spreadsheet all share one date, so leave those out or mark them.
 
 ### Relevant
-- [ ] **8. Lone wolf moments** ✅: the times one person scored furthest from everyone else, club-wide (the person page only shows each person's own).
+- [x] **8. Lone wolf moments** ✅: the times one person scored furthest from everyone else, club-wide (the person page only shows each person's own).
 - [ ] **9. Everyone liked it** ✅: movies where nobody gave less than 7 (and the opposite: nobody above 7).
 - [ ] **10. Score habits per person** ✅: how often each person uses each score (person × score grid). Who never goes below 6, who loves .5 scores.
 - [ ] **11. Movie age** ✅: how old each movie was when we watched it, and whether older ones score better.
