@@ -127,9 +127,14 @@ class PickWatched(discord.ui.View):
 class PanelView(discord.ui.View):
     """Persistent: the buttons keep working after restarts because their custom_ids are fixed."""
 
-    def __init__(self, site_url: str):
+    def __init__(self, site_url: str, emoji: dict | None = None):
+        """emoji: optional icons by button name (suggest, mine, rate, website); None leaves the defaults,
+        a missing name means no icon."""
         super().__init__(timeout=None)
-        self.add_item(discord.ui.Button(label="Website", emoji="🌐", url=site_url))
+        if emoji is not None:
+            self.suggest.emoji, self.mine.emoji, self.rate.emoji = emoji.get("suggest"), emoji.get("mine"), emoji.get("rate")
+        self.add_item(discord.ui.Button(label="Website", emoji="🌐" if emoji is None else emoji.get("website"),
+                                        url=site_url))
 
     @discord.ui.button(label="Suggest a movie", emoji="➕", style=discord.ButtonStyle.success, custom_id="panel:suggest")
     async def suggest(self, itx: discord.Interaction, button: discord.ui.Button):

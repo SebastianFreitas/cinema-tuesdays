@@ -71,10 +71,10 @@ CREATE TABLE IF NOT EXISTS poll_options (
     PRIMARY KEY (poll_id, movie_id)
 );
 
--- One vote per person per poll; changing your vote replaces it, clicking again removes it.
+-- Two votes per person per poll, for different movies; clicking a vote again removes it.
 CREATE TABLE IF NOT EXISTS poll_votes (
     poll_id   INTEGER NOT NULL REFERENCES polls(id) ON DELETE CASCADE,
     user_id   INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
     movie_id  INTEGER NOT NULL REFERENCES movies(id) ON DELETE CASCADE,
-    PRIMARY KEY (poll_id, user_id)
+    PRIMARY KEY (poll_id, user_id, movie_id)
 );

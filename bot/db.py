@@ -13,6 +13,13 @@ class DB:
         self.conn = sqlite3.connect(path)
         self.conn.row_factory = sqlite3.Row
         self.conn.execute("PRAGMA foreign_keys = ON")
+        # Votes used to be one per person (key: poll_id, user_id); now it's two, so the key includes movie_id.
+        if self.one("SELECT 1 FROM pragma_table_info('poll_votes') WHERE name = 'movie_id' AND pk = 0"):
+            with self.conn:
+                self.conn.execute("ALTER TABLE poll_votes RENAME TO poll_votes_old")
+                self.conn.executescript(SCHEMA.read_text(encoding="utf-8"))
+                self.conn.execute("INSERT INTO poll_votes SELECT poll_id, user_id, movie_id FROM poll_votes_old")
+                self.conn.execute("DROP TABLE poll_votes_old")
         self.conn.executescript(SCHEMA.read_text(encoding="utf-8"))
         # Columns added after the first release.
         have = {r["name"] for r in self.q("PRAGMA table_info(movies)")}
@@ -216,17 +223,18 @@ class DB:
         return [{"movie": o, "curated": bool(o["curated"]), "voters": sorted(voters.get(o["id"], []))}
                 for o in options]
 
-    def toggle_vote(self, poll_id: int, user_id: int, movie_id: int) -> bool:
-        """Returns True if the user now votes for movie_id, False if the vote was removed."""
-        current = self.one("SELECT movie_id FROM poll_votes WHERE poll_id = ? AND user_id = ?", (poll_id, user_id))
-        if current and current["movie_id"] == movie_id:
-            self.run("DELETE FROM poll_votes WHERE poll_id = ? AND user_id = ?", (poll_id, user_id))
+    def toggle_vote(self, poll_id: int, user_id: int, movie_id: int, max_votes: int = 2) -> bool | None:
+        """Returns True if the user now votes for movie_id, False if that vote was removed,
+        None if they've already used all their votes on other movies."""
+        with self.conn:
+            removed = self.conn.execute("DELETE FROM poll_votes WHERE poll_id = ? AND user_id = ? AND movie_id = ?",
+                                        (poll_id, user_id, movie_id)).rowcount
+        if removed:
             return False
-        self.run(
-            "INSERT INTO poll_votes (poll_id, user_id, movie_id) VALUES (?, ?, ?) "
-            "ON CONFLICT (poll_id, user_id) DO UPDATE SET movie_id = excluded.movie_id",
-            (poll_id, user_id, movie_id),
-        )
+        used = self.one("SELECT COUNT(*) AS n FROM poll_votes WHERE poll_id = ? AND user_id = ?", (poll_id, user_id))["n"]
+        if used >= max_votes:
+            return None
+        self.run("INSERT INTO poll_votes (poll_id, user_id, movie_id) VALUES (?, ?, ?)", (poll_id, user_id, movie_id))
         return True
 
     def close_poll(self, poll_id: int, winner_movie_id: int | None) -> list[str]:

@@ -5,48 +5,9 @@ Channel names are written as #name here; when posted they become real channel li
 
 ---
 
-## A. New #start-here (message 1 of 2)
+## A/B. New #start-here
 
-# Welcome to Cinema Tuesdays
-Good evening, and welcome. :hastings_hello: Captain Hastings, at your service. I'm hardly the cleverest fellow in the room, but I've been asked to keep our little film club in order, and I shall do my very best.
-
-## Movie night
-- **Every Tuesday at 21:15**, Portuguese time (WET, UTC+0). Wherever I post a time, Discord shows it in your own timezone.
-- We each watch on our own computer, kept in step with **Syncplay** (it works with **VLC**). Installing it is a must: [Syncplay](https://syncplay.pl/download/) · [VLC](https://www.videolan.org/vlc/)
-- The download link for the week's film goes up in #link.
-
-## Channels
-- #start-here, #movie-night-cartaz and #link are notice boards: only the moderators (and I) post there.
-- #general: talk about anything.
-- #rate-movies: I note down who has rated each film. Longer discussions belong in #general.
-
-## Suggesting films
-Press **Suggest a movie** on the panel below, type a title and pick the right one. **Up to 10 suggestions each.**
-**My list** shows your suggestions and lets you remove any. The whole Movie List is on the website.
-
-## The weekly vote
-- Everyone who suggests films is in **Group α** or **Group ω**, and the two take turns. On your group's week, one film from each member goes into the vote in #movie-night-cartaz. If yours isn't in this week's vote, it will be in the next one.
-- The Cultured Snobs add a curated pick, always the **last option**.
-- **Only vote if you plan to attend.** Press a button to vote; press it again to take your vote back. One vote each.
-- If your suggestion wins, you sit out your group's next vote, so everyone gets a turn.
-- **Birthweek:** in the week of your birthday you may choose the film and skip the vote. Do tell the Cultured Snobs.
-
-## Scores
-After movie night, press **Rate a movie** and give the film a score from 0.0 to 10.0, with a remark if you like. Rating closes at **midnight (Portugal) the day after** movie night. I don't post your score in the channel, only that you've rated. Everyone's scores go on the website.
-
-## The website
-https://sebastianfreitas.github.io/cinema-tuesdays/
-Every film we've watched, all the scores, the Movie List, who agrees with whom, and a great many statistics.
-
-## How to use Syncplay
-Server: `syncplay.pl:8995` · Username: your nickname · Room: `MovieTuesday`
-1. Open Syncplay: a VLC window and a Syncplay window appear.
-2. Load the film in VLC (drag it into the window, or Media > Open File).
-3. Click **Ready** in Syncplay when you're set.
-
-## B. New #start-here (message 2 of 2)
-
-The existing button panel (same as `/panel`): Suggest a movie · My list · Rate a movie · Website. (Its button icons are emoji in the bot code; swap for custom emotes or remove.)
+Final text is in `bot/cogs/starthere.py` (the `/starthere` command): a still (portrait-bw.jpg), then two messages, the second with the panel buttons (custom emotes). `/starthere` posts a test copy where you run it; `/starthere post:True` posts in #start-here or edits the copy already there.
 
 ---
 

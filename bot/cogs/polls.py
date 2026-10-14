@@ -44,7 +44,7 @@ def poll_embeds(db, poll_id: int) -> list[discord.Embed]:
         desc = f"Voting is closed for **{when}**."
     else:
         desc = (f"Pick what we watch on **{when}** (your time).\n"
-                "One vote each, only if you're coming. Click your vote again to remove it.")
+                "Two votes each, for different films, only if you're coming. Click a vote again to remove it.")
     if poll["note"]:
         desc += f"\n-# {poll['note']}"
     header = discord.Embed(title=title, description=desc,
@@ -109,6 +109,9 @@ class VoteButton(discord.ui.DynamicItem[discord.ui.Button], template=r"poll:(?P<
             return await itx.response.send_message("This vote is closed.", ephemeral=True)
         user_id = db.upsert_user(itx.user.id, itx.user.display_name)
         voted = db.toggle_vote(self.poll_id, user_id, self.movie_id)
+        if voted is None:
+            return await itx.response.send_message(
+                "You've used both your votes. Click one of them again to take it back.", ephemeral=True)
         itx.client.mark_dirty()
         await itx.response.edit_message(embeds=poll_embeds(db, self.poll_id))
         title = db.movie(self.movie_id)["title"]
