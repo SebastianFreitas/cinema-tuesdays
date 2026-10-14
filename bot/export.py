@@ -20,6 +20,9 @@ def _movie(m) -> dict:
         "director": m["director"], "runtime": m["runtime"], "overview": m["overview"],
         "poster": poster_url(m["poster_path"]), "backdrop": poster_url(m["backdrop_path"], "w1280"),
         "genres": [g for g in (m["genres"] or "").split(", ") if g], "tmdb": movie_url(m["tmdb_id"]),
+        "tmdb_rating": m["tmdb_rating"], "tmdb_votes": m["tmdb_votes"], "release_date": m["release_date"],
+        "language": m["language"], "countries": [c for c in (m["countries"] or "").split(", ") if c],
+        "budget": m["budget"], "revenue": m["revenue"], "cast": json.loads(m["top_cast"] or "[]"),
     }
 
 

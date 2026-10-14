@@ -1,8 +1,11 @@
 """Minimal TMDB client. Accepts either a v3 API key or a v4 read access token (starts with 'eyJ')."""
+import json
+
 import aiohttp
 
 API = "https://api.themoviedb.org/3"
 IMAGE = "https://image.tmdb.org/t/p/"
+TOP_CAST = 5   # top-billed actors kept per movie
 
 
 def poster_url(path: str | None, size: str = "w342") -> str | None:
@@ -46,6 +49,7 @@ class TMDB:
         d = await self._get(f"/movie/{tmdb_id}", append_to_response="credits")
         directors = [c["name"] for c in d.get("credits", {}).get("crew", []) if c.get("job") == "Director"]
         release = d.get("release_date") or ""
+        cast = sorted(d.get("credits", {}).get("cast", []), key=lambda c: c.get("order", 999))[:TOP_CAST]
         return {
             "tmdb_id": d["id"],
             "title": d.get("title") or d.get("original_title"),
@@ -57,6 +61,14 @@ class TMDB:
             "backdrop_path": d.get("backdrop_path"),
             "genres": ", ".join(g["name"] for g in d.get("genres", [])),
             "overview": d.get("overview") or None,
+            "tmdb_rating": d.get("vote_average"),
+            "tmdb_votes": d.get("vote_count") or 0,
+            "release_date": release or None,
+            "language": d.get("original_language") or None,
+            "countries": ", ".join(c["iso_3166_1"] for c in d.get("production_countries", [])) or None,
+            "budget": d.get("budget") or None,      # TMDB uses 0 for "unknown"
+            "revenue": d.get("revenue") or None,
+            "top_cast": json.dumps([{"id": c["id"], "name": c["name"]} for c in cast], ensure_ascii=False),
         }
 
     async def close(self) -> None:

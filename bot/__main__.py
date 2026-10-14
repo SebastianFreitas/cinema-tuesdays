@@ -60,10 +60,10 @@ class CinemaBot(commands.Bot):
             await asyncio.sleep(6 * 3600)
 
     async def backfill_movies(self) -> None:
-        """Fetch details added in later versions (backdrops, genres) for movies saved before them."""
+        """Fetch details added in later versions (backdrops, genres, TMDB extras) for movies saved before them."""
         if not self.tmdb.enabled:
             return
-        rows = self.db.q("SELECT tmdb_id FROM movies WHERE tmdb_id IS NOT NULL AND genres IS NULL")
+        rows = self.db.movies_missing_details()
         for row in rows:
             try:
                 self.db.upsert_movie(await self.tmdb.details(row["tmdb_id"]))

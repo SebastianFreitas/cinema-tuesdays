@@ -21,6 +21,14 @@ CREATE TABLE IF NOT EXISTS movies (
     backdrop_path   TEXT,
     genres          TEXT,                 -- comma-separated TMDB genres
     overview        TEXT,
+    tmdb_rating     REAL,                 -- TMDB user average, 0-10
+    tmdb_votes      INTEGER,              -- NULL = extras not fetched yet
+    release_date    TEXT,                 -- YYYY-MM-DD
+    language        TEXT,                 -- original language, ISO 639-1 code
+    countries       TEXT,                 -- comma-separated ISO 3166-1 codes
+    budget          INTEGER,              -- US dollars, NULL if unknown
+    revenue         INTEGER,
+    top_cast        TEXT,                 -- JSON list of {"id", "name"}, top-billed first
     created_at      TEXT NOT NULL DEFAULT (datetime('now'))
 );
 

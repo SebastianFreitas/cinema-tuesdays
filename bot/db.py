@@ -4,6 +4,13 @@ from pathlib import Path
 SCHEMA = Path(__file__).with_name("schema.sql")
 
 # Movies with at least one screening are "watched"; open suggestions are for unwatched movies.
+# Movie columns added after the first release, with their types.
+MOVIE_EXTRAS = {
+    "backdrop_path": "TEXT", "genres": "TEXT", "tmdb_rating": "REAL", "tmdb_votes": "INTEGER",
+    "release_date": "TEXT", "language": "TEXT", "countries": "TEXT", "budget": "INTEGER", "revenue": "INTEGER",
+    "top_cast": "TEXT",
+}
+
 WATCHED = "EXISTS (SELECT 1 FROM screenings s WHERE s.movie_id = m.id)"
 
 
@@ -23,9 +30,9 @@ class DB:
         self.conn.executescript(SCHEMA.read_text(encoding="utf-8"))
         # Columns added after the first release.
         have = {r["name"] for r in self.q("PRAGMA table_info(movies)")}
-        for col in ("backdrop_path", "genres"):
+        for col, kind in MOVIE_EXTRAS.items():
             if col not in have:
-                self.conn.execute(f"ALTER TABLE movies ADD COLUMN {col} TEXT")
+                self.conn.execute(f"ALTER TABLE movies ADD COLUMN {col} {kind}")
         if "avatar" not in {r["name"] for r in self.q("PRAGMA table_info(users)")}:
             self.conn.execute("ALTER TABLE users ADD COLUMN avatar TEXT")
 
@@ -74,7 +81,8 @@ class DB:
 
     def upsert_movie(self, m: dict) -> int:
         cols = ("tmdb_id", "title", "original_title", "year", "director", "runtime", "poster_path", "backdrop_path",
-                "genres", "overview")
+                "genres", "overview", "tmdb_rating", "tmdb_votes", "release_date", "language", "countries", "budget",
+                "revenue", "top_cast")
         values = tuple(m.get(c) for c in cols)
         if m.get("tmdb_id") is None:
             return self.run(f"INSERT INTO movies ({', '.join(cols)}) VALUES ({', '.join('?' * len(cols))})", values)
@@ -85,6 +93,10 @@ class DB:
                 f"ON CONFLICT (tmdb_id) DO UPDATE SET {updates} RETURNING id",
                 values,
             ).fetchone()["id"]
+
+    def movies_missing_details(self) -> list[sqlite3.Row]:
+        """TMDB movies saved before a version that stores more details (genres, then the TMDB extras)."""
+        return self.q("SELECT tmdb_id FROM movies WHERE tmdb_id IS NOT NULL AND (genres IS NULL OR tmdb_votes IS NULL)")
 
     def movie(self, movie_id: int) -> sqlite3.Row | None:
         return self.one("SELECT * FROM movies WHERE id = ?", (movie_id,))
