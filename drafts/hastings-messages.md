@@ -21,4 +21,12 @@ Final text is in `bot/cogs/announce.py` (the `/announce` command): a still (car.
 
 Final text is in `bot/cogs/thanks.py` (the `/thanks` command, approved text): the still `oh-well.jpg`, then one message. `/thanks` posts a test copy where you run it; `/thanks post:True` posts in #general.
 
-> Thank you, everyone. The moderators will pretend they aren't pleased, but I've seen them, and they are. The Cultured Snobs are hard at work making Cinema Tuesdays better still, and if you've an idea for how, do tell one of the moderators; they're always glad to hear it.
+> Thank you, everyone.
+>
+> The moderators will pretend they aren't pleased, but I've seen them, and they are.
+>
+> The Cultured Snobs are hard at work making Cinema Tuesdays better still. If you've an idea for how, do tell one of the moderators; they're always glad to hear it.
+>
+> See you on Tuesday.
+> Cheerio,
+> Hastings
