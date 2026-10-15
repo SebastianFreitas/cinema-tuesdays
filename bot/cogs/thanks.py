@@ -15,7 +15,7 @@ from .starthere import _bare
 
 STILL = Path(__file__).resolve().parent.parent / "assets" / "hastings" / "oh-well.jpg"
 
-MESSAGE = """
+MESSAGE = """\
 Thank you, everyone.
 
 The moderators will pretend they aren't pleased, but I've seen them, and they are.
