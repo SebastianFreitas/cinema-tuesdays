@@ -15,8 +15,9 @@ from .starthere import _bare
 
 STILL = Path(__file__).resolve().parent.parent / "assets" / "hastings" / "oh-well.jpg"
 
-MESSAGE = ("Thank you, that's awfully kind. The moderators and I appreciate it very much. "
-           "The Cultured Snobs are hard at work to make Cinema Tuesdays as good as it can be.")
+MESSAGE = ("Thank you, everyone. The moderators will pretend they aren't pleased, but I've seen them, and they are. "
+           "The Cultured Snobs are hard at work making Cinema Tuesdays better still, and if you've an idea for how, "
+           "do tell one of the moderators; they're always glad to hear it.")
 
 
 class Thanks(commands.Cog):
