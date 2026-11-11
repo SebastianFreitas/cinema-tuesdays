@@ -1,0 +1,45 @@
+/* ---------- charts ---------- */
+.chart-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; margin-top: 20px; }
+.chart-card .hint { font-size: .88rem; }
+.chart { position: relative; width: 100%; }
+.chart.scroll { overflow-x: auto; }
+.chart svg { display: block; }
+#grid svg { margin: 0 auto; }
+#grid .scale { justify-content: center; }
+.chart text { fill: var(--muted); font: 11px Inter, system-ui, sans-serif; }
+.chart .grid line { stroke: var(--line); stroke-width: 1; }
+.chart .bar { fill: var(--accent); }
+.chart .bar-hit { fill: transparent; cursor: default; }
+.chart .bar-hit:hover + .bar, .chart .bar.hot { fill: #f0c870; }
+.chart .line { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linejoin: round; }
+.chart .dot { fill: var(--accent); stroke: var(--surface); stroke-width: 2; }
+.chart .dot.hot { fill: #fff; }
+.chart .roll { fill: none; stroke: var(--pos); stroke-width: 2.5; stroke-linejoin: round; opacity: .85; }
+.chart text .pos { fill: var(--pos); } .chart text .neg { fill: var(--neg); }
+.chart .mean { stroke: var(--muted); stroke-dasharray: 4 4; }
+.chart .cross { stroke: var(--muted); stroke-width: 1; }
+.chart .cell { stroke: var(--surface); stroke-width: 2; }
+.chart .cell.none { fill: var(--surface-2); }
+.chart .cell:hover { stroke: var(--text); }
+.chart .hit { fill: transparent; cursor: pointer; }
+.scale { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: .8rem; margin-top: 10px; }
+.scale .ramp { width: 140px; height: 8px; border-radius: 4px; background: linear-gradient(90deg, rgba(var(--accent-rgb), .12), rgba(var(--accent-rgb), 1)); }
+
+.tip {
+  position: fixed; z-index: 50; pointer-events: none; max-width: 260px;
+  background: #0b0a09f2; border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px;
+  font-size: .85rem; line-height: 1.4; box-shadow: 0 8px 24px #000a;
+}
+.tip b { font-weight: 600; }
+.tip .m { color: var(--muted); }
+
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 0 32px; margin-top: 28px; }
+.rank { padding: 0; margin: 12px 0 0; list-style: none; counter-reset: r; }
+.rank li {
+  counter-increment: r; display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; gap: 10px; align-items: baseline;
+  padding: 10px 0; border-bottom: 1px solid var(--line);
+}
+.rank li::before { content: counter(r); color: var(--muted); font-weight: 600; }
+.rank .sub { color: var(--muted); font-size: .85rem; }
+.rank .v { font-weight: 600; color: var(--accent); font-variant-numeric: tabular-nums; }
+
